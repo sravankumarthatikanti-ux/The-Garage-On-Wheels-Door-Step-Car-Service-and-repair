@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="wheelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ea580c;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#94a3b8;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Wheel/Tire Ring -->
+  <circle cx="60" cy="60" r="48" stroke="url(#wheelGrad)" stroke-width="5" fill="none"/>
+  
+  <!-- Inner Wheel Hub -->
+  <circle cx="60" cy="60" r="28" stroke="#f97316" stroke-width="2.5" fill="#0f172a"/>
+  <circle cx="60" cy="60" r="8" fill="url(#brandGrad)"/>
+  
+  <!-- Wheel Spokes -->
+  <line x1="60" y1="32" x2="60" y2="44" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="60" y1="76" x2="60" y2="88" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="32" y1="60" x2="44" y2="60" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="76" y1="60" x2="88" y2="60" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="40" x2="48" y2="48" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="72" y1="72" x2="80" y2="80" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="80" y1="40" x2="72" y2="48" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="80" x2="48" y2="72" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Wrench Icon overlay on wheel -->
+  <path d="M50 54 L56 48 C58 46 62 46 64 48 L70 54 L66 58 L62 54 L58 58 L62 62 L66 58 L70 62 C72 64 72 68 70 70 L64 76 L50 54Z" fill="url(#carGrad)" opacity="0.35"/>
+
+  <!-- Main Title: THE GARAGE ON WHEELS -->
+  <text x="128" y="42" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="28" fill="#f1f5f9" letter-spacing="1.5">THE GARAGE</text>
+  <text x="380" y="42" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="28" fill="url(#brandGrad)" letter-spacing="1.5"> </text>
+  
+  <!-- "ON WHEELS" with brand gradient -->
+  <text x="128" y="72" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="26" fill="url(#brandGrad)" letter-spacing="3">ON WHEELS</text>
+
+  <!-- Accent line -->
+  <rect x="128" y="80" width="200" height="2" rx="1" fill="url(#brandGrad)" opacity="0.6"/>
+
+  <!-- Subtitle -->
+  <text x="128" y="100" font-family="'Segoe UI', Arial, sans-serif" font-weight="500" font-size="13" fill="#94a3b8" letter-spacing="2.5">DOORSTEP CAR SERVICE &amp; REPAIR</text>
+</svg>

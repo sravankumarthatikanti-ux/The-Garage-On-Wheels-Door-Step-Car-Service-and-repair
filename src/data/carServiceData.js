@@ -1,0 +1,550 @@
+// Data repository for The Garage On Wheels – Doorstep Car Service and Repair
+
+export const BUSINESS_INFO = {
+  name: "The Garage On Wheels",
+  tagline: "Doorstep Car Service & Repair – At Your Doorstep",
+  fullName: "The Garage On Wheels – Doorstep Car Service and Repair",
+  address: "Plot No. 1, Sri Venkateshwara Officers Colony, Asha Officers Colony, Tirumalagiri, Hyderabad, Secunderabad, Telangana",
+  displayArea: "Tirumalagiri, Secunderabad & Hyderabad",
+  whatsappNumber: "919876543210", // Primary WhatsApp lead number
+  formattedPhone: "+91 98765 43210",
+  workingHours: "8:00 AM - 8:00 PM (All 7 Days)",
+  warrantyText: "Up to 1000 KMs / 1 Month Doorstep Warranty on All Services",
+};
+
+/**
+ * Builds formatted WhatsApp URL with pre-filled message
+ */
+export const buildWhatsAppUrl = ({
+  carBrand = "",
+  carModel = "",
+  fuelType = "",
+  serviceName = "",
+  locality = "Tirumalagiri / Secunderabad",
+  customNotes = ""
+} = {}) => {
+  const brandModelText = carBrand 
+    ? `${carBrand} ${carModel ? carModel : ''} ${fuelType ? `(${fuelType})` : ''}`.trim()
+    : "Vehicle not specified yet";
+    
+  const serviceText = serviceName || "General Car Service & Repair Checkup";
+  const areaText = locality || "Secunderabad / Hyderabad";
+
+  let message = `Hello Likely: The Garage On Wheels! 🚗\n\n`;
+  message += `I would like to request a *Doorstep Car Service*.\n\n`;
+  message += `🚘 *Car Details:* ${brandModelText}\n`;
+  message += `🛠️ *Service Needed:* ${serviceText}\n`;
+  message += `📍 *Service Area:* ${areaText}\n`;
+  if (customNotes) {
+    message += `📝 *Note:* ${customNotes}\n`;
+  }
+  return `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`;
+};
+
+export const CAR_BRANDS = [
+  {
+    id: "maruti-suzuki",
+    name: "Maruti Suzuki",
+    tagline: "Swift, Baleno, WagonR, Brezza, Ertiga, Dzire, Alto",
+    popular: true,
+    originCountry: "Japan / India",
+    originFlag: "🇯🇵 🇮🇳",
+    region: "Asian",
+    logoBg: "from-blue-600 to-indigo-900",
+    models: ["Swift", "Baleno", "Wagon R", "Brezza", "Ertiga", "Dzire", "Alto K10", "Grand Vitara", "Ciaz", "Ignis", "Fronx", "XL6"]
+  },
+  {
+    id: "hyundai",
+    name: "Hyundai",
+    tagline: "Creta, i20, Venue, Verna, Grand i10 Nios, Aura",
+    popular: true,
+    originCountry: "South Korea",
+    originFlag: "🇰🇷",
+    region: "Asian",
+    logoBg: "from-sky-500 to-blue-800",
+    models: ["Creta", "i20", "Venue", "Verna", "Grand i10 Nios", "Aura", "Alcazar", "Tucson", "Exter", "Santro"]
+  },
+  {
+    id: "tata",
+    name: "Tata Motors",
+    tagline: "Nexon, Punch, Harrier, Safari, Altroz, Tiago, Tigor",
+    popular: true,
+    originCountry: "India",
+    originFlag: "🇮🇳",
+    region: "Indian",
+    logoBg: "from-emerald-600 to-teal-900",
+    models: ["Nexon", "Punch", "Harrier", "Safari", "Altroz", "Tiago", "Tigor", "Curvv", "Sierra"]
+  },
+  {
+    id: "mahindra",
+    name: "Mahindra",
+    tagline: "Thar, XUV700, Scorpio-N, Bolero, XUV300, XUV400",
+    popular: true,
+    originCountry: "India",
+    originFlag: "🇮🇳",
+    region: "Indian",
+    logoBg: "from-red-600 to-rose-950",
+    models: ["Thar", "XUV700", "Scorpio-N", "Scorpio Classic", "Bolero", "XUV300 / XUV 3XO", "XUV400", "Marazzo"]
+  },
+  {
+    id: "honda",
+    name: "Honda",
+    tagline: "City, Amaze, Elevate, WR-V, Jazz, Civic",
+    popular: true,
+    originCountry: "Japan",
+    originFlag: "🇯🇵",
+    region: "Asian",
+    logoBg: "from-red-500 to-slate-900",
+    models: ["City", "Amaze", "Elevate", "Jazz", "WR-V", "Civic", "CR-V", "Brio"]
+  },
+  {
+    id: "toyota",
+    name: "Toyota",
+    tagline: "Innova Crysta, Fortuner, Hyryder, Glanza, Rumion",
+    popular: true,
+    originCountry: "Japan",
+    originFlag: "🇯🇵",
+    region: "Asian",
+    logoBg: "from-red-700 to-neutral-900",
+    models: ["Innova Crysta", "Innova Hycross", "Fortuner", "Urban Cruiser Hyryder", "Glanza", "Rumion", "Camry", "Etios"]
+  },
+  {
+    id: "kia",
+    name: "Kia Motors",
+    tagline: "Seltos, Sonet, Carens, Carnival, EV6",
+    popular: true,
+    originCountry: "South Korea",
+    originFlag: "🇰🇷",
+    region: "Asian",
+    logoBg: "from-slate-700 to-slate-950",
+    models: ["Seltos", "Sonet", "Carens", "Carnival", "EV6"]
+  },
+  {
+    id: "volkswagen",
+    name: "Volkswagen",
+    tagline: "Virtus, Taigun, Polo, Vento, Tiguan",
+    popular: false,
+    originCountry: "Germany",
+    originFlag: "🇩🇪",
+    region: "European",
+    logoBg: "from-blue-700 to-blue-950",
+    models: ["Virtus", "Taigun", "Polo", "Vento", "Tiguan", "Ameo", "Jetta"]
+  },
+  {
+    id: "skoda",
+    name: "Skoda",
+    tagline: "Slavia, Kushaq, Octavia, Superb, Kodiaq",
+    popular: false,
+    originCountry: "Czech Republic",
+    originFlag: "🇨🇿",
+    region: "European",
+    logoBg: "from-emerald-700 to-emerald-950",
+    models: ["Slavia", "Kushaq", "Octavia", "Superb", "Kodiaq", "Rapid"]
+  },
+  {
+    id: "mg",
+    name: "MG Motor",
+    tagline: "Hector, Astor, ZS EV, Comet, Gloster",
+    popular: false,
+    originCountry: "UK / International",
+    originFlag: "🇬🇧",
+    region: "European",
+    logoBg: "from-rose-700 to-red-950",
+    models: ["Hector", "Astor", "ZS EV", "Comet EV", "Gloster"]
+  },
+  {
+    id: "renault",
+    name: "Renault",
+    tagline: "Kwid, Triber, Kiger, Duster",
+    popular: false,
+    originCountry: "France",
+    originFlag: "🇫🇷",
+    region: "European",
+    logoBg: "from-amber-600 to-yellow-900",
+    models: ["Kwid", "Triber", "Kiger", "Duster", "Lodgy"]
+  },
+  {
+    id: "nissan",
+    name: "Nissan",
+    tagline: "Magnite, Kicks, Terrano, Micra",
+    popular: false,
+    originCountry: "Japan",
+    originFlag: "🇯🇵",
+    region: "Asian",
+    logoBg: "from-neutral-700 to-neutral-900",
+    models: ["Magnite", "Kicks", "Terrano", "Micra", "Sunny"]
+  },
+  {
+    id: "bmw",
+    name: "BMW",
+    tagline: "3 Series, 5 Series, X1, X3, X5, M Sport",
+    popular: false,
+    originCountry: "Germany",
+    originFlag: "🇩🇪",
+    region: "European",
+    logoBg: "from-cyan-700 to-blue-900",
+    models: ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "X7", "2 Series Gran Coupe"]
+  },
+  {
+    id: "mercedes",
+    name: "Mercedes-Benz",
+    tagline: "C-Class, E-Class, GLA, GLC, GLE, S-Class",
+    popular: false,
+    originCountry: "Germany",
+    originFlag: "🇩🇪",
+    region: "European",
+    logoBg: "from-slate-600 to-slate-900",
+    models: ["C-Class", "E-Class", "S-Class", "GLA", "GLC", "GLE", "GLS", "A-Class Sedan"]
+  },
+  {
+    id: "audi",
+    name: "Audi",
+    tagline: "A4, A6, Q3, Q5, Q7, A3",
+    popular: false,
+    originCountry: "Germany",
+    originFlag: "🇩🇪",
+    region: "European",
+    logoBg: "from-zinc-800 to-slate-950",
+    models: ["A4", "A6", "A8", "Q3", "Q5", "Q7", "Q8", "e-tron"]
+  }
+];
+
+export const FUEL_TYPES = ["Petrol", "Diesel", "CNG", "Electric (EV)", "Hybrid"];
+
+export const SERVICE_CATEGORIES = [
+  {
+    id: "periodic-service",
+    title: "Periodic Car Service",
+    shortDesc: "Engine oil change, oil filter, air filter, 50-point inspection & doorstep labor.",
+    badge: "Most Popular",
+    iconName: "Wrench",
+    features: [
+      "Engine Oil Top-up / Replacement (Synthetic / Semi-Synthetic)",
+      "Oil Filter & Air Filter Replacement",
+      "Coolant & Brake Fluid Inspection",
+      "50-Point Doorstep Health Checkup",
+      "Spark Plug / Fuel Filter Check",
+      "Washing & Vacuuming Included"
+    ]
+  },
+  {
+    id: "car-wash-detailing",
+    title: "Car Wash & Detailing",
+    shortDesc: "Doorstep high-pressure foam wash, interior deep cleaning & ceramic polish.",
+    badge: "Doorstep Special",
+    iconName: "Sparkles",
+    features: [
+      "Doorstep Eco-High Pressure Foam Exterior Wash",
+      "Complete Interior Vacuuming & Upholstery Deep Spa",
+      "Dashboard & Trim Polish",
+      "Tire Dress & Rim Polish",
+      "Glass Cleaning & Anti-Fog Treatment",
+      "Hard Water Stain & Odor Removal"
+    ]
+  },
+  {
+    id: "denting-painting",
+    title: "Denting & Painting",
+    shortDesc: "Scratch removal, panel denting & factory grade paint touchup.",
+    badge: "100% Paint Match",
+    iconName: "Palette",
+    features: [
+      "Grade-A Nippon/DuPont Paint Touchup",
+      "Panel Denting & Scratch Repair",
+      "Bumper Repair & Alignment",
+      "Teflon Coating & Clear Coat Protection",
+      "Free Doorstep Inspection & Pickup"
+    ]
+  },
+  {
+    id: "ac-service",
+    title: "AC Service & Repair",
+    shortDesc: "AC gas top-up (R134a/R1234yf), cabin filter cleaning, leak detection & deep cooling.",
+    badge: "Summer Ready",
+    iconName: "Wind",
+    features: [
+      "Doorstep AC Gas Refill & Pressure Check",
+      "Cabin AC Filter Cleaning / Replacement",
+      "Condenser & Cooling Coil Inspection",
+      "Evaporator Odor Sanitization",
+      "AC Compressor Belt & Clutch Check"
+    ]
+  },
+  {
+    id: "battery-replacement",
+    title: "Battery Replacement",
+    shortDesc: "100% Genuine Amaron & Exide batteries delivered & installed at your doorstep.",
+    badge: "Free Doorstep Fitment",
+    iconName: "Zap",
+    features: [
+      "Original Exide / Amaron / Livguard Batteries",
+      "Free Doorstep Fitment within 90 Minutes",
+      "Old Battery Buyback Discount",
+      "Up to 55-Month Manufacturer Warranty",
+      "Alternator & Terminal Voltage Test"
+    ]
+  },
+  {
+    id: "tyres-wheel-care",
+    title: "Tyres & Wheel Care",
+    shortDesc: "Brand new tyres (MRF, CEAT, Michelin, Apollo), alignment & doorstep puncture assistance.",
+    badge: "Top Brands",
+    iconName: "Disc",
+    features: [
+      "Multi-Brand New Tyre Delivery & Fitting",
+      "3D Wheel Alignment & Balancing Check",
+      "Doorstep Tubeless Puncture Repair",
+      "Tire Pressure Monitoring (TPMS) Check",
+      "Rim & Valve Replacement"
+    ]
+  },
+  {
+    id: "windshield-glass",
+    title: "Windshield & Glass Replacement",
+    shortDesc: "AIS OEM windshields & door glass replacement at your home or office.",
+    badge: "OEM Genuine",
+    iconName: "Shield",
+    features: [
+      "AIS / Saint-Gobain OEM Certified Glass",
+      "Doorstep Installation by Master Glaziers",
+      "Rain Sensor & Defogger Wire Fitting",
+      "Leak-Proof Polyurethane Sealant Guarantee"
+    ]
+  },
+  {
+    id: "suspension-steering",
+    title: "Suspension & Steering Repair",
+    shortDesc: "Shock absorber, strut mount, link rod, and steering rack doorstep troubleshooting.",
+    badge: "Smooth Drive",
+    iconName: "Activity",
+    features: [
+      "Shock Absorber & Strut Replacement",
+      "Lower Arm & Ball Joint Replacement",
+      "Steering Rack & Boot Repair",
+      "Suspension Bushing Renewal",
+      "Road Noise & Bumping Diagnostic"
+    ]
+  },
+  {
+    id: "clutch-transmission",
+    title: "Clutch & Gearbox Care",
+    shortDesc: "Clutch plate replacement, pressure plate, release bearing & gear oil flush.",
+    badge: "Smooth Shifting",
+    iconName: "Cog",
+    features: [
+      "OEM Clutch Assembly Replacement",
+      "Flywheel & Release Bearing Inspection",
+      "Gearbox Oil Drainage & Refill",
+      "Clutch Cable / Cylinder Adjustment"
+    ]
+  },
+  {
+    id: "car-inspection",
+    title: "Comprehensive Car Inspection",
+    shortDesc: "50+ Point health report for pre-owned car purchase or long distance road trips.",
+    badge: "50+ Checkpoints",
+    iconName: "CheckCircle2",
+    features: [
+      "Complete Engine & Transmission Health Check",
+      "OBD-II Computerized Diagnostics",
+      "Brake, Tyre & Suspension Wear Report",
+      "Electricals, Battery & Lights Test",
+      "Body & Flood Damage Detection Report"
+    ]
+  }
+];
+
+export const SPARE_PARTS = [
+  {
+    id: "part-1",
+    name: "Front & Rear Brake Pads",
+    category: "Braking System",
+    description: "High-friction ceramic & semi-metallic brake pads for instant stopping power.",
+    tag: "100% Genuine TVS/Bosch",
+    brand: "TVS Girling / Bosch OEM",
+    price: "From ₹1,199",
+    image: "/images/gallery/brake_repair.jpg"
+  },
+  {
+    id: "part-2",
+    name: "Engine Oil & Synthetic Oils",
+    category: "Fluids & Oils",
+    description: "5W-30, 5W-40, 15W-40 Synthetic & Semi-synthetic oils (Shell, Mobil1, Castrol).",
+    tag: "OEM Approved",
+    brand: "Shell Helix / Mobil 1",
+    price: "From ₹1,499",
+    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "part-3",
+    name: "Car Batteries (Amaron / Exide)",
+    category: "Electricals",
+    description: "35Ah, 45Ah, 60Ah heavy-duty automotive batteries with full warranty.",
+    tag: "Free Doorstep Fit",
+    brand: "Amaron FLO / Exide Matrix",
+    price: "From ₹3,499",
+    image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "part-4",
+    name: "Air Filters & Cabin Filters",
+    category: "Filtration",
+    description: "High-airflow OEM filters to protect engine and ensure clean cabin air.",
+    tag: "Dust-Proof Mesh",
+    brand: "Purolator / Elofic OEM",
+    price: "From ₹399",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "part-5",
+    name: "Clutch Plate & Pressure Assembly",
+    category: "Transmission",
+    description: "Original Valeo / Ceekay clutch plates for smooth acceleration.",
+    tag: "High Durability",
+    brand: "Valeo / Ceekay Genuine",
+    price: "From ₹3,299",
+    image: "/images/gallery/gearbox_repair.jpg"
+  },
+  {
+    id: "part-6",
+    name: "Shock Absorbers & Struts",
+    category: "Suspension",
+    description: "Gabriel / Monroe shock absorbers for noise-free smooth driving.",
+    tag: "Bump Free Ride",
+    brand: "Gabriel / Monroe Gas",
+    price: "From ₹2,199",
+    image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "part-7",
+    name: "Spark Plugs & Ignition Coils",
+    category: "Engine Electronics",
+    description: "NGK / Bosch iridium spark plugs for optimal fuel efficiency.",
+    tag: "Instant Start",
+    brand: "NGK Iridium / Bosch",
+    price: "From ₹599",
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "part-8",
+    name: "Wiper Blades (Frameless)",
+    category: "Accessories",
+    description: "All-weather silicone frameless wiper blades for streak-free rain vision.",
+    tag: "Silent Sweep",
+    brand: "Bosch ClearAdvantage",
+    price: "From ₹449",
+    image: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
+export const HOW_IT_WORKS_STEPS = [
+  {
+    step: "01",
+    title: "Select Your Car & Service",
+    desc: "Pick your car brand, model, and required doorstep service or repair requirement.",
+    icon: "Car"
+  },
+  {
+    step: "02",
+    title: "Confirm Your Doorstep Area",
+    desc: "Select your location in Tirumalagiri, Secunderabad, or Hyderabad.",
+    icon: "MapPin"
+  },
+  {
+    step: "03",
+    title: "Chat & Get Instant Quote on WhatsApp",
+    desc: "Click to launch WhatsApp with auto-filled car details. Connect directly with our service advisor.",
+    icon: "MessageSquare"
+  },
+  {
+    step: "04",
+    title: "Doorstep Service Delivered",
+    desc: "Our certified mobile mechanics arrive at your home or office with genuine parts & equipment.",
+    icon: "Truck"
+  }
+];
+
+export const WHY_CHOOSE_US = [
+  {
+    title: "100% Genuine Spare Parts",
+    desc: "We exclusively use OEM/OES original replacement parts from Bosch, TVS, Mobil1, Valeo, Amaron, and Shell.",
+    icon: "ShieldCheck"
+  },
+  {
+    title: "Trained & Certified Mechanics",
+    desc: "Our mobile automotive experts have 8+ years of hands-on dealership technician experience.",
+    icon: "Award"
+  },
+  {
+    title: "Doorstep Convenience",
+    desc: "Save hours of waiting at crowded garages. We service your vehicle right outside your house or office.",
+    icon: "Home"
+  },
+  {
+    title: "Transparent WhatsApp Process",
+    desc: "No surprising bills. All price estimates, live work photos, and part unboxings sent straight to your WhatsApp.",
+    icon: "Lock"
+  },
+  {
+    title: "Doorstep Service Warranty",
+    desc: "Enjoy peace of mind with our 1-Month / 1,000 KM warranty cover on doorstep maintenance.",
+    icon: "Sparkles"
+  },
+  {
+    title: "No Extra Pickup/Drop Fees",
+    desc: "Zero hidden doorstep visit charges across Secunderabad & Hyderabad primary service zones.",
+    icon: "Gift"
+  }
+];
+
+export const LOCAL_SERVICE_AREAS = [
+  { name: "Tirumalagiri", highlight: true, zone: "Primary Hub" },
+  { name: "Asha Officers Colony", highlight: true, zone: "Primary Hub" },
+  { name: "Sri Venkateshwara Officers Colony", highlight: true, zone: "Primary Hub" },
+  { name: "Trimulgherry", highlight: true, zone: "Secunderabad" },
+  { name: "Bowenpally", highlight: true, zone: "Secunderabad" },
+  { name: "Alwal & Old Alwal", highlight: true, zone: "Secunderabad" },
+  { name: "Sainikpuri & ECIL", highlight: true, zone: "Secunderabad" },
+  { name: "Begumpet & Paradise", highlight: true, zone: "Secunderabad" },
+  { name: "Karkhana & West Marredpally", highlight: true, zone: "Secunderabad" },
+  { name: "Jubilee Hills & Banjara Hills", highlight: false, zone: "Hyderabad Central" },
+  { name: "Hitech City & Madhapur", highlight: false, zone: "Hyderabad Cyberabad" },
+  { name: "Gachibowli & Kondapur", highlight: false, zone: "Hyderabad Cyberabad" },
+  { name: "Kukatpally & Miyapur", highlight: false, zone: "Hyderabad North" },
+  { name: "Malkajgiri & Tarnaka", highlight: false, zone: "Secunderabad East" }
+];
+
+export const TESTIMONIALS = [
+  {
+    name: "Dr. Vikram Reddy",
+    location: "Tirumalagiri, Secunderabad",
+    car: "Hyundai Creta Petrol",
+    review: "Likely: The Garage On Wheels saved my weekend! Their mechanic arrived at my Asha Officers Colony home on time, replaced the battery, and did a complete periodic service right in my driveway. Excellent WhatsApp updates!",
+    rating: 5,
+    date: "2 days ago"
+  },
+  {
+    name: "Rajesh Kumar",
+    location: "Sainikpuri, Secunderabad",
+    car: "Maruti Suzuki Swift",
+    review: "Finding a reliable car repair service in Secunderabad used to be stressful. Likely Garage On Wheels replaced my brake pads and did synthetic oil change at my doorstep. Super transparent WhatsApp pricing & original TVS parts!",
+    rating: 5,
+    date: "1 week ago"
+  },
+  {
+    name: "Priya Sharma",
+    location: "Bowenpally, Secunderabad",
+    car: "Honda City i-VTEC",
+    review: "My Honda AC stopped cooling during peak summer heat. I booked on WhatsApp, and their technician refilled the AC gas and cleaned the filter at my office parking lot. Extremely convenient doorstep service!",
+    rating: 5,
+    date: "2 weeks ago"
+  },
+  {
+    name: "Srinivas Rao",
+    location: "Alwal, Secunderabad",
+    car: "Tata Nexon Diesel",
+    review: "Great doorstep car wash & interior vacuuming! My Nexon looks brand new. The team is very polite and professional. Highly recommended for doorstep car care in Secunderabad.",
+    rating: 5,
+    date: "3 weeks ago"
+  }
+];
