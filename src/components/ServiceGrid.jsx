@@ -13,7 +13,9 @@ import {
   Droplets, 
   ShieldCheck, 
   Cpu, 
-  Car 
+  Car,
+  MessageSquare,
+  AlertTriangle
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
 
@@ -26,7 +28,8 @@ const ICON_MAP = {
   Droplets: Droplets,
   Wrench: Wrench,
   Cpu: Cpu,
-  Car: Car
+  Car: Car,
+  AlertTriangle: AlertTriangle
 };
 
 // Strict Master Service Accent Color System
@@ -102,6 +105,15 @@ const SERVICE_ACCENTS = {
     iconBg: "bg-[#080A0D] text-[#9DE7E5]",
     dotBg: "bg-[#9DE7E5]",
     barColor: "from-[#9DE7E5] to-transparent",
+  },
+  "Emergency Repair": {
+    accentColor: "#8FD8FF", // Ice Blue
+    borderColor: "hover:border-[#8FD8FF]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(143,216,255,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#8FD8FF] border-[#8FD8FF]/40",
+    iconBg: "bg-[#080A0D] text-[#8FD8FF]",
+    dotBg: "bg-[#8FD8FF]",
+    barColor: "from-[#8FD8FF] to-transparent",
   },
 };
 

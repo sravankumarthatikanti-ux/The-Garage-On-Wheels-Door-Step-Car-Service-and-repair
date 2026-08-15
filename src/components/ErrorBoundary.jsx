@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Phone, MessageSquare, Wrench } from 'lucide-react';
+import { RefreshCw, Phone, MessageSquare, Wrench, AlertTriangle } from 'lucide-react';
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -12,14 +12,14 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("The Garage On Wheels Caught Error:", error, errorInfo);
+    console.error("The Garage On Wheels Error Caught:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-[#080A0D] text-white flex items-center justify-center p-6 text-center font-sans">
-          <div className="max-w-md w-full bg-[#181E24] border border-[#252C33] p-8 rounded-2xl shadow-2xl space-y-5">
+          <div className="max-w-lg w-full bg-[#181E24] border border-[#252C33] p-8 rounded-2xl shadow-2xl space-y-5">
             <div className="w-14 h-14 rounded-2xl bg-[#080A0D] border border-ice/40 flex items-center justify-center mx-auto text-ice shadow-[0_0_20px_rgba(143,216,255,0.3)]">
               <Wrench className="w-7 h-7" />
             </div>
@@ -33,9 +33,11 @@ export default class ErrorBoundary extends React.Component {
               </p>
             </div>
 
-            <p className="text-sm text-[#C9D1D6] leading-relaxed">
-              We encountered a temporary interface hiccup. You can refresh or reach out directly on WhatsApp for immediate service dispatch.
-            </p>
+            {this.state.error && (
+              <div className="p-3 bg-red-950/40 border border-red-500/30 rounded-lg text-left text-xs font-mono text-red-200 overflow-x-auto max-h-36">
+                <strong>Error:</strong> {this.state.error.toString()}
+              </div>
+            )}
 
             <div className="pt-2 flex flex-col gap-3">
               <button
