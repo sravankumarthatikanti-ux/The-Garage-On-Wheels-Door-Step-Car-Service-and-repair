@@ -27,7 +27,7 @@ const TRUST_PILLARS = [
     title: "Reliable Car Care",
     desc: "100% Genuine OEM & OES spare parts backed by up to 1000 KMs / 1-month written service warranty.",
     icon: ShieldCheck,
-    badge: "100% Genuine Parts"
+    badge: "Genuine Parts"
   },
   {
     title: "Transparent Communication",
@@ -45,19 +45,19 @@ const TRUST_PILLARS = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-20 md:py-28 bg-surface-soft text-primary border-t border-border relative">
+    <section id="why-us" className="py-20 md:py-28 bg-graphite text-white border-t border-titanium/15 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-500 text-xs font-bold uppercase tracking-wider">
-            <Award className="w-3.5 h-3.5" />
-            <span>TRUSTED AUTOMOTIVE STANDARDS</span>
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-charcoal border border-titanium/20 text-steel-300 text-xs font-bold uppercase tracking-widest font-mono">
+            <Award className="w-3.5 h-3.5 text-steel-400" />
+            <span>THE GARAGE ON WHEELS STANDARDS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-            WHY CHOOSE <span className="text-brand-500">THE GARAGE ON WHEELS?</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-sans tracking-tight">
+            BUILT AROUND <span className="text-steel-400">YOUR CONVENIENCE.</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
             We eliminate traditional garage delays, inflated repair bills, and counterfeit spare parts with transparent doorstep care.
           </p>
         </div>
@@ -69,34 +69,34 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={idx}
-                className="premium-card p-6 flex flex-col justify-between hover:border-brand-500/40 transition-all duration-300 group shadow-sm hover:shadow-md"
+                className="dark-card p-6 flex flex-col justify-between hover:border-steel-400/50 hover:bg-charcoal/90 transition-all duration-300 group shadow-lg"
               >
                 <div>
                   {/* Top: Icon & Badge */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-card bg-brand-50 text-brand-500 border border-brand-100 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                    <div className="w-12 h-12 rounded-card bg-graphite text-steel-400 border border-titanium/15 flex items-center justify-center group-hover:border-steel-400/50 group-hover:bg-steel-400/10 transition-colors">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-bold text-slate-600 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-titanium px-2.5 py-1 rounded-full bg-graphite border border-titanium/15 uppercase tracking-widest font-mono">
                       {item.badge}
                     </span>
                   </div>
 
                   {/* Title & Description */}
                   <div className="flex items-center space-x-2 mb-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-brand-500 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-steel-400 shrink-0" />
+                    <h3 className="text-base sm:text-lg font-black text-white group-hover:text-steel-300 transition-colors uppercase tracking-tight">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed pl-6">
+                  <p className="text-xs text-slate-300 leading-relaxed pl-6">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-border-soft flex items-center justify-between text-xs font-semibold text-brand-500">
-                  <span className="text-[11px] text-slate-500 font-medium">The Garage On Wheels Standard</span>
-                  <Sparkles className="w-3.5 h-3.5 text-brand-400" />
+                <div className="mt-5 pt-3 border-t border-titanium/10 flex items-center justify-between text-xs font-semibold text-steel-400">
+                  <span className="text-[11px] text-slate-400 font-medium font-mono">The Garage On Wheels Standard</span>
+                  <Sparkles className="w-3.5 h-3.5 text-steel-400" />
                 </div>
               </div>
             );

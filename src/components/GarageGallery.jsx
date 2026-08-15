@@ -22,7 +22,7 @@ const GALLERY_IMAGES = [
     image: '/images/gallery/garage_workshop.jpg',
     description: 'Equipped with hydraulic vehicle lifts, computerized wheel aligners, and German torque calibration tools.',
     technicalSpecs: ['Hydraulic 4-Post Lifts', 'German Torque Tools', 'OBD-II Multi-Brand Scanners'],
-    span: 'large', // Editorial layout variation
+    span: 'large',
   },
   {
     id: 'shot-2',
@@ -106,12 +106,12 @@ export default function GarageGallery({ onOpenBooking }) {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-500 text-xs font-semibold uppercase tracking-wider">
-              <Camera className="w-3.5 h-3.5" />
-              <span>Editorial Workshop Gallery</span>
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20 font-mono">
+              <Camera className="w-3.5 h-3.5 text-steel-400" />
+              <span>EDITORIAL WORKSHOP GALLERY</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary font-sans tracking-tight">
-              Workshop &amp; <span className="text-brand-500">Service Album</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
+              Workshop &amp; <span className="text-steel-600">Service Album</span>
             </h2>
             <p className="text-sm sm:text-base text-secondary max-w-2xl leading-relaxed">
               Real high-resolution photographs from our hi-tech workshop and doorstep service visits across Secunderabad and Hyderabad.
@@ -119,16 +119,16 @@ export default function GarageGallery({ onOpenBooking }) {
           </div>
 
           {/* Floating Filter Bar */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-card border border-border self-start lg:self-auto shadow-premium">
+          <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-card border border-border self-start lg:self-auto shadow-sm">
             {GALLERY_CATEGORIES.map((tab) => {
               const isActive = activeCategory === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`px-3.5 py-1.5 rounded-btn text-xs font-semibold transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-btn text-xs font-bold transition-all duration-200 ${
                     isActive
-                      ? 'bg-brand-500 text-white shadow-sm'
+                      ? 'bg-graphite text-steel-300 shadow-sm border border-titanium/20'
                       : 'text-secondary hover:text-primary hover:bg-surface-soft'
                   }`}
                 >
@@ -140,13 +140,13 @@ export default function GarageGallery({ onOpenBooking }) {
         </div>
 
         {/* Feature Banner: BUILT AROUND YOUR CAR */}
-        <div className="mb-12 rounded-card-lg bg-charcoal-deep text-white border border-white/10 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-2xl relative">
+        <div className="mb-12 rounded-card-lg bg-graphite text-white border border-titanium/20 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-2xl relative">
           <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-6 relative z-10">
             <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-400">
-                Precision Standards
+              <span className="text-xs font-bold uppercase tracking-widest text-steel-400 font-mono">
+                PRECISION STANDARDS
               </span>
-              <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
                 BUILT AROUND YOUR CAR.
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
@@ -156,7 +156,7 @@ export default function GarageGallery({ onOpenBooking }) {
             <div>
               <button
                 onClick={() => onOpenBooking()}
-                className="px-6 py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all inline-flex items-center space-x-2 active:scale-95"
+                className="px-6 py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all inline-flex items-center space-x-2 active:scale-95 border border-steel-300"
               >
                 <span>Explore Our Service Process</span>
                 <ArrowRight className="w-4 h-4" />
@@ -167,9 +167,9 @@ export default function GarageGallery({ onOpenBooking }) {
             <img 
               src="/images/gallery/garage_workshop.jpg" 
               alt="The Garage On Wheels High-Tech Facility" 
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center filter contrast-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-charcoal-deep via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-graphite via-transparent to-transparent" />
           </div>
         </div>
 
@@ -180,7 +180,7 @@ export default function GarageGallery({ onOpenBooking }) {
               layout
               key={item.id}
               onClick={() => openLightbox(idx)}
-              className="premium-card overflow-hidden cursor-pointer flex flex-col justify-between group"
+              className="premium-card overflow-hidden cursor-pointer flex flex-col justify-between group hover:border-steel-400"
             >
               {/* Image Container with Zoom Button */}
               <div className="relative aspect-[16/11] overflow-hidden bg-surface-soft">
@@ -189,23 +189,23 @@ export default function GarageGallery({ onOpenBooking }) {
                   alt={item.title}
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-graphite/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Category Badge */}
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md text-primary font-semibold text-[10px] shadow-sm border border-border">
+                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-graphite/90 backdrop-blur-md text-steel-300 font-mono font-semibold text-[10px] shadow-sm border border-titanium/20">
                   {item.categoryLabel}
                 </div>
 
                 {/* Circular Zoom Button on Hover */}
-                <div className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md transform translate-y-2 group-hover:translate-y-0">
-                  <Maximize2 className="w-4 h-4 text-brand-500" />
+                <div className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-graphite text-steel-400 border border-titanium/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md transform translate-y-2 group-hover:translate-y-0">
+                  <Maximize2 className="w-4 h-4" />
                 </div>
               </div>
 
               {/* Bottom Card Content */}
               <div className="p-5 flex-grow flex flex-col justify-between space-y-3">
                 <div>
-                  <h3 className="text-base font-bold text-primary group-hover:text-brand-500 transition-colors">
+                  <h3 className="text-base font-bold text-primary group-hover:text-steel-600 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-xs text-secondary mt-1.5 line-clamp-2 leading-relaxed">
@@ -216,7 +216,7 @@ export default function GarageGallery({ onOpenBooking }) {
                 {/* Technical Tags */}
                 <div className="pt-3 border-t border-border-soft flex flex-wrap gap-1.5">
                   {item.technicalSpecs.slice(0, 2).map((spec, sIdx) => (
-                    <span key={sIdx} className="text-[10px] font-medium bg-surface-soft text-secondary px-2 py-0.5 rounded-md border border-border">
+                    <span key={sIdx} className="text-[10px] font-medium bg-surface-soft text-secondary px-2 py-0.5 rounded-md border border-border font-mono">
                       {spec}
                     </span>
                   ))}
@@ -241,7 +241,7 @@ export default function GarageGallery({ onOpenBooking }) {
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-5 right-5 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="absolute top-5 right-5 z-50 p-2.5 rounded-full bg-white/10 hover:bg-steel-400 hover:text-graphite text-white transition-colors"
               aria-label="Close Lightbox"
             >
               <X className="w-6 h-6" />
@@ -250,10 +250,10 @@ export default function GarageGallery({ onOpenBooking }) {
             {/* Lightbox Card Two-Pane Container */}
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-charcoal border border-white/10 rounded-modal overflow-hidden max-w-5xl w-full max-h-[90vh] grid grid-cols-1 lg:grid-cols-12 shadow-2xl relative"
+              className="bg-graphite border border-titanium/20 rounded-modal overflow-hidden max-w-5xl w-full max-h-[90vh] grid grid-cols-1 lg:grid-cols-12 shadow-2xl relative"
             >
               {/* Left: Big Sharp Image View */}
-              <div className="lg:col-span-7 bg-charcoal-deep relative min-h-[300px] sm:min-h-[420px] flex items-center justify-center overflow-hidden">
+              <div className="lg:col-span-7 bg-graphite-deep relative min-h-[300px] sm:min-h-[420px] flex items-center justify-center overflow-hidden">
                 <img
                   src={currentLightboxItem.image}
                   alt={currentLightboxItem.title}
@@ -263,14 +263,14 @@ export default function GarageGallery({ onOpenBooking }) {
                 {/* Left/Right Navigation Arrows */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/60 hover:bg-brand-500 text-white transition-colors"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/70 hover:bg-steel-400 hover:text-graphite text-white transition-colors border border-titanium/20"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/60 hover:bg-brand-500 text-white transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/70 hover:bg-steel-400 hover:text-graphite text-white transition-colors border border-titanium/20"
                   aria-label="Next image"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -280,7 +280,7 @@ export default function GarageGallery({ onOpenBooking }) {
               {/* Right: Technical Information Panel */}
               <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 overflow-y-auto max-h-[40vh] lg:max-h-[85vh]">
                 <div className="space-y-4">
-                  <span className="px-2.5 py-1 rounded-md bg-brand-500/20 text-brand-400 text-xs font-bold border border-brand-500/30 inline-block">
+                  <span className="px-2.5 py-1 rounded-md bg-steel-400/20 text-steel-300 text-xs font-bold border border-steel-400/30 inline-block font-mono">
                     {currentLightboxItem.categoryLabel}
                   </span>
 
@@ -293,13 +293,13 @@ export default function GarageGallery({ onOpenBooking }) {
                   </p>
 
                   <div className="space-y-2 pt-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-400 block font-mono">
                       Technical Specifications
                     </span>
                     <div className="space-y-1.5">
                       {currentLightboxItem.technicalSpecs.map((spec, sIdx) => (
                         <div key={sIdx} className="flex items-center space-x-2 text-xs text-slate-200">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-brand-400 shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-steel-400 shrink-0" />
                           <span>{spec}</span>
                         </div>
                       ))}
@@ -308,13 +308,13 @@ export default function GarageGallery({ onOpenBooking }) {
                 </div>
 
                 {/* CTAs */}
-                <div className="pt-4 border-t border-white/10 space-y-3">
+                <div className="pt-4 border-t border-titanium/15 space-y-3">
                   <button
                     onClick={() => {
                       closeLightbox();
                       onOpenBooking('', currentLightboxItem.title);
                     }}
-                    className="w-full py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
+                    className="w-full py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Book This Service on WhatsApp</span>

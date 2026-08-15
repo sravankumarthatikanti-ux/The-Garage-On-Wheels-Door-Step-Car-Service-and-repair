@@ -7,27 +7,30 @@
     @apply bg-surface text-primary font-sans antialiased overflow-x-hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #F5F6F7;
+    color: #171A1D;
   }
 
   ::selection {
-    background-color: #C62828;
-    color: #ffffff;
+    background-color: #8FAFC2;
+    color: #111418;
   }
 }
 
-/* Premium Scrollbar */
+/* Premium Precision Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F2F0;
+  background: #111418;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D8DAD8;
+  background: #252A30;
   border-radius: 3px;
+  border: 1px solid #3A4148;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C62828;
+  background: #8FAFC2;
 }
 
 /* Marquee infinite scroll animation */
@@ -39,47 +42,61 @@
 .animate-marquee {
   display: flex;
   width: 200%;
-  animation: marquee 30s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-/* Premium Card Utility */
+/* Premium Light Card Utility */
 .premium-card {
-  background: #ffffff;
-  border: 1px solid #E4E6E4;
-  border-radius: 18px;
-  box-shadow: 0 10px 35px rgba(20, 25, 30, 0.06);
+  background: #FFFFFF;
+  border: 1px solid #E1E6EA;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(17, 20, 24, 0.04);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .premium-card:hover {
-  border-color: #D94B4B;
+  border-color: #8FAFC2;
   transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(20, 25, 30, 0.10);
+  box-shadow: 0 16px 40px rgba(17, 20, 24, 0.08);
 }
 
-/* Dark Premium Card */
+/* Dark Premium Charcoal Card */
 .dark-card {
-  background: #202326;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
+  background: #252A30;
+  border: 1px solid rgba(199, 208, 214, 0.12);
+  border-radius: 16px;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark-card:hover {
-  border-color: rgba(217, 75, 75, 0.4);
+  border-color: rgba(143, 175, 194, 0.45);
   transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 }
 
-/* Fade-in animation for sections */
+/* Automotive Thin Metallic Border */
+.titanium-border {
+  border: 1px solid #C7D0D6;
+}
+
+.titanium-border-dark {
+  border: 1px solid rgba(199, 208, 214, 0.15);
+}
+
+/* Subtle Automotive Glow */
+.steel-glow {
+  box-shadow: 0 0 20px rgba(143, 175, 194, 0.2);
+}
+
+/* Fade-in animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -88,20 +105,20 @@
 }
 
 .fade-in-section {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
-/* Premium Image Hover */
+/* Premium Image Container */
 .img-hover {
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 16px;
 }
 
 .img-hover img {
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
 }
 
 .img-hover:hover img {
   transform: scale(1.03);
-  filter: brightness(1.05);
+  filter: brightness(1.04);
 }

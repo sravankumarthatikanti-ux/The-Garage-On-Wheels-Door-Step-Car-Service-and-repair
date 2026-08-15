@@ -7,60 +7,92 @@ export default {
   theme: {
     extend: {
       colors: {
-        /* Premium warm surface backgrounds */
-        surface: {
-          DEFAULT: '#F7F7F5',
-          warm: '#FCFCFA',
-          soft: '#F1F2F0',
+        /* Deep Graphite (#111418) */
+        graphite: {
+          DEFAULT: '#111418',
+          deep: '#0E1013',
+          dark: '#111418',
+          light: '#1A1E24',
         },
-        /* Deep charcoal darks */
+        /* Soft Charcoal (#252A30) */
         charcoal: {
-          DEFAULT: '#202326',
-          deep: '#151719',
+          DEFAULT: '#252A30',
+          deep: '#111418',
+          soft: '#2E343B',
+          muted: '#1E2227',
         },
-        /* Primary red accent system */
+        /* Pearl White (#F5F6F7) and light surfaces */
+        surface: {
+          DEFAULT: '#F5F6F7',
+          warm: '#FFFFFF',
+          soft: '#EDEFF1',
+        },
+        pearl: '#F5F6F7',
+        /* Soft Steel Blue (#8FAFC2) - Primary Accent */
+        steel: {
+          DEFAULT: '#8FAFC2',
+          50: '#F0F5F8',
+          100: '#DCE7EE',
+          200: '#BCD2DF',
+          300: '#A3C0D2',
+          400: '#8FAFC2',
+          500: '#7599AF',
+          600: '#5C8197',
+          700: '#48687B',
+          800: '#344C5A',
+          900: '#252A30',
+        },
         brand: {
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#D94B4B',
-          500: '#C62828',
-          600: '#B71C1C',
-          700: '#9F2020',
-          800: '#7F1D1D',
-          900: '#601414',
-          dark: '#151719',
+          50: '#F0F5F8',
+          100: '#DCE7EE',
+          200: '#BCD2DF',
+          300: '#A3C0D2',
+          400: '#8FAFC2',
+          500: '#7599AF',
+          600: '#5C8197',
+          700: '#48687B',
+          800: '#344C5A',
+          900: '#111418',
+          dark: '#111418',
         },
-        /* Warm metallic gold accents */
+        /* Titanium Silver (#C7D0D6) */
+        titanium: {
+          DEFAULT: '#C7D0D6',
+          light: '#E2E8EC',
+          border: '#C7D0D6',
+          dark: '#3A4148',
+        },
+        /* Metallic details */
         metallic: {
-          DEFAULT: '#B08D57',
-          light: '#D0B37A',
+          DEFAULT: '#C7D0D6',
+          light: '#E5EBEF',
         },
         /* Semantic text colors */
-        primary: '#17191B',
-        secondary: '#6F7479',
-        muted: '#969B9F',
+        primary: '#171A1D',
+        secondary: '#66717A',
+        muted: '#8E98A0',
         /* Borders */
         border: {
-          DEFAULT: '#E4E6E4',
-          soft: '#ECEDEB',
+          DEFAULT: '#E1E6EA',
+          soft: '#EDEFF1',
+          titanium: '#C7D0D6',
         },
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'premium': '0 10px 35px rgba(20, 25, 30, 0.06)',
-        'premium-hover': '0 18px 45px rgba(20, 25, 30, 0.10)',
-        'premium-lg': '0 25px 60px rgba(20, 25, 30, 0.12)',
+        'premium': '0 10px 30px rgba(17, 20, 24, 0.05)',
+        'premium-hover': '0 16px 40px rgba(17, 20, 24, 0.08)',
+        'premium-lg': '0 25px 60px rgba(17, 20, 24, 0.12)',
+        'steel-glow': '0 0 25px rgba(143, 175, 194, 0.25)',
       },
       borderRadius: {
-        'card': '18px',
-        'card-lg': '22px',
-        'btn': '10px',
-        'input': '12px',
-        'modal': '20px',
+        'card': '16px',
+        'card-lg': '20px',
+        'btn': '8px',
+        'input': '10px',
+        'modal': '18px',
       },
     },
   },

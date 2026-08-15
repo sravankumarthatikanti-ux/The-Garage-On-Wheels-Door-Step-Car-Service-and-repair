@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * The Garage On Wheels — Official Brand Logo Component
- * Renders the official mechanic badge emblem and brand typography with crisp scaling.
+ * Luxury Automotive Showroom Aesthetic with Soft Steel Blue (#8FAFC2) and Titanium (#C7D0D6) accents.
  */
 export default function Logo({ 
   size = 'default', 
@@ -10,13 +10,13 @@ export default function Logo({
   isDark = false,
   showText = true 
 }) {
-  let emblemClass = 'h-11 w-11';
+  let emblemClass = 'h-10 w-10';
   let titleClass = 'text-base sm:text-lg';
   let subClass = 'text-xs sm:text-sm';
   let taglineClass = 'text-[9px] sm:text-[10px]';
 
   if (size === 'compact') {
-    emblemClass = 'h-9 w-9';
+    emblemClass = 'h-8 w-8';
     titleClass = 'text-sm';
     subClass = 'text-xs';
     taglineClass = 'text-[8px]';
@@ -26,8 +26,8 @@ export default function Logo({
     subClass = 'text-sm sm:text-base';
     taglineClass = 'text-xs sm:text-sm';
   } else if (size === 'hero') {
-    emblemClass = 'h-24 w-24 sm:h-28 sm:w-28 shadow-2xl';
-    titleClass = 'text-2xl sm:text-4xl';
+    emblemClass = 'h-20 w-20 sm:h-24 sm:w-24 shadow-2xl';
+    titleClass = 'text-2xl sm:text-3xl lg:text-4xl';
     subClass = 'text-lg sm:text-2xl';
     taglineClass = 'text-xs sm:text-sm';
   }
@@ -35,7 +35,7 @@ export default function Logo({
   return (
     <div className={`inline-flex items-center gap-3.5 group select-none ${className}`}>
       {/* Official Business Logo Emblem */}
-      <div className={`relative shrink-0 ${emblemClass} rounded-2xl overflow-hidden bg-white p-1 shadow-md border border-white/20 transition-all duration-300 group-hover:scale-105`}>
+      <div className={`relative shrink-0 ${emblemClass} rounded-xl overflow-hidden bg-white p-1 shadow-md border border-titanium/20 transition-transform duration-300 group-hover:scale-105`}>
         <img
           src="/images/business_logo.png"
           alt="The Garage On Wheels Logo"
@@ -48,14 +48,14 @@ export default function Logo({
       {showText && (
         <div className="flex flex-col leading-tight">
           <div className="flex items-baseline gap-1.5 flex-wrap">
-            <span className={`font-extrabold tracking-tight font-sans ${titleClass} ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <span className={`font-black tracking-tight font-sans ${titleClass} ${isDark ? 'text-white' : 'text-slate-900'}`}>
               THE GARAGE
             </span>
-            <span className={`font-bold tracking-wider text-brand-500 ${subClass}`}>
+            <span className={`font-black tracking-wider text-steel-400 ${subClass}`}>
               ON WHEELS
             </span>
           </div>
-          <span className={`font-semibold tracking-wider uppercase ${taglineClass} ${isDark ? 'text-slate-300' : 'text-slate-600'} mt-0.5`}>
+          <span className={`font-semibold tracking-widest uppercase ${taglineClass} ${isDark ? 'text-titanium' : 'text-secondary'} mt-0.5`}>
             Door Step Car Service &amp; Repair
           </span>
         </div>

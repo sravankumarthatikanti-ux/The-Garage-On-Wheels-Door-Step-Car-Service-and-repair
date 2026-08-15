@@ -21,31 +21,31 @@ const BRAND_SVG_MAP = {
 
 // Brand metallic badge background styles
 const BADGE_BG_MAP = {
-  'maruti-suzuki': 'from-blue-700 to-slate-900 border-blue-600/30',
-  'hyundai': 'from-sky-700 to-slate-900 border-sky-600/30',
-  'tata': 'from-teal-700 to-slate-900 border-teal-600/30',
-  'mahindra': 'from-red-700 to-slate-900 border-red-600/30',
-  'honda': 'from-red-800 to-slate-900 border-red-700/30',
-  'toyota': 'from-rose-800 to-slate-900 border-rose-700/30',
-  'kia': 'from-slate-700 to-slate-900 border-slate-600/30',
-  'volkswagen': 'from-blue-800 to-slate-900 border-blue-700/30',
-  'skoda': 'from-emerald-800 to-slate-900 border-emerald-700/30',
-  'mg': 'from-rose-800 to-slate-900 border-rose-700/30',
-  'renault': 'from-amber-700 to-slate-900 border-amber-600/30',
-  'nissan': 'from-neutral-700 to-neutral-900 border-neutral-600/30',
-  'bmw': 'from-sky-800 to-slate-900 border-sky-700/30',
-  'mercedes': 'from-slate-700 to-slate-900 border-slate-600/30',
-  'audi': 'from-zinc-800 to-slate-900 border-zinc-700/30',
+  'maruti-suzuki': 'from-graphite to-charcoal border-titanium/20',
+  'hyundai': 'from-graphite to-charcoal border-titanium/20',
+  'tata': 'from-graphite to-charcoal border-titanium/20',
+  'mahindra': 'from-graphite to-charcoal border-titanium/20',
+  'honda': 'from-graphite to-charcoal border-titanium/20',
+  'toyota': 'from-graphite to-charcoal border-titanium/20',
+  'kia': 'from-graphite to-charcoal border-titanium/20',
+  'volkswagen': 'from-graphite to-charcoal border-titanium/20',
+  'skoda': 'from-graphite to-charcoal border-titanium/20',
+  'mg': 'from-graphite to-charcoal border-titanium/20',
+  'renault': 'from-graphite to-charcoal border-titanium/20',
+  'nissan': 'from-graphite to-charcoal border-titanium/20',
+  'bmw': 'from-graphite to-charcoal border-titanium/20',
+  'mercedes': 'from-graphite to-charcoal border-titanium/20',
+  'audi': 'from-graphite to-charcoal border-titanium/20',
 };
 
 export default function CarBrandLogo({ brandId, className = "w-10 h-10" }) {
   const [hasError, setHasError] = useState(false);
   const logoPath = BRAND_SVG_MAP[brandId];
-  const badgeStyle = BADGE_BG_MAP[brandId] || 'from-slate-800 to-slate-900 border-slate-700';
+  const badgeStyle = BADGE_BG_MAP[brandId] || 'from-graphite to-charcoal border-titanium/20';
 
   if (!logoPath || hasError) {
     return (
-      <div className={`rounded-card bg-gradient-to-br ${badgeStyle} border p-2 flex items-center justify-center text-white font-bold text-xs shadow-sm ${className}`}>
+      <div className={`rounded-card bg-gradient-to-br ${badgeStyle} border p-2 flex items-center justify-center text-white font-mono font-bold text-xs shadow-sm ${className}`}>
         {brandId ? brandId.substring(0, 2).toUpperCase() : 'CAR'}
       </div>
     );

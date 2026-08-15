@@ -12,7 +12,7 @@ export default function Footer({ onOpenBooking }) {
   };
 
   return (
-    <footer id="contact" className="bg-charcoal-deep text-slate-300 border-t border-white/10 pt-16 pb-12 font-sans relative overflow-hidden">
+    <footer id="contact" className="bg-graphite text-slate-300 border-t border-titanium/15 pt-16 pb-12 font-sans relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
         {/* Top Grid */}
@@ -25,26 +25,26 @@ export default function Footer({ onOpenBooking }) {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              <strong className="text-white">THE GARAGE ON WHEELS</strong> — Door Step Car Service &amp; Repair. Hyderabad &amp; Secunderabad's leading mobile automotive service company with certified master mechanics and 100% genuine OEM spare parts.
+              <strong className="text-white">THE GARAGE ON WHEELS</strong> — Door Step Car Service &amp; Repair. Hyderabad &amp; Secunderabad's premier mobile automotive service company with certified master mechanics and 100% genuine OEM spare parts.
             </p>
 
             <div className="space-y-2 pt-2 text-xs text-slate-300">
               <div className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-steel-400 shrink-0 mt-0.5" />
                 <span>{BUSINESS_INFO.address}</span>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-brand-400 shrink-0" />
-                <a href={`tel:${BUSINESS_INFO.whatsappNumber}`} className="hover:text-white font-semibold">
+                <Phone className="w-4 h-4 text-steel-400 shrink-0" />
+                <a href={`tel:${BUSINESS_INFO.whatsappNumber}`} className="hover:text-white font-semibold transition-colors">
                   {BUSINESS_INFO.formattedPhone}
                 </a>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Clock className="w-4 h-4 text-steel-400 shrink-0" />
                 <span>{BUSINESS_INFO.workingHours}</span>
               </div>
               <div className="flex items-center space-x-2.5">
-                <ShieldCheck className="w-4 h-4 text-brand-400 shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-steel-400 shrink-0" />
                 <span>{BUSINESS_INFO.warrantyText}</span>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function Footer({ onOpenBooking }) {
 
           {/* Col 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
@@ -79,7 +79,7 @@ export default function Footer({ onOpenBooking }) {
 
           {/* Col 3: Core Services (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
               Core Services
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
@@ -108,7 +108,7 @@ export default function Footer({ onOpenBooking }) {
 
           {/* Col 4: Action & WhatsApp (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
               Doorstep Dispatch
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -118,16 +118,16 @@ export default function Footer({ onOpenBooking }) {
             <div className="space-y-2.5">
               <button
                 onClick={() => onOpenBooking()}
-                className="w-full py-3 bg-brand-500 hover:bg-brand-700 text-white font-black text-xs tracking-wider uppercase rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
+                className="w-full py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs tracking-widest uppercase rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300"
               >
                 <span>BOOK A SERVICE</span>
               </button>
 
               <button
                 onClick={handleWhatsApp}
-                className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs tracking-wider uppercase rounded-btn transition-colors flex items-center justify-center space-x-2 shadow-sm active:scale-95"
+                className="w-full py-3 bg-charcoal hover:bg-charcoal-soft text-white font-bold text-xs tracking-widest uppercase rounded-btn transition-all flex items-center justify-center space-x-2 border border-titanium/25 hover:border-steel-400 active:scale-95"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4 text-steel-400" />
                 <span>CHAT ON WHATSAPP</span>
               </button>
             </div>
@@ -136,13 +136,13 @@ export default function Footer({ onOpenBooking }) {
         </div>
 
         {/* Local Areas Marquee List */}
-        <div className="pt-8 border-t border-white/10 space-y-2">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+        <div className="pt-8 border-t border-titanium/15 space-y-2">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400 block font-mono">
             Covered Neighbourhoods in Secunderabad &amp; Hyderabad:
           </span>
           <div className="flex flex-wrap gap-2 text-[11px] text-slate-400">
             {LOCAL_SERVICE_AREAS.map((a) => (
-              <span key={a.id} className="hover:text-white transition-colors cursor-pointer" onClick={() => onOpenBooking('', '', a.name)}>
+              <span key={a.id} className="hover:text-white transition-colors cursor-pointer font-mono" onClick={() => onOpenBooking('', '', a.name)}>
                 {a.name} •
               </span>
             ))}
@@ -152,7 +152,7 @@ export default function Footer({ onOpenBooking }) {
         {/* Bottom Copyright */}
         <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {currentYear} THE GARAGE ON WHEELS — Door Step Car Service &amp; Repair. All rights reserved.</p>
-          <p className="flex items-center space-x-1 text-slate-400">
+          <p className="flex items-center space-x-1 text-slate-400 font-mono">
             <span>Tirumalagiri Hub, Secunderabad, Telangana</span>
           </p>
         </div>

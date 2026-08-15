@@ -12,15 +12,15 @@ export default function MarqueeTicker() {
   ];
 
   return (
-    <div className="bg-charcoal border-y border-white/10 py-3.5 overflow-hidden select-none">
+    <div className="bg-graphite-deep border-y border-titanium/15 py-3.5 overflow-hidden select-none">
       <div className="animate-marquee flex items-center space-x-12 whitespace-nowrap">
         {tickerItems.concat(tickerItems).map((item, idx) => {
           const Icon = item.icon;
           return (
-            <div key={idx} className="flex items-center space-x-3 text-xs font-semibold tracking-wide text-slate-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
-              <Icon className="w-4 h-4 text-brand-400 shrink-0" />
-              <span className="text-white">{item.text}</span>
+            <div key={idx} className="flex items-center space-x-3 text-xs font-semibold tracking-wide text-titanium">
+              <span className="w-1.5 h-1.5 rounded-full bg-steel-400" />
+              <Icon className="w-4 h-4 text-steel-400 shrink-0" />
+              <span className="text-white font-medium">{item.text}</span>
             </div>
           );
         })}

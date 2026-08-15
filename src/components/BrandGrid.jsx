@@ -34,12 +34,12 @@ export default function BrandGrid({ onSelectBrand }) {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-500 text-xs font-semibold uppercase tracking-wider">
-              <Globe className="w-3.5 h-3.5" />
-              <span>Multi-Brand Specialist</span>
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20 font-mono">
+              <Globe className="w-3.5 h-3.5 text-steel-400" />
+              <span>MULTI-BRAND SPECIALIST</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary font-sans tracking-tight">
-              Browse by <span className="text-brand-500">Car Brand</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
+              Browse by <span className="text-steel-600">Car Brand</span>
             </h2>
             <p className="text-sm sm:text-base text-secondary max-w-2xl leading-relaxed">
               We service and repair all Indian, Asian, and European car models at your doorstep across Tirumalagiri, Secunderabad, and Hyderabad.
@@ -47,16 +47,16 @@ export default function BrandGrid({ onSelectBrand }) {
           </div>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-card border border-border self-start lg:self-auto shadow-premium">
+          <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-card border border-border self-start lg:self-auto shadow-sm">
             {REGION_FILTERS.map((tab) => {
               const isActive = filter === tab.key;
               return (
                 <button
                   key={tab.key}
                   onClick={() => setFilter(tab.key)}
-                  className={`px-3.5 py-1.5 rounded-btn text-xs font-semibold transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-btn text-xs font-bold transition-all duration-200 ${
                     isActive
-                      ? 'bg-brand-500 text-white shadow-sm'
+                      ? 'bg-graphite text-steel-300 shadow-sm border border-titanium/20'
                       : 'text-secondary hover:text-primary hover:bg-surface-soft'
                   }`}
                 >
@@ -73,12 +73,12 @@ export default function BrandGrid({ onSelectBrand }) {
             <div
               key={brand.id}
               onClick={() => onSelectBrand(brand.name)}
-              className="premium-card p-5 cursor-pointer flex flex-col justify-between group"
+              className="premium-card p-5 cursor-pointer flex flex-col justify-between group hover:border-steel-400"
             >
               {/* Top Row: Brand Icon & Country Badge */}
               <div className="flex items-center justify-between mb-4">
                 <CarBrandLogo brandId={brand.id} className="w-10 h-10 transition-transform duration-300 group-hover:scale-105" />
-                <span className="px-2 py-0.5 rounded-md bg-surface-soft text-secondary border border-border text-[10px] font-semibold flex items-center gap-1">
+                <span className="px-2 py-0.5 rounded-md bg-surface-soft text-secondary border border-border text-[10px] font-semibold flex items-center gap-1 font-mono">
                   <span>{brand.originFlag}</span>
                   <span className="hidden sm:inline">{brand.originCountry}</span>
                 </span>
@@ -87,11 +87,11 @@ export default function BrandGrid({ onSelectBrand }) {
               {/* Brand Title & Tagline */}
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-bold text-primary group-hover:text-brand-500 transition-colors">
+                  <h3 className="text-base font-bold text-primary group-hover:text-steel-600 transition-colors">
                     {brand.name}
                   </h3>
                   {brand.popular && (
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase rounded bg-brand-50 text-brand-500 border border-brand-200">
+                    <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase rounded bg-steel-50 text-steel-700 border border-steel-200 font-mono">
                       Popular
                     </span>
                   )}
@@ -102,20 +102,20 @@ export default function BrandGrid({ onSelectBrand }) {
               </div>
 
               {/* Action Link */}
-              <div className="mt-5 pt-3 border-t border-border-soft flex items-center justify-between text-xs font-semibold text-brand-500 group-hover:text-brand-700">
+              <div className="mt-5 pt-3 border-t border-border-soft flex items-center justify-between text-xs font-bold text-steel-700 group-hover:text-graphite">
                 <span className="flex items-center gap-1.5 text-[11px]">
                   <MessageSquare className="w-3.5 h-3.5" /> Book Service
                 </span>
-                <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-muted group-hover:text-brand-500" />
+                <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-muted group-hover:text-graphite" />
               </div>
             </div>
           ))}
         </div>
 
         {/* Bottom Callout Banner */}
-        <div className="mt-12 p-6 rounded-card-lg bg-white border border-border flex flex-col sm:flex-row items-center justify-between gap-6 shadow-premium">
+        <div className="mt-12 p-6 rounded-card-lg bg-white border border-border flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="flex items-center space-x-4">
-            <div className="p-3 rounded-card bg-brand-50 text-brand-500 shrink-0 border border-brand-100">
+            <div className="p-3 rounded-card bg-graphite text-steel-400 shrink-0 border border-titanium/20">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
@@ -125,7 +125,7 @@ export default function BrandGrid({ onSelectBrand }) {
           </div>
           <button
             onClick={() => onSelectBrand('Custom Brand')}
-            className="w-full sm:w-auto px-6 py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 shrink-0 active:scale-95"
+            className="w-full sm:w-auto px-6 py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 shrink-0 active:scale-95 border border-steel-300"
           >
             <MessageSquare className="w-4 h-4" />
             <span>Ask Advisor on WhatsApp</span>

@@ -296,7 +296,7 @@ export default function HeroHeritageBackground() {
                       : 'text-white opacity-[0.065] lg:opacity-[0.08]'
                   }`}
                   style={{
-                    textShadow: isHovered ? '0 0 20px rgba(217, 75, 75, 0.3)' : 'none',
+                    textShadow: isHovered ? '0 0 20px rgba(143, 175, 194, 0.3)' : 'none',
                   }}
                 >
                   {item.brand}
@@ -307,24 +307,24 @@ export default function HeroHeritageBackground() {
                   <span
                     className={`text-[9px] sm:text-[10px] lg:text-[11px] font-bold tracking-[0.25em] uppercase font-mono transition-all duration-300 ${
                       isHovered
-                        ? 'text-brand-400 opacity-60'
+                        ? 'text-steel-400 opacity-80'
                         : 'text-slate-300 opacity-[0.045] lg:opacity-[0.055]'
                     }`}
                   >
                     {item.country}
                   </span>
 
-                  {/* Subtle Red Accent Underline Marker on Hover */}
+                  {/* Subtle Steel Blue Accent Underline Marker on Hover */}
                   <span
-                    className={`h-[1px] bg-brand-500 transition-all duration-300 ${
-                      isHovered ? 'w-8 opacity-70' : 'w-0 opacity-0'
+                    className={`h-[1px] bg-steel-400 transition-all duration-300 ${
+                      isHovered ? 'w-8 opacity-80' : 'w-0 opacity-0'
                     }`}
                   />
 
                   {/* Micro Coordinate Tag */}
                   <span
                     className={`hidden xl:inline-block text-[8px] font-mono tracking-wider transition-opacity duration-300 ${
-                      isHovered ? 'text-slate-400 opacity-40' : 'opacity-0'
+                      isHovered ? 'text-titanium opacity-60' : 'opacity-0'
                     }`}
                   >
                     {item.code}
@@ -342,7 +342,7 @@ export default function HeroHeritageBackground() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `radial-gradient(ellipse 65% 55% at 50% 50%, rgba(21, 23, 25, 0.4) 0%, rgba(21, 23, 25, 0.85) 65%, rgba(21, 23, 25, 0.98) 100%)`,
+          background: `radial-gradient(ellipse 65% 55% at 50% 50%, rgba(17, 20, 24, 0.4) 0%, rgba(17, 20, 24, 0.85) 65%, rgba(17, 20, 24, 0.98) 100%)`,
         }}
       />
 
