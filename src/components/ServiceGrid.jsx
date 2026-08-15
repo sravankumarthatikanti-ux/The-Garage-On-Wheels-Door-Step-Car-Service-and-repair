@@ -109,8 +109,8 @@ export default function ServiceGrid({ onSelectService }) {
               <Wrench className="w-3.5 h-3.5 text-ice" />
               <span>THE GARAGE ON WHEELS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-              PRECISION <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-cyan">CAR CARE</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+              PRECISION <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">CAR CARE</span>
             </h2>
             <p className="text-sm sm:text-base text-secondary max-w-2xl leading-relaxed">
               Professional service. Wherever your car is.

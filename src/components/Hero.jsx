@@ -153,12 +153,11 @@ export default function Hero({ onOpenBooking }) {
               <span>DOORSTEP CAR SERVICE &amp; REPAIR</span>
             </div>
 
-            {/* 2. CORE HEADLINE (White with subtle Ice Blue / Cyan underline highlight) */}
+            {/* 2. CORE HEADLINE (Ultra-Stylish Dual-Tone Performance Typography, No Underline) */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white font-heading tracking-tight leading-[1.05]">
               CAR CARE. <br />
-              <span className="text-white relative inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-ice">
                 WHEREVER YOU ARE.
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-ice via-cyan to-transparent rounded-full opacity-90" />
               </span>
             </h1>
 

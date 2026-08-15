@@ -104,8 +104,8 @@ export default function CarNeedSelector({ onOpenBooking }) {
             <Sparkles className="w-3.5 h-3.5 text-cyan" />
             <span>INSTANT DIAGNOSIS SELECTOR</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-            WHAT DOES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-cyan">YOUR CAR NEED?</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+            WHAT DOES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">YOUR CAR NEED?</span>
           </h2>
           <p className="text-sm sm:text-base text-secondary leading-relaxed">
             Tap the issue below for instant doorstep pricing and recommended technician action.

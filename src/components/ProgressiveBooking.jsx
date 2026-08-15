@@ -54,7 +54,7 @@ export default function ProgressiveBooking() {
             <span>PROGRESSIVE DOORSTEP BOOKING</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
-            YOUR CAR DESERVES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-cyan">BETTER CARE.</span>
+            YOUR CAR DESERVES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">BETTER CARE.</span>
           </h2>
           <p className="text-sm sm:text-base text-secondary max-w-xl mx-auto leading-relaxed">
             Tell us what your car needs. We'll come to you.
