@@ -32,10 +32,8 @@ export default function Header({ onOpenBooking }) {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-graphite/92 backdrop-blur-2xl border-b border-ice/20 shadow-[0_10px_35px_rgba(17,21,26,0.7)] py-3' 
-          : 'bg-gradient-to-b from-graphite/95 via-graphite/80 to-transparent py-4'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0D1014]/98 backdrop-blur-2xl border-b border-titanium/20 shadow-[0_8px_30px_rgba(0,0,0,0.6)] ${
+        isScrolled ? 'py-3 border-ice/25' : 'py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -12,7 +12,6 @@ export default function Hero({ onOpenBooking }) {
   const [selectedModel, setSelectedModel] = useState('Swift');
   const [selectedService, setSelectedService] = useState('General Service');
   const [fuelType, setFuelType] = useState('Petrol');
-  const [isSportMode, setIsSportMode] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const currentBrandObj = CAR_BRANDS.find(b => b.name === selectedBrand) || CAR_BRANDS[0];
@@ -29,8 +28,8 @@ export default function Hero({ onOpenBooking }) {
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * (isSportMode ? 22 : 15);
-    const y = (clientY / innerHeight - 0.5) * (isSportMode ? 22 : 15);
+    const x = (clientX / innerWidth - 0.5) * 16;
+    const y = (clientY / innerHeight - 0.5) * 16;
     setMousePos({ x, y });
   };
 
@@ -110,7 +109,7 @@ export default function Hero({ onOpenBooking }) {
         />
 
         {/* Floating Micro-Particles Simulation */}
-        <CinematicParticles density={isSportMode ? 32 : 24} color="143, 216, 255" maxSpeed={isSportMode ? 0.25 : 0.18} />
+        <CinematicParticles density={24} color="143, 216, 255" maxSpeed={0.18} />
 
         {/* Faint Horizontal Light Sweep */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ice/[0.08] to-transparent w-[35%] h-full animate-light-sweep pointer-events-none" />
@@ -119,24 +118,8 @@ export default function Hero({ onOpenBooking }) {
       {/* ------------------------------------------------------------- */}
       {/* LAYER 4: CONTENT & HERO STAGE (MOBILE-FIRST ORDER)            */}
       {/* ------------------------------------------------------------- */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-2 sm:pt-4">
         
-        {/* Sport Performance Mode Subtle Interaction Pill */}
-        <div className="flex justify-center lg:justify-start mb-4">
-          <button
-            type="button"
-            onClick={() => setIsSportMode(!isSportMode)}
-            className={`px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest font-mono border transition-all flex items-center space-x-1.5 shadow-sm active:scale-95 ${
-              isSportMode 
-                ? 'bg-ice/25 border-ice text-ice shadow-[0_0_15px_rgba(143,216,255,0.4)]' 
-                : 'bg-charcoal/85 border-titanium/30 text-titanium hover:text-white'
-            }`}
-          >
-            <Zap className={`w-3 h-3 ${isSportMode ? 'text-ice fill-ice' : 'text-ice'}`} />
-            <span>SPORT PERFORMANCE {isSportMode ? 'ACTIVE' : 'MODE'}</span>
-          </button>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Official Logo, Brand, Headline & Direct CTAs */}
