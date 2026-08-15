@@ -112,7 +112,7 @@ export default function AboutSection({ onOpenBooking }) {
                 <span>ABOUT US</span>
               </div>
               
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight leading-tight">
                 CAR CARE THAT <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-lavender">COMES TO YOU.</span>
               </h2>
               

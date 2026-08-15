@@ -52,8 +52,8 @@ export default function PartsFinder({ onOpenBooking }) {
             <ShieldCheck className="w-3.5 h-3.5 text-steel-400" />
             <span>100% GENUINE OEM SPARE PARTS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-            FIND YOUR <span className="text-steel-600">CAR PART</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+            FIND YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-lavender">CAR PART</span>
           </h2>
           <p className="text-sm sm:text-base text-secondary leading-relaxed">
             Sealed barcode warranty, manufacturer-backed components, and certified doorstep installation.

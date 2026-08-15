@@ -6,7 +6,6 @@ import ServiceGrid from './components/ServiceGrid';
 import CarNeedSelector from './components/CarNeedSelector';
 import HowItWorks from './components/HowItWorks';
 import AboutSection from './components/AboutSection';
-import EditorialStatement from './components/EditorialStatement';
 import WhyChooseUs from './components/WhyChooseUs';
 import PartsFinder from './components/PartsFinder';
 import ProgressiveBooking from './components/ProgressiveBooking';
@@ -35,13 +34,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-surface text-primary flex flex-col font-sans selection:bg-ice selection:text-graphite pb-16 lg:pb-0">
       
-      {/* 1. Dynamic Glass Navbar */}
+      {/* 1. Navbar */}
       <Header onOpenBooking={handleOpenBooking} />
 
       {/* Main Content Sections Flow */}
       <main className="flex-grow">
         
-        {/* 2. Cinematic Campaign Hero: CAR CARE. WHEREVER YOU ARE. */}
+        {/* 2. Cinematic Sporty Hero: CAR CARE. WHEREVER YOU ARE. */}
         <Hero onOpenBooking={handleOpenBooking} />
 
         {/* 3. Trust Strip: Doorstep Service • Professional Care • Easy Booking */}
@@ -53,39 +52,36 @@ export default function App() {
         {/* 5. Interactive Diagnosis: WHAT DOES YOUR CAR NEED? */}
         <CarNeedSelector onOpenBooking={handleOpenBooking} />
 
-        {/* 6. How It Works: 01 BOOK • 02 WE COME • 03 WE SERVICE • 04 YOU DRIVE */}
+        {/* 6. How It Works: 01 BOOK • 02 WE COME TO YOU • 03 GET BACK ON THE ROAD */}
         <HowItWorks onOpenBooking={handleOpenBooking} />
 
         {/* 7. Car Care That Comes To You: About Section */}
         <AboutSection onOpenBooking={handleOpenBooking} />
 
-        {/* 8. Bold Editorial Typographic Statement */}
-        <EditorialStatement />
-
-        {/* 9. More Than A Garage: Why Us Section */}
+        {/* 8. More Than A Garage: Why Us Section */}
         <WhyChooseUs />
 
-        {/* 10. Find Your Car Part: 4-Step Discovery with Color Progression */}
+        {/* 9. Find Your Car Part: 4-Step Discovery with Color Progression */}
         <PartsFinder onOpenBooking={handleOpenBooking} />
 
-        {/* 11. Ready to Take Better Care of Your Car: Progressive Booking */}
+        {/* 10. Your Car Deserves Better Care: Progressive Booking */}
         <ProgressiveBooking />
 
-        {/* 12. Contact: Verified Call / WhatsApp / Location */}
+        {/* 11. Contact: Verified Call / WhatsApp / Location */}
         <ContactSection onOpenBooking={handleOpenBooking} />
 
       </main>
 
-      {/* 13. Premium Dark Footer */}
+      {/* 12. Premium Footer with Soft Champagne & Ice Blue Lighting */}
       <Footer onOpenBooking={handleOpenBooking} />
 
-      {/* 14. Mobile Sticky Action Bar: CALL | WHATSAPP | BOOK */}
+      {/* 13. Mobile Sticky Action Bar: CALL | WHATSAPP | BOOK */}
       <MobileStickyBar onOpenBooking={handleOpenBooking} />
 
-      {/* 15. Smart Floating Book CTA (Desktop) */}
+      {/* 14. Smart Floating Book CTA (Desktop when scrolled) */}
       <FloatingBookCTA onOpenBooking={handleOpenBooking} />
 
-      {/* 16. Smart Service Assistant */}
+      {/* 15. Smart Service Assistant */}
       <SmartAssistant onOpenBooking={handleOpenBooking} />
 
       {/* Contextual Interactive Booking Modal */}

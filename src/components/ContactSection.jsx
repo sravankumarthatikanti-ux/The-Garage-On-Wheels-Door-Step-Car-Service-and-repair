@@ -22,8 +22,8 @@ export default function ContactSection({ onOpenBooking }) {
             <Navigation className="w-3.5 h-3.5 text-steel-400" />
             <span>DIRECT CONTACT &amp; DISPATCH</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-            GET IN TOUCH <span className="text-steel-600">WITH OUR TEAM</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+            GET IN TOUCH <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-cyan">WITH OUR TEAM</span>
           </h2>
           <p className="text-sm sm:text-base text-secondary leading-relaxed">
             Directly connect with our certified service advisors in Tirumalagiri, Secunderabad.

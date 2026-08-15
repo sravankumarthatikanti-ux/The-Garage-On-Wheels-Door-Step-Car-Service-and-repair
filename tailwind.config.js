@@ -72,8 +72,10 @@ export default {
         'border-soft': '#E7EDF1',
       },
       fontFamily: {
+        heading: ['Outfit', 'Space Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
+        display: ['Syne', 'Outfit', 'sans-serif'],
         sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono: ['SF Mono', 'JetBrains Mono', 'Menlo', 'monospace'],
+        mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
       },
       boxShadow: {
         'subtle': '0 4px 20px rgba(17, 21, 26, 0.04)',

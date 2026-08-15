@@ -53,11 +53,11 @@ export default function ProgressiveBooking() {
             <ShieldCheck className="w-3.5 h-3.5 text-cyan" />
             <span>PROGRESSIVE DOORSTEP BOOKING</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-            READY TO TAKE <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-cyan">BETTER CARE</span> OF YOUR CAR?
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+            YOUR CAR DESERVES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-cyan">BETTER CARE.</span>
           </h2>
           <p className="text-sm sm:text-base text-secondary max-w-xl mx-auto leading-relaxed">
-            Choose your service and time slot. Our mobile team reaches your exact location.
+            Tell us what your car needs. We'll come to you.
           </p>
         </div>
 

@@ -85,7 +85,7 @@ export default function WhyChooseUs() {
             <Award className="w-3.5 h-3.5 text-cyan" />
             <span>THE GARAGE ON WHEELS STANDARDS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-sans tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
             MORE THAN <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-lavender">A GARAGE.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
