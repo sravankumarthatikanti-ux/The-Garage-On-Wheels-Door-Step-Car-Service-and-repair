@@ -1,130 +1,173 @@
-import React from 'react';
-import { MessageSquare, Car, MapPin, CheckCircle2, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  Smartphone, 
+  Car, 
+  Wrench, 
+  Key, 
+  ArrowRight, 
+  ShieldCheck, 
+  CheckCircle2,
+  Sparkles
+} from 'lucide-react';
 
 export default function HowItWorks({ onOpenBooking }) {
+  const [activeStep, setActiveStep] = useState(0);
+
   const steps = [
     {
       num: "01",
-      title: "BOOK",
-      desc: "Choose the service you need in under 60 seconds on WhatsApp or via our booking flow.",
-      color: "text-ice",
-      badgeBg: "bg-ice/20 text-slate-900 border-ice/40",
-      topBar: "bg-ice",
-      glow: "hover:border-ice hover:shadow-[0_15px_35px_rgba(143,216,255,0.3)]",
+      title: "BOOK IN SECONDS",
+      subtitle: "Choose Service & Time",
+      desc: "Select your vehicle make and required service on WhatsApp or phone. Receive immediate transparent pricing.",
+      icon: Smartphone,
+      accentColor: "#8FD8FF", // Ice Blue
+      badge: "Fast Dispatch",
     },
     {
       num: "02",
       title: "WE COME TO YOU",
-      desc: "Our fully equipped mobile service van and certified mechanics reach your exact location.",
-      color: "text-aqua",
-      badgeBg: "bg-aqua/20 text-slate-900 border-aqua/40",
-      topBar: "bg-aqua",
-      glow: "hover:border-aqua hover:shadow-[0_15px_35px_rgba(142,221,208,0.3)]",
+      subtitle: "Mobile Van Dispatched",
+      desc: "Our fully equipped mobile service van arrives at your home, office, or roadside location in Secunderabad & Hyderabad.",
+      icon: Car,
+      accentColor: "#9DE7E5", // Cyan Mist
+      badge: "100% Mobile",
     },
     {
       num: "03",
-      title: "GET BACK ON THE ROAD",
-      desc: "Professional car care, genuine parts unboxed in front of you, and zero garage waiting time.",
-      color: "text-lavender",
-      badgeBg: "bg-lavender/25 text-slate-900 border-lavender/40",
-      topBar: "bg-lavender",
-      glow: "hover:border-lavender hover:shadow-[0_15px_35px_rgba(199,192,232,0.3)]",
+      title: "EXPERT SERVICE",
+      subtitle: "Genuine Spares Unboxing",
+      desc: "Certified technicians perform the work right in front of you using sealed OEM parts with barcode warranty.",
+      icon: Wrench,
+      accentColor: "#8EDDD0", // Aqua
+      badge: "OEM Sealed Parts",
+    },
+    {
+      num: "04",
+      title: "YOU DRIVE",
+      subtitle: "Zero Advance Pay",
+      desc: "Take a test drive to ensure 100% satisfaction. Pay digitally after complete satisfaction. Drive with confidence.",
+      icon: Key,
+      accentColor: "#C7C0E8", // Soft Lavender
+      badge: "Pay After Service",
     },
   ];
 
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-white text-primary border-t border-border relative overflow-hidden">
+    <section id="how-it-works" className="py-16 md:py-24 bg-[#101419] text-white border-t border-[#252C33] relative overflow-hidden">
       
-      {/* Background Color Blooms: Ice Blue + Aqua + Lavender */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[350px] bg-aqua/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Color Blooms */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[350px] bg-ice/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[500px] h-[300px] bg-lavender/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-2.5">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
             <Car className="w-3.5 h-3.5 text-cyan" />
             <span>DOORSTEP PROCESS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
             HOW IT <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-aqua to-lavender">WORKS</span>
           </h2>
-          <p className="text-sm sm:text-base text-secondary leading-relaxed">
+          <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
             Professional car care without visiting a traditional workshop.
           </p>
         </div>
 
-        {/* 3 Step Timeline Cards with connecting multi-color gradient line */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 relative">
-          {/* Animated Connecting Line with Gradient: Ice Blue -> Aqua -> Lavender */}
-          <div className="hidden md:block absolute top-1/3 left-[15%] right-[15%] h-[2.5px] bg-gradient-to-r from-ice via-aqua to-lavender pointer-events-none opacity-80" />
+        {/* 4-Step Journey Grid with Connecting Gradient Line */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative">
+          
+          {/* Connecting Progress Line for Desktop */}
+          <div className="hidden lg:block absolute top-1/3 left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-ice via-cyan to-lavender opacity-60 pointer-events-none" />
 
-          {steps.map((step, idx) => (
-            <div
-              key={step.num}
-              className={`premium-card p-6 sm:p-7 relative flex flex-col justify-between z-10 bg-white ${step.glow}`}
-            >
-              {/* Top Accent Line */}
-              <div className={`absolute top-0 left-0 right-0 h-1.5 ${step.topBar}`} />
+          {steps.map((step, idx) => {
+            const Icon = step.icon;
+            const isHovered = activeStep === idx;
 
-              <div>
-                {/* Step Numeral Header */}
-                <div className="flex items-center justify-between mb-4 mt-1">
-                  <span className={`text-3xl sm:text-4xl font-black font-mono ${step.color}`}>
-                    {step.num}
+            return (
+              <div
+                key={step.num}
+                onMouseEnter={() => setActiveStep(idx)}
+                className={`bg-[#181E24] border border-[#252C33] rounded-card p-6 relative flex flex-col justify-between z-10 text-left transition-all duration-300 group hover:-translate-y-2 ${
+                  isHovered ? 'shadow-[0_0_30px_rgba(143,216,255,0.2)] border-ice/60' : ''
+                }`}
+              >
+                {/* Top Accent Line */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-[3px] rounded-t-card"
+                  style={{ backgroundColor: step.accentColor }}
+                />
+
+                <div className="space-y-4">
+                  {/* Step Num & Icon */}
+                  <div className="flex items-center justify-between">
+                    <span 
+                      className="text-3xl font-black font-mono tracking-tighter"
+                      style={{ color: step.accentColor }}
+                    >
+                      {step.num}
+                    </span>
+                    <div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center border border-[#252C33] shadow-sm transition-transform duration-300 group-hover:scale-110"
+                      style={{
+                        backgroundColor: `${step.accentColor}18`,
+                        color: step.accentColor,
+                      }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  {/* Badge */}
+                  <span 
+                    className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase font-mono tracking-wider border"
+                    style={{
+                      backgroundColor: `${step.accentColor}15`,
+                      color: step.accentColor,
+                      borderColor: `${step.accentColor}35`,
+                    }}
+                  >
+                    {step.badge}
                   </span>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border font-mono ${step.badgeBg}`}>
-                    Step {idx + 1} of 3
-                  </span>
+
+                  {/* Title & Subtitle */}
+                  <div>
+                    <h3 className="text-base font-black text-white font-heading tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs text-[#A7ADB4] font-medium font-sans mt-0.5">
+                      {step.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-xs text-[#F1F3F5]/80 leading-relaxed font-sans">
+                    {step.desc}
+                  </p>
                 </div>
 
-                {/* Step Title & Description */}
-                <h3 className="text-lg font-black text-slate-900 uppercase tracking-tight mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-secondary leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
+                {/* Footer Micro Check */}
+                <div className="mt-5 pt-3 border-t border-[#252C33] flex items-center text-[11px] text-[#A7ADB4] font-mono">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-cyan shrink-0" />
+                  <span>Guaranteed doorstep execution</span>
+                </div>
 
-              <div className="mt-5 pt-3 border-t border-border-soft flex items-center space-x-1.5 text-xs font-semibold text-slate-800 font-mono">
-                <CheckCircle2 className="w-4 h-4 text-cyan" />
-                <span>Verified Process</span>
               </div>
-            </div>
-          ))}
+            );
+          })}
+
         </div>
 
-        {/* Featured Service Van Highlight Banner */}
-        <div className="rounded-card-lg bg-surface border border-border p-7 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-sm">
-          <div className="lg:col-span-6 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-700 font-mono">
-              FULLY EQUIPPED MOBILE WORKSHOP
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-              We Bring the Garage Directly to Your Driveway
-            </h3>
-            <p className="text-xs sm:text-sm text-secondary leading-relaxed">
-              Our customized mobile service units carry hydraulic jacks, OBD-II scanner tablets, genuine synthetic oil drums, spark plugs, high-pressure foam injectors, and battery test equipment.
-            </p>
-            <div className="pt-1">
-              <button
-                onClick={() => onOpenBooking()}
-                className="px-6 py-3.5 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center space-x-2 active:scale-95"
-              >
-                <MessageSquare className="w-4 h-4 text-cyan" />
-                <span>Book Service Van Visit</span>
-              </button>
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 relative aspect-[16/10] overflow-hidden rounded-card border border-border shadow-sm">
-            <img 
-              src="/images/gallery/mobile_van.jpg" 
-              alt="Mobile Service Van at Customer Location" 
-              className="w-full h-full object-cover object-center filter contrast-105"
-            />
-          </div>
+        {/* Bottom CTA Callout */}
+        <div className="text-center pt-2">
+          <button
+            onClick={() => onOpenBooking && onOpenBooking()}
+            className="px-8 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md inline-flex items-center space-x-2"
+          >
+            <span>START YOUR DOORSTEP BOOKING →</span>
+            <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
+          </button>
         </div>
 
       </div>

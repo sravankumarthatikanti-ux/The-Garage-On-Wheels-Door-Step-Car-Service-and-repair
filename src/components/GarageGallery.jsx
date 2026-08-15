@@ -1,330 +1,335 @@
 import React, { useState } from 'react';
 import { 
-  Camera, X, ChevronLeft, ChevronRight, MessageSquare, 
-  Sparkles, Maximize2, ShieldCheck, CheckCircle2, ArrowRight
+  Camera, 
+  Maximize2, 
+  X, 
+  ChevronLeft, 
+  ChevronRight, 
+  MessageSquare, 
+  ShieldCheck,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { buildWhatsAppUrl } from '../data/carServiceData';
 
 const GALLERY_CATEGORIES = [
-  { id: 'all', label: 'All Shots' },
-  { id: 'workshop', label: 'Hi-Tech Workshop' },
-  { id: 'mechanical', label: 'Mechanical & Engine' },
-  { id: 'doorstep', label: 'Doorstep Service' },
-  { id: 'detailing', label: 'Detailing & Care' },
+  { id: 'all', label: 'ALL SHOTS', color: '#FFFFFF' },
+  { id: 'workshop', label: 'HI-TECH WORKSHOP', color: '#3B82F6' },
+  { id: 'mechanical', label: 'MECHANICAL & ENGINE', color: '#8FD8FF' },
+  { id: 'doorstep', label: 'DOORSTEP SERVICE', color: '#F59E0B' },
+  { id: 'detailing', label: 'DETAILING & CARE', color: '#8B5CF6' },
 ];
 
-const GALLERY_IMAGES = [
+const GALLERY_ITEMS = [
   {
-    id: 'shot-1',
-    title: 'Precision Multi-Bay Auto Workshop',
-    category: 'workshop',
-    categoryLabel: 'Hi-Tech Workshop',
-    image: '/images/gallery/garage_workshop.jpg',
-    description: 'Equipped with hydraulic vehicle lifts, computerized wheel aligners, and German torque calibration tools.',
-    technicalSpecs: ['Hydraulic 4-Post Lifts', 'German Torque Tools', 'OBD-II Multi-Brand Scanners'],
-    span: 'large',
+    id: 1,
+    title: "Master Engine Diagnostics & Tuning",
+    category: "mechanical",
+    categoryLabel: "MECHANICAL & ENGINE",
+    categoryColor: "#8FD8FF",
+    image: "/images/gallery/engine_diagnostic.jpg",
+    description: "OBD-II live ECU telemetry analysis, spark plug inspection, and valve calibration by master mechanics.",
+    tags: ["ECU Tuning", "Compression Test", "OEM Sensors"]
   },
   {
-    id: 'shot-2',
-    title: 'Computerized OBD-II Diagnostic Suite',
-    category: 'mechanical',
-    categoryLabel: 'Mechanical & Engine',
-    image: '/images/gallery/engine_diagnostic.jpg',
-    description: 'Master mechanic performing real-time ECU fault code scanning, live sensor stream monitoring, and injector calibration.',
-    technicalSpecs: ['Live Sensor Telemetry', 'ECU Coding & Flash', 'Emissions Compliance Testing'],
-    span: 'normal',
+    id: 2,
+    title: "Mobile Service Van On-Site Unit",
+    category: "doorstep",
+    categoryLabel: "DOORSTEP SERVICE",
+    categoryColor: "#F59E0B",
+    image: "/images/gallery/mobile_van.jpg",
+    description: "Fully equipped mobile van carrying pneumatic lifts, computerized scanner, and sealed OEM spares to your driveway.",
+    tags: ["On-Site Unit", "Driveway Care", "Secunderabad"]
   },
   {
-    id: 'shot-3',
-    title: 'Brembo & TVS Ventilated Brake Overhaul',
-    category: 'mechanical',
-    categoryLabel: 'Mechanical & Engine',
-    image: '/images/gallery/brake_repair.jpg',
-    description: 'Complete brake disc rotor machining, ceramic brake pad fitment, and electronic caliper EPB retraction.',
-    technicalSpecs: ['Ceramic Low-Dust Pads', 'DOT-4 High-Temp Fluid', 'Micrometer Rotor Trueing'],
-    span: 'normal',
+    id: 3,
+    title: "Ceramic Brake Rotor & Pad Fitment",
+    category: "mechanical",
+    categoryLabel: "MECHANICAL & ENGINE",
+    categoryColor: "#8FD8FF",
+    image: "/images/gallery/brake_repair.jpg",
+    description: "Bosch and TVS high-friction ceramic brake pads, micrometer disc trueing, and DOT-4 fluid bleed.",
+    tags: ["Brake Overhaul", "DOT-4 Bleed", "TVS Spares"]
   },
   {
-    id: 'shot-4',
-    title: 'Doorstep Mobile Service Van Deployment',
-    category: 'doorstep',
-    categoryLabel: 'Doorstep Service',
-    image: '/images/gallery/mobile_van.jpg',
-    description: 'Technicians arriving with on-board pneumatic tools, oil evacuation tanks, and battery testing kits in Tirumalagiri.',
-    technicalSpecs: ['Zero Oil Spill Rig', '12V Digital Battery Analyzer', 'Doorstep Fast Dispatch'],
-    span: 'large',
+    id: 4,
+    title: "Advanced Automotive Workshop Hub",
+    category: "workshop",
+    categoryLabel: "HI-TECH WORKSHOP",
+    categoryColor: "#3B82F6",
+    image: "/images/gallery/garage_workshop.jpg",
+    description: "State-of-the-art repair bays in Tirumalagiri with hydraulic scissor lifts, computerized alignment, and test benches.",
+    tags: ["Tirumalagiri Hub", "Scissor Lifts", "Wheel Align"]
   },
   {
-    id: 'shot-5',
-    title: 'High-Pressure Snow Foam Paint Wash',
-    category: 'detailing',
-    categoryLabel: 'Detailing & Care',
-    image: '/images/gallery/detailing_wash.jpg',
-    description: 'PH-neutral German snow foam shampoo application, microfiber two-bucket wash, and ceramic gloss boost.',
-    technicalSpecs: ['pH-Neutral Snow Foam', 'Two-Bucket Grit Guard', 'Hydrophobic Sealant Coat'],
-    span: 'normal',
+    id: 5,
+    title: "Premium Foam Wash & Paint Detailing",
+    category: "detailing",
+    categoryLabel: "DETAILING & CARE",
+    categoryColor: "#8B5CF6",
+    image: "/images/gallery/detailing_wash.jpg",
+    description: "pH-neutral snow foam wash, hydrophobic synthetic sealant, machine buffing, and interior deep vacuum sanitization.",
+    tags: ["Snow Foam", "Hydrophobic Wax", "Interior Vacuum"]
   },
   {
-    id: 'shot-6',
-    title: 'Manual & Automatic Transmission Rebuild',
-    category: 'mechanical',
-    categoryLabel: 'Mechanical & Engine',
-    image: '/images/gallery/gearbox_repair.jpg',
-    description: 'Clutch plate replacement, flywheel resurfacing, and synthetic gear oil flushing for silky smooth gear shifts.',
-    technicalSpecs: ['OEM Valeo Clutch Kits', 'Hydraulic Slave Cylinder', 'Synthetic 75W-90 Gear Oil'],
-    span: 'normal',
-  },
+    id: 6,
+    title: "Transmission & Gearbox Calibration",
+    category: "mechanical",
+    categoryLabel: "MECHANICAL & ENGINE",
+    categoryColor: "#8FD8FF",
+    image: "/images/gallery/gearbox_repair.jpg",
+    description: "Clutch plate overhaul, synthetic gear oil flush, and precision synchromesh calibration for smooth shifting.",
+    tags: ["Gearbox Overhaul", "Clutch Plate", "Synthetic Lube"]
+  }
 ];
 
 export default function GarageGallery({ onOpenBooking }) {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [lightboxItem, setLightboxItem] = useState(null);
 
-  const filteredImages = activeCategory === 'all'
-    ? GALLERY_IMAGES
-    : GALLERY_IMAGES.filter(img => img.category === activeCategory);
+  const filteredItems = activeCategory === 'all'
+    ? GALLERY_ITEMS
+    : GALLERY_ITEMS.filter(item => item.category === activeCategory);
 
-  const openLightbox = (index) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
-
-  const prevImage = (e) => {
+  const handleNext = (e) => {
     e.stopPropagation();
-    setLightboxIndex((prev) => (prev === 0 ? filteredImages.length - 1 : prev - 1));
+    if (!lightboxItem) return;
+    const currentIndex = filteredItems.findIndex(item => item.id === lightboxItem.id);
+    const nextIndex = (currentIndex + 1) % filteredItems.length;
+    setLightboxItem(filteredItems[nextIndex]);
   };
 
-  const nextImage = (e) => {
+  const handlePrev = (e) => {
     e.stopPropagation();
-    setLightboxIndex((prev) => (prev === filteredImages.length - 1 ? 0 : prev + 1));
+    if (!lightboxItem) return;
+    const currentIndex = filteredItems.findIndex(item => item.id === lightboxItem.id);
+    const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+    setLightboxItem(filteredItems[prevIndex]);
   };
 
-  const currentLightboxItem = lightboxIndex !== null ? filteredImages[lightboxIndex] : null;
+  const handleWhatsAppBooking = (item) => {
+    const url = buildWhatsAppUrl({
+      serviceName: `Gallery Inquiry: ${item.title}`
+    });
+    window.open(url, '_blank');
+  };
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-surface text-primary border-t border-border relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-16 md:py-24 bg-[#080A0D] text-white border-t border-[#252C33] relative overflow-hidden">
+      
+      {/* Background Color Ambient Lighting */}
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[350px] bg-ice/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-[500px] h-[300px] bg-cyan/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20 font-mono">
-              <Camera className="w-3.5 h-3.5 text-steel-400" />
-              <span>EDITORIAL WORKSHOP GALLERY</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-              Workshop &amp; <span className="text-steel-600">Service Album</span>
-            </h2>
-            <p className="text-sm sm:text-base text-secondary max-w-2xl leading-relaxed">
-              Real high-resolution photographs from our hi-tech workshop and doorstep service visits across Secunderabad and Hyderabad.
-            </p>
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-2.5">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
+            <Camera className="w-3.5 h-3.5 text-cyan" />
+            <span>PHOTOGRAPHY &amp; PROOF OF WORK</span>
           </div>
-
-          {/* Floating Filter Bar */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-card border border-border self-start lg:self-auto shadow-sm">
-            {GALLERY_CATEGORIES.map((tab) => {
-              const isActive = activeCategory === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveCategory(tab.id)}
-                  className={`px-3.5 py-1.5 rounded-btn text-xs font-bold transition-all duration-200 ${
-                    isActive
-                      ? 'bg-graphite text-steel-300 shadow-sm border border-titanium/20'
-                      : 'text-secondary hover:text-primary hover:bg-surface-soft'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
+            AUTOMOTIVE <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-lavender">GALLERY</span>
+          </h2>
+          <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
+            Real doorstep car repairs, advanced workshop diagnostics, and certified technician execution.
+          </p>
         </div>
 
-        {/* Feature Banner: BUILT AROUND YOUR CAR */}
-        <div className="mb-12 rounded-card-lg bg-graphite text-white border border-titanium/20 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-2xl relative">
-          <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-6 relative z-10">
-            <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-steel-400 font-mono">
-                PRECISION STANDARDS
-              </span>
-              <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-                BUILT AROUND YOUR CAR.
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
-                Every vehicle is diagnosed with manufacturer-grade diagnostic software, serviced with 100% genuine sealed fluids, and tested on road by certified master mechanics.
-              </p>
-            </div>
-            <div>
+        {/* Filter Tabs */}
+        <div className="flex items-center justify-center flex-wrap gap-2 mb-10 sm:mb-12">
+          {GALLERY_CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
               <button
-                onClick={() => onOpenBooking()}
-                className="px-6 py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all inline-flex items-center space-x-2 active:scale-95 border border-steel-300"
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 rounded-full text-xs font-bold font-mono tracking-wider transition-all duration-200 flex items-center gap-2 border ${
+                  isActive
+                    ? 'bg-ice text-graphite border-ice shadow-[0_0_15px_rgba(143,216,255,0.4)]'
+                    : 'bg-[#181E24] text-[#A7ADB4] border-[#252C33] hover:text-white hover:border-ice/40'
+                }`}
               >
-                <span>Explore Our Service Process</span>
-                <ArrowRight className="w-4 h-4" />
+                <span 
+                  className="w-2 h-2 rounded-full" 
+                  style={{ backgroundColor: isActive ? '#080A0D' : cat.color }} 
+                />
+                <span>{cat.label}</span>
               </button>
-            </div>
-          </div>
-          <div className="lg:col-span-5 relative min-h-[260px] lg:min-h-full">
-            <img 
-              src="/images/gallery/garage_workshop.jpg" 
-              alt="The Garage On Wheels High-Tech Facility" 
-              className="w-full h-full object-cover object-center filter contrast-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-graphite via-transparent to-transparent" />
-          </div>
+            );
+          })}
         </div>
 
-        {/* Editorial Photo Grid with Mixed Rhythm */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredImages.map((item, idx) => (
-            <motion.div
-              layout
+        {/* Gallery Image Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map((item) => (
+            <div
               key={item.id}
-              onClick={() => openLightbox(idx)}
-              className="premium-card overflow-hidden cursor-pointer flex flex-col justify-between group hover:border-steel-400"
+              onClick={() => setLightboxItem(item)}
+              className="bg-[#181E24] border border-[#252C33] rounded-card overflow-hidden shadow-card cursor-pointer group transition-all duration-300 hover:border-ice/60 hover:-translate-y-1.5"
             >
-              {/* Image Container with Zoom Button */}
-              <div className="relative aspect-[16/11] overflow-hidden bg-surface-soft">
+              {/* Image Container with Consistent Aspect Ratio */}
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#101419]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:brightness-105"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-graphite/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-graphite/90 backdrop-blur-md text-steel-300 font-mono font-semibold text-[10px] shadow-sm border border-titanium/20">
-                  {item.categoryLabel}
+                {/* Category Badge overlay */}
+                <div className="absolute top-3 left-3 z-10">
+                  <span 
+                    className="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase font-mono tracking-wider border backdrop-blur-md"
+                    style={{
+                      backgroundColor: 'rgba(8, 10, 13, 0.85)',
+                      color: item.categoryColor,
+                      borderColor: `${item.categoryColor}50`
+                    }}
+                  >
+                    {item.categoryLabel}
+                  </span>
                 </div>
 
-                {/* Circular Zoom Button on Hover */}
-                <div className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-graphite text-steel-400 border border-titanium/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md transform translate-y-2 group-hover:translate-y-0">
-                  <Maximize2 className="w-4 h-4" />
+                {/* Hover Reveal Zoom Button */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-ice text-graphite flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <Maximize2 className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
 
-              {/* Bottom Card Content */}
-              <div className="p-5 flex-grow flex flex-col justify-between space-y-3">
-                <div>
-                  <h3 className="text-base font-bold text-primary group-hover:text-steel-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-secondary mt-1.5 line-clamp-2 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Technical Tags */}
-                <div className="pt-3 border-t border-border-soft flex flex-wrap gap-1.5">
-                  {item.technicalSpecs.slice(0, 2).map((spec, sIdx) => (
-                    <span key={sIdx} className="text-[10px] font-medium bg-surface-soft text-secondary px-2 py-0.5 rounded-md border border-border font-mono">
-                      {spec}
+              {/* Card Footer Info */}
+              <div className="p-5 text-left space-y-2">
+                <h3 className="text-base font-black text-white font-heading tracking-tight group-hover:text-ice transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-[#A7ADB4] line-clamp-2 leading-relaxed">
+                  {item.description}
+                </p>
+                <div className="pt-2 flex flex-wrap gap-1.5">
+                  {item.tags.map((tag, tIdx) => (
+                    <span key={tIdx} className="text-[10px] font-bold text-[#F1F3F5] bg-[#101419] border border-[#252C33] px-2 py-0.5 rounded font-mono">
+                      #{tag}
                     </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+
+            </div>
           ))}
         </div>
 
       </div>
 
-      {/* Refined Luxury Fullscreen Lightbox Modal */}
-      <AnimatePresence>
-        {currentLightboxItem && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeLightbox}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 md:p-10"
+      {/* Lightbox Modal */}
+      {lightboxItem && (
+        <div 
+          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+          onClick={() => setLightboxItem(null)}
+        >
+          <div 
+            className="relative bg-[#101419] border border-[#252C33] rounded-card-lg max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col md:flex-row text-left"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
-              onClick={closeLightbox}
-              className="absolute top-5 right-5 z-50 p-2.5 rounded-full bg-white/10 hover:bg-steel-400 hover:text-graphite text-white transition-colors"
+              onClick={() => setLightboxItem(null)}
+              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-[#181E24] text-white hover:text-ice border border-[#252C33] transition-colors"
               aria-label="Close Lightbox"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
 
-            {/* Lightbox Card Two-Pane Container */}
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="bg-graphite border border-titanium/20 rounded-modal overflow-hidden max-w-5xl w-full max-h-[90vh] grid grid-cols-1 lg:grid-cols-12 shadow-2xl relative"
-            >
-              {/* Left: Big Sharp Image View */}
-              <div className="lg:col-span-7 bg-graphite-deep relative min-h-[300px] sm:min-h-[420px] flex items-center justify-center overflow-hidden">
-                <img
-                  src={currentLightboxItem.image}
-                  alt={currentLightboxItem.title}
-                  className="w-full h-full object-cover object-center max-h-[60vh] lg:max-h-[85vh]"
-                />
+            {/* Left/Image Area */}
+            <div className="md:w-3/5 bg-[#080A0D] relative flex items-center justify-center min-h-[300px] md:min-h-[460px]">
+              <img
+                src={lightboxItem.image}
+                alt={lightboxItem.title}
+                className="w-full h-full object-cover"
+              />
 
-                {/* Left/Right Navigation Arrows */}
-                <button
-                  onClick={prevImage}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/70 hover:bg-steel-400 hover:text-graphite text-white transition-colors border border-titanium/20"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/70 hover:bg-steel-400 hover:text-graphite text-white transition-colors border border-titanium/20"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+              {/* Prev / Next Controls */}
+              <button
+                onClick={handlePrev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-[#181E24]/80 text-white hover:text-ice border border-[#252C33] backdrop-blur-md transition-all"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-[#181E24]/80 text-white hover:text-ice border border-[#252C33] backdrop-blur-md transition-all"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
 
-              {/* Right: Technical Information Panel */}
-              <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 overflow-y-auto max-h-[40vh] lg:max-h-[85vh]">
-                <div className="space-y-4">
-                  <span className="px-2.5 py-1 rounded-md bg-steel-400/20 text-steel-300 text-xs font-bold border border-steel-400/30 inline-block font-mono">
-                    {currentLightboxItem.categoryLabel}
+            {/* Right/Info Panel */}
+            <div className="md:w-2/5 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <span 
+                  className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase font-mono tracking-wider border"
+                  style={{
+                    backgroundColor: 'rgba(24, 30, 36, 0.9)',
+                    color: lightboxItem.categoryColor,
+                    borderColor: `${lightboxItem.categoryColor}40`
+                  }}
+                >
+                  {lightboxItem.categoryLabel}
+                </span>
+
+                <h3 className="text-xl sm:text-2xl font-black text-white font-heading tracking-tight leading-tight">
+                  {lightboxItem.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#A7ADB4] leading-relaxed font-sans">
+                  {lightboxItem.description}
+                </p>
+
+                <div className="space-y-1.5 pt-2">
+                  <span className="text-[11px] font-bold uppercase text-[#6F7780] font-mono tracking-wider">
+                    TECHNICAL PARAMETERS
                   </span>
-
-                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
-                    {currentLightboxItem.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    {currentLightboxItem.description}
-                  </p>
-
-                  <div className="space-y-2 pt-2">
-                    <span className="text-xs font-bold uppercase tracking-widest text-slate-400 block font-mono">
-                      Technical Specifications
-                    </span>
-                    <div className="space-y-1.5">
-                      {currentLightboxItem.technicalSpecs.map((spec, sIdx) => (
-                        <div key={sIdx} className="flex items-center space-x-2 text-xs text-slate-200">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-steel-400 shrink-0" />
-                          <span>{spec}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="flex flex-wrap gap-2">
+                    {lightboxItem.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="text-xs font-bold text-ice bg-[#181E24] border border-[#252C33] px-2.5 py-1 rounded-md font-mono">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-
-                {/* CTAs */}
-                <div className="pt-4 border-t border-titanium/15 space-y-3">
-                  <button
-                    onClick={() => {
-                      closeLightbox();
-                      onOpenBooking('', currentLightboxItem.title);
-                    }}
-                    className="w-full py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300"
-                  >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Book This Service on WhatsApp</span>
-                  </button>
-                </div>
               </div>
+
+              {/* Modal CTAs */}
+              <div className="space-y-2.5 pt-4 border-t border-[#252C33]">
+                <button
+                  onClick={() => {
+                    setLightboxItem(null);
+                    onOpenBooking && onOpenBooking('', lightboxItem.title);
+                  }}
+                  className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2"
+                >
+                  <span>BOOK THIS SERVICE →</span>
+                  <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
+                </button>
+
+                <button
+                  onClick={() => handleWhatsAppBooking(lightboxItem)}
+                  className="w-full py-3 btn-whatsapp font-bold text-xs uppercase tracking-wider rounded-btn flex items-center justify-center space-x-2"
+                >
+                  <MessageSquare className="w-4 h-4 text-whatsapp" />
+                  <span>WHATSAPP INQUIRY</span>
+                </button>
+              </div>
+
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+          </div>
+        </div>
+      )}
 
     </section>
   );

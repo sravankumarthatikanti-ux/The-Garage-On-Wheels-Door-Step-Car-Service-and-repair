@@ -7,69 +7,73 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Multi-Color Sophisticated Automotive Palette
+        // Master Premium Dark Automotive System
+        bg: {
+          primary: '#080A0D',   // Primary Dark Background
+          secondary: '#101419', // Secondary Dark Background
+          card: '#181E24',      // Card Dark Surface
+          cardHover: '#1F2730', // Card Hover Surface
+          border: '#252C33',    // Master Border Color
+        },
         graphite: {
-          DEFAULT: '#11151A', // Main dark background
-          deep: '#0B0E12',
-          surface: '#1A2026',
+          DEFAULT: '#080A0D',
+          deep: '#050709',
+          surface: '#101419',
         },
         charcoal: {
-          DEFAULT: '#252C34',
-          soft: '#323B44',
-          muted: '#1B2127',
+          DEFAULT: '#181E24',
+          soft: '#252C33',
+          muted: '#101419',
         },
         surface: {
-          DEFAULT: '#F5F7F8', // Pearl White main light background
-          pure: '#FFFFFF',
-          soft: '#EDF1F4',
-          warm: '#E8EDF2',
+          DEFAULT: '#080A0D',
+          secondary: '#101419',
+          card: '#181E24',
+          border: '#252C33',
         },
-        // Energetic Automotive Light Accents
+        // Premium Automotive Accents
         ice: {
-          DEFAULT: '#8FD8FF', // Electric Ice Blue
-          soft: '#C2EBFF',
-          glow: 'rgba(143, 216, 255, 0.35)',
+          DEFAULT: '#8FD8FF', // Primary Ice Blue
+          bright: '#B8EAFF',  // Primary Hover
+          glow: 'rgba(143, 216, 255, 0.4)',
         },
         cyan: {
           DEFAULT: '#9DE7E5', // Cyan Mist
-          soft: '#CEF5F4',
-          glow: 'rgba(157, 231, 229, 0.35)',
+          glow: 'rgba(157, 231, 229, 0.4)',
         },
         aqua: {
           DEFAULT: '#8EDDD0', // Aqua
-          soft: '#C4F1E9',
-          glow: 'rgba(142, 221, 208, 0.35)',
-        },
-        lime: {
-          DEFAULT: '#C8E6B8', // Soft Lime
-          soft: '#E4F5DC',
-          glow: 'rgba(200, 230, 184, 0.35)',
+          glow: 'rgba(142, 221, 208, 0.4)',
         },
         lavender: {
-          DEFAULT: '#C7C0E8', // Lavender
-          soft: '#E3E0F5',
-          glow: 'rgba(199, 192, 232, 0.35)',
+          DEFAULT: '#C7C0E8', // Soft Lavender (Luxury)
+          glow: 'rgba(199, 192, 232, 0.4)',
         },
-        violet: {
-          DEFAULT: '#B8B4D8', // Cool Violet
-          soft: '#DCDAEB',
-          glow: 'rgba(184, 180, 216, 0.35)',
+        lime: {
+          DEFAULT: '#C8E6B8', // Soft Lime (Sport)
+          glow: 'rgba(200, 230, 184, 0.4)',
         },
         champagne: {
-          DEFAULT: '#DCC9A6', // Soft Champagne
-          soft: '#EFE6D5',
-          glow: 'rgba(220, 201, 166, 0.35)',
+          DEFAULT: '#DCC9A6', // Soft Champagne (Premium)
+          glow: 'rgba(220, 201, 166, 0.4)',
         },
         titanium: {
-          DEFAULT: '#C9D1D6', // Titanium Silver
-          light: '#E2E7EA',
-          dark: '#9EABB3',
+          DEFAULT: '#C9D1D6',
+          light: '#F1F3F5',
+          muted: '#A7ADB4',
+          dark: '#6F7780',
         },
-        primary: '#11151A',
-        secondary: '#55626C',
-        muted: '#82909A',
-        border: '#DCE3E8',
-        'border-soft': '#E7EDF1',
+        whatsapp: {
+          DEFAULT: '#25D366',
+          hover: '#22c55e',
+          glow: 'rgba(37, 211, 102, 0.35)',
+        },
+        text: {
+          white: '#FFFFFF',
+          secondary: '#F1F3F5',
+          muted: '#A7ADB4',
+          dark: '#6F7780',
+        },
       },
       fontFamily: {
         heading: ['Outfit', 'Space Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
@@ -78,19 +82,21 @@ export default {
         mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
       },
       boxShadow: {
-        'subtle': '0 4px 20px rgba(17, 21, 26, 0.04)',
-        'premium': '0 12px 35px rgba(17, 21, 26, 0.08)',
-        'ice-glow': '0 0 25px rgba(143, 216, 255, 0.35)',
-        'cyan-glow': '0 0 25px rgba(157, 231, 229, 0.35)',
-        'aqua-glow': '0 0 25px rgba(142, 221, 208, 0.35)',
-        'lavender-glow': '0 0 25px rgba(199, 192, 232, 0.35)',
-        'lime-glow': '0 0 25px rgba(200, 230, 184, 0.35)',
+        'subtle': '0 4px 20px rgba(0, 0, 0, 0.4)',
+        'premium': '0 12px 35px rgba(0, 0, 0, 0.6)',
+        'card': '0 10px 30px rgba(0, 0, 0, 0.5)',
+        'ice-glow': '0 0 25px rgba(143, 216, 255, 0.4)',
+        'cyan-glow': '0 0 25px rgba(157, 231, 229, 0.4)',
+        'aqua-glow': '0 0 25px rgba(142, 221, 208, 0.4)',
+        'lavender-glow': '0 0 25px rgba(199, 192, 232, 0.4)',
+        'lime-glow': '0 0 25px rgba(200, 230, 184, 0.4)',
+        'whatsapp-glow': '0 0 25px rgba(37, 211, 102, 0.35)',
       },
       borderRadius: {
         'card': '18px',
-        'card-lg': '24px',
+        'card-lg': '22px',
         'modal': '24px',
-        'btn': '12px',
+        'btn': '14px',
       },
       screens: {
         'xs': '375px',

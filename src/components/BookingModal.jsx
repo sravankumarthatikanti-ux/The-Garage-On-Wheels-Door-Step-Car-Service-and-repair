@@ -65,17 +65,17 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
 
   return (
     <div 
-      className="fixed inset-0 z-[9999] overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 z-[9999] overflow-y-auto bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
       onClick={onClose}
     >
       <div 
-        className="relative bg-white text-primary rounded-modal max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-border overflow-hidden my-8"
+        className="relative bg-[#181E24] text-white rounded-modal max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-[#252C33] overflow-hidden my-8 text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-secondary hover:text-primary hover:bg-surface-soft transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-full text-[#A7ADB4] hover:text-white hover:bg-[#101419] transition-colors border border-transparent hover:border-[#252C33]"
           aria-label="Close Booking Modal"
         >
           <X className="w-5 h-5" />
@@ -83,14 +83,14 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
 
         {/* Modal Header */}
         <div className="mb-6 space-y-1.5 text-left">
-          <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-graphite text-ice border border-ice/30 text-[10px] font-bold uppercase tracking-widest font-mono">
+          <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-[#101419] text-ice border border-ice/30 text-[10px] font-bold uppercase tracking-widest font-mono">
             <ShieldCheck className="w-3.5 h-3.5 text-cyan" />
             <span>INSTANT WHATSAPP DISPATCH</span>
           </div>
-          <h2 className="text-2xl font-black text-slate-900 font-heading tracking-tight">
+          <h2 className="text-2xl font-black text-white font-heading tracking-tight">
             Book Doorstep Car Service
           </h2>
-          <p className="text-xs text-secondary leading-relaxed font-sans">
+          <p className="text-xs text-[#A7ADB4] leading-relaxed font-sans">
             Select your car details below to generate an instant transparent quote directly on WhatsApp.
           </p>
         </div>
@@ -101,13 +101,13 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
           {/* Brand & Model Selector */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-mono">
+              <label className="block text-xs font-bold text-ice uppercase tracking-wider mb-1 font-mono">
                 1. Car Brand
               </label>
               <select
                 value={selectedBrand}
                 onChange={handleBrandChange}
-                className="w-full bg-surface-soft input-smart-focus text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
+                className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
               >
                 {CAR_BRANDS.map((b) => (
                   <option key={b.id} value={b.name}>{b.name}</option>
@@ -116,13 +116,13 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-mono">
+              <label className="block text-xs font-bold text-cyan uppercase tracking-wider mb-1 font-mono">
                 2. Car Model
               </label>
               <select
                 value={selectedModel}
                 onChange={(e) => setSelectedModel(e.target.value)}
-                className="w-full bg-surface-soft input-smart-focus text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
+                className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
               >
                 {currentBrandObj.models.map((m) => (
                   <option key={m} value={m}>{m}</option>
@@ -133,7 +133,7 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
 
           {/* Fuel Type Chips */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-mono">
+            <label className="block text-xs font-bold text-aqua uppercase tracking-wider mb-1 font-mono">
               3. Fuel Type
             </label>
             <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
@@ -144,8 +144,8 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
                   onClick={() => setFuelType(f)}
                   className={`py-1.5 text-xs font-bold rounded-btn border transition-all ${
                     fuelType === f
-                      ? 'bg-graphite text-ice border-ice shadow-sm'
-                      : 'bg-surface-soft text-secondary border-border hover:border-ice'
+                      ? 'bg-ice text-graphite border-ice shadow-sm font-black'
+                      : 'bg-[#101419] text-[#A7ADB4] border-[#252C33] hover:border-ice/40'
                   }`}
                 >
                   {f}
@@ -156,13 +156,13 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
 
           {/* Service Selection */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-mono">
+            <label className="block text-xs font-bold text-lavender uppercase tracking-wider mb-1 font-mono">
               4. Service Required
             </label>
             <select
               value={selectedService}
               onChange={(e) => setSelectedService(e.target.value)}
-              className="w-full bg-surface-soft input-smart-focus text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
+              className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
             >
               {SERVICE_CATEGORIES.map((s) => (
                 <option key={s.id} value={s.title}>{s.title} ({s.startingPrice})</option>
@@ -174,13 +174,13 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
 
           {/* Locality in Secunderabad / Hyderabad */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-mono">
+            <label className="block text-xs font-bold text-[#A7ADB4] uppercase tracking-wider mb-1 font-mono">
               5. Doorstep Location (Twin Cities)
             </label>
             <select
               value={selectedLocality}
               onChange={(e) => setSelectedLocality(e.target.value)}
-              className="w-full bg-surface-soft input-smart-focus text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
+              className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
             >
               {LOCAL_SERVICE_AREAS.map((a) => (
                 <option key={a.id} value={a.name}>{a.name}</option>
@@ -190,7 +190,7 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
 
           {/* Notes / Special Request */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-mono">
+            <label className="block text-xs font-bold text-[#A7ADB4] uppercase tracking-wider mb-1 font-mono">
               6. Special Symptoms / Requirements (Optional)
             </label>
             <input
@@ -198,7 +198,7 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
               placeholder="e.g., Squeaking brake noise, AC not cooling, sudden battery discharge..."
               value={customNote}
               onChange={(e) => setCustomNote(e.target.value)}
-              className="w-full bg-surface-soft input-smart-focus text-slate-900 text-xs rounded-btn px-3 py-2.5"
+              className="w-full bg-[#101419] input-smart-focus text-white text-xs rounded-btn px-3 py-2.5"
             />
           </div>
 
@@ -214,7 +214,7 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
             <button
               type="button"
               onClick={onClose}
-              className="w-full sm:w-auto px-5 py-3.5 bg-surface-soft hover:bg-surface text-secondary hover:text-primary font-bold text-xs uppercase tracking-wider rounded-btn border border-border"
+              className="w-full sm:w-auto px-5 py-3.5 bg-[#101419] hover:bg-[#252C33] text-[#A7ADB4] hover:text-white font-bold text-xs uppercase tracking-wider rounded-btn border border-[#252C33]"
             >
               Cancel
             </button>
@@ -223,8 +223,8 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
         </form>
 
         {/* Footer Guarantee */}
-        <div className="mt-4 pt-3 border-t border-border-soft flex items-center justify-between text-[11px] text-muted font-mono">
-          <span className="flex items-center gap-1 text-slate-700">
+        <div className="mt-4 pt-3 border-t border-[#252C33] flex items-center justify-between text-[11px] text-[#A7ADB4] font-mono">
+          <span className="flex items-center gap-1 text-white">
             <CheckCircle2 className="w-3.5 h-3.5 text-cyan" /> 100% Genuine Box Unboxing
           </span>
           <span>Zero Advance Payment</span>

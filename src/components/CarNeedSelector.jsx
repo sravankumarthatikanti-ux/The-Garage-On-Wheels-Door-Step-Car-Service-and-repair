@@ -1,86 +1,107 @@
 import React, { useState } from 'react';
-import { Wrench, Wind, BatteryCharging, Disc, AlertTriangle, Cog, ArrowRight, MessageSquare, CheckCircle2, Sparkles } from 'lucide-react';
+import { 
+  Wrench, 
+  Wind, 
+  BatteryCharging, 
+  Disc, 
+  AlertTriangle, 
+  Sparkles, 
+  ArrowRight,
+  CheckCircle2,
+  Phone,
+  MessageSquare
+} from 'lucide-react';
 import { buildWhatsAppUrl } from '../data/carServiceData';
 
-const NEED_OPTIONS = [
+// 6 Interactive Issue Needs with Master Soft Automotive Accents
+const CAR_NEEDS = [
   {
     id: 'service',
-    title: '🔧 SERVICE',
+    title: 'PERIODIC SERVICE',
+    shortLabel: 'SERVICE',
+    subtitle: 'Lube, Filters, Multi-Point Check',
     icon: Wrench,
-    accentColor: 'border-lime/60 bg-lime/10 hover:border-lime',
-    pillColor: 'bg-lime/30 text-slate-900 border border-lime/50',
-    topBar: 'bg-lime',
-    glowColor: 'rgba(200, 230, 184, 0.4)',
-    summary: 'Complete engine synthetic oil change, all filters replaced, 40-point full vehicle health scan at your doorstep.',
-    priceEst: 'From ₹1,999',
-    serviceKey: 'Periodic General Service'
+    accentColor: '#C8E6B8', // Soft Lime
+    glowColor: 'rgba(200, 230, 184, 0.25)',
+    serviceKey: 'General Periodic Service',
+    estimatedStarting: '₹1,499',
+    deliveryTime: '60–90 Mins',
+    recommendation: 'Complete periodic lubrication, synthetic oil change, air/oil filter check, and 40-point safety checkup at your doorstep.',
   },
   {
     id: 'ac',
-    title: '❄️ AC',
+    title: 'AC NOT COOLING',
+    shortLabel: 'AC',
+    subtitle: 'Gas Refill, Compressor, Filter',
     icon: Wind,
-    accentColor: 'border-aqua/60 bg-aqua/10 hover:border-aqua',
-    pillColor: 'bg-aqua/30 text-slate-900 border border-aqua/50',
-    topBar: 'bg-aqua',
-    glowColor: 'rgba(142, 221, 208, 0.4)',
-    summary: 'High-precision AC refrigerant gas top-up, condenser leak test, antibacterial cabin blower sanitization.',
-    priceEst: 'From ₹1,299',
-    serviceKey: 'AC Service & Gas Top-Up'
+    accentColor: '#8EDDD0', // Aqua
+    glowColor: 'rgba(142, 221, 208, 0.25)',
+    serviceKey: 'AC Service & Gas Top-up',
+    estimatedStarting: '₹1,299',
+    deliveryTime: '45–60 Mins',
+    recommendation: 'AC pressure diagnostic, refrigerant leak detection, cooling coil cleaning, and cabin pollen filter sanitization.',
   },
   {
     id: 'battery',
-    title: '🔋 BATTERY',
+    title: 'BATTERY / JUMPSTART',
+    shortLabel: 'BATTERY',
+    subtitle: 'Dead Battery, Slow Cranking',
     icon: BatteryCharging,
-    accentColor: 'border-cyan/60 bg-cyan/10 hover:border-cyan',
-    pillColor: 'bg-cyan/30 text-slate-900 border border-cyan/50',
-    topBar: 'bg-cyan',
-    glowColor: 'rgba(157, 231, 229, 0.4)',
-    summary: 'Digital cranking voltage test, alternator charging test, doorstep jumpstart & OEM battery fitment.',
-    priceEst: 'From ₹499',
-    serviceKey: 'Battery Health Check & Jumpstart'
+    accentColor: '#9DE7E5', // Cyan Mist
+    glowColor: 'rgba(157, 231, 229, 0.25)',
+    serviceKey: 'Battery Replacement & Jumpstart',
+    estimatedStarting: '₹499',
+    deliveryTime: '30–45 Mins',
+    recommendation: 'Immediate doorstep jumpstart and free Amaron / Exide new battery replacement with warranty unboxing at your location.',
   },
   {
     id: 'brakes',
-    title: '🛞 BRAKES',
+    title: 'BRAKE NOISE / WEAR',
+    shortLabel: 'BRAKES',
+    subtitle: 'Pads, Rotor, Fluid Bleed',
     icon: Disc,
-    accentColor: 'border-lavender/60 bg-lavender/10 hover:border-lavender',
-    pillColor: 'bg-lavender/30 text-slate-900 border border-lavender/50',
-    topBar: 'bg-lavender',
-    glowColor: 'rgba(199, 192, 232, 0.4)',
-    summary: 'Brake pad thickness micrometer check, disc rotor trueing, high-temp caliper pin synthetic lubrication.',
-    priceEst: 'From ₹899',
-    serviceKey: 'Brake Inspection & Pad Fitment'
+    accentColor: '#C7C0E8', // Soft Lavender
+    glowColor: 'rgba(199, 192, 232, 0.25)',
+    serviceKey: 'Brake Service & Pad Replacement',
+    estimatedStarting: '₹1,199',
+    deliveryTime: '45–60 Mins',
+    recommendation: 'Brake caliper inspection, ceramic/metallic brake pad replacement (TVS/Bosch), and DOT-4 fluid bleed in your driveway.',
   },
   {
     id: 'warning',
-    title: '⚠️ WARNING LIGHT',
+    title: 'WARNING LIGHT ON',
+    shortLabel: 'WARNING LIGHT',
+    subtitle: 'Check Engine, ABS, Sensors',
     icon: AlertTriangle,
-    accentColor: 'border-violet/60 bg-violet/10 hover:border-violet',
-    pillColor: 'bg-violet/30 text-slate-900 border border-violet/50',
-    topBar: 'bg-violet',
-    glowColor: 'rgba(184, 180, 216, 0.4)',
-    summary: 'Live OBD-II sensor telemetry scanning, ECU fault clear, sensor troubleshooting & system diagnostics.',
-    priceEst: 'From ₹799',
-    serviceKey: 'OBD-II ECU Computer Diagnostics'
+    accentColor: '#8FD8FF', // Ice Blue
+    glowColor: 'rgba(143, 216, 255, 0.25)',
+    serviceKey: 'OBD-II Computer Diagnostics',
+    estimatedStarting: '₹699',
+    deliveryTime: '30–45 Mins',
+    recommendation: 'Full OBD-II computerized ECU scan, clear error codes, sensor live data reading, and certified mechanical report.',
   },
   {
     id: 'repair',
-    title: '🛠 REPAIR',
-    icon: Cog,
-    accentColor: 'border-ice/60 bg-ice/10 hover:border-ice',
-    pillColor: 'bg-ice/30 text-slate-900 border border-ice/50',
-    topBar: 'bg-ice',
-    glowColor: 'rgba(143, 216, 255, 0.4)',
-    summary: 'Suspension bushing, clutch overhaul, steering vibration, water pump & serpentine belt inspection.',
-    priceEst: 'From ₹999',
-    serviceKey: 'Mechanical Repair & Inspection'
-  }
+    title: 'MECHANICAL REPAIR',
+    shortLabel: 'REPAIR',
+    subtitle: 'Suspension, Clutch, Noise',
+    icon: Sparkles,
+    accentColor: '#DCC9A6', // Soft Champagne
+    glowColor: 'rgba(220, 201, 166, 0.25)',
+    serviceKey: 'Custom Mechanical Repair',
+    estimatedStarting: 'Inspection Free',
+    deliveryTime: 'Flexible',
+    recommendation: 'Thorough suspension, steering, clutch, and engine bay diagnostic with transparent itemized estimate before starting.',
+  },
 ];
 
 export default function CarNeedSelector({ onOpenBooking }) {
-  const [activeNeed, setActiveNeed] = useState(NEED_OPTIONS[0]);
+  const [selectedNeedId, setSelectedNeedId] = useState('service');
 
-  const handleGetHelp = () => {
+  const activeNeed = CAR_NEEDS.find((n) => n.id === selectedNeedId) || CAR_NEEDS[0];
+  const ActiveIcon = activeNeed.icon;
+
+  const handleWhatsAppHelp = () => {
     const url = buildWhatsAppUrl({
       serviceName: activeNeed.serviceKey
     });
@@ -88,105 +109,143 @@ export default function CarNeedSelector({ onOpenBooking }) {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white text-primary border-t border-border relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#080A0D] text-white border-t border-[#252C33] relative overflow-hidden">
       
       {/* Background Color Blooms based on active selection */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none transition-all duration-700"
-        style={{ backgroundColor: activeNeed.glowColor }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 opacity-20"
+        style={{ backgroundColor: activeNeed.accentColor }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-2.5">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
             <Sparkles className="w-3.5 h-3.5 text-cyan" />
             <span>INSTANT DIAGNOSIS SELECTOR</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
             WHAT DOES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">YOUR CAR NEED?</span>
           </h2>
-          <p className="text-sm sm:text-base text-secondary leading-relaxed">
+          <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
             Tap the issue below for instant doorstep pricing and recommended technician action.
           </p>
         </div>
 
-        {/* 6 Interactive Needs Grid with exact colors */}
+        {/* 6 Interactive Needs Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-8">
-          {NEED_OPTIONS.map((opt) => {
-            const Icon = opt.icon;
-            const isSelected = activeNeed.id === opt.id;
+          {CAR_NEEDS.map((item) => {
+            const Icon = item.icon;
+            const isSelected = selectedNeedId === item.id;
+
             return (
               <button
-                key={opt.id}
+                key={item.id}
                 type="button"
-                onClick={() => setActiveNeed(opt)}
-                className={`p-4 rounded-card border text-left transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
+                onClick={() => setSelectedNeedId(item.id)}
+                className={`p-4 rounded-card border text-left transition-all duration-300 relative flex flex-col justify-between h-[130px] sm:h-[145px] group ${
                   isSelected
-                    ? 'bg-graphite text-white border-ice shadow-xl scale-[1.04]'
-                    : `bg-surface-soft text-slate-800 border-border hover:bg-white ${opt.accentColor}`
+                    ? 'bg-[#181E24] -translate-y-1.5 shadow-lg'
+                    : 'bg-[#101419] border-[#252C33] hover:border-[#A7ADB4]/30 hover:bg-[#181E24]/60'
                 }`}
+                style={{
+                  borderColor: isSelected ? item.accentColor : undefined,
+                  boxShadow: isSelected ? `0 0 25px ${item.glowColor}` : undefined,
+                }}
               >
-                {/* 5% Top Soft Accent Line */}
-                <div className={`absolute top-0 left-0 right-0 h-1.5 ${opt.topBar}`} />
+                {/* Active Indicator Top Light Bar */}
+                {isSelected && (
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-card"
+                    style={{ backgroundColor: item.accentColor }}
+                  />
+                )}
+
+                <div 
+                  className={`w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
+                    isSelected ? 'shadow-sm' : 'bg-[#181E24] text-[#A7ADB4]'
+                  }`}
+                  style={{
+                    backgroundColor: isSelected ? `${item.accentColor}25` : undefined,
+                    color: isSelected ? item.accentColor : undefined,
+                  }}
+                >
+                  <Icon className="w-5 h-5" />
+                </div>
 
                 <div>
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 mt-1 transition-colors ${
-                    isSelected ? 'bg-charcoal text-ice' : 'bg-white text-slate-700 shadow-sm'
-                  }`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <h3 className="text-xs font-black uppercase font-mono tracking-tight leading-tight">
-                    {opt.title}
-                  </h3>
-                </div>
-                <div className="mt-4 pt-2 border-t border-titanium/15 flex items-center justify-between text-[10px] font-mono font-semibold">
-                  <span className={isSelected ? 'text-ice font-bold' : 'text-secondary'}>
-                    {opt.priceEst}
-                  </span>
-                  <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-cyan animate-pulse' : 'bg-titanium'}`} />
+                  <h4 className="text-xs sm:text-sm font-black text-white font-heading tracking-tight leading-tight">
+                    {item.shortLabel}
+                  </h4>
+                  <p className="text-[10px] text-[#A7ADB4] font-medium truncate mt-0.5 font-sans">
+                    {item.subtitle}
+                  </p>
                 </div>
               </button>
             );
           })}
         </div>
 
-        {/* Active Solution Focus Card */}
-        <div className="rounded-card-lg bg-surface border border-titanium/40 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-premium">
-          <div className="space-y-2 text-left max-w-2xl">
-            <div className="flex items-center space-x-2">
-              <span className={`px-2.5 py-0.5 rounded text-[11px] font-mono font-bold uppercase tracking-wider ${activeNeed.pillColor}`}>
-                Recommended Action
-              </span>
-              <span className="text-xs font-mono font-bold text-slate-900">
-                {activeNeed.priceEst} (Doorstep All-Inclusive)
-              </span>
+        {/* Selected Issue Detailed Action Panel */}
+        <div className="bg-[#181E24] border border-[#252C33] rounded-card-lg p-6 sm:p-8 shadow-premium text-left relative overflow-hidden transition-all duration-500">
+          
+          <div 
+            className="absolute top-0 left-0 right-0 h-[3px]"
+            style={{ backgroundColor: activeNeed.accentColor }}
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            
+            <div className="lg:col-span-8 space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <span 
+                  className="px-3 py-1 rounded-full text-xs font-bold uppercase font-mono tracking-wider border"
+                  style={{
+                    backgroundColor: `${activeNeed.accentColor}18`,
+                    color: activeNeed.accentColor,
+                    borderColor: `${activeNeed.accentColor}40`,
+                  }}
+                >
+                  RECOMMENDED ACTION
+                </span>
+                <span className="text-xs font-bold text-[#A7ADB4] font-mono">
+                  ETA: <strong className="text-white">{activeNeed.deliveryTime}</strong>
+                </span>
+                <span className="text-xs font-bold text-[#A7ADB4] font-mono">
+                  Starting: <strong style={{ color: activeNeed.accentColor }}>{activeNeed.estimatedStarting}</strong>
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-white font-heading tracking-tight">
+                {activeNeed.title}
+              </h3>
+
+              <p className="text-sm text-[#A7ADB4] leading-relaxed max-w-3xl">
+                {activeNeed.recommendation}
+              </p>
             </div>
-            <h4 className="text-lg sm:text-xl font-black text-slate-900 uppercase">
-              {activeNeed.serviceKey}
-            </h4>
-            <p className="text-xs sm:text-sm text-secondary leading-relaxed">
-              {activeNeed.summary}
-            </p>
+
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+              <button
+                onClick={() => onOpenBooking && onOpenBooking('', activeNeed.serviceKey)}
+                className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2"
+              >
+                <span>GET HELP →</span>
+                <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
+              </button>
+
+              <button
+                onClick={handleWhatsAppHelp}
+                className="w-full py-3 btn-whatsapp font-bold text-xs uppercase tracking-wider rounded-btn flex items-center justify-center space-x-2"
+              >
+                <MessageSquare className="w-4 h-4 text-whatsapp" />
+                <span>CHAT WITH MECHANIC</span>
+              </button>
+            </div>
+
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
-            <button
-              onClick={() => onOpenBooking('', activeNeed.serviceKey)}
-              className="w-full sm:w-auto px-7 py-3.5 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95"
-            >
-              <span>GET HELP →</span>
-              <ArrowRight className="w-4 h-4 btn-arrow" />
-            </button>
-            <button
-              onClick={handleGetHelp}
-              className="w-full sm:w-auto px-5 py-3.5 bg-white hover:bg-surface-soft text-slate-800 font-bold text-xs uppercase tracking-wider rounded-btn border border-titanium flex items-center justify-center space-x-2 transition-colors"
-            >
-              <MessageSquare className="w-4 h-4 text-cyan" />
-              <span>WhatsApp Advisor</span>
-            </button>
-          </div>
         </div>
 
       </div>

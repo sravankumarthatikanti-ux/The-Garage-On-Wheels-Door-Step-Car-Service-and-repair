@@ -1,75 +1,107 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { 
-  Wrench, Droplets, Disc, 
-  ShieldCheck, ArrowRight, MessageSquare, BatteryCharging,
-  Cpu, Cog, Wind, AlertTriangle, ChevronRight, ChevronLeft, Sparkles
+  ChevronLeft, 
+  ChevronRight, 
+  ArrowRight, 
+  Sparkles,
+  Wrench,
+  CheckCircle2,
+  Cog,
+  Disc,
+  BatteryCharging,
+  Wind,
+  Droplets,
+  ShieldCheck,
+  Cpu,
+  Car
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
 
-const SERVICE_PALETTE_MAP = {
-  'engine-service': {
-    icon: Cog,
-    colorName: 'Ice Blue',
-    tagBg: 'bg-ice/20 text-slate-900 border-ice/40',
-    topBar: 'bg-ice',
-    glow: 'hover:border-ice hover:shadow-[0_15px_35px_rgba(143,216,255,0.3)]',
-    dotColor: 'bg-ice',
+// Map icons
+const ICON_MAP = {
+  Cog: Cog,
+  Disc: Disc,
+  BatteryCharging: BatteryCharging,
+  Wind: Wind,
+  Droplets: Droplets,
+  Wrench: Wrench,
+  Cpu: Cpu,
+  Car: Car
+};
+
+// Strict Master Service Accent Color System
+const SERVICE_ACCENTS = {
+  "Engine Service": {
+    accentColor: "#8FD8FF", // Ice Blue
+    borderColor: "hover:border-[#8FD8FF]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(143,216,255,0.25)]",
+    badgeBg: "bg-[#8FD8FF]/15 text-[#8FD8FF] border-[#8FD8FF]/30",
+    iconBg: "bg-[#8FD8FF]/15 text-[#8FD8FF]",
+    dotBg: "bg-[#8FD8FF]",
+    barColor: "from-[#8FD8FF] to-transparent",
   },
-  'brake-service': {
-    icon: Disc,
-    colorName: 'Lavender',
-    tagBg: 'bg-lavender/25 text-slate-900 border-lavender/40',
-    topBar: 'bg-lavender',
-    glow: 'hover:border-lavender hover:shadow-[0_15px_35px_rgba(199,192,232,0.3)]',
-    dotColor: 'bg-lavender',
+  "Brake Service": {
+    accentColor: "#C7C0E8", // Soft Lavender
+    borderColor: "hover:border-[#C7C0E8]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(199,192,232,0.25)]",
+    badgeBg: "bg-[#C7C0E8]/15 text-[#C7C0E8] border-[#C7C0E8]/30",
+    iconBg: "bg-[#C7C0E8]/15 text-[#C7C0E8]",
+    dotBg: "bg-[#C7C0E8]",
+    barColor: "from-[#C7C0E8] to-transparent",
   },
-  'battery-service': {
-    icon: BatteryCharging,
-    colorName: 'Cyan',
-    tagBg: 'bg-cyan/25 text-slate-900 border-cyan/40',
-    topBar: 'bg-cyan',
-    glow: 'hover:border-cyan hover:shadow-[0_15px_35px_rgba(157,231,229,0.3)]',
-    dotColor: 'bg-cyan',
+  "Battery Service": {
+    accentColor: "#9DE7E5", // Cyan Mist
+    borderColor: "hover:border-[#9DE7E5]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(157,231,229,0.25)]",
+    badgeBg: "bg-[#9DE7E5]/15 text-[#9DE7E5] border-[#9DE7E5]/30",
+    iconBg: "bg-[#9DE7E5]/15 text-[#9DE7E5]",
+    dotBg: "bg-[#9DE7E5]",
+    barColor: "from-[#9DE7E5] to-transparent",
   },
-  'ac-service': {
-    icon: Wind,
-    colorName: 'Aqua',
-    tagBg: 'bg-aqua/25 text-slate-900 border-aqua/40',
-    topBar: 'bg-aqua',
-    glow: 'hover:border-aqua hover:shadow-[0_15px_35px_rgba(142,221,208,0.3)]',
-    dotColor: 'bg-aqua',
+  "AC Service": {
+    accentColor: "#8EDDD0", // Aqua
+    borderColor: "hover:border-[#8EDDD0]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(142,221,208,0.25)]",
+    badgeBg: "bg-[#8EDDD0]/15 text-[#8EDDD0] border-[#8EDDD0]/30",
+    iconBg: "bg-[#8EDDD0]/15 text-[#8EDDD0]",
+    dotBg: "bg-[#8EDDD0]",
+    barColor: "from-[#8EDDD0] to-transparent",
   },
-  'oil-change': {
-    icon: Droplets,
-    colorName: 'Soft Champagne',
-    tagBg: 'bg-champagne/25 text-slate-900 border-champagne/40',
-    topBar: 'bg-champagne',
-    glow: 'hover:border-champagne hover:shadow-[0_15px_35px_rgba(220,201,166,0.3)]',
-    dotColor: 'bg-champagne',
+  "Oil Change": {
+    accentColor: "#DCC9A6", // Soft Champagne
+    borderColor: "hover:border-[#DCC9A6]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(220,201,166,0.25)]",
+    badgeBg: "bg-[#DCC9A6]/15 text-[#DCC9A6] border-[#DCC9A6]/30",
+    iconBg: "bg-[#DCC9A6]/15 text-[#DCC9A6]",
+    dotBg: "bg-[#DCC9A6]",
+    barColor: "from-[#DCC9A6] to-transparent",
   },
-  'general-service': {
-    icon: Wrench,
-    colorName: 'Soft Lime',
-    tagBg: 'bg-lime/25 text-slate-900 border-lime/40',
-    topBar: 'bg-lime',
-    glow: 'hover:border-lime hover:shadow-[0_15px_35px_rgba(200,230,184,0.3)]',
-    dotColor: 'bg-lime',
+  "General Service": {
+    accentColor: "#C8E6B8", // Soft Lime
+    borderColor: "hover:border-[#C8E6B8]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(200,230,184,0.25)]",
+    badgeBg: "bg-[#C8E6B8]/15 text-[#C8E6B8] border-[#C8E6B8]/30",
+    iconBg: "bg-[#C8E6B8]/15 text-[#C8E6B8]",
+    dotBg: "bg-[#C8E6B8]",
+    barColor: "from-[#C8E6B8] to-transparent",
   },
-  'car-diagnostics': {
-    icon: Cpu,
-    colorName: 'Cool Violet',
-    tagBg: 'bg-violet/25 text-slate-900 border-violet/40',
-    topBar: 'bg-violet',
-    glow: 'hover:border-violet hover:shadow-[0_15px_35px_rgba(184,180,216,0.3)]',
-    dotColor: 'bg-violet',
+  "Car Diagnostics": {
+    accentColor: "#8FD8FF", // Ice Blue
+    borderColor: "hover:border-[#8FD8FF]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(143,216,255,0.25)]",
+    badgeBg: "bg-[#8FD8FF]/15 text-[#8FD8FF] border-[#8FD8FF]/30",
+    iconBg: "bg-[#8FD8FF]/15 text-[#8FD8FF]",
+    dotBg: "bg-[#8FD8FF]",
+    barColor: "from-[#8FD8FF] to-transparent",
   },
-  'emergency-repair': {
-    icon: AlertTriangle,
-    colorName: 'Graphite + Ice Blue',
-    tagBg: 'bg-graphite text-ice border-ice/30',
-    topBar: 'bg-ice',
-    glow: 'hover:border-ice hover:shadow-[0_15px_35px_rgba(143,216,255,0.25)]',
-    dotColor: 'bg-ice',
+  "Custom Repair": {
+    accentColor: "#9DE7E5", // Cyan Mist
+    borderColor: "hover:border-[#9DE7E5]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(157,231,229,0.25)]",
+    badgeBg: "bg-[#9DE7E5]/15 text-[#9DE7E5] border-[#9DE7E5]/30",
+    iconBg: "bg-[#9DE7E5]/15 text-[#9DE7E5]",
+    dotBg: "bg-[#9DE7E5]",
+    barColor: "from-[#9DE7E5] to-transparent",
   },
 };
 
@@ -94,26 +126,26 @@ export default function ServiceGrid({ onSelectService }) {
   };
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-surface text-primary relative border-t border-border overflow-hidden">
+    <section id="services" className="py-16 md:py-24 bg-[#101419] text-white relative border-t border-[#252C33] overflow-hidden">
       
-      {/* Background Color Blooms: Aqua + Soft Lime */}
-      <div className="absolute top-1/4 right-1/4 w-[650px] h-[350px] bg-aqua/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-lime/15 rounded-full blur-[130px] pointer-events-none" />
+      {/* Background Color Blooms: Aqua + Ice Blue Subtle Studio Lighting */}
+      <div className="absolute top-1/4 right-1/4 w-[650px] h-[350px] bg-aqua/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-ice/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-5">
-          <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono">
+          <div className="space-y-2 text-left">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
               <Wrench className="w-3.5 h-3.5 text-ice" />
               <span>THE GARAGE ON WHEELS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
               PRECISION <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">CAR CARE</span>
             </h2>
-            <p className="text-sm sm:text-base text-secondary max-w-2xl leading-relaxed">
-              Professional service. Wherever your car is.
+            <p className="text-sm sm:text-base text-[#A7ADB4] max-w-2xl leading-relaxed">
+              Professional doorstep automotive services engineered for all vehicle makes and models.
             </p>
           </div>
 
@@ -121,144 +153,111 @@ export default function ServiceGrid({ onSelectService }) {
           <div className="flex items-center space-x-2 self-start md:self-auto">
             <button
               onClick={() => scroll('left')}
-              className="p-2.5 rounded-full bg-white border border-border hover:border-ice text-secondary hover:text-primary transition-all shadow-sm active:scale-95"
+              className="p-2.5 rounded-full bg-[#181E24] border border-[#252C33] hover:border-ice text-[#A7ADB4] hover:text-white transition-all shadow-sm active:scale-95"
               aria-label="Scroll left"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-2.5 rounded-full bg-white border border-border hover:border-ice text-secondary hover:text-primary transition-all shadow-sm active:scale-95"
+              className="p-2.5 rounded-full bg-[#181E24] border border-[#252C33] hover:border-ice text-[#A7ADB4] hover:text-white transition-all shadow-sm active:scale-95"
               aria-label="Scroll right"
             >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => onSelectService('General Service')}
-              className="ml-2 px-5 py-2.5 btn-sport-primary font-black text-xs uppercase tracking-wider rounded-btn shadow-md transition-all active:scale-95"
-            >
-              <span>ALL SERVICES →</span>
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        {/* Mobile Swipe Notice & Multi-Color Progress Dots */}
-        <div className="flex md:hidden items-center justify-between text-xs text-muted font-mono mb-3">
-          <span>← Swipe to explore →</span>
-          <div className="flex items-center space-x-1.5">
-            {SERVICE_CATEGORIES.map((s, i) => {
-              const pal = SERVICE_PALETTE_MAP[s.id] || SERVICE_PALETTE_MAP['general-service'];
-              return (
-                <span
-                  key={i}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    activeIndex === i ? `${pal.dotColor} w-4 shadow-sm` : 'bg-titanium w-1.5'
-                  }`}
-                />
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Horizontal Swipeable Services Carousel on Mobile / Grid on Desktop */}
-        <div 
+        {/* Horizontal Swipeable Card Track */}
+        <div
           ref={scrollRef}
           onScroll={handleScrollEvent}
-          className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none no-scrollbar"
+          className="flex space-x-5 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {SERVICE_CATEGORIES.map((service) => {
-            const palette = SERVICE_PALETTE_MAP[service.id] || SERVICE_PALETTE_MAP['general-service'];
-            const IconComponent = palette.icon;
-            
+          {SERVICE_CATEGORIES.map((service, index) => {
+            const IconComponent = ICON_MAP[service.iconName] || Wrench;
+            const accent = SERVICE_ACCENTS[service.title] || SERVICE_ACCENTS["General Service"];
+
             return (
               <div
                 key={service.id}
-                onClick={() => onSelectService(service.title)}
-                className={`premium-card p-5 sm:p-6 cursor-pointer flex flex-col justify-between group min-w-[280px] sm:min-w-[300px] md:min-w-0 snap-start shrink-0 ${palette.glow}`}
+                onClick={() => onSelectService && onSelectService(service.title)}
+                className={`snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[350px] bg-[#181E24] border border-[#252C33] rounded-card p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ${accent.borderColor} ${accent.glowColor} group relative overflow-hidden text-left hover:-translate-y-2`}
               >
-                {/* 5% Top Soft Accent Line */}
-                <div className={`absolute top-0 left-0 right-0 h-1.5 ${palette.topBar}`} />
+                {/* Thin Accent Bar on top edge */}
+                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${accent.barColor}`} />
 
                 <div>
-                  {/* Top: Icon & Price Tag */}
-                  <div className="flex items-center justify-between mb-4 mt-1">
-                    <div className="w-12 h-12 rounded-xl bg-graphite border border-titanium/15 flex items-center justify-center text-ice group-hover:bg-ice group-hover:text-graphite transition-all shadow-sm">
+                  {/* Card Header: Icon & Badge */}
+                  <div className="flex items-start justify-between mb-5">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border border-[#252C33] shadow-sm transition-transform duration-300 group-hover:scale-110 ${accent.iconBg}`}>
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-md border font-mono ${palette.tagBg}`}>
-                      {service.startingPrice}
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border font-mono ${accent.badgeBg}`}>
+                      {service.badge}
                     </span>
                   </div>
 
-                  {/* Title & Short Description */}
-                  <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-slate-950 transition-colors uppercase tracking-tight">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs text-secondary mt-1.5 leading-relaxed line-clamp-2">
+                  {/* Service Title & Starting Price */}
+                  <div className="space-y-1 mb-3">
+                    <h3 className="text-lg font-black text-white font-heading tracking-tight group-hover:text-ice transition-colors">
+                      {service.title}
+                    </h3>
+                    <div className="text-xs font-extrabold text-ice font-mono">
+                      {service.startingPrice}
+                    </div>
+                  </div>
+
+                  {/* Short Description */}
+                  <p className="text-xs text-[#A7ADB4] leading-relaxed mb-5 line-clamp-2">
                     {service.shortDesc}
                   </p>
 
-                  {/* Features Bullet List */}
-                  <ul className="mt-4 space-y-1.5 border-t border-border-soft pt-3 text-xs text-slate-600">
-                    {service.features.slice(0, 3).map((feat, idx) => (
-                      <li key={idx} className="flex items-center space-x-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-ice shrink-0" />
-                        <span className="truncate">{feat}</span>
+                  {/* Feature Checklist */}
+                  <ul className="space-y-2 mb-6 border-t border-[#252C33] pt-4">
+                    {service.features.slice(0, 3).map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start space-x-2 text-xs text-[#F1F3F5]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan shrink-0 mt-0.5" />
+                        <span className="line-clamp-1">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Card Action Link */}
-                <div className="mt-5 pt-3 border-t border-border-soft flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-black transition-colors">
-                  <span className="flex items-center gap-1.5 font-mono">
-                    <MessageSquare className="w-3.5 h-3.5 text-cyan" /> Book on WhatsApp
+                {/* Card Footer CTA Button */}
+                <div className="pt-2 border-t border-[#252C33] flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#F1F3F5] group-hover:text-ice transition-colors font-mono uppercase tracking-wider flex items-center gap-1.5">
+                    <span>BOOK SERVICE</span>
+                    <ArrowRight className="w-3.5 h-3.5 btn-arrow transition-transform duration-200 group-hover:translate-x-1" />
                   </span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-ice" />
+                  <span className="text-[10px] text-[#6F7780] font-mono">Doorstep Ready</span>
                 </div>
+
               </div>
             );
           })}
         </div>
 
-        {/* Featured Foam Wash & Detailing Showcase Card */}
-        <div className="mt-8 rounded-card-lg bg-graphite text-white border border-ice/25 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xl">
-          <div className="lg:col-span-7 p-7 sm:p-9 flex flex-col justify-between space-y-5">
-            <div className="space-y-2.5">
-              <span className="px-2.5 py-0.5 rounded-full bg-ice/20 text-ice text-xs font-bold border border-ice/30 inline-block font-mono">
-                ⚡ DOORSTEP FOAM WASH SPECIAL
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white">
-                High-Pressure Snow Foam Wash at Your Driveway
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                We bring water, power generator, pressure washer, and pH-neutral German shampoo right to your parking slot. Complete exterior decontamination &amp; interior vacuuming.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-5 pt-1">
-              <div>
-                <span className="text-[11px] text-slate-400 block font-mono">Starting from</span>
-                <span className="text-2xl font-black text-white font-mono">₹499 <span className="text-xs text-slate-400 font-normal font-sans">/ doorstep</span></span>
-              </div>
+        {/* Mobile Swipe Pagination Dots with Multi-Color accents */}
+        <div className="flex justify-center space-x-1.5 mt-4 sm:hidden">
+          {SERVICE_CATEGORIES.map((cat, idx) => {
+            const accent = SERVICE_ACCENTS[cat.title] || SERVICE_ACCENTS["General Service"];
+            return (
               <button
-                onClick={() => onSelectService('Doorstep Foam Wash & Detailing')}
-                className="px-6 py-3 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center space-x-2 active:scale-95"
-              >
-                <MessageSquare className="w-4 h-4 text-cyan" />
-                <span>Book Doorstep Wash →</span>
-              </button>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 relative min-h-[220px] lg:min-h-full overflow-hidden">
-            <img 
-              src="/images/gallery/detailing_wash.jpg" 
-              alt="Doorstep Snow Foam Car Wash"
-              className="w-full h-full object-cover object-center filter contrast-105" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-graphite via-transparent to-transparent" />
-          </div>
+                key={idx}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({ left: idx * 300, behavior: 'smooth' });
+                  }
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeIndex === idx ? `w-6 ${accent.dotBg}` : 'w-1.5 bg-[#252C33]'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            );
+          })}
         </div>
 
       </div>
