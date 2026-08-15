@@ -8,24 +8,34 @@ export default function AboutSection({ onOpenBooking }) {
       title: "DOORSTEP SERVICE",
       desc: "Our mobile technicians bring tools, diagnostic scanners, and genuine spare parts directly to your home or office parking slot.",
       icon: MapPin,
+      color: "border-cyan/50 bg-cyan/10 text-slate-900",
+      iconColor: "text-cyan",
+      badgeColor: "bg-cyan/20 text-slate-900 border-cyan/40"
     },
     {
       title: "PROFESSIONAL CARE",
       desc: "Every oil container, filter, brake pad, and component is unsealed in front of you with complete itemized transparency.",
       icon: ShieldCheck,
+      color: "border-lavender/50 bg-lavender/10 text-slate-900",
+      iconColor: "text-lavender",
+      badgeColor: "bg-lavender/25 text-slate-900 border-lavender/40"
     },
     {
-      title: "CONVENIENT BOOKING",
+      title: "EASY BOOKING",
       desc: "Instant scheduling with zero workshop queues. Pick your time slot and get fast doorstep service across the twin cities.",
       icon: Zap,
+      color: "border-lime/50 bg-lime/10 text-slate-900",
+      iconColor: "text-lime",
+      badgeColor: "bg-lime/25 text-slate-900 border-lime/40"
     }
   ];
 
   return (
     <section id="about" className="py-16 md:py-24 bg-surface-warm border-t border-border relative overflow-hidden">
       
-      {/* Subtle Atmospheric Lighting: Lavender Grey / Steel Mist */}
-      <div className="absolute top-0 right-1/3 w-[600px] h-[350px] bg-lavender/25 rounded-full blur-[130px] pointer-events-none" />
+      {/* Background Color Blooms: Lavender + Ice Blue */}
+      <div className="absolute top-0 right-1/3 w-[600px] h-[350px] bg-lavender/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[450px] h-[250px] bg-ice/15 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -33,21 +43,21 @@ export default function AboutSection({ onOpenBooking }) {
           
           {/* Column 1 (Mobile first, Desktop left): Premium Automotive Photography */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-card-lg overflow-hidden border border-titanium/20 shadow-xl bg-graphite text-white p-6 sm:p-8">
+            <div className="relative rounded-card-lg overflow-hidden border border-ice/30 shadow-xl bg-graphite text-white p-6 sm:p-8">
               
-              {/* Workshop Photo Background */}
+              {/* Workshop Photo Background with Soft Gradient Overlay: Ice Blue -> Lavender */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/gallery/garage_workshop.jpg" 
                   alt="Automotive Service Workshop Precision" 
-                  className="w-full h-full object-cover opacity-20 filter grayscale-[30%]"
+                  className="w-full h-full object-cover opacity-25 filter grayscale-[20%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/90 to-graphite/80" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-graphite via-graphite/90 to-lavender/10" />
               </div>
 
               <div className="space-y-6 relative z-10 text-left">
                 {/* Official Logo Badge */}
-                <div className="inline-flex items-center gap-3.5 p-2.5 rounded-2xl bg-charcoal border border-titanium/20 backdrop-blur-md shadow-md">
+                <div className="inline-flex items-center gap-3.5 p-2.5 rounded-2xl bg-charcoal border border-ice/30 backdrop-blur-md shadow-md">
                   <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-sm shrink-0 border border-titanium/20">
                     <img 
                       src="/images/business_logo.png" 
@@ -57,7 +67,7 @@ export default function AboutSection({ onOpenBooking }) {
                   </div>
                   <div>
                     <h3 className="text-sm sm:text-base font-black font-sans text-white tracking-tight">
-                      THE GARAGE <span className="text-steel-400">ON WHEELS</span>
+                      THE GARAGE <span className="text-ice">ON WHEELS</span>
                     </h3>
                     <p className="text-[9px] font-bold uppercase tracking-widest text-titanium font-mono">
                       Door Step Car Service &amp; Repair
@@ -66,7 +76,7 @@ export default function AboutSection({ onOpenBooking }) {
                 </div>
 
                 <div className="space-y-2.5 pt-1">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-steel-400 font-mono">
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-cyan font-mono">
                     OUR CORE PHILOSOPHY
                   </span>
                   <h4 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug">
@@ -84,7 +94,7 @@ export default function AboutSection({ onOpenBooking }) {
                     <div className="text-[11px] text-slate-400 font-medium">At your doorstep</div>
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl font-black text-steel-400 font-mono">100% Genuine</div>
+                    <div className="text-lg sm:text-xl font-black text-ice font-mono">100% Genuine</div>
                     <div className="text-[11px] text-slate-400 font-medium">OEM sealed parts</div>
                   </div>
                 </div>
@@ -97,13 +107,13 @@ export default function AboutSection({ onOpenBooking }) {
           <div className="lg:col-span-6 space-y-6 text-left">
             
             <div className="space-y-2.5">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20 font-mono">
-                <Sparkles className="w-3.5 h-3.5 text-steel-400" />
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono">
+                <Sparkles className="w-3.5 h-3.5 text-cyan" />
                 <span>ABOUT US</span>
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight leading-tight">
-                CAR CARE THAT <span className="text-steel-600">COMES TO YOU.</span>
+                CAR CARE THAT <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-lavender">COMES TO YOU.</span>
               </h2>
               
               <p className="text-sm sm:text-base text-secondary leading-relaxed">
@@ -111,18 +121,18 @@ export default function AboutSection({ onOpenBooking }) {
               </p>
             </div>
 
-            {/* 3 Core Trust Pillars */}
+            {/* 3 Core Trust Pillars with Distinct Soft Colors */}
             <div className="space-y-3 pt-1">
               {trustPillars.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div 
                     key={idx}
-                    className="p-4 rounded-card bg-white border border-border hover:border-steel-400 transition-all shadow-sm space-y-1.5"
+                    className="p-4 rounded-card bg-white border border-border hover:border-ice transition-all shadow-sm space-y-1.5"
                   >
                     <div className="flex items-center space-x-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-surface text-steel-700 flex items-center justify-center border border-border shrink-0">
-                        <Icon className="w-3.5 h-3.5" />
+                      <div className="w-7 h-7 rounded-lg bg-graphite flex items-center justify-center border border-titanium/20 shrink-0">
+                        <Icon className={`w-3.5 h-3.5 ${item.iconColor}`} />
                       </div>
                       <h3 className="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide font-mono">
                         {item.title}
@@ -140,9 +150,10 @@ export default function AboutSection({ onOpenBooking }) {
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
               <button
                 onClick={() => onOpenBooking()}
-                className="w-full sm:w-auto px-7 py-3.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs tracking-widest uppercase rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300"
+                className="w-full sm:w-auto px-8 py-3.5 btn-sport-primary font-black text-xs tracking-widest uppercase rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95"
               >
                 <span>BOOK A SERVICE →</span>
+                <ArrowRight className="w-4 h-4 btn-arrow" />
               </button>
 
               <a

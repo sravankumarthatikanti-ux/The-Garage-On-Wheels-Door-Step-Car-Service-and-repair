@@ -8,12 +8,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #F5F7F8;
-    color: #171A1D;
+    color: #11151A;
   }
 
   ::selection {
-    background-color: #BFDCEB;
-    color: #111418;
+    background-color: #8FD8FF;
+    color: #11151A;
   }
 }
 
@@ -22,15 +22,15 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #111418;
+  background: #11151A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2A3036;
+  background: #252C34;
   border-radius: 3px;
-  border: 1px solid #3A4148;
+  border: 1px solid #3A444E;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #BFDCEB;
+  background: #8FD8FF;
 }
 
 /* Marquee infinite scroll animation */
@@ -50,15 +50,15 @@
 }
 
 /* ------------------------------------------------------------- */
-/* SOFT SPORT PERFORMANCE LUXURY CARD & BUTTON SYSTEM           */
+/* COLORFUL SPORT PERFORMANCE LUXURY CARD & BUTTON SYSTEM        */
 /* ------------------------------------------------------------- */
 
-/* Premium Light Card Utility */
+/* Premium Light Card */
 .premium-card {
   background: #FFFFFF;
-  border: 1px solid #DEE4E8;
+  border: 1px solid #DCE3E8;
   border-radius: 18px;
-  box-shadow: 0 4px 20px rgba(17, 20, 24, 0.03);
+  box-shadow: 0 4px 20px rgba(17, 21, 26, 0.03);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.35s ease, 
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -67,16 +67,14 @@
 }
 
 .premium-card:hover {
-  border-color: #C8D0D5;
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px -10px rgba(17, 20, 24, 0.09), 
-              0 0 25px rgba(191, 220, 235, 0.18);
+  box-shadow: 0 20px 45px -10px rgba(17, 21, 26, 0.1);
 }
 
 /* Dark Premium Charcoal Card */
 .dark-card {
-  background: #2A3036;
-  border: 1px solid rgba(200, 208, 213, 0.15);
+  background: #252C34;
+  border: 1px solid rgba(201, 209, 214, 0.14);
   border-radius: 18px;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.35s ease, 
@@ -87,26 +85,24 @@
 }
 
 .dark-card:hover {
-  border-color: rgba(191, 220, 235, 0.5);
   transform: translateY(-5px);
-  box-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.65),
-              0 0 30px rgba(191, 220, 235, 0.1);
+  box-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.7);
 }
 
-/* Sporty Primary Button */
+/* Sporty Primary Button with Ice Blue -> Cyan border glow */
 .btn-sport-primary {
-  background: #111418;
+  background: #11151A;
   color: #FFFFFF;
-  border: 1px solid #2A3036;
+  border: 1px solid rgba(143, 216, 255, 0.35);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
 .btn-sport-primary:hover {
-  background: #1C2126;
-  border-color: #BFDCEB;
-  box-shadow: 0 0 20px rgba(191, 220, 235, 0.25);
+  background: #1A2026;
+  border-color: #8FD8FF;
+  box-shadow: 0 0 25px rgba(143, 216, 255, 0.35), 0 0 10px rgba(157, 231, 229, 0.25);
 }
 
 .btn-sport-primary:active {
@@ -123,6 +119,18 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Input Focus with Ice Blue / Cyan Gradient Border */
+.input-smart-focus {
+  transition: all 0.25s ease;
+  border: 1px solid #DCE3E8;
+}
+
+.input-smart-focus:focus {
+  outline: none;
+  border-color: #8FD8FF;
+  box-shadow: 0 0 0 3px rgba(143, 216, 255, 0.2);
+}
+
 /* Subtle Automotive Light Sweep */
 @keyframes autoLightSweep {
   0% {
@@ -130,7 +138,7 @@
     opacity: 0;
   }
   15% {
-    opacity: 0.16;
+    opacity: 0.18;
   }
   30% {
     transform: translateX(200%) skewX(-20deg);
@@ -143,7 +151,7 @@
 }
 
 .animate-light-sweep {
-  animation: autoLightSweep 16s ease-in-out infinite;
+  animation: autoLightSweep 14s ease-in-out infinite;
 }
 
 /* Automotive Studio Spotlight Breathing */
@@ -162,39 +170,34 @@
   animation: spotlightBreathe 12s ease-in-out infinite;
 }
 
-/* Aerodynamic Light Curves (Car Contour Line Effect) */
+/* Aerodynamic Light Curves */
 .aero-curve {
   position: absolute;
   border-radius: 9999px;
   filter: blur(40px);
   pointer-events: none;
-  opacity: 0.15;
+  opacity: 0.18;
 }
 
 /* Realistic Grounding Car Floor Shadow & Reflection */
 .car-floor-reflection {
-  background: radial-gradient(ellipse 70% 35% at 50% 50%, rgba(191, 220, 235, 0.14) 0%, rgba(17, 20, 24, 0.8) 60%, transparent 100%);
+  background: radial-gradient(ellipse 70% 35% at 50% 50%, rgba(143, 216, 255, 0.18) 0%, rgba(17, 21, 26, 0.85) 60%, transparent 100%);
 }
 
 .car-ground-shadow {
-  background: radial-gradient(ellipse 65% 25% at 50% 50%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 75%);
+  background: radial-gradient(ellipse 65% 25% at 50% 50%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 75%);
 }
 
-/* Sport Performance Mode enhancements */
+/* Sport Mode Active */
 .sport-mode-active .animate-light-sweep {
-  animation-duration: 10s;
-}
-
-.sport-mode-active .premium-card:hover {
-  border-color: #BFDCEB;
-  box-shadow: 0 20px 40px -10px rgba(17, 20, 24, 0.12), 0 0 30px rgba(191, 220, 235, 0.3);
+  animation-duration: 9s;
 }
 
 /* Utilities */
 .titanium-border {
-  border: 1px solid #C8D0D5;
+  border: 1px solid #C9D1D6;
 }
 
 .titanium-border-dark {
-  border: 1px solid rgba(200, 208, 213, 0.18);
+  border: 1px solid rgba(201, 209, 214, 0.18);
 }

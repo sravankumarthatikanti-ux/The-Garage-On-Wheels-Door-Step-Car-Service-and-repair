@@ -7,79 +7,88 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Master Soft Performance Luxury Color System
+        // Multi-Color Sophisticated Automotive Palette
         graphite: {
-          DEFAULT: '#111418', // Deep Graphite
-          deep: '#0D0F12',
-          surface: '#1C2126', // Secondary Graphite
+          DEFAULT: '#11151A', // Main dark background
+          deep: '#0B0E12',
+          surface: '#1A2026',
         },
         charcoal: {
-          DEFAULT: '#2A3036', // Soft Charcoal
-          soft: '#343B42',
-          muted: '#1E2328',
+          DEFAULT: '#252C34',
+          soft: '#323B44',
+          muted: '#1B2127',
         },
         surface: {
-          DEFAULT: '#F5F7F8', // Pearl White
-          pure: '#FFFFFF',    // Pure White
-          soft: '#EBEFF2',
-          warm: '#F0F3F5',
+          DEFAULT: '#F5F7F8', // Pearl White main light background
+          pure: '#FFFFFF',
+          soft: '#EDF1F4',
+          warm: '#E8EDF2',
         },
-        // Accents
+        // Energetic Automotive Light Accents
         ice: {
-          DEFAULT: '#BFDCEB', // Ice Blue
-          soft: '#D6EAF5',
-          glow: 'rgba(191, 220, 235, 0.25)',
+          DEFAULT: '#8FD8FF', // Electric Ice Blue
+          soft: '#C2EBFF',
+          glow: 'rgba(143, 216, 255, 0.35)',
         },
-        mist: {
-          DEFAULT: '#AFC4D1', // Mist Blue
-          deep: '#8FAAB9',
+        cyan: {
+          DEFAULT: '#9DE7E5', // Cyan Mist
+          soft: '#CEF5F4',
+          glow: 'rgba(157, 231, 229, 0.35)',
         },
-        sage: {
-          DEFAULT: '#C7D5CC', // Sage Mist
+        aqua: {
+          DEFAULT: '#8EDDD0', // Aqua
+          soft: '#C4F1E9',
+          glow: 'rgba(142, 221, 208, 0.35)',
+        },
+        lime: {
+          DEFAULT: '#C8E6B8', // Soft Lime
+          soft: '#E4F5DC',
+          glow: 'rgba(200, 230, 184, 0.35)',
         },
         lavender: {
-          DEFAULT: '#D0CDD8', // Lavender Grey
+          DEFAULT: '#C7C0E8', // Lavender
+          soft: '#E3E0F5',
+          glow: 'rgba(199, 192, 232, 0.35)',
+        },
+        violet: {
+          DEFAULT: '#B8B4D8', // Cool Violet
+          soft: '#DCDAEB',
+          glow: 'rgba(184, 180, 216, 0.35)',
         },
         champagne: {
-          DEFAULT: '#D8CCB8', // Soft Champagne
-        },
-        steel: {
-          50: '#F2F6F9',
-          100: '#E2ECF2',
-          200: '#C5D9E5',
-          300: '#AFC4D1', // Mist Blue
-          400: '#8FAFC2', // Soft Steel Blue Primary Accent
-          500: '#7295AA',
-          600: '#587A8E',
-          700: '#415E6F',
+          DEFAULT: '#DCC9A6', // Soft Champagne
+          soft: '#EFE6D5',
+          glow: 'rgba(220, 201, 166, 0.35)',
         },
         titanium: {
-          DEFAULT: '#C8D0D5', // Titanium Silver
-          light: '#DEE4E8',
-          dark: '#9BA7AF',
+          DEFAULT: '#C9D1D6', // Titanium Silver
+          light: '#E2E7EA',
+          dark: '#9EABB3',
         },
-        primary: '#171A1D',
-        secondary: '#5F6C76',
-        muted: '#8A97A0',
-        border: '#DEE4E8',
-        'border-soft': '#E8EDF0',
+        primary: '#11151A',
+        secondary: '#55626C',
+        muted: '#82909A',
+        border: '#DCE3E8',
+        'border-soft': '#E7EDF1',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['SF Mono', 'JetBrains Mono', 'Menlo', 'monospace'],
       },
       boxShadow: {
-        'subtle': '0 4px 20px rgba(17, 20, 24, 0.04)',
-        'premium': '0 12px 35px rgba(17, 20, 24, 0.08)',
-        'deep': '0 24px 60px rgba(0, 0, 0, 0.45)',
-        'ice-glow': '0 0 25px rgba(191, 220, 235, 0.25)',
-        'steel-glow': '0 0 25px rgba(143, 175, 194, 0.25)',
+        'subtle': '0 4px 20px rgba(17, 21, 26, 0.04)',
+        'premium': '0 12px 35px rgba(17, 21, 26, 0.08)',
+        'ice-glow': '0 0 25px rgba(143, 216, 255, 0.35)',
+        'cyan-glow': '0 0 25px rgba(157, 231, 229, 0.35)',
+        'aqua-glow': '0 0 25px rgba(142, 221, 208, 0.35)',
+        'lavender-glow': '0 0 25px rgba(199, 192, 232, 0.35)',
+        'lime-glow': '0 0 25px rgba(200, 230, 184, 0.35)',
       },
       borderRadius: {
-        'card': '16px',
+        'card': '18px',
         'card-lg': '24px',
         'modal': '24px',
-        'btn': '10px',
+        'btn': '12px',
       },
       screens: {
         'xs': '375px',
