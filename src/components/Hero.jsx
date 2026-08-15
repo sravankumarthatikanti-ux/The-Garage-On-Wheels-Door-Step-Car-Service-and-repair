@@ -55,9 +55,7 @@ export default function Hero({ onOpenBooking }) {
   return (
     <section 
       onMouseMove={handleMouseMove}
-      className={`relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-graphite text-white select-none ${
-        isSportMode ? 'sport-mode-active' : ''
-      }`}
+      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-graphite text-white select-none"
     >
       {/* ------------------------------------------------------------- */}
       {/* MULTI-COLOR AUTOMOTIVE STUDIO LIGHTING SYSTEM                 */}
