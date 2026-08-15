@@ -55,7 +55,7 @@ export default function Header({ onOpenBooking }) {
                 className="text-xs font-semibold text-titanium/90 hover:text-white transition-colors tracking-widest font-mono py-1 relative group"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-steel-400 group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-ice to-cyan group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
@@ -64,18 +64,18 @@ export default function Header({ onOpenBooking }) {
           <div className="hidden sm:flex items-center space-x-4">
             <a
               href={`tel:${BUSINESS_INFO.whatsappNumber}`}
-              className="hidden xl:flex items-center space-x-2 text-xs font-bold text-titanium hover:text-white px-3 py-2 rounded-btn transition-colors border border-titanium/20"
+              className="hidden xl:flex items-center space-x-2 text-xs font-bold text-titanium hover:text-white px-3.5 py-2 rounded-btn transition-colors border border-titanium/20 hover:border-ice/50 font-mono"
             >
-              <Phone className="w-3.5 h-3.5 text-steel-400" />
+              <Phone className="w-3.5 h-3.5 text-cyan" />
               <span>{BUSINESS_INFO.formattedPhone}</span>
             </a>
 
             <button
               onClick={() => onOpenBooking()}
-              className="px-5 py-2.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-wider rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center space-x-1.5 active:scale-95 border border-steel-300"
+              className="px-5 py-2.5 btn-sport-primary font-black text-xs uppercase tracking-wider rounded-btn flex items-center space-x-1.5 active:scale-95"
             >
               <span>BOOK A SERVICE</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 btn-arrow text-ice" />
             </button>
           </div>
 
@@ -83,7 +83,7 @@ export default function Header({ onOpenBooking }) {
           <div className="flex items-center space-x-3 lg:hidden">
             <button
               onClick={() => onOpenBooking()}
-              className="sm:hidden px-3.5 py-2 bg-steel-400 text-graphite font-black text-[11px] uppercase tracking-wider rounded-btn shadow-sm"
+              className="sm:hidden px-3.5 py-2 btn-sport-primary font-black text-[11px] uppercase tracking-wider rounded-btn shadow-sm"
             >
               BOOK
             </button>
@@ -99,33 +99,31 @@ export default function Header({ onOpenBooking }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-graphite/98 border-b border-titanium/20 px-6 py-6 space-y-4 shadow-2xl backdrop-blur-2xl animate-fadeIn">
+        <div className="lg:hidden bg-graphite/98 border-b border-titanium/20 backdrop-blur-2xl px-6 py-6 space-y-4 animate-fadeIn shadow-2xl">
           <nav className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-titanium hover:text-steel-300 py-2 border-b border-titanium/10 tracking-wider font-mono flex items-center justify-between"
+                className="text-sm font-bold text-white hover:text-ice tracking-wider font-mono py-2 border-b border-titanium/10"
               >
-                <span>{link.name}</span>
-                <span className="text-steel-400 text-xs">→</span>
+                {link.name}
               </a>
             ))}
           </nav>
 
-          <div className="pt-2 space-y-2.5">
+          <div className="pt-2 flex flex-col gap-3">
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2"
+              className="w-full py-3.5 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn flex items-center justify-center space-x-2"
             >
-              <span>BOOK A SERVICE</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>BOOK A SERVICE →</span>
             </button>
 
             <button
@@ -133,9 +131,9 @@ export default function Header({ onOpenBooking }) {
                 setIsMobileMenuOpen(false);
                 handleWhatsAppClick();
               }}
-              className="w-full py-3 bg-charcoal hover:bg-charcoal-soft text-white font-bold text-xs uppercase tracking-widest rounded-btn border border-titanium/25 flex items-center justify-center space-x-2"
+              className="w-full py-3.5 btn-sport-secondary font-bold text-xs uppercase tracking-widest rounded-btn flex items-center justify-center space-x-2"
             >
-              <MessageSquare className="w-4 h-4 text-steel-400" />
+              <MessageSquare className="w-4 h-4 text-cyan" />
               <span>WHATSAPP US</span>
             </button>
           </div>

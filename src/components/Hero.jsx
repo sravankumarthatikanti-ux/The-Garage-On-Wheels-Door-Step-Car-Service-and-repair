@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle2, ArrowRight, MessageSquare, 
-  Star, ChevronDown, Sparkles, ExternalLink, ShieldCheck, Phone, Zap
+  ChevronDown, Sparkles, Phone, Zap, ChevronRight, Check
 } from 'lucide-react';
 import { CAR_BRANDS, SERVICE_CATEGORIES, buildWhatsAppUrl, BUSINESS_INFO } from '../data/carServiceData';
 import HeroHeritageBackground from './HeroHeritageBackground';
@@ -64,7 +64,7 @@ export default function Hero({ onOpenBooking }) {
       {/* MULTI-COLOR AUTOMOTIVE STUDIO LIGHTING SYSTEM                 */}
       {/* ------------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Commercial Automotive Studio Photography Base */}
+        {/* Commercial Automotive Studio Photography Base (Car on Right) */}
         <img 
           src="/images/hero_car_studio.jpg" 
           alt="The Garage On Wheels Cinematic Automotive Care" 
@@ -72,12 +72,12 @@ export default function Hero({ onOpenBooking }) {
         />
         
         {/* Left Negative Space Deep Graphite Gradient Vales */}
-        <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/90 to-graphite/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/92 to-graphite/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-graphite/95" />
         
         {/* 1. Ice Blue Glow behind the vehicle */}
         <div 
-          className="absolute top-1/4 right-1/4 w-[700px] h-[400px] bg-ice/20 rounded-full blur-[140px] transition-transform duration-1000 ease-out"
+          className="absolute top-1/4 right-1/4 w-[750px] h-[450px] bg-ice/20 rounded-full blur-[140px] transition-transform duration-1000 ease-out"
           style={{
             transform: `translate3d(${mousePos.x * 0.6}px, ${mousePos.y * 0.6}px, 0)`,
           }}
@@ -93,7 +93,7 @@ export default function Hero({ onOpenBooking }) {
         <div className="absolute top-1/3 left-1/2 w-[300px] h-[150px] bg-champagne/8 rounded-full blur-[100px]" />
 
         {/* Aerodynamic Contour Light Curves */}
-        <div className="aero-curve top-1/3 right-1/4 w-[480px] h-[90px] bg-ice/25 rotate-[-15deg]" />
+        <div className="aero-curve top-1/3 right-1/4 w-[500px] h-[90px] bg-ice/25 rotate-[-15deg]" />
         <div className="aero-curve bottom-1/4 right-1/3 w-[550px] h-[75px] bg-cyan/20 rotate-[-8deg]" />
       </div>
 
@@ -122,7 +122,7 @@ export default function Hero({ onOpenBooking }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Sport Performance Mode Subtle Interaction Pill */}
-        <div className="flex justify-center lg:justify-start mb-4">
+        <div className="flex justify-center lg:justify-start mb-5">
           <button
             type="button"
             onClick={() => setIsSportMode(!isSportMode)}
@@ -139,7 +139,7 @@ export default function Hero({ onOpenBooking }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Official Logo, Brand, Headline & Direct CTAs */}
+          {/* Left Column: Official Logo, Eyebrow, BOLD Campaign Headline & Direct CTAs */}
           <div 
             className="lg:col-span-7 space-y-5 text-center lg:text-left transition-transform duration-700 ease-out"
             style={{
@@ -147,9 +147,9 @@ export default function Hero({ onOpenBooking }) {
             }}
           >
             
-            {/* 1. OFFICIAL LOGO & BRAND BADGE */}
+            {/* 1. OFFICIAL LOGO & BRAND LOCKUP */}
             <div className="inline-flex items-center gap-3.5 p-2 pr-5 rounded-2xl bg-charcoal/85 border border-titanium/20 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-ice/50 hover:shadow-[0_0_20px_rgba(143,216,255,0.2)]">
-              <div className="relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-white p-1 shadow-sm border border-titanium/20">
+              <div className="relative shrink-0 w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden bg-white p-1 shadow-sm border border-titanium/20">
                 <img
                   src="/images/business_logo.png"
                   alt="The Garage On Wheels Official Logo"
@@ -172,21 +172,30 @@ export default function Hero({ onOpenBooking }) {
               </div>
             </div>
 
-            {/* 2. CORE HEADLINE (White with subtle Ice Blue / Cyan underline highlight) */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white font-sans tracking-tight leading-[1.05]">
-              CAR CARE. <br />
-              <span className="text-white relative inline-block">
-                WHEREVER YOU ARE.
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-ice via-cyan to-transparent rounded-full opacity-90" />
+            {/* 2. PREMIUM EYEBROW TEXT */}
+            <div className="flex items-center justify-center lg:justify-start space-x-2 pt-1">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-ice font-mono">
+                DOORSTEP AUTOMOTIVE CARE
+              </span>
+              <span className="w-8 h-[1.5px] bg-gradient-to-r from-ice to-transparent inline-block" />
+            </div>
+
+            {/* 3. ULTRA-BOLD AUTOMOTIVE CAMPAIGN HEADLINE */}
+            <h1 className="font-sans font-black tracking-[-0.05em] leading-[0.92] text-white text-[2.85rem] sm:text-[4rem] md:text-[4.8rem] lg:text-[5.4rem] xl:text-[6rem]">
+              <span className="block text-white">
+                CAR CARE.
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-ice to-cyan">
+                WHEREVER <br className="hidden sm:inline" />YOU ARE.
               </span>
             </h1>
 
-            {/* 3. SHORT SUPPORTING TEXT */}
-            <p className="text-base sm:text-lg text-titanium max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Professional car service and repair brought directly to your doorstep.
+            {/* 4. SHORT SUPPORTING TEXT */}
+            <p className="text-sm sm:text-base md:text-lg text-titanium max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Professional car servicing and repairs, brought directly to your doorstep.
             </p>
 
-            {/* 4. SPORTY PRIMARY & SECONDARY ACTION BUTTONS */}
+            {/* 5. SPORTY PRIMARY & SECONDARY ACTION BUTTONS */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 relative">
               
               {/* Soft Atmospheric Glow Behind Primary Button */}
@@ -195,7 +204,7 @@ export default function Hero({ onOpenBooking }) {
               {/* LEVEL 1: Primary Filled CTA */}
               <button
                 onClick={() => onOpenBooking()}
-                className="w-full sm:w-auto px-8 py-4 btn-sport-primary font-black text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2.5 z-10"
+                className="w-full sm:w-auto px-8 py-4 btn-sport-primary font-black text-xs sm:text-sm tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2.5 z-10"
               >
                 <span>BOOK A SERVICE →</span>
                 <ArrowRight className="w-4 h-4 btn-arrow text-ice" />
@@ -204,19 +213,27 @@ export default function Hero({ onOpenBooking }) {
               {/* LEVEL 2: Secondary Outlined CTA */}
               <button
                 onClick={handleDirectWhatsApp}
-                className="w-full sm:w-auto px-8 py-4 btn-sport-secondary font-bold text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2 z-10"
+                className="w-full sm:w-auto px-8 py-4 btn-sport-secondary font-bold text-xs sm:text-sm tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2 z-10"
               >
                 <MessageSquare className="w-4 h-4 text-cyan" />
                 <span>WHATSAPP US</span>
               </button>
             </div>
 
-            {/* Verified Status Strip */}
-            <div className="pt-1 flex items-center justify-center lg:justify-start space-x-4 text-xs text-slate-300 font-mono">
-              <div className="flex items-center space-x-1.5">
-                <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
-                <span>Mobile Units Active in Secunderabad &amp; Hyderabad</span>
-              </div>
+            {/* 6. MICRO TRUST LINE BELOW BUTTONS */}
+            <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-titanium font-mono">
+              <span className="flex items-center space-x-1">
+                <Check className="w-3.5 h-3.5 text-ice" />
+                <span>Easy booking</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <Check className="w-3.5 h-3.5 text-cyan" />
+                <span>Doorstep service</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <Check className="w-3.5 h-3.5 text-aqua" />
+                <span>Professional care</span>
+              </span>
             </div>
 
           </div>
@@ -347,6 +364,19 @@ export default function Hero({ onOpenBooking }) {
             </div>
           </div>
 
+        </div>
+
+        {/* 7. HERO SCROLL TO EXPLORE INDICATOR */}
+        <div className="mt-14 pt-4 flex flex-col items-center justify-center text-center">
+          <a
+            href="#services"
+            className="group inline-flex flex-col items-center space-y-2 text-[10px] font-mono font-bold tracking-widest text-titanium hover:text-ice transition-colors"
+          >
+            <span>SCROLL TO EXPLORE</span>
+            <div className="w-[1.5px] h-6 bg-titanium/40 relative overflow-hidden rounded-full">
+              <div className="w-full h-3 bg-gradient-to-b from-ice to-cyan rounded-full animate-bounce" />
+            </div>
+          </a>
         </div>
 
       </div>
