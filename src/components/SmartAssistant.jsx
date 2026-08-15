@@ -90,7 +90,7 @@ export default function SmartAssistant({ onOpenBooking }) {
       {/* Smart Service Assistant Modal / Drawer */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fadeIn"
+          className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fadeIn"
           onClick={() => setIsOpen(false)}
         >
           <div 
