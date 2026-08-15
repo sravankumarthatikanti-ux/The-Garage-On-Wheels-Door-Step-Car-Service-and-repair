@@ -1,70 +1,54 @@
 import React from 'react';
-import { ShieldCheck, Wrench, Clock, CheckCircle2, ArrowRight, MessageSquare, Sparkles, MapPin, Award } from 'lucide-react';
+import { ShieldCheck, Wrench, Clock, CheckCircle2, ArrowRight, MessageSquare, Sparkles, MapPin, Zap } from 'lucide-react';
 import Logo from './Logo';
 
 export default function AboutSection({ onOpenBooking }) {
-  const highlights = [
+  const trustPillars = [
     {
-      label: "DOORSTEP SERVICE",
-      title: "No Waiting in Garages",
-      desc: "Save 3 to 5 hours of weekend traffic and waiting room delays. We work in your parking slot while you relax at home or work.",
-      icon: Clock
+      title: "DOORSTEP SERVICE",
+      desc: "Our mobile technicians bring tools, diagnostic scanners, and genuine spare parts directly to your home or office parking slot.",
+      icon: MapPin,
     },
     {
-      label: "PROFESSIONAL CARE",
-      title: "100% Genuine OEM Spares",
-      desc: "Every oil bottle, filter, brake pad, and spark plug is unsealed right in front of your eyes with manufacturer barcode warranty.",
-      icon: ShieldCheck
+      title: "PROFESSIONAL CARE",
+      desc: "Every oil container, filter, brake pad, and component is unsealed in front of you with complete itemized transparency.",
+      icon: ShieldCheck,
     },
     {
-      label: "CONVENIENT BOOKING",
-      title: "Master Mobile Mechanics",
-      desc: "Our mobile units carry advanced OBD-II diagnostic scanners, precision hydraulic jacks, and factory torque tools for exact spec work.",
-      icon: Wrench
-    },
-    {
-      label: "WRITTEN WARRANTY",
-      title: "1000 KM Assurance",
-      desc: "Every service performed by The Garage On Wheels is backed by our documented doorstep service & workmanship warranty.",
-      icon: Award
+      title: "CONVENIENT BOOKING",
+      desc: "Instant scheduling with zero workshop queues. Pick your time slot and get fast doorstep service across the twin cities.",
+      icon: Zap,
     }
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-surface border-t border-border relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 bg-surface-warm border-t border-border relative overflow-hidden">
       
       {/* Subtle Atmospheric Lighting: Lavender Grey / Steel Mist */}
-      <div className="absolute top-0 right-1/3 w-[600px] h-[350px] bg-slate-200/40 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[300px] bg-steel-100/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-1/3 w-[600px] h-[350px] bg-lavender/25 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Automotive Dark Cinematic Card with Official Logo */}
-          <div className="lg:col-span-5 relative">
-            {/* Contact Floor Shadow */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[85%] h-10 car-ground-shadow rounded-full pointer-events-none opacity-40" />
-
-            <div className="relative rounded-card-lg overflow-hidden border border-titanium/20 shadow-2xl bg-graphite text-white p-8 group">
+          {/* Column 1 (Mobile first, Desktop left): Premium Automotive Photography */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative rounded-card-lg overflow-hidden border border-titanium/20 shadow-xl bg-graphite text-white p-6 sm:p-8">
               
-              {/* Background Image Layer with Dark Cinematic Treatment */}
+              {/* Workshop Photo Background */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/gallery/garage_workshop.jpg" 
-                  alt="Automotive Workshop Precision" 
-                  className="w-full h-full object-cover opacity-15 filter grayscale-[40%] transition-transform duration-700 group-hover:scale-105"
+                  alt="Automotive Service Workshop Precision" 
+                  className="w-full h-full object-cover opacity-20 filter grayscale-[30%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/90 to-graphite/80" />
               </div>
 
-              {/* Subtle Steel Blue Ambient Glow */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-steel-400/10 rounded-full blur-3xl pointer-events-none" />
-              
-              <div className="space-y-6 relative z-10 text-center sm:text-left">
-                {/* Official Logo Emblem */}
-                <div className="inline-flex items-center gap-4 p-3 rounded-2xl bg-charcoal border border-titanium/20 backdrop-blur-md shadow-md hover:border-steel-400/40 transition-colors">
-                  <div className="w-14 h-14 rounded-xl bg-white p-1 shadow-sm shrink-0 border border-titanium/20">
+              <div className="space-y-6 relative z-10 text-left">
+                {/* Official Logo Badge */}
+                <div className="inline-flex items-center gap-3.5 p-2.5 rounded-2xl bg-charcoal border border-titanium/20 backdrop-blur-md shadow-md">
+                  <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-sm shrink-0 border border-titanium/20">
                     <img 
                       src="/images/business_logo.png" 
                       alt="The Garage On Wheels Official Logo" 
@@ -72,7 +56,7 @@ export default function AboutSection({ onOpenBooking }) {
                     />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-black font-sans text-white tracking-tight">
+                    <h3 className="text-sm sm:text-base font-black font-sans text-white tracking-tight">
                       THE GARAGE <span className="text-steel-400">ON WHEELS</span>
                     </h3>
                     <p className="text-[9px] font-bold uppercase tracking-widest text-titanium font-mono">
@@ -81,74 +65,70 @@ export default function AboutSection({ onOpenBooking }) {
                   </div>
                 </div>
 
-                <div className="space-y-3 pt-2">
+                <div className="space-y-2.5 pt-1">
                   <span className="text-[11px] font-bold uppercase tracking-widest text-steel-400 font-mono">
                     OUR CORE PHILOSOPHY
                   </span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug">
                     Redefining Car Maintenance For The Modern World.
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Customers don't always need to drive their car to a garage. <strong>The Garage On Wheels</strong> brings professional car service and repair directly to the customer's location with zero friction and complete pricing transparency.
+                    You shouldn't have to spend your weekend driving through traffic or sitting in waiting rooms. <strong>The Garage On Wheels</strong> brings certified car service directly to your location with total price clarity.
                   </p>
                 </div>
 
-                {/* Badges with Titanium Dividers */}
-                <div className="pt-4 border-t border-titanium/15 grid grid-cols-2 gap-4 text-left">
+                {/* Verified Core Standards */}
+                <div className="pt-3 border-t border-titanium/15 grid grid-cols-2 gap-4 text-left">
                   <div>
-                    <div className="text-2xl font-black text-white font-sans">1,200+</div>
-                    <div className="text-[11px] text-slate-400 font-medium">Cars Serviced at Doorstep</div>
+                    <div className="text-lg sm:text-xl font-black text-white font-mono">100% Mobile</div>
+                    <div className="text-[11px] text-slate-400 font-medium">At your doorstep</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-steel-400 font-sans">100%</div>
-                    <div className="text-[11px] text-slate-400 font-medium">Genuine OEM Parts</div>
+                    <div className="text-lg sm:text-xl font-black text-steel-400 font-mono">100% Genuine</div>
+                    <div className="text-[11px] text-slate-400 font-medium">OEM sealed parts</div>
                   </div>
                 </div>
 
               </div>
-
             </div>
           </div>
 
-          {/* Right Column: About Content & Information Labels */}
-          <div className="lg:col-span-7 space-y-7">
+          {/* Column 2 (Mobile second, Desktop right): Content & 3 Trust Points */}
+          <div className="lg:col-span-6 space-y-6 text-left">
             
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20 font-mono">
                 <Sparkles className="w-3.5 h-3.5 text-steel-400" />
-                <span>ABOUT THE GARAGE ON WHEELS</span>
+                <span>ABOUT US</span>
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight leading-tight">
                 CAR CARE THAT <span className="text-steel-600">COMES TO YOU.</span>
               </h2>
               
-              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
-                Customers don't always need to drive their car to a traditional garage. <strong>The Garage On Wheels</strong> brings professional car service and repair directly to your home, office, or residential parking in Tirumalagiri, Secunderabad, and Hyderabad.
+              <p className="text-sm sm:text-base text-secondary leading-relaxed">
+                We believe regular car servicing and repairs should be effortless. We dispatch certified mobile technicians directly to your residential parking or corporate office across Secunderabad and Hyderabad.
               </p>
             </div>
 
-            {/* Feature Matrix with Information Labels */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {highlights.map((item, idx) => {
+            {/* 3 Core Trust Pillars */}
+            <div className="space-y-3 pt-1">
+              {trustPillars.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div 
                     key={idx}
-                    className="p-5 rounded-card bg-white border border-border hover:border-steel-400 transition-all duration-300 shadow-sm hover:shadow-md space-y-2 group"
+                    className="p-4 rounded-card bg-white border border-border hover:border-steel-400 transition-all shadow-sm space-y-1.5"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="w-9 h-9 rounded-btn bg-surface text-steel-700 group-hover:bg-graphite group-hover:text-steel-300 transition-colors flex items-center justify-center border border-border">
-                        <Icon className="w-4 h-4" />
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-7 h-7 rounded-lg bg-surface text-steel-700 flex items-center justify-center border border-border shrink-0">
+                        <Icon className="w-3.5 h-3.5" />
                       </div>
-                      <span className="text-[9px] font-bold tracking-widest text-slate-500 uppercase font-mono">
-                        {item.label}
-                      </span>
+                      <h3 className="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wide font-mono">
+                        {item.title}
+                      </h3>
                     </div>
-                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-graphite transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-secondary leading-relaxed pl-9">
                       {item.desc}
                     </p>
                   </div>
@@ -156,14 +136,13 @@ export default function AboutSection({ onOpenBooking }) {
               })}
             </div>
 
-            {/* Action CTAs */}
-            <div className="pt-3 flex flex-col sm:flex-row items-center gap-4">
+            {/* Action CTA */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
               <button
                 onClick={() => onOpenBooking()}
                 className="w-full sm:w-auto px-7 py-3.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs tracking-widest uppercase rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300"
               >
-                <span>BOOK A SERVICE</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>BOOK A SERVICE →</span>
               </button>
 
               <a

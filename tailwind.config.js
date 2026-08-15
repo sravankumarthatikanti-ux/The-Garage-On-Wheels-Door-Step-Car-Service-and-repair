@@ -7,94 +7,89 @@ export default {
   theme: {
     extend: {
       colors: {
-        /* Deep Graphite (#111418) */
+        // Master Soft Performance Luxury Color System
         graphite: {
-          DEFAULT: '#111418',
-          deep: '#0E1013',
-          dark: '#111418',
-          light: '#1A1E24',
+          DEFAULT: '#111418', // Deep Graphite
+          deep: '#0D0F12',
+          surface: '#1C2126', // Secondary Graphite
         },
-        /* Soft Charcoal (#252A30) */
         charcoal: {
-          DEFAULT: '#252A30',
-          deep: '#111418',
-          soft: '#2E343B',
-          muted: '#1E2227',
+          DEFAULT: '#2A3036', // Soft Charcoal
+          soft: '#343B42',
+          muted: '#1E2328',
         },
-        /* Pearl White (#F5F6F7) and light surfaces */
         surface: {
-          DEFAULT: '#F5F6F7',
-          warm: '#FFFFFF',
-          soft: '#EDEFF1',
+          DEFAULT: '#F5F7F8', // Pearl White
+          pure: '#FFFFFF',    // Pure White
+          soft: '#EBEFF2',
+          warm: '#F0F3F5',
         },
-        pearl: '#F5F6F7',
-        /* Soft Steel Blue (#8FAFC2) - Primary Accent */
+        // Accents
+        ice: {
+          DEFAULT: '#BFDCEB', // Ice Blue
+          soft: '#D6EAF5',
+          glow: 'rgba(191, 220, 235, 0.25)',
+        },
+        mist: {
+          DEFAULT: '#AFC4D1', // Mist Blue
+          deep: '#8FAAB9',
+        },
+        sage: {
+          DEFAULT: '#C7D5CC', // Sage Mist
+        },
+        lavender: {
+          DEFAULT: '#D0CDD8', // Lavender Grey
+        },
+        champagne: {
+          DEFAULT: '#D8CCB8', // Soft Champagne
+        },
         steel: {
-          DEFAULT: '#8FAFC2',
-          50: '#F0F5F8',
-          100: '#DCE7EE',
-          200: '#BCD2DF',
-          300: '#A3C0D2',
-          400: '#8FAFC2',
-          500: '#7599AF',
-          600: '#5C8197',
-          700: '#48687B',
-          800: '#344C5A',
-          900: '#252A30',
+          50: '#F2F6F9',
+          100: '#E2ECF2',
+          200: '#C5D9E5',
+          300: '#AFC4D1', // Mist Blue
+          400: '#8FAFC2', // Soft Steel Blue Primary Accent
+          500: '#7295AA',
+          600: '#587A8E',
+          700: '#415E6F',
         },
-        brand: {
-          50: '#F0F5F8',
-          100: '#DCE7EE',
-          200: '#BCD2DF',
-          300: '#A3C0D2',
-          400: '#8FAFC2',
-          500: '#7599AF',
-          600: '#5C8197',
-          700: '#48687B',
-          800: '#344C5A',
-          900: '#111418',
-          dark: '#111418',
-        },
-        /* Titanium Silver (#C7D0D6) */
         titanium: {
-          DEFAULT: '#C7D0D6',
-          light: '#E2E8EC',
-          border: '#C7D0D6',
-          dark: '#3A4148',
+          DEFAULT: '#C8D0D5', // Titanium Silver
+          light: '#DEE4E8',
+          dark: '#9BA7AF',
         },
-        /* Metallic details */
-        metallic: {
-          DEFAULT: '#C7D0D6',
-          light: '#E5EBEF',
-        },
-        /* Semantic text colors */
         primary: '#171A1D',
-        secondary: '#66717A',
-        muted: '#8E98A0',
-        /* Borders */
-        border: {
-          DEFAULT: '#E1E6EA',
-          soft: '#EDEFF1',
-          titanium: '#C7D0D6',
-        },
+        secondary: '#5F6C76',
+        muted: '#8A97A0',
+        border: '#DEE4E8',
+        'border-soft': '#E8EDF0',
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['SF Mono', 'JetBrains Mono', 'Menlo', 'monospace'],
       },
       boxShadow: {
-        'premium': '0 10px 30px rgba(17, 20, 24, 0.05)',
-        'premium-hover': '0 16px 40px rgba(17, 20, 24, 0.08)',
-        'premium-lg': '0 25px 60px rgba(17, 20, 24, 0.12)',
+        'subtle': '0 4px 20px rgba(17, 20, 24, 0.04)',
+        'premium': '0 12px 35px rgba(17, 20, 24, 0.08)',
+        'deep': '0 24px 60px rgba(0, 0, 0, 0.45)',
+        'ice-glow': '0 0 25px rgba(191, 220, 235, 0.25)',
         'steel-glow': '0 0 25px rgba(143, 175, 194, 0.25)',
       },
       borderRadius: {
         'card': '16px',
-        'card-lg': '20px',
-        'btn': '8px',
-        'input': '10px',
-        'modal': '18px',
+        'card-lg': '24px',
+        'modal': '24px',
+        'btn': '10px',
       },
+      screens: {
+        'xs': '375px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1440px',
+      }
     },
   },
   plugins: [],
-};
+}

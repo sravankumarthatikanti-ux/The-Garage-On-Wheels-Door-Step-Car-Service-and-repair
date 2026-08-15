@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
   CheckCircle2, ArrowRight, MessageSquare, 
   Star, ChevronDown, Sparkles, ExternalLink, ShieldCheck, Phone
@@ -28,8 +28,8 @@ export default function Hero({ onOpenBooking }) {
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 16; // Subtle micro-parallax range
-    const y = (clientY / innerHeight - 0.5) * 16;
+    const x = (clientX / innerWidth - 0.5) * 14;
+    const y = (clientY / innerHeight - 0.5) * 14;
     setMousePos({ x, y });
   };
 
@@ -47,9 +47,7 @@ export default function Hero({ onOpenBooking }) {
 
   const handleDirectWhatsApp = () => {
     const url = buildWhatsAppUrl({
-      carBrand: selectedBrand,
-      carModel: selectedModel,
-      serviceName: "Doorstep Inspection & Quote"
+      serviceName: "Doorstep Car Care Enquiry"
     });
     window.open(url, '_blank');
   };
@@ -57,134 +55,105 @@ export default function Hero({ onOpenBooking }) {
   return (
     <section 
       onMouseMove={handleMouseMove}
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-graphite text-white select-none"
+      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-graphite text-white select-none"
     >
-      
       {/* ------------------------------------------------------------- */}
-      {/* LAYER 1: ATMOSPHERIC BACKGROUND & WORKSHOP LIGHTS BASE        */}
+      {/* LAYER 1: DEEP GRAPHITE & WORKSHOP LIGHTING BASE               */}
       {/* ------------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Real photographic workshop lighting base layer */}
         <img 
           src="/images/workshop_lights_bg.jpg" 
-          alt="High-Tech Precision Mechanic Shop & Workshop Lighting" 
-          className="w-full h-full object-cover object-center scale-105 opacity-20 filter brightness-90 contrast-120 grayscale-[25%]"
+          alt="High-Tech Precision Workshop Lighting" 
+          className="w-full h-full object-cover object-center opacity-18 filter brightness-90 contrast-120 grayscale-[25%]"
         />
-        
-        {/* Soft Graphite Gradient Vales */}
         <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/90 to-graphite/85" />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-graphite/95" />
         
-        {/* Subtle Ice Blue & Mist Blue Ambient Gradient Lighting */}
+        {/* Layer 2: Ice Blue & Mist Blue Ambient Lighting */}
         <div 
-          className="absolute top-1/4 left-1/3 w-[850px] h-[450px] bg-gradient-to-tr from-steel-400/10 via-steel-300/5 to-transparent rounded-full blur-[140px] transition-transform duration-1000 ease-out"
+          className="absolute top-1/4 left-1/3 w-[800px] h-[450px] bg-gradient-to-tr from-ice/10 via-mist/5 to-transparent rounded-full blur-[140px] transition-transform duration-1000 ease-out"
           style={{
             transform: `translate3d(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px, 0)`,
           }}
         />
       </div>
 
-      {/* Global Blueprint & Automotive Heritage Vector Grid Layer */}
+      {/* Blueprint & Automotive Heritage Vector Grid Layer */}
       <HeroHeritageBackground />
 
       {/* ------------------------------------------------------------- */}
-      {/* LAYER 2: CINEMATIC ATMOSPHERE, STUDIO SPOTLIGHT & PARTICLES   */}
+      {/* LAYER 3: CINEMATIC STUDIO SPOTLIGHT & PARTICLES               */}
       {/* ------------------------------------------------------------- */}
       <div className="absolute inset-0 z-[2] overflow-hidden pointer-events-none">
-        
-        {/* Soft Automotive Diffused Studio Spotlight behind stage */}
+        {/* Soft Automotive Studio Spotlight */}
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-radial from-steel-400/8 via-steel-400/3 to-transparent rounded-full blur-[120px] animate-spotlight"
         />
 
-        {/* Floating Micro-Particles Simulation */}
-        <CinematicParticles density={30} color="143, 175, 194" maxSpeed={0.2} />
+        {/* Layer 6: Floating Micro-Particles Simulation */}
+        <CinematicParticles density={24} color="175, 196, 209" maxSpeed={0.18} />
 
-        {/* Ultra-Subtle Horizontal Light Reflection Sweep across titanium & metallic surfaces */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-steel-300/[0.04] to-transparent w-[35%] h-full animate-light-sweep pointer-events-none" />
+        {/* Faint Horizontal Light Sweep */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ice/[0.04] to-transparent w-[35%] h-full animate-light-sweep pointer-events-none" />
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* LAYER 3: CONTENT & HERO STAGE                                 */}
+      {/* LAYER 4: CONTENT & HERO STAGE (MOBILE-FIRST ORDER)            */}
       {/* ------------------------------------------------------------- */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Official Logo, Brand Lockup & Value Proposition */}
+          {/* Left Column: Official Logo, Brand, Headline & Direct CTAs */}
           <div 
-            className="lg:col-span-7 space-y-6 text-center lg:text-left transition-transform duration-700 ease-out"
+            className="lg:col-span-7 space-y-5 text-center lg:text-left transition-transform duration-700 ease-out"
             style={{
-              transform: `translate3d(${-mousePos.x * 0.3}px, ${-mousePos.y * 0.3}px, 0)`,
+              transform: `translate3d(${-mousePos.x * 0.25}px, ${-mousePos.y * 0.25}px, 0)`,
             }}
           >
             
-            {/* OFFICIAL LOGO & PRIMARY BRAND LOCKUP */}
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-2.5 sm:pr-6 rounded-2xl bg-charcoal/85 border border-titanium/20 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-steel-400/50 hover:shadow-steel-glow">
-              <div className="relative shrink-0 w-20 h-20 sm:w-22 sm:h-22 rounded-xl overflow-hidden bg-white p-1 shadow-md border border-titanium/20">
+            {/* 1. OFFICIAL LOGO & BRAND BADGE */}
+            <div className="inline-flex items-center gap-3.5 p-2 pr-5 rounded-2xl bg-charcoal/85 border border-titanium/20 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-steel-400/50">
+              <div className="relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-white p-1 shadow-sm border border-titanium/20">
                 <img
                   src="/images/business_logo.png"
-                  alt="The Garage On Wheels Official Business Logo"
+                  alt="The Garage On Wheels Official Logo"
                   className="w-full h-full object-contain"
                   loading="eager"
                 />
               </div>
-              <div className="text-center sm:text-left">
-                <div className="flex items-center justify-center sm:justify-start gap-2">
-                  <span className="text-xl sm:text-2xl font-black tracking-tight font-sans text-white">
+              <div className="text-left">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-base sm:text-lg font-black tracking-tight text-white">
                     THE GARAGE
                   </span>
-                  <span className="text-xl sm:text-2xl font-black tracking-wider text-steel-400">
+                  <span className="text-base sm:text-lg font-black tracking-wider text-steel-400">
                     ON WHEELS
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-titanium mt-0.5 font-mono">
+                <p className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-titanium font-mono">
                   DOOR STEP CAR SERVICE &amp; REPAIR
                 </p>
-                <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] text-steel-300 font-semibold mt-1 font-mono">
-                  <span className="w-1.5 h-1.5 rounded-full bg-steel-400 animate-pulse" />
-                  <span>DOORSTEP SERVICE • PROFESSIONAL TECHNICIANS • CAR CARE • ANYWHERE</span>
-                </div>
               </div>
             </div>
 
-            {/* Core Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-white font-sans tracking-tight leading-[1.1]">
-              Professional Car Care, <br />
-              <span className="text-steel-400">Wherever Your Car Is.</span>
+            {/* 2. CORE HEADLINE */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white font-sans tracking-tight leading-[1.05]">
+              CAR CARE. <br />
+              <span className="text-steel-400">WHEREVER YOU ARE.</span>
             </h1>
 
-            {/* Subhead Quote / Description */}
-            <p className="text-base sm:text-lg text-titanium max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Expert car service and repair brought directly to your doorstep.
-            </p>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Save valuable time and avoid garage waiting lines. Our certified master mechanics arrive at your residence, office, or apartment with OEM diagnostic tools and genuine parts.
+            {/* 3. SHORT SUPPORTING TEXT */}
+            <p className="text-base sm:text-lg text-titanium max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Professional car service and repair brought directly to your doorstep.
             </p>
 
-            {/* Technical Feature Chips with Thin Titanium Borders */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs font-medium text-slate-300">
-              <div className="flex items-center space-x-2.5 bg-charcoal/90 border border-titanium/15 p-3 rounded-card hover:border-steel-400/40 transition-colors">
-                <CheckCircle2 className="w-4 h-4 text-steel-400 shrink-0" />
-                <span>100% Genuine OEM Parts</span>
-              </div>
-              <div className="flex items-center space-x-2.5 bg-charcoal/90 border border-titanium/15 p-3 rounded-card hover:border-steel-400/40 transition-colors">
-                <CheckCircle2 className="w-4 h-4 text-steel-400 shrink-0" />
-                <span>Doorstep Convenience</span>
-              </div>
-              <div className="flex items-center space-x-2.5 bg-charcoal/90 border border-titanium/15 p-3 rounded-card hover:border-steel-400/40 transition-colors">
-                <CheckCircle2 className="w-4 h-4 text-steel-400 shrink-0" />
-                <span>1000 KM / 1-Mo Warranty</span>
-              </div>
-            </div>
-
-            {/* Prominent Action Buttons: BOOK A SERVICE & WHATSAPP US */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* 4. PRIMARY & SECONDARY ACTION BUTTONS */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
               <button
                 onClick={() => onOpenBooking()}
                 className="w-full sm:w-auto px-8 py-4 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs tracking-widest uppercase rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300"
               >
-                <span>BOOK A SERVICE</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>BOOK A SERVICE →</span>
               </button>
 
               <button
@@ -196,62 +165,51 @@ export default function Hero({ onOpenBooking }) {
               </button>
             </div>
 
-            {/* Verified Rating */}
-            <div className="flex items-center justify-center lg:justify-start space-x-4 pt-2">
-              <div className="flex -space-x-2 overflow-hidden">
-                <span className="inline-block h-8 w-8 rounded-full ring-2 ring-graphite bg-charcoal text-titanium flex items-center justify-center text-xs font-bold border border-titanium/20">SK</span>
-                <span className="inline-block h-8 w-8 rounded-full ring-2 ring-graphite bg-charcoal-soft text-white flex items-center justify-center text-xs font-bold border border-titanium/20">RR</span>
-                <span className="inline-block h-8 w-8 rounded-full ring-2 ring-graphite bg-charcoal text-steel-400 flex items-center justify-center text-xs font-bold border border-titanium/20">VN</span>
-                <span className="inline-block h-8 w-8 rounded-full ring-2 ring-graphite bg-graphite-deep text-titanium flex items-center justify-center text-xs font-bold border border-titanium/20">+</span>
-              </div>
-              <div className="text-left">
-                <div className="flex items-center space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-steel-400 text-steel-400" />
-                  ))}
-                  <span className="text-xs font-bold text-white ml-1 font-mono">4.9 / 5.0</span>
-                </div>
-                <p className="text-[11px] text-slate-400">Over 1,200+ car owners served across Secunderabad &amp; Hyderabad</p>
+            {/* Verified Trust Strip Indicator */}
+            <div className="pt-1 flex items-center justify-center lg:justify-start space-x-4 text-xs text-slate-300 font-mono">
+              <div className="flex items-center space-x-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Mobile Units Active in Secunderabad &amp; Hyderabad</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Instant WhatsApp Quote Calculator Card (Grounded Studio Stage) */}
+          {/* Right Column: Progressive Instant Quote Calculator with Grounding Shadow */}
           <div 
             className="lg:col-span-5 relative transition-transform duration-700 ease-out"
             style={{
               transform: `translate3d(${mousePos.x * 0.2}px, ${mousePos.y * 0.2}px, 0)`,
             }}
           >
-            {/* Realistic Grounding Shadow & Ambient Floor Reflection */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-12 car-ground-shadow rounded-full pointer-events-none" />
-            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-16 car-floor-reflection rounded-full pointer-events-none" />
+            {/* Layer 5: Natural Floor Shadow & Ambient Reflection */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[90%] h-12 car-ground-shadow rounded-full pointer-events-none" />
+            <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 w-[80%] h-16 car-floor-reflection rounded-full pointer-events-none" />
 
-            <div className="bg-charcoal/95 border border-titanium/20 rounded-card-lg p-6 sm:p-8 shadow-2xl relative backdrop-blur-xl hover:border-steel-400/40 transition-all duration-300">
+            <div className="bg-charcoal/95 border border-titanium/20 rounded-card-lg p-6 sm:p-7 shadow-2xl relative backdrop-blur-xl hover:border-steel-400/40 transition-all duration-300">
               
-              <div className="flex items-center justify-between border-b border-titanium/15 pb-4 mb-6">
+              <div className="flex items-center justify-between border-b border-titanium/15 pb-3.5 mb-5">
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-widest text-steel-400 font-mono">Instant Estimate</span>
-                  <h2 className="text-lg font-bold text-white mt-0.5">Doorstep Service Calculator</h2>
+                  <h2 className="text-base sm:text-lg font-bold text-white mt-0.5">Doorstep Service Calculator</h2>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-steel-400/15 text-steel-300 text-[10px] font-bold border border-steel-400/30 font-mono">
-                  ⚡ Live Today
+                  ⚡ Doorstep
                 </span>
               </div>
 
-              <form onSubmit={handleQuickWhatsApp} className="space-y-4 text-left">
+              <form onSubmit={handleQuickWhatsApp} className="space-y-3.5 text-left">
                 
                 {/* 1. Car Brand */}
                 <div>
-                  <label className="block text-xs font-semibold text-titanium mb-1.5 font-mono">
-                    1. Select Car Brand
+                  <label className="block text-xs font-semibold text-titanium mb-1 font-mono">
+                    1. Car Brand
                   </label>
                   <div className="relative">
                     <select
                       value={selectedBrand}
                       onChange={handleBrandChange}
-                      className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium"
+                      className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium cursor-pointer"
                     >
                       {CAR_BRANDS.map((b) => (
                         <option key={b.id} value={b.name} className="bg-graphite text-white">
@@ -264,16 +222,16 @@ export default function Hero({ onOpenBooking }) {
                 </div>
 
                 {/* 2. Car Model & Fuel */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="block text-xs font-semibold text-titanium mb-1.5 font-mono">
-                      2. Car Model
+                    <label className="block text-xs font-semibold text-titanium mb-1 font-mono">
+                      2. Model
                     </label>
                     <div className="relative">
                       <select
                         value={selectedModel}
                         onChange={(e) => setSelectedModel(e.target.value)}
-                        className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium"
+                        className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium cursor-pointer"
                       >
                         {currentBrandObj.models.map((m) => (
                           <option key={m} value={m} className="bg-graphite text-white">
@@ -286,14 +244,14 @@ export default function Hero({ onOpenBooking }) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-titanium mb-1.5 font-mono">
-                      Fuel Type
+                    <label className="block text-xs font-semibold text-titanium mb-1 font-mono">
+                      Fuel
                     </label>
                     <div className="relative">
                       <select
                         value={fuelType}
                         onChange={(e) => setFuelType(e.target.value)}
-                        className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium"
+                        className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium cursor-pointer"
                       >
                         <option value="Petrol" className="bg-graphite text-white">Petrol</option>
                         <option value="Diesel" className="bg-graphite text-white">Diesel</option>
@@ -308,14 +266,14 @@ export default function Hero({ onOpenBooking }) {
 
                 {/* 3. Service Package */}
                 <div>
-                  <label className="block text-xs font-semibold text-titanium mb-1.5 font-mono">
+                  <label className="block text-xs font-semibold text-titanium mb-1 font-mono">
                     3. Required Service
                   </label>
                   <div className="relative">
                     <select
                       value={selectedService}
                       onChange={(e) => setSelectedService(e.target.value)}
-                      className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium"
+                      className="w-full bg-graphite border border-titanium/20 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 focus:ring-1 focus:ring-steel-400 transition-all font-medium cursor-pointer"
                     >
                       {SERVICE_CATEGORIES.map((s) => (
                         <option key={s.id} value={s.title} className="bg-graphite text-white">
@@ -336,9 +294,6 @@ export default function Hero({ onOpenBooking }) {
                     <MessageSquare className="w-4 h-4" />
                     <span>Get Instant WhatsApp Quote</span>
                   </button>
-                  <p className="text-[10px] text-slate-400 text-center mt-2 font-mono">
-                    ✓ No advance payment required • Free doorstep quote
-                  </p>
                 </div>
 
               </form>
@@ -346,47 +301,6 @@ export default function Hero({ onOpenBooking }) {
             </div>
           </div>
 
-        </div>
-
-        {/* Visible Clickable Technical Authority & Reference Cards */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-          {/* Reference 1: Automotive Brands & Origin */}
-          <a
-            href="https://www.smartwebsolutions.org/blog/top-10-car-companies-and-their-country-of-origin-cars-country-of-origin-list/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block px-[18px] py-[14px] rounded-[12px] bg-charcoal/80 hover:bg-charcoal border border-titanium/15 hover:border-steel-400/40 backdrop-blur-md shadow-lg transition-all duration-250 text-left"
-          >
-            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-white font-mono flex items-center justify-between">
-              <span>AUTOMOTIVE BRAND REFERENCE</span>
-              <ExternalLink className="w-3.5 h-3.5 text-steel-400 group-hover:text-white transform group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-xs text-slate-300 mt-1">
-              Explore global automotive manufacturers &amp; countries of origin
-            </p>
-            <div className="text-[11px] font-semibold text-steel-400 group-hover:text-white group-hover:underline mt-2 flex items-center gap-1 font-mono">
-              <span>smartwebsolutions.org ↗</span>
-            </div>
-          </a>
-
-          {/* Reference 2: Mechanic Shop Lighting Efficiency (PacLights) */}
-          <a
-            href="https://www.paclights.com/explore/mechanic-shop-lights-the-overlooked-factor-in-lighting-efficiency/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block px-[18px] py-[14px] rounded-[12px] bg-charcoal/80 hover:bg-charcoal border border-titanium/15 hover:border-steel-400/40 backdrop-blur-md shadow-lg transition-all duration-250 text-left"
-          >
-            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-white font-mono flex items-center justify-between">
-              <span>WORKSHOP LIGHTING EFFICIENCY</span>
-              <ExternalLink className="w-3.5 h-3.5 text-steel-400 group-hover:text-white transform group-hover:translate-x-0.5 transition-transform" />
-            </div>
-            <p className="text-xs text-slate-300 mt-1">
-              Mechanic shop lights: The overlooked factor in inspection &amp; safety
-            </p>
-            <div className="text-[11px] font-semibold text-steel-400 group-hover:text-white group-hover:underline mt-2 flex items-center gap-1 font-mono">
-              <span>paclights.com ↗</span>
-            </div>
-          </a>
         </div>
 
       </div>

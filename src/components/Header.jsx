@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, MapPin, Menu, X, ShieldCheck, Phone, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
+import { BUSINESS_INFO, buildWhatsAppUrl } from '../data/carServiceData';
 import Logo from './Logo';
-import { BUSINESS_INFO } from '../data/carServiceData';
 
 export default function Header({ onOpenBooking }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -23,116 +19,124 @@ export default function Header({ onOpenBooking }) {
     { name: 'HOME', href: '#' },
     { name: 'SERVICES', href: '#services' },
     { name: 'HOW IT WORKS', href: '#how-it-works' },
-    { name: 'ABOUT', href: '#about' },
     { name: 'WHY US', href: '#why-us' },
+    { name: 'PARTS', href: '#parts' },
+    { name: 'ABOUT', href: '#about' },
     { name: 'CONTACT', href: '#contact' },
   ];
 
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-graphite/95 backdrop-blur-md border-b border-titanium/10 shadow-2xl py-2.5' 
-        : 'bg-graphite/90 backdrop-blur-md border-b border-white/5 py-3'
-    }`}>
-      {/* Top Banner Notice */}
-      <div className="hidden lg:block border-b border-white/5 py-1 px-4 text-xs font-medium bg-graphite-deep text-slate-300">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="flex items-center gap-2 text-[11px]">
-            <ShieldCheck className="w-3.5 h-3.5 text-steel-400" />
-            <strong className="text-white font-bold">THE GARAGE ON WHEELS</strong> – Door Step Car Service &amp; Repair in Tirumalagiri, Secunderabad &amp; Hyderabad
-          </span>
-          <div className="flex items-center gap-5 text-[11px] text-slate-300">
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3 h-3 text-steel-400" /> Tirumalagiri Cantonment Hub
-            </span>
-            <a 
-              href={`tel:${BUSINESS_INFO.whatsappNumber}`} 
-              className="flex items-center gap-1 hover:text-steel-400 font-semibold transition-colors"
-            >
-              <Phone className="w-3 h-3 text-steel-400" /> {BUSINESS_INFO.formattedPhone}
-            </a>
-          </div>
-        </div>
-      </div>
+  const handleWhatsAppClick = () => {
+    const url = buildWhatsAppUrl({ serviceName: "Doorstep Consultation" });
+    window.open(url, '_blank');
+  };
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-1">
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-graphite/90 backdrop-blur-xl border-b border-titanium/15 shadow-2xl py-3' 
+          : 'bg-gradient-to-b from-graphite/95 via-graphite/80 to-transparent py-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo & Brand Name */}
-          <a href="#" className="flex items-center">
-            <Logo size={isScrolled ? 'compact' : 'default'} isDark={true} />
-          </a>
+          {/* Logo Component */}
+          <div className="flex items-center">
+            <Logo isDark={true} size="default" />
+          </div>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-7 text-xs font-bold tracking-wider text-titanium">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="transition-colors py-1 relative hover:text-white after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-steel-400 hover:after:w-full after:transition-all"
+                className="text-xs font-semibold text-titanium/90 hover:text-white transition-colors tracking-widest font-mono py-1 relative group"
               >
                 {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-steel-400 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
 
-          {/* Right CTA Button */}
-          <div className="hidden sm:flex items-center space-x-3">
+          {/* Right Desktop CTA Action */}
+          <div className="hidden sm:flex items-center space-x-4">
+            <a
+              href={`tel:${BUSINESS_INFO.whatsappNumber}`}
+              className="hidden xl:flex items-center space-x-2 text-xs font-bold text-titanium hover:text-white px-3 py-2 rounded-btn transition-colors border border-titanium/20"
+            >
+              <Phone className="w-3.5 h-3.5 text-steel-400" />
+              <span>{BUSINESS_INFO.formattedPhone}</span>
+            </a>
+
             <button
               onClick={() => onOpenBooking()}
-              className="px-5 py-2.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs tracking-wider uppercase rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center space-x-2 active:scale-95 border border-steel-300"
+              className="px-5 py-2.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-wider rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center space-x-1.5 active:scale-95 border border-steel-300"
             >
               <span>BOOK A SERVICE</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center space-x-2">
+          {/* Mobile Menu Toggle Button */}
+          <div className="flex items-center space-x-3 lg:hidden">
             <button
               onClick={() => onOpenBooking()}
-              className="px-3.5 py-2 bg-steel-400 text-graphite text-xs font-black tracking-wider uppercase rounded-btn flex items-center space-x-1 shadow-sm"
+              className="sm:hidden px-3.5 py-2 bg-steel-400 text-graphite font-black text-[11px] uppercase tracking-wider rounded-btn shadow-sm"
             >
-              <span>BOOK</span>
+              BOOK
             </button>
-
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-btn text-white hover:bg-charcoal transition-colors border border-white/10"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2.5 rounded-btn bg-charcoal text-titanium hover:text-white border border-titanium/20 transition-colors"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-graphite border-b border-titanium/15 px-5 pt-4 pb-6 space-y-3 mt-2 shadow-2xl">
-          <div className="flex flex-col space-y-1">
+      {/* Mobile Drawer Navigation */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-graphite/98 border-b border-titanium/20 px-6 py-6 space-y-4 shadow-2xl backdrop-blur-2xl animate-fadeIn">
+          <nav className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-btn text-sm font-bold tracking-wider text-titanium hover:bg-charcoal hover:text-white transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-bold text-titanium hover:text-steel-300 py-2 border-b border-titanium/10 tracking-wider font-mono flex items-center justify-between"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <span className="text-steel-400 text-xs">→</span>
               </a>
             ))}
-          </div>
+          </nav>
 
-          <div className="pt-3 border-t border-white/10 flex flex-col space-y-2">
+          <div className="pt-2 space-y-2.5">
             <button
               onClick={() => {
-                setMobileMenuOpen(false);
+                setIsMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-sm uppercase tracking-wider rounded-btn flex items-center justify-center space-x-2 shadow-md"
+              className="w-full py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2"
             >
-              <MessageSquare className="w-4 h-4" />
-              <span>BOOK A SERVICE (WHATSAPP)</span>
+              <span>BOOK A SERVICE</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleWhatsAppClick();
+              }}
+              className="w-full py-3 bg-charcoal hover:bg-charcoal-soft text-white font-bold text-xs uppercase tracking-widest rounded-btn border border-titanium/25 flex items-center justify-center space-x-2"
+            >
+              <MessageSquare className="w-4 h-4 text-steel-400" />
+              <span>WHATSAPP US</span>
             </button>
           </div>
         </div>
