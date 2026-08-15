@@ -56,23 +56,10 @@ export default function AboutSection({ onOpenBooking }) {
               </div>
 
               <div className="space-y-6 relative z-10 text-left">
-                {/* Official Logo Badge */}
-                <div className="inline-flex items-center gap-3.5 p-2.5 rounded-2xl bg-charcoal border border-ice/30 backdrop-blur-md shadow-md">
-                  <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-sm shrink-0 border border-titanium/20">
-                    <img 
-                      src="/images/business_logo.png" 
-                      alt="The Garage On Wheels Official Logo" 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-black font-sans text-white tracking-tight">
-                      THE GARAGE <span className="text-ice">ON WHEELS</span>
-                    </h3>
-                    <p className="text-[9px] font-bold uppercase tracking-widest text-titanium font-mono">
-                      Door Step Car Service &amp; Repair
-                    </p>
-                  </div>
+                {/* Clean Standards Indicator */}
+                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-charcoal border border-ice/30 text-ice text-xs font-bold uppercase tracking-widest font-mono">
+                  <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+                  <span>THE GARAGE ON WHEELS STANDARDS</span>
                 </div>
 
                 <div className="space-y-2.5 pt-1">

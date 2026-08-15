@@ -147,29 +147,10 @@ export default function Hero({ onOpenBooking }) {
             }}
           >
             
-            {/* 1. OFFICIAL LOGO & BRAND BADGE */}
-            <div className="inline-flex items-center gap-3.5 p-2 pr-5 rounded-2xl bg-charcoal/85 border border-titanium/20 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-ice/50 hover:shadow-[0_0_20px_rgba(143,216,255,0.2)]">
-              <div className="relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-white p-1 shadow-sm border border-titanium/20">
-                <img
-                  src="/images/business_logo.png"
-                  alt="The Garage On Wheels Official Logo"
-                  className="w-full h-full object-contain"
-                  loading="eager"
-                />
-              </div>
-              <div className="text-left">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-base sm:text-lg font-black tracking-tight text-white">
-                    THE GARAGE
-                  </span>
-                  <span className="text-base sm:text-lg font-black tracking-wider text-ice">
-                    ON WHEELS
-                  </span>
-                </div>
-                <p className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-titanium font-mono">
-                  DOOR STEP CAR SERVICE &amp; REPAIR
-                </p>
-              </div>
+            {/* 1. CATEGORY MICRO-INDICATOR */}
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-charcoal/90 border border-ice/30 text-ice text-xs font-bold uppercase tracking-widest font-mono shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+              <span>DOORSTEP CAR SERVICE &amp; REPAIR</span>
             </div>
 
             {/* 2. CORE HEADLINE (White with subtle Ice Blue / Cyan underline highlight) */}
