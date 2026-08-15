@@ -5,6 +5,7 @@ import {
   Cpu, Cog, Wind, AlertTriangle
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
+import CinematicParticles from './CinematicParticles';
 
 const ICON_MAP = {
   'engine-service': Cog,
@@ -19,8 +20,14 @@ const ICON_MAP = {
 
 export default function ServiceGrid({ onSelectService }) {
   return (
-    <section id="services" className="py-20 md:py-28 bg-graphite text-white relative border-t border-titanium/15">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 md:py-28 bg-graphite text-white relative border-t border-titanium/15 overflow-hidden">
+      
+      {/* Subtle Sage Mist & Steel Mist Atmospheric Glow */}
+      <div className="absolute top-1/4 left-1/4 w-[700px] h-[400px] bg-emerald-900/[0.04] rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[600px] h-[350px] bg-steel-400/5 rounded-full blur-[140px] pointer-events-none" />
+      <CinematicParticles density={18} color="143, 175, 194" maxSpeed={0.15} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -47,7 +54,7 @@ export default function ServiceGrid({ onSelectService }) {
         </div>
 
         {/* Featured Foam Wash & Detailing Banner */}
-        <div className="mb-14 rounded-card-lg bg-charcoal border border-titanium/20 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-2xl">
+        <div className="mb-14 rounded-card-lg bg-charcoal border border-titanium/20 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-2xl hover:border-steel-400/40 transition-colors group">
           <div className="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-6">
             <div className="space-y-3">
               <span className="px-2.5 py-1 rounded-full bg-steel-400/15 text-steel-300 text-xs font-bold border border-steel-400/30 inline-block font-mono">
@@ -64,7 +71,7 @@ export default function ServiceGrid({ onSelectService }) {
             <div className="flex flex-wrap items-center gap-6 pt-2">
               <div>
                 <span className="text-xs text-slate-400 block font-mono">Starting from</span>
-                <span className="text-2xl font-extrabold text-white">₹499 <span className="text-xs text-slate-400 font-normal">/ doorstep</span></span>
+                <span className="text-2xl font-extrabold text-white">₹499 <span className="text-xs text-slate-400 font-normal font-mono">/ doorstep</span></span>
               </div>
               <button
                 onClick={() => onSelectService('Doorstep Foam Wash & Detailing')}
@@ -76,17 +83,17 @@ export default function ServiceGrid({ onSelectService }) {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative min-h-[260px] lg:min-h-full">
+          <div className="lg:col-span-5 relative min-h-[260px] lg:min-h-full overflow-hidden">
             <img 
               src="/images/gallery/detailing_wash.jpg" 
               alt="Doorstep Snow Foam Car Wash"
-              className="w-full h-full object-cover object-center filter contrast-105" 
+              className="w-full h-full object-cover object-center filter contrast-105 transition-transform duration-700 group-hover:scale-105" 
             />
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-charcoal via-transparent to-transparent" />
           </div>
         </div>
 
-        {/* 8-Core Service Grid */}
+        {/* 8-Core Service Grid with refined material hover response */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICE_CATEGORIES.map((service) => {
             const IconComponent = ICON_MAP[service.id] || Wrench;
@@ -94,7 +101,7 @@ export default function ServiceGrid({ onSelectService }) {
               <div
                 key={service.id}
                 onClick={() => onSelectService(service.title)}
-                className="dark-card p-6 cursor-pointer flex flex-col justify-between group hover:border-steel-400/50 hover:bg-charcoal/95 transition-all duration-300 shadow-lg hover:shadow-2xl"
+                className="dark-card p-6 cursor-pointer flex flex-col justify-between group shadow-lg"
               >
                 <div>
                   {/* Top: Icon & Price Tag */}

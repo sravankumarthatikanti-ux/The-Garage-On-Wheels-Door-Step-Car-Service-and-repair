@@ -32,20 +32,28 @@ export default function AboutSection({ onOpenBooking }) {
 
   return (
     <section id="about" className="py-20 md:py-28 bg-surface border-t border-border relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Subtle Atmospheric Lighting: Lavender Grey / Steel Mist */}
+      <div className="absolute top-0 right-1/3 w-[600px] h-[350px] bg-slate-200/40 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[300px] bg-steel-100/30 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Automotive Dark Cinematic Card with Official Logo */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-card-lg overflow-hidden border border-titanium/20 shadow-2xl bg-graphite text-white p-8">
+            {/* Contact Floor Shadow */}
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[85%] h-10 car-ground-shadow rounded-full pointer-events-none opacity-40" />
+
+            <div className="relative rounded-card-lg overflow-hidden border border-titanium/20 shadow-2xl bg-graphite text-white p-8 group">
               
               {/* Background Image Layer with Dark Cinematic Treatment */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/gallery/garage_workshop.jpg" 
                   alt="Automotive Workshop Precision" 
-                  className="w-full h-full object-cover opacity-15 filter grayscale-[40%]"
+                  className="w-full h-full object-cover opacity-15 filter grayscale-[40%] transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/90 to-graphite/80" />
               </div>
@@ -55,7 +63,7 @@ export default function AboutSection({ onOpenBooking }) {
               
               <div className="space-y-6 relative z-10 text-center sm:text-left">
                 {/* Official Logo Emblem */}
-                <div className="inline-flex items-center gap-4 p-3 rounded-2xl bg-charcoal border border-titanium/20 backdrop-blur-md shadow-md">
+                <div className="inline-flex items-center gap-4 p-3 rounded-2xl bg-charcoal border border-titanium/20 backdrop-blur-md shadow-md hover:border-steel-400/40 transition-colors">
                   <div className="w-14 h-14 rounded-xl bg-white p-1 shadow-sm shrink-0 border border-titanium/20">
                     <img 
                       src="/images/business_logo.png" 
@@ -67,7 +75,7 @@ export default function AboutSection({ onOpenBooking }) {
                     <h3 className="text-base sm:text-lg font-black font-sans text-white tracking-tight">
                       THE GARAGE <span className="text-steel-400">ON WHEELS</span>
                     </h3>
-                    <p className="text-[9px] font-bold uppercase tracking-widest text-titanium">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-titanium font-mono">
                       Door Step Car Service &amp; Repair
                     </p>
                   </div>
@@ -106,7 +114,7 @@ export default function AboutSection({ onOpenBooking }) {
           <div className="lg:col-span-7 space-y-7">
             
             <div className="space-y-3">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-graphite text-steel-300 text-xs font-bold uppercase tracking-widest border border-titanium/20 font-mono">
                 <Sparkles className="w-3.5 h-3.5 text-steel-400" />
                 <span>ABOUT THE GARAGE ON WHEELS</span>
               </div>

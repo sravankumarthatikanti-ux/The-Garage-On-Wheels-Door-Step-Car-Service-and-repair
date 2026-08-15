@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, Phone, MessageSquare, ShieldCheck, ChevronRight, Clock, Award, Sparkles } from 'lucide-react';
 import { BUSINESS_INFO, LOCAL_SERVICE_AREAS, buildWhatsAppUrl } from '../data/carServiceData';
 import Logo from './Logo';
+import CinematicParticles from './CinematicParticles';
 
 export default function Footer({ onOpenBooking }) {
   const currentYear = new Date().getFullYear();
@@ -13,6 +14,16 @@ export default function Footer({ onOpenBooking }) {
 
   return (
     <footer id="contact" className="bg-graphite text-slate-300 border-t border-titanium/15 pt-16 pb-12 font-sans relative overflow-hidden">
+      
+      {/* ------------------------------------------------------------- */}
+      {/* CINEMATIC ATMOSPHERE: ICE BLUE + SOFT CHAMPAGNE AMBIENT       */}
+      {/* ------------------------------------------------------------- */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute -top-24 left-1/4 w-[600px] h-[300px] bg-steel-400/5 rounded-full blur-[140px]" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[250px] bg-amber-100/[0.02] rounded-full blur-[120px]" />
+        <CinematicParticles density={15} color="143, 175, 194" maxSpeed={0.12} />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
         {/* Top Grid */}

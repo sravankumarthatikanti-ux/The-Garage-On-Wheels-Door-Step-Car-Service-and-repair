@@ -49,19 +49,28 @@
   animation-play-state: paused;
 }
 
-/* Premium Light Card Utility */
+/* ------------------------------------------------------------- */
+/* CINEMATIC AUTOMOTIVE LIGHTING & HOVER RESPONSE               */
+/* ------------------------------------------------------------- */
+
+/* Premium Light Card Utility - Apple & Luxury Automotive standard */
 .premium-card {
   background: #FFFFFF;
   border: 1px solid #E1E6EA;
   border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(17, 20, 24, 0.04);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(17, 20, 24, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .premium-card:hover {
   border-color: #8FAFC2;
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(17, 20, 24, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -10px rgba(17, 20, 24, 0.08), 
+              0 0 20px rgba(143, 175, 194, 0.12);
 }
 
 /* Dark Premium Charcoal Card */
@@ -69,13 +78,67 @@
   background: #252A30;
   border: 1px solid rgba(199, 208, 214, 0.12);
   border-radius: 16px;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .dark-card:hover {
   border-color: rgba(143, 175, 194, 0.45);
-  transform: translateY(-3px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+              0 0 30px rgba(143, 175, 194, 0.08);
+}
+
+/* Subtle Automotive Light Sweep (Occasional Horizontal Sheen) */
+@keyframes autoLightSweep {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.18;
+  }
+  30% {
+    transform: translateX(200%) skewX(-20deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(200%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-light-sweep {
+  animation: autoLightSweep 16s ease-in-out infinite;
+}
+
+/* Automotive Studio Spotlight Breathing */
+@keyframes spotlightBreathe {
+  0%, 100% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlightBreathe 12s ease-in-out infinite;
+}
+
+/* Realistic Grounding Car Floor Shadow & Reflection */
+.car-floor-reflection {
+  background: radial-gradient(ellipse 70% 35% at 50% 50%, rgba(143, 175, 194, 0.12) 0%, rgba(17, 20, 24, 0.8) 60%, transparent 100%);
+}
+
+.car-ground-shadow {
+  background: radial-gradient(ellipse 65% 25% at 50% 50%, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 75%);
 }
 
 /* Automotive Thin Metallic Border */
@@ -89,7 +152,7 @@
 
 /* Subtle Automotive Glow */
 .steel-glow {
-  box-shadow: 0 0 20px rgba(143, 175, 194, 0.2);
+  box-shadow: 0 0 25px rgba(143, 175, 194, 0.22);
 }
 
 /* Fade-in animations */
