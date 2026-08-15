@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import ServiceGrid from './components/ServiceGrid';
+import CarNeedSelector from './components/CarNeedSelector';
 import HowItWorks from './components/HowItWorks';
 import AboutSection from './components/AboutSection';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -30,7 +31,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-surface text-primary flex flex-col font-sans selection:bg-steel-400 selection:text-graphite pb-16 lg:pb-0">
+    <div className="min-h-screen bg-surface text-primary flex flex-col font-sans selection:bg-ice selection:text-graphite pb-16 lg:pb-0">
       
       {/* 1. Navbar */}
       <Header onOpenBooking={handleOpenBooking} />
@@ -38,45 +39,48 @@ export default function App() {
       {/* Main Content Sections Flow */}
       <main className="flex-grow">
         
-        {/* 2. Cinematic Hero: CAR CARE. WHEREVER YOU ARE. */}
+        {/* 2. Cinematic Sporty Hero: CAR CARE. WHEREVER YOU ARE. */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 3. Trust Strip: Doorstep Service, Professional Care, Easy Booking */}
+        {/* 3. Trust Strip: Doorstep Service • Professional Care • Easy Booking */}
         <TrustStrip />
 
-        {/* 4. Precision Car Care: Swipeable Service Cards */}
+        {/* 4. Precision Car Care: Multi-Color Soft Paint Accents & Swipeable Carousel */}
         <ServiceGrid onSelectService={(service) => handleOpenBooking('', service)} />
 
-        {/* 5. How It Works: 01 BOOK, 02 WE COME TO YOU, 03 GET BACK ON THE ROAD */}
+        {/* 5. Interactive Diagnosis: WHAT DOES YOUR CAR NEED? */}
+        <CarNeedSelector onOpenBooking={handleOpenBooking} />
+
+        {/* 6. How It Works: 01 BOOK • 02 WE COME TO YOU • 03 GET BACK ON THE ROAD */}
         <HowItWorks onOpenBooking={handleOpenBooking} />
 
-        {/* 6. Car Care That Comes To You: About Section */}
+        {/* 7. Car Care That Comes To You: About Section */}
         <AboutSection onOpenBooking={handleOpenBooking} />
 
-        {/* 7. More Than A Garage: Why Us Section */}
+        {/* 8. More Than A Garage: Why Us Section */}
         <WhyChooseUs />
 
-        {/* 8. Find The Right Part For Your Car: 4-Step Parts Finder */}
+        {/* 9. Find Your Car Part: 4-Step Discovery with Color Progression */}
         <PartsFinder onOpenBooking={handleOpenBooking} />
 
-        {/* 9. Your Car Deserves Better Care: Progressive Booking */}
+        {/* 10. Your Car Deserves Better Care: Progressive Booking */}
         <ProgressiveBooking />
 
-        {/* 10. Contact: Verified Call / WhatsApp / Location */}
+        {/* 11. Contact: Verified Call / WhatsApp / Location */}
         <ContactSection onOpenBooking={handleOpenBooking} />
 
       </main>
 
-      {/* 11. Premium Footer */}
+      {/* 12. Premium Footer with Soft Champagne & Ice Blue Lighting */}
       <Footer onOpenBooking={handleOpenBooking} />
 
-      {/* 12. Mobile Sticky Action Bar: CALL | WHATSAPP | BOOK */}
+      {/* 13. Mobile Sticky Action Bar: CALL | WHATSAPP | BOOK */}
       <MobileStickyBar onOpenBooking={handleOpenBooking} />
 
-      {/* 13. Smart Service Assistant */}
+      {/* 14. Smart Service Assistant */}
       <SmartAssistant onOpenBooking={handleOpenBooking} />
 
-      {/* Interactive Booking Modal for contextual CTAs */}
+      {/* Contextual Interactive Booking Modal */}
       <BookingModal
         isOpen={isBookingOpen}
         onClose={handleCloseBooking}

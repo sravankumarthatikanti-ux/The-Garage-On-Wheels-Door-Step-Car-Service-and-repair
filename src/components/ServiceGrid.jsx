@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   Wrench, Droplets, Disc, 
   ShieldCheck, ArrowRight, MessageSquare, BatteryCharging,
@@ -6,19 +6,68 @@ import {
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
 
-const ICON_MAP = {
-  'engine-service': Cog,
-  'brake-service': Disc,
-  'battery-service': BatteryCharging,
-  'ac-service': Wind,
-  'oil-change': Droplets,
-  'general-service': Wrench,
-  'car-diagnostics': Cpu,
-  'emergency-repair': AlertTriangle,
+const SERVICE_PALETTE_MAP = {
+  'engine-service': {
+    icon: Cog,
+    colorName: 'Mist Blue',
+    tagBg: 'bg-mist/20 text-slate-800 border-mist/30',
+    topBar: 'bg-mist',
+    glow: 'group-hover:border-mist group-hover:shadow-[0_15px_35px_rgba(175,196,209,0.25)]'
+  },
+  'brake-service': {
+    icon: Disc,
+    colorName: 'Lavender Grey',
+    tagBg: 'bg-lavender/25 text-slate-800 border-lavender/35',
+    topBar: 'bg-lavender',
+    glow: 'group-hover:border-lavender group-hover:shadow-[0_15px_35px_rgba(208,205,216,0.25)]'
+  },
+  'battery-service': {
+    icon: BatteryCharging,
+    colorName: 'Ice Blue',
+    tagBg: 'bg-ice/25 text-slate-800 border-ice/35',
+    topBar: 'bg-ice',
+    glow: 'group-hover:border-ice group-hover:shadow-[0_15px_35px_rgba(191,220,235,0.3)]'
+  },
+  'ac-service': {
+    icon: Wind,
+    colorName: 'Sage Mist',
+    tagBg: 'bg-sage/25 text-slate-800 border-sage/35',
+    topBar: 'bg-sage',
+    glow: 'group-hover:border-sage group-hover:shadow-[0_15px_35px_rgba(199,213,204,0.25)]'
+  },
+  'oil-change': {
+    icon: Droplets,
+    colorName: 'Soft Champagne',
+    tagBg: 'bg-champagne/25 text-slate-800 border-champagne/35',
+    topBar: 'bg-champagne',
+    glow: 'group-hover:border-champagne group-hover:shadow-[0_15px_35px_rgba(216,204,184,0.25)]'
+  },
+  'general-service': {
+    icon: Wrench,
+    colorName: 'Sage Mist',
+    tagBg: 'bg-sage/25 text-slate-800 border-sage/35',
+    topBar: 'bg-sage',
+    glow: 'group-hover:border-sage group-hover:shadow-[0_15px_35px_rgba(199,213,204,0.25)]'
+  },
+  'car-diagnostics': {
+    icon: Cpu,
+    colorName: 'Ice Blue',
+    tagBg: 'bg-ice/25 text-slate-800 border-ice/35',
+    topBar: 'bg-ice',
+    glow: 'group-hover:border-ice group-hover:shadow-[0_15px_35px_rgba(191,220,235,0.3)]'
+  },
+  'emergency-repair': {
+    icon: AlertTriangle,
+    colorName: 'Graphite',
+    tagBg: 'bg-graphite text-steel-300 border-titanium/20',
+    topBar: 'bg-graphite',
+    glow: 'group-hover:border-titanium group-hover:shadow-[0_15px_35px_rgba(17,20,24,0.15)]'
+  },
 };
 
 export default function ServiceGrid({ onSelectService }) {
   const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -27,11 +76,21 @@ export default function ServiceGrid({ onSelectService }) {
     }
   };
 
+  const handleScrollEvent = () => {
+    if (scrollRef.current) {
+      const scrollLeft = scrollRef.current.scrollLeft;
+      const cardWidth = 300;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(Math.min(index, SERVICE_CATEGORIES.length - 1));
+    }
+  };
+
   return (
     <section id="services" className="py-16 md:py-24 bg-surface text-primary relative border-t border-border overflow-hidden">
       
-      {/* Subtle Sage Mist Glow in background */}
-      <div className="absolute top-1/3 right-1/4 w-[650px] h-[350px] bg-sage/20 rounded-full blur-[140px] pointer-events-none" />
+      {/* Subtle Sage Mist & Ice Blue Atmospheric Glow in background */}
+      <div className="absolute top-1/4 right-1/4 w-[650px] h-[350px] bg-sage/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-ice/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -50,7 +109,7 @@ export default function ServiceGrid({ onSelectService }) {
             </p>
           </div>
 
-          {/* Carousel Navigation Arrows (Desktop / Tablet) */}
+          {/* Carousel Navigation Controls (Desktop & Tablet) */}
           <div className="flex items-center space-x-2 self-start md:self-auto">
             <button
               onClick={() => scroll('left')}
@@ -68,38 +127,54 @@ export default function ServiceGrid({ onSelectService }) {
             </button>
             <button
               onClick={() => onSelectService('General Service')}
-              className="ml-2 px-5 py-2.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-wider rounded-btn shadow-md transition-all active:scale-95 border border-steel-300"
+              className="ml-2 px-5 py-2.5 btn-sport-primary font-black text-xs uppercase tracking-wider rounded-btn shadow-md transition-all active:scale-95"
             >
-              <span>ALL SERVICES</span>
+              <span>ALL SERVICES →</span>
             </button>
           </div>
         </div>
 
-        {/* Mobile Swipe Notice */}
-        <div className="flex items-center justify-between text-xs text-muted font-mono mb-3 md:hidden">
-          <span>← Swipe to explore services →</span>
+        {/* Mobile Swipe Notice & Animated Dots */}
+        <div className="flex md:hidden items-center justify-between text-xs text-muted font-mono mb-3">
+          <span>← Swipe to explore →</span>
+          <div className="flex items-center space-x-1.5">
+            {SERVICE_CATEGORIES.map((_, i) => (
+              <span
+                key={i}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  activeIndex === i ? 'bg-graphite w-4' : 'bg-titanium'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Horizontal Swipeable Services Carousel on Mobile / Grid on Desktop */}
         <div 
           ref={scrollRef}
+          onScroll={handleScrollEvent}
           className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none no-scrollbar"
         >
           {SERVICE_CATEGORIES.map((service) => {
-            const IconComponent = ICON_MAP[service.id] || Wrench;
+            const palette = SERVICE_PALETTE_MAP[service.id] || SERVICE_PALETTE_MAP['general-service'];
+            const IconComponent = palette.icon;
+            
             return (
               <div
                 key={service.id}
                 onClick={() => onSelectService(service.title)}
-                className="premium-card p-5 sm:p-6 cursor-pointer flex flex-col justify-between group min-w-[280px] sm:min-w-[300px] md:min-w-0 snap-start shrink-0"
+                className={`premium-card p-5 sm:p-6 cursor-pointer flex flex-col justify-between group min-w-[280px] sm:min-w-[300px] md:min-w-0 snap-start shrink-0 ${palette.glow}`}
               >
+                {/* 5% Top Soft Accent Line */}
+                <div className={`absolute top-0 left-0 right-0 h-1 ${palette.topBar}`} />
+
                 <div>
                   {/* Top: Icon & Price Tag */}
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-4 mt-1">
                     <div className="w-12 h-12 rounded-xl bg-graphite border border-titanium/15 flex items-center justify-center text-steel-400 group-hover:bg-steel-400 group-hover:text-graphite transition-all shadow-sm">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-[11px] font-bold text-slate-700 px-2.5 py-1 rounded-md bg-surface-soft border border-border font-mono">
+                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-md border font-mono ${palette.tagBg}`}>
                       {service.startingPrice}
                     </span>
                   </div>
@@ -139,7 +214,7 @@ export default function ServiceGrid({ onSelectService }) {
         <div className="mt-8 rounded-card-lg bg-graphite text-white border border-titanium/20 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xl">
           <div className="lg:col-span-7 p-7 sm:p-9 flex flex-col justify-between space-y-5">
             <div className="space-y-2.5">
-              <span className="px-2.5 py-0.5 rounded-full bg-steel-400/20 text-steel-300 text-xs font-bold border border-steel-400/30 inline-block font-mono">
+              <span className="px-2.5 py-0.5 rounded-full bg-ice/20 text-ice text-xs font-bold border border-ice/30 inline-block font-mono">
                 ⚡ DOORSTEP FOAM WASH SPECIAL
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-white">
@@ -157,10 +232,10 @@ export default function ServiceGrid({ onSelectService }) {
               </div>
               <button
                 onClick={() => onSelectService('Doorstep Foam Wash & Detailing')}
-                className="px-6 py-3 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center space-x-2 active:scale-95 border border-steel-300"
+                className="px-6 py-3 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center space-x-2 active:scale-95"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span>Book Doorstep Wash</span>
+                <MessageSquare className="w-4 h-4 text-steel-400" />
+                <span>Book Doorstep Wash →</span>
               </button>
             </div>
           </div>

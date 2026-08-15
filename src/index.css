@@ -7,12 +7,12 @@
     @apply bg-surface text-primary font-sans antialiased overflow-x-hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F5F6F7;
+    background-color: #F5F7F8;
     color: #171A1D;
   }
 
   ::selection {
-    background-color: #8FAFC2;
+    background-color: #BFDCEB;
     color: #111418;
   }
 }
@@ -25,12 +25,12 @@
   background: #111418;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252A30;
+  background: #2A3036;
   border-radius: 3px;
   border: 1px solid #3A4148;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8FAFC2;
+  background: #BFDCEB;
 }
 
 /* Marquee infinite scroll animation */
@@ -50,57 +50,87 @@
 }
 
 /* ------------------------------------------------------------- */
-/* CINEMATIC AUTOMOTIVE LIGHTING & HOVER RESPONSE               */
+/* SOFT SPORT PERFORMANCE LUXURY CARD & BUTTON SYSTEM           */
 /* ------------------------------------------------------------- */
 
-/* Premium Light Card Utility - Apple & Luxury Automotive standard */
+/* Premium Light Card Utility */
 .premium-card {
   background: #FFFFFF;
-  border: 1px solid #E1E6EA;
-  border-radius: 16px;
+  border: 1px solid #DEE4E8;
+  border-radius: 18px;
   box-shadow: 0 4px 20px rgba(17, 20, 24, 0.03);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.4s ease, 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
 .premium-card:hover {
-  border-color: #8FAFC2;
+  border-color: #C8D0D5;
   transform: translateY(-5px);
-  box-shadow: 0 20px 35px -10px rgba(17, 20, 24, 0.08), 
-              0 0 20px rgba(143, 175, 194, 0.12);
+  box-shadow: 0 20px 40px -10px rgba(17, 20, 24, 0.09), 
+              0 0 25px rgba(191, 220, 235, 0.18);
 }
 
 /* Dark Premium Charcoal Card */
 .dark-card {
-  background: #252A30;
-  border: 1px solid rgba(199, 208, 214, 0.12);
-  border-radius: 16px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.4s ease, 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.4s ease;
+  background: #2A3036;
+  border: 1px solid rgba(200, 208, 213, 0.15);
+  border-radius: 18px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s ease;
   position: relative;
   overflow: hidden;
 }
 
 .dark-card:hover {
-  border-color: rgba(143, 175, 194, 0.45);
+  border-color: rgba(191, 220, 235, 0.5);
   transform: translateY(-5px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
-              0 0 30px rgba(143, 175, 194, 0.08);
+  box-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.65),
+              0 0 30px rgba(191, 220, 235, 0.1);
 }
 
-/* Subtle Automotive Light Sweep (Occasional Horizontal Sheen) */
+/* Sporty Primary Button */
+.btn-sport-primary {
+  background: #111418;
+  color: #FFFFFF;
+  border: 1px solid #2A3036;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sport-primary:hover {
+  background: #1C2126;
+  border-color: #BFDCEB;
+  box-shadow: 0 0 20px rgba(191, 220, 235, 0.25);
+}
+
+.btn-sport-primary:active {
+  transform: scale(0.97);
+}
+
+/* Sporty Button Arrow Interaction */
+.btn-sport-primary:hover .btn-arrow,
+.btn-sport-secondary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Automotive Light Sweep */
 @keyframes autoLightSweep {
   0% {
     transform: translateX(-100%) skewX(-20deg);
     opacity: 0;
   }
   15% {
-    opacity: 0.18;
+    opacity: 0.16;
   }
   30% {
     transform: translateX(200%) skewX(-20deg);
@@ -132,56 +162,39 @@
   animation: spotlightBreathe 12s ease-in-out infinite;
 }
 
+/* Aerodynamic Light Curves (Car Contour Line Effect) */
+.aero-curve {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  pointer-events: none;
+  opacity: 0.15;
+}
+
 /* Realistic Grounding Car Floor Shadow & Reflection */
 .car-floor-reflection {
-  background: radial-gradient(ellipse 70% 35% at 50% 50%, rgba(143, 175, 194, 0.12) 0%, rgba(17, 20, 24, 0.8) 60%, transparent 100%);
+  background: radial-gradient(ellipse 70% 35% at 50% 50%, rgba(191, 220, 235, 0.14) 0%, rgba(17, 20, 24, 0.8) 60%, transparent 100%);
 }
 
 .car-ground-shadow {
-  background: radial-gradient(ellipse 65% 25% at 50% 50%, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 75%);
+  background: radial-gradient(ellipse 65% 25% at 50% 50%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 75%);
 }
 
-/* Automotive Thin Metallic Border */
+/* Sport Performance Mode enhancements */
+.sport-mode-active .animate-light-sweep {
+  animation-duration: 10s;
+}
+
+.sport-mode-active .premium-card:hover {
+  border-color: #BFDCEB;
+  box-shadow: 0 20px 40px -10px rgba(17, 20, 24, 0.12), 0 0 30px rgba(191, 220, 235, 0.3);
+}
+
+/* Utilities */
 .titanium-border {
-  border: 1px solid #C7D0D6;
+  border: 1px solid #C8D0D5;
 }
 
 .titanium-border-dark {
-  border: 1px solid rgba(199, 208, 214, 0.15);
-}
-
-/* Subtle Automotive Glow */
-.steel-glow {
-  box-shadow: 0 0 25px rgba(143, 175, 194, 0.22);
-}
-
-/* Fade-in animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-section {
-  animation: fadeInUp 0.5s ease-out forwards;
-}
-
-/* Premium Image Container */
-.img-hover {
-  overflow: hidden;
-  border-radius: 16px;
-}
-
-.img-hover img {
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
-}
-
-.img-hover:hover img {
-  transform: scale(1.03);
-  filter: brightness(1.04);
+  border: 1px solid rgba(200, 208, 213, 0.18);
 }

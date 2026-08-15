@@ -33,7 +33,7 @@ export default function PartsFinder({ onOpenBooking }) {
 
   const handleFindPart = (e) => {
     e.preventDefault();
-    const message = `Hello The Garage on Wheels,\nI would like to check availability and doorstep fitment for a spare part:\n• Car: ${selectedBrand} ${selectedModel} (${selectedYear})\n• Part Needed: ${selectedPart}\nPlease let me know the pricing and doorstep installation slot.`;
+    const message = `Hello The Garage on Wheels,\nI would like to check availability and doorstep fitment for a genuine spare part:\n• Car: ${selectedBrand} ${selectedModel} (${selectedYear})\n• Part Needed: ${selectedPart}\nPlease confirm part pricing and delivery slot.`;
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/918121404113?text=${encoded}`, '_blank');
   };
@@ -41,8 +41,8 @@ export default function PartsFinder({ onOpenBooking }) {
   return (
     <section id="parts" className="py-16 md:py-24 bg-surface text-primary border-t border-border relative overflow-hidden">
       
-      {/* Soft Ambient Glow */}
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[650px] h-[350px] bg-ice/15 rounded-full blur-[140px] pointer-events-none" />
+      {/* Subtle Mist Blue Ambient Glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[650px] h-[350px] bg-mist/15 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -53,93 +53,105 @@ export default function PartsFinder({ onOpenBooking }) {
             <span>100% GENUINE OEM SPARE PARTS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-sans tracking-tight">
-            FIND THE RIGHT PART <span className="text-steel-600">FOR YOUR CAR</span>
+            FIND YOUR <span className="text-steel-600">CAR PART</span>
           </h2>
           <p className="text-sm sm:text-base text-secondary leading-relaxed">
             Sealed barcode warranty, manufacturer-backed components, and certified doorstep installation.
           </p>
         </div>
 
-        {/* 4-Step Interactive Parts Discovery Selector Card */}
+        {/* 4-Step Interactive Discovery with Step Colors: Ice Blue -> Mist Blue -> Sage Mist -> Lavender Grey */}
         <div className="max-w-4xl mx-auto mb-14 bg-white border border-border rounded-card-lg p-6 sm:p-8 shadow-premium hover:border-steel-400/50 transition-all">
           <form onSubmit={handleFindPart} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               
-              {/* Step 1: Select Brand */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-mono">
-                  01 SELECT BRAND
-                </label>
+              {/* Step 1: Select Brand (Ice Blue Accent) */}
+              <div className="relative p-3 rounded-card bg-surface-soft border border-ice/50 hover:border-ice transition-colors">
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-[10px] font-bold text-slate-800 uppercase tracking-widest font-mono">
+                    01 BRAND
+                  </label>
+                  <span className="w-2 h-2 rounded-full bg-ice" />
+                </div>
                 <div className="relative">
                   <select
                     value={selectedBrand}
                     onChange={handleBrandChange}
-                    className="w-full bg-surface-soft border border-border text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
+                    className="w-full bg-white border border-border text-slate-900 text-xs font-bold rounded-btn px-2.5 py-2 pr-7 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
                   >
                     {CAR_BRANDS.map((b) => (
                       <option key={b.id} value={b.name}>{b.name}</option>
                     ))}
                     <option value="Other Brand">Other Brand</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-muted absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Step 2: Select Model */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-mono">
-                  02 SELECT MODEL
-                </label>
+              {/* Step 2: Select Model (Mist Blue Accent) */}
+              <div className="relative p-3 rounded-card bg-surface-soft border border-mist/50 hover:border-mist transition-colors">
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-[10px] font-bold text-slate-800 uppercase tracking-widest font-mono">
+                    02 MODEL
+                  </label>
+                  <span className="w-2 h-2 rounded-full bg-mist" />
+                </div>
                 <div className="relative">
                   <select
                     value={selectedModel}
                     onChange={(e) => setSelectedModel(e.target.value)}
-                    className="w-full bg-surface-soft border border-border text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
+                    className="w-full bg-white border border-border text-slate-900 text-xs font-bold rounded-btn px-2.5 py-2 pr-7 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
                   >
                     {currentBrandObj.models.map((m) => (
                       <option key={m} value={m}>{m}</option>
                     ))}
                     <option value="Other Model">Other Model</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-muted absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Step 3: Select Variant / Year */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-mono">
-                  03 VARIANT / YEAR
-                </label>
+              {/* Step 3: Select Variant / Year (Sage Mist Accent) */}
+              <div className="relative p-3 rounded-card bg-surface-soft border border-sage/50 hover:border-sage transition-colors">
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-[10px] font-bold text-slate-800 uppercase tracking-widest font-mono">
+                    03 VARIANT/YEAR
+                  </label>
+                  <span className="w-2 h-2 rounded-full bg-sage" />
+                </div>
                 <div className="relative">
                   <select
                     value={selectedYear}
                     onChange={(e) => setSelectedYear(e.target.value)}
-                    className="w-full bg-surface-soft border border-border text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
+                    className="w-full bg-white border border-border text-slate-900 text-xs font-bold rounded-btn px-2.5 py-2 pr-7 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
                   >
                     {YEARS.map((y) => (
                       <option key={y} value={y}>{y}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-muted absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Step 4: Select Part */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-mono">
-                  04 SELECT PART
-                </label>
+              {/* Step 4: Select Part (Lavender Grey Accent) */}
+              <div className="relative p-3 rounded-card bg-surface-soft border border-lavender/60 hover:border-lavender transition-colors">
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-[10px] font-bold text-slate-800 uppercase tracking-widest font-mono">
+                    04 PART
+                  </label>
+                  <span className="w-2 h-2 rounded-full bg-lavender" />
+                </div>
                 <div className="relative">
                   <select
                     value={selectedPart}
                     onChange={(e) => setSelectedPart(e.target.value)}
-                    className="w-full bg-surface-soft border border-border text-slate-900 text-xs font-semibold rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
+                    className="w-full bg-white border border-border text-slate-900 text-xs font-bold rounded-btn px-2.5 py-2 pr-7 appearance-none focus:outline-none focus:border-steel-400 cursor-pointer"
                   >
                     {PART_TYPES.map((p) => (
                       <option key={p} value={p}>{p}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-muted absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -152,10 +164,10 @@ export default function PartsFinder({ onOpenBooking }) {
               </div>
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3.5 bg-steel-400 hover:bg-steel-500 text-graphite font-black text-xs uppercase tracking-widest rounded-btn shadow-md hover:shadow-steel-glow transition-all flex items-center justify-center space-x-2 active:scale-95 border border-steel-300 shrink-0"
+                className="w-full sm:w-auto px-8 py-3.5 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95 shrink-0"
               >
                 <span>FIND PART →</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 btn-arrow" />
               </button>
             </div>
           </form>
