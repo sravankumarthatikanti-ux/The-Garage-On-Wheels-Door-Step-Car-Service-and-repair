@@ -58,20 +58,23 @@ export default function Hero({ onOpenBooking }) {
       className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-graphite text-white select-none"
     >
       {/* ------------------------------------------------------------- */}
-      {/* LAYER 1: DEEP GRAPHITE & WORKSHOP LIGHTING BASE               */}
+      {/* LAYER 1: CINEMATIC STUDIO AUTOMOTIVE PHOTOGRAPHY BASE         */}
       {/* ------------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* High-End Studio Commercial Automotive Photography (Car on Right, Dark Negative on Left) */}
         <img 
-          src="/images/workshop_lights_bg.jpg" 
-          alt="High-Tech Precision Workshop Lighting" 
-          className="w-full h-full object-cover object-center opacity-18 filter brightness-90 contrast-120 grayscale-[25%]"
+          src="/images/hero_car_studio.jpg" 
+          alt="The Garage On Wheels High-End Cinematic Automotive Care" 
+          className="w-full h-full object-cover object-right md:object-center opacity-35 filter brightness-95 contrast-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/90 to-graphite/85" />
+        
+        {/* Left-Side Negative Space Deep Graphite Gradient Vales (Ensures 100% Typography Readability) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/90 to-graphite/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-graphite/95" />
         
-        {/* Layer 2: Ice Blue & Mist Blue Ambient Lighting */}
+        {/* Layer 2: Ice Blue & Mist Blue Ambient Studio Lighting */}
         <div 
-          className="absolute top-1/4 left-1/3 w-[800px] h-[450px] bg-gradient-to-tr from-ice/10 via-mist/5 to-transparent rounded-full blur-[140px] transition-transform duration-1000 ease-out"
+          className="absolute top-1/4 left-1/3 w-[800px] h-[450px] bg-gradient-to-tr from-ice/12 via-mist/6 to-transparent rounded-full blur-[140px] transition-transform duration-1000 ease-out"
           style={{
             transform: `translate3d(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px, 0)`,
           }}
