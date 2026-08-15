@@ -1,30 +1,43 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, MessageSquare, ShieldCheck, ChevronRight, Heart } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, ShieldCheck, ChevronRight, Clock, Award, Sparkles } from 'lucide-react';
 import { BUSINESS_INFO, LOCAL_SERVICE_AREAS, buildWhatsAppUrl } from '../data/carServiceData';
 import Logo from './Logo';
 
 export default function Footer({ onOpenBooking }) {
   const currentYear = new Date().getFullYear();
 
+  const handleWhatsApp = () => {
+    const url = buildWhatsAppUrl({ serviceName: "Doorstep Consultation" });
+    window.open(url, '_blank');
+  };
+
   return (
-    <footer className="bg-charcoal-deep text-slate-300 border-t border-white/10 pt-16 pb-12 font-sans relative overflow-hidden">
+    <footer id="contact" className="bg-charcoal-deep text-slate-300 border-t border-white/10 pt-16 pb-12 font-sans relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           
-          {/* Col 1: Business Branding & Address (5 cols) */}
+          {/* Col 1: Business Branding & Official Logo (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <Logo size="default" isDark={true} />
+            <div className="flex items-center">
+              <Logo size="large" isDark={true} />
+            </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              Hyderabad &amp; Secunderabad's premier doorstep car maintenance, detailing, and repair marketplace. Certified master mechanics, 100% genuine OEM spare parts, and doorstep convenience right at your home or office.
+              <strong className="text-white">THE GARAGE ON WHEELS</strong> — Door Step Car Service &amp; Repair. Hyderabad &amp; Secunderabad's leading mobile automotive service company with certified master mechanics and 100% genuine OEM spare parts.
             </p>
 
             <div className="space-y-2 pt-2 text-xs text-slate-300">
               <div className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
                 <span>{BUSINESS_INFO.address}</span>
+              </div>
+              <div className="flex items-center space-x-2.5">
+                <Phone className="w-4 h-4 text-brand-400 shrink-0" />
+                <a href={`tel:${BUSINESS_INFO.whatsappNumber}`} className="hover:text-white font-semibold">
+                  {BUSINESS_INFO.formattedPhone}
+                </a>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -39,38 +52,46 @@ export default function Footer({ onOpenBooking }) {
 
           {/* Col 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Navigation
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+              Quick Links
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              {['Services', 'Car Brands', 'Spare Parts', 'How It Works', 'Why Us', 'Car Insights', 'Gallery', 'Reviews'].map((link) => (
-                <li key={link}>
+              {[
+                { name: 'Home', href: '#' },
+                { name: 'Services', href: '#services' },
+                { name: 'About', href: '#about' },
+                { name: 'How It Works', href: '#how-it-works' },
+                { name: 'Why Us', href: '#why-us' },
+                { name: 'Contact', href: '#contact' },
+              ].map((link) => (
+                <li key={link.name}>
                   <a
-                    href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={link.href}
                     className="hover:text-white transition-colors flex items-center space-x-1"
                   >
                     <ChevronRight className="w-3 h-3 text-slate-600" />
-                    <span>{link}</span>
+                    <span>{link.name}</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Popular Services (2 cols) */}
+          {/* Col 3: Core Services (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Services
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+              Core Services
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               {[
-                'Periodic Car Service',
-                'Doorstep Foam Wash',
-                'Denting & Painting',
-                'Car AC Repair',
-                'Battery Replacement',
-                'Brakes & Suspension',
-                'ECU Diagnostics',
+                'Engine Service',
+                'Brake Service',
+                'Battery Service',
+                'AC Service',
+                'Oil Change',
+                'General Service',
+                'Car Diagnostics',
+                'Emergency Repair',
               ].map((svc) => (
                 <li key={svc}>
                   <button
@@ -85,22 +106,31 @@ export default function Footer({ onOpenBooking }) {
             </ul>
           </div>
 
-          {/* Col 4: WhatsApp Direct Booking (3 cols) */}
+          {/* Col 4: Action & WhatsApp (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
               Doorstep Dispatch
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Have questions or need an urgent breakdown technician? Connect instantly with our service advisor on WhatsApp.
+              Ready for certified car care at your doorstep? Connect with our master technicians directly.
             </p>
 
-            <button
-              onClick={() => onOpenBooking()}
-              className="w-full py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Book Service on WhatsApp</span>
-            </button>
+            <div className="space-y-2.5">
+              <button
+                onClick={() => onOpenBooking()}
+                className="w-full py-3 bg-brand-500 hover:bg-brand-700 text-white font-black text-xs tracking-wider uppercase rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
+              >
+                <span>BOOK A SERVICE</span>
+              </button>
+
+              <button
+                onClick={handleWhatsApp}
+                className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs tracking-wider uppercase rounded-btn transition-colors flex items-center justify-center space-x-2 shadow-sm active:scale-95"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>CHAT ON WHATSAPP</span>
+              </button>
+            </div>
           </div>
 
         </div>
@@ -121,9 +151,9 @@ export default function Footer({ onOpenBooking }) {
 
         {/* Bottom Copyright */}
         <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {currentYear} {BUSINESS_INFO.fullName}. All rights reserved.</p>
+          <p>© {currentYear} THE GARAGE ON WHEELS — Door Step Car Service &amp; Repair. All rights reserved.</p>
           <p className="flex items-center space-x-1 text-slate-400">
-            <span>Precision doorstep automotive maintenance</span>
+            <span>Tirumalagiri Hub, Secunderabad, Telangana</span>
           </p>
         </div>
 

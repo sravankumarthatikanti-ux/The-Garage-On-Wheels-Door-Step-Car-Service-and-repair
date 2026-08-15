@@ -30,7 +30,7 @@ export const buildWhatsAppUrl = ({
   const serviceText = serviceName || "General Car Service & Repair Checkup";
   const areaText = locality || "Secunderabad / Hyderabad";
 
-  let message = `Hello Likely: The Garage On Wheels! 🚗\n\n`;
+  let message = `Hello The Garage On Wheels! 🚗\n\n`;
   message += `I would like to request a *Doorstep Car Service*.\n\n`;
   message += `🚘 *Car Details:* ${brandModelText}\n`;
   message += `🛠️ *Service Needed:* ${serviceText}\n`;
@@ -213,143 +213,131 @@ export const FUEL_TYPES = ["Petrol", "Diesel", "CNG", "Electric (EV)", "Hybrid"]
 
 export const SERVICE_CATEGORIES = [
   {
-    id: "periodic-service",
-    title: "Periodic Car Service",
-    shortDesc: "Engine oil change, oil filter, air filter, 50-point inspection & doorstep labor.",
-    badge: "Most Popular",
-    iconName: "Wrench",
+    id: "engine-service",
+    title: "Engine Service",
+    shortDesc: "Engine health check, spark plugs, timing belt, valve tuning & cylinder decarbonization.",
+    startingPrice: "From ₹1,999",
+    badge: "Master Mechanics",
+    iconName: "Cog",
     features: [
-      "Engine Oil Top-up / Replacement (Synthetic / Semi-Synthetic)",
-      "Oil Filter & Air Filter Replacement",
-      "Coolant & Brake Fluid Inspection",
-      "50-Point Doorstep Health Checkup",
-      "Spark Plug / Fuel Filter Check",
-      "Washing & Vacuuming Included"
+      "Engine Compression & Misfire Diagnostic",
+      "Spark Plug Cleaning / OEM Replacement",
+      "Timing Belt & Serpentine Belt Inspection",
+      "Fuel Injector & Throttle Body Cleaning",
+      "Coolant Leak Detection & Sump Check",
+      "1000 KM Written Performance Guarantee"
     ]
   },
   {
-    id: "car-wash-detailing",
-    title: "Car Wash & Detailing",
-    shortDesc: "Doorstep high-pressure foam wash, interior deep cleaning & ceramic polish.",
-    badge: "Doorstep Special",
-    iconName: "Sparkles",
+    id: "brake-service",
+    title: "Brake Service",
+    shortDesc: "Ceramic brake pad replacement, disc rotor resurfacing, caliper check & DOT-4 fluid bleed.",
+    startingPrice: "From ₹1,199",
+    badge: "Safety First",
+    iconName: "Disc",
     features: [
-      "Doorstep Eco-High Pressure Foam Exterior Wash",
-      "Complete Interior Vacuuming & Upholstery Deep Spa",
-      "Dashboard & Trim Polish",
-      "Tire Dress & Rim Polish",
-      "Glass Cleaning & Anti-Fog Treatment",
-      "Hard Water Stain & Odor Removal"
+      "OEM Front & Rear Brake Pad Fitment (Bosch / TVS)",
+      "Brake Disc Rotor Inspection & Micrometer Trueing",
+      "DOT-4 High-Temp Brake Fluid Top-up / Flush",
+      "Electronic Parking Brake (EPB) Service Mode Reset",
+      "Handbrake & Caliper Slider Pin Lubrication",
+      "Complete Brake Line Leak Inspection"
     ]
   },
   {
-    id: "denting-painting",
-    title: "Denting & Painting",
-    shortDesc: "Scratch removal, panel denting & factory grade paint touchup.",
-    badge: "100% Paint Match",
-    iconName: "Palette",
+    id: "battery-service",
+    title: "Battery Service",
+    shortDesc: "Amaron & Exide battery delivery, jumpstart, voltage testing & free doorstep installation.",
+    startingPrice: "From ₹499",
+    badge: "Fast 45-Min Dispatch",
+    iconName: "BatteryCharging",
     features: [
-      "Grade-A Nippon/DuPont Paint Touchup",
-      "Panel Denting & Scratch Repair",
-      "Bumper Repair & Alignment",
-      "Teflon Coating & Clear Coat Protection",
-      "Free Doorstep Inspection & Pickup"
+      "100% Genuine Amaron & Exide Batteries",
+      "Free Doorstep Fitment & Terminal De-corrosion",
+      "Old Battery Buyback Cash Discount",
+      "Alternator Charging & Cranking Voltage Test",
+      "Up to 55-Month Manufacturer Warranty",
+      "Emergency Doorstep Jumpstart Assistance"
     ]
   },
   {
     id: "ac-service",
-    title: "AC Service & Repair",
-    shortDesc: "AC gas top-up (R134a/R1234yf), cabin filter cleaning, leak detection & deep cooling.",
-    badge: "Summer Ready",
+    title: "AC Service",
+    shortDesc: "R134a AC gas recharge, cabin air filter cleaning, cooling coil wash & leak diagnostic.",
+    startingPrice: "From ₹1,299",
+    badge: "Cooling Specialist",
     iconName: "Wind",
     features: [
-      "Doorstep AC Gas Refill & Pressure Check",
-      "Cabin AC Filter Cleaning / Replacement",
-      "Condenser & Cooling Coil Inspection",
-      "Evaporator Odor Sanitization",
-      "AC Compressor Belt & Clutch Check"
+      "AC Gas Refill & High/Low Pressure Testing",
+      "Cabin AC Filter Replacement / Sanitization",
+      "Condenser & Cooling Coil Deep Cleansing",
+      "Evaporator Anti-Bacterial Odor Treatment",
+      "Compressor Belt Tension & Clutch Inspection",
+      "Vent Temperature Sub-Zero Verification"
     ]
   },
   {
-    id: "battery-replacement",
-    title: "Battery Replacement",
-    shortDesc: "100% Genuine Amaron & Exide batteries delivered & installed at your doorstep.",
-    badge: "Free Doorstep Fitment",
-    iconName: "Zap",
+    id: "oil-change",
+    title: "Oil Change",
+    shortDesc: "100% genuine synthetic & semi-synthetic engine oil flush with OEM oil filter replacement.",
+    startingPrice: "From ₹1,499",
+    badge: "100% Genuine Fluids",
+    iconName: "Droplets",
     features: [
-      "Original Exide / Amaron / Livguard Batteries",
-      "Free Doorstep Fitment within 90 Minutes",
-      "Old Battery Buyback Discount",
-      "Up to 55-Month Manufacturer Warranty",
-      "Alternator & Terminal Voltage Test"
+      "Premium Synthetic Engine Oil (Mobil 1 / Shell / Castrol)",
+      "OEM Sealed Oil Filter Replacement",
+      "Crush Washer & Sump Drain Plug Inspection",
+      "Fluid Top-ups (Coolant, Windshield Wash, Brake Fluid)",
+      "Zero Oil Spill Clean Driveway Process",
+      "Old Oil Eco-Friendly Disposal"
     ]
   },
   {
-    id: "tyres-wheel-care",
-    title: "Tyres & Wheel Care",
-    shortDesc: "Brand new tyres (MRF, CEAT, Michelin, Apollo), alignment & doorstep puncture assistance.",
-    badge: "Top Brands",
-    iconName: "Disc",
+    id: "general-service",
+    title: "General Service",
+    shortDesc: "Comprehensive periodic car maintenance, 50-point inspection, air filter & doorstep tune-up.",
+    startingPrice: "From ₹2,499",
+    badge: "Most Popular",
+    iconName: "Wrench",
     features: [
-      "Multi-Brand New Tyre Delivery & Fitting",
-      "3D Wheel Alignment & Balancing Check",
-      "Doorstep Tubeless Puncture Repair",
-      "Tire Pressure Monitoring (TPMS) Check",
-      "Rim & Valve Replacement"
+      "Full Synthetic Engine Oil & Filter Change",
+      "Air Filter & Cabin AC Filter Replacement",
+      "50-Point Comprehensive Vehicle Safety Audit",
+      "Spark Plug Check & Battery Load Test",
+      "Brake Pad Cleaning & Underbody Inspection",
+      "Complimentary Exterior Wash & Vacuuming"
     ]
   },
   {
-    id: "windshield-glass",
-    title: "Windshield & Glass Replacement",
-    shortDesc: "AIS OEM windshields & door glass replacement at your home or office.",
-    badge: "OEM Genuine",
-    iconName: "Shield",
+    id: "car-diagnostics",
+    title: "Car Diagnostics",
+    shortDesc: "OBD-II computerized ECU scanning, live sensor telemetry, ABS & airbag error clearing.",
+    startingPrice: "From ₹699",
+    badge: "Hi-Tech Scanners",
+    iconName: "Cpu",
     features: [
-      "AIS / Saint-Gobain OEM Certified Glass",
-      "Doorstep Installation by Master Glaziers",
-      "Rain Sensor & Defogger Wire Fitting",
-      "Leak-Proof Polyurethane Sealant Guarantee"
+      "Full ECU Computerized Scan (Engine, ABS, Airbag, BCM)",
+      "Check Engine Light (MIL) Diagnostic & Reset",
+      "Live Sensor Stream & Fuel Trim Analysis",
+      "Transmission & Sensor Telemetry Check",
+      "Electronic Actuator & Throttle Calibrations",
+      "Itemized WhatsApp Diagnostic Report"
     ]
   },
   {
-    id: "suspension-steering",
-    title: "Suspension & Steering Repair",
-    shortDesc: "Shock absorber, strut mount, link rod, and steering rack doorstep troubleshooting.",
-    badge: "Smooth Drive",
-    iconName: "Activity",
+    id: "emergency-repair",
+    title: "Emergency Repair",
+    shortDesc: "Rapid mobile mechanic dispatch for sudden breakdowns, overheating, starting issues & flat tyres.",
+    startingPrice: "From ₹799",
+    badge: "Rapid Response",
+    iconName: "AlertTriangle",
     features: [
-      "Shock Absorber & Strut Replacement",
-      "Lower Arm & Ball Joint Replacement",
-      "Steering Rack & Boot Repair",
-      "Suspension Bushing Renewal",
-      "Road Noise & Bumping Diagnostic"
-    ]
-  },
-  {
-    id: "clutch-transmission",
-    title: "Clutch & Gearbox Care",
-    shortDesc: "Clutch plate replacement, pressure plate, release bearing & gear oil flush.",
-    badge: "Smooth Shifting",
-    iconName: "Cog",
-    features: [
-      "OEM Clutch Assembly Replacement",
-      "Flywheel & Release Bearing Inspection",
-      "Gearbox Oil Drainage & Refill",
-      "Clutch Cable / Cylinder Adjustment"
-    ]
-  },
-  {
-    id: "car-inspection",
-    title: "Comprehensive Car Inspection",
-    shortDesc: "50+ Point health report for pre-owned car purchase or long distance road trips.",
-    badge: "50+ Checkpoints",
-    iconName: "CheckCircle2",
-    features: [
-      "Complete Engine & Transmission Health Check",
-      "OBD-II Computerized Diagnostics",
-      "Brake, Tyre & Suspension Wear Report",
-      "Electricals, Battery & Lights Test",
-      "Body & Flood Damage Detection Report"
+      "Mobile Technician Dispatch in 30-45 Minutes",
+      "On-Spot Battery Jumpstart & Fuse Troubleshooting",
+      "Coolant Leak & Overheating Emergency Fix",
+      "Alternator / Starter Motor Field Diagnostics",
+      "Doorstep Tubeless Tyre Puncture Assistance",
+      "Tirumalagiri, Secunderabad & Hyderabad Wide Coverage"
     ]
   }
 ];

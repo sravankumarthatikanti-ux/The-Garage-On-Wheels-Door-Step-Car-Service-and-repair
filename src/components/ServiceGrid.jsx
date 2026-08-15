@@ -2,21 +2,19 @@ import React from 'react';
 import { 
   Wrench, Sparkles, Droplets, Gauge, Disc, 
   ShieldCheck, ArrowRight, MessageSquare, BatteryCharging,
-  Cpu, Cog, Wind
+  Cpu, Cog, Wind, AlertTriangle
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
 
 const ICON_MAP = {
-  'periodic-service': Wrench,
-  'deep-cleaning': Sparkles,
-  'denting-painting': Droplets,
+  'engine-service': Cog,
+  'brake-service': Disc,
+  'battery-service': BatteryCharging,
   'ac-service': Wind,
-  'battery-replacement': BatteryCharging,
-  'tyre-wheel-care': Gauge,
-  'windshield-glass': ShieldCheck,
-  'clutch-brakes': Disc,
-  'suspension-fitment': Cog,
-  'diagnostics-electrical': Cpu,
+  'oil-change': Droplets,
+  'general-service': Wrench,
+  'car-diagnostics': Cpu,
+  'emergency-repair': AlertTriangle,
 };
 
 export default function ServiceGrid({ onSelectService }) {
@@ -29,21 +27,21 @@ export default function ServiceGrid({ onSelectService }) {
           <div className="space-y-3">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-brand-400 text-xs font-semibold uppercase tracking-wider">
               <Wrench className="w-3.5 h-3.5" />
-              <span>Full Spectrum Maintenance</span>
+              <span>THE GARAGE ON WHEELS • SERVICE CATALOG</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-sans tracking-tight">
-              Premium <span className="text-brand-400">Car Services</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-sans tracking-tight">
+              Door Step <span className="text-brand-400">Car Services</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-              Every service includes genuine parts, precision diagnostics, and doorstep convenience with comprehensive warranty coverage.
+              Every service includes certified master technicians, 100% genuine OEM parts, transparent pricing, and 1000 KM written warranty.
             </p>
           </div>
 
           <button
             onClick={() => onSelectService('General Service')}
-            className="self-start md:self-auto px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-btn border border-white/15 transition-all flex items-center space-x-2"
+            className="self-start md:self-auto px-6 py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider rounded-btn shadow-premium transition-all flex items-center space-x-2 active:scale-95"
           >
-            <span>View All Packages</span>
+            <span>BOOK A SERVICE</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -53,7 +51,7 @@ export default function ServiceGrid({ onSelectService }) {
           <div className="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-6">
             <div className="space-y-3">
               <span className="px-2.5 py-1 rounded-full bg-brand-500/20 text-brand-400 text-xs font-bold border border-brand-500/30 inline-block">
-                ⚡ Most Popular Doorstep Service
+                ⚡ Door Step Foam Wash Special
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                 Doorstep High-Pressure Snow Foam Wash
@@ -69,8 +67,8 @@ export default function ServiceGrid({ onSelectService }) {
                 <span className="text-2xl font-extrabold text-white">₹499 <span className="text-xs text-slate-400 font-normal">/ doorstep</span></span>
               </div>
               <button
-                onClick={() => onSelectService('Car Washing & Deep Cleaning')}
-                className="px-6 py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all flex items-center space-x-2 active:scale-95"
+                onClick={() => onSelectService('Doorstep Foam Wash & Detailing')}
+                className="px-6 py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider rounded-btn shadow-premium transition-all flex items-center space-x-2 active:scale-95"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Book Doorstep Wash</span>
@@ -88,32 +86,32 @@ export default function ServiceGrid({ onSelectService }) {
           </div>
         </div>
 
-        {/* 10-Service Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 8-Core Service Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICE_CATEGORIES.map((service) => {
             const IconComponent = ICON_MAP[service.id] || Wrench;
             return (
               <div
                 key={service.id}
                 onClick={() => onSelectService(service.title)}
-                className="dark-card p-6 cursor-pointer flex flex-col justify-between group"
+                className="dark-card p-6 cursor-pointer flex flex-col justify-between group hover:border-brand-400/50 hover:bg-charcoal/90 transition-all duration-300 shadow-lg hover:shadow-2xl"
               >
                 <div>
                   {/* Top: Icon & Price Tag */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-card bg-white/5 border border-white/10 flex items-center justify-center text-brand-400 group-hover:border-brand-500/40 group-hover:bg-brand-500/10 transition-colors">
-                      <IconComponent className="w-5 h-5" />
+                    <div className="w-12 h-12 rounded-card bg-white/5 border border-white/10 flex items-center justify-center text-brand-400 group-hover:border-brand-500/50 group-hover:bg-brand-500/20 group-hover:scale-110 transition-all">
+                      <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-slate-300 px-2.5 py-1 rounded-md bg-white/5 border border-white/10">
+                    <span className="text-[11px] font-bold text-slate-300 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono">
                       {service.startingPrice}
                     </span>
                   </div>
 
                   {/* Title & Short Description */}
-                  <h3 className="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">
+                  <h3 className="text-lg font-black text-white group-hover:text-brand-400 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed line-clamp-2">
                     {service.shortDesc}
                   </p>
 
@@ -129,9 +127,9 @@ export default function ServiceGrid({ onSelectService }) {
                 </div>
 
                 {/* Card Action Link */}
-                <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-semibold text-brand-400 group-hover:text-brand-300">
+                <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-bold text-brand-400 group-hover:text-brand-300">
                   <span className="flex items-center gap-1.5">
-                    <MessageSquare className="w-3.5 h-3.5" /> Book Doorstep Service
+                    <MessageSquare className="w-3.5 h-3.5" /> Book on WhatsApp
                   </span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>

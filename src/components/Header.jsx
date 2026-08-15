@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, MapPin, Menu, X, ShieldCheck } from 'lucide-react';
+import { MessageSquare, MapPin, Menu, X, ShieldCheck, Phone } from 'lucide-react';
 import Logo from './Logo';
+import { BUSINESS_INFO } from '../data/carServiceData';
 
 export default function Header({ onOpenBooking }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,15 +20,12 @@ export default function Header({ onOpenBooking }) {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Car Brands', href: '#brands' },
-    { name: 'Spare Parts', href: '#parts' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'Car Insights', href: '#insights' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Service Areas', href: '#service-areas' },
-    { name: 'Reviews', href: '#testimonials' },
+    { name: 'HOME', href: '#' },
+    { name: 'SERVICES', href: '#services' },
+    { name: 'HOW IT WORKS', href: '#how-it-works' },
+    { name: 'ABOUT', href: '#about' },
+    { name: 'WHY US', href: '#why-us' },
+    { name: 'CONTACT', href: '#contact' },
   ];
 
   return (
@@ -37,24 +35,26 @@ export default function Header({ onOpenBooking }) {
         : 'bg-charcoal-deep/90 backdrop-blur-md border-b border-white/5 py-3'
     }`}>
       {/* Top Banner Notice */}
-      <div className={`hidden lg:block border-b py-1.5 px-4 text-xs font-medium transition-colors ${
+      <div className={`hidden lg:block border-b py-1 px-4 text-xs font-medium transition-colors ${
         isScrolled 
           ? 'bg-surface-soft border-border text-secondary' 
           : 'bg-charcoal border-white/10 text-slate-300'
       }`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 text-[11px]">
             <ShieldCheck className="w-3.5 h-3.5 text-brand-400" />
-            Doorstep Car Service &amp; Repair in Tirumalagiri, Secunderabad &amp; Hyderabad
+            <strong className="text-brand-500 font-bold">THE GARAGE ON WHEELS</strong> – Door Step Car Service &amp; Repair in Tirumalagiri, Secunderabad &amp; Hyderabad
           </span>
           <div className="flex items-center gap-5 text-[11px]">
             <span className="flex items-center gap-1">
               <MapPin className="w-3 h-3 text-brand-400" /> Tirumalagiri Hub
             </span>
-            <span className="flex items-center gap-1 text-emerald-600 font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Doorstep Slots Available Today
-            </span>
+            <a 
+              href={`tel:${BUSINESS_INFO.whatsappNumber}`} 
+              className="flex items-center gap-1 hover:text-brand-400 font-semibold"
+            >
+              <Phone className="w-3 h-3 text-brand-400" /> {BUSINESS_INFO.formattedPhone}
+            </a>
           </div>
         </div>
       </div>
@@ -62,19 +62,19 @@ export default function Header({ onOpenBooking }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-1">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo & Brand Name */}
           <a href="#" className="flex items-center">
             <Logo size={isScrolled ? 'compact' : 'default'} isDark={!isScrolled} />
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-6 text-xs font-semibold tracking-wide uppercase">
+          <nav className="hidden lg:flex items-center space-x-7 text-xs font-bold tracking-wider">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 className={`transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 hover:after:w-full after:transition-all ${
-                  isScrolled ? 'text-secondary hover:text-brand-500' : 'text-slate-300 hover:text-white'
+                  isScrolled ? 'text-secondary hover:text-brand-500' : 'text-slate-200 hover:text-white'
                 }`}
               >
                 {link.name}
@@ -82,14 +82,14 @@ export default function Header({ onOpenBooking }) {
             ))}
           </nav>
 
-          {/* Right Header Actions */}
+          {/* Right CTA Button */}
           <div className="hidden sm:flex items-center space-x-3">
             <button
               onClick={() => onOpenBooking()}
-              className="px-5 py-2.5 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all flex items-center space-x-2 active:scale-95"
+              className="px-5 py-2.5 bg-brand-500 hover:bg-brand-700 text-white font-extrabold text-xs tracking-wider uppercase rounded-btn shadow-premium transition-all flex items-center space-x-2 active:scale-95"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Book a Service</span>
+              <span>BOOK A SERVICE</span>
             </button>
           </div>
 
@@ -97,10 +97,10 @@ export default function Header({ onOpenBooking }) {
           <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={() => onOpenBooking()}
-              className="px-3.5 py-2 bg-brand-500 text-white text-xs font-bold rounded-btn flex items-center space-x-1 shadow-sm"
+              className="px-3.5 py-2 bg-brand-500 text-white text-xs font-bold tracking-wider uppercase rounded-btn flex items-center space-x-1 shadow-sm"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Book</span>
+              <span>BOOK</span>
             </button>
 
             <button
@@ -125,7 +125,7 @@ export default function Header({ onOpenBooking }) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-btn text-sm font-semibold text-primary hover:bg-surface-soft hover:text-brand-500 transition-colors"
+                className="px-3 py-2.5 rounded-btn text-sm font-bold tracking-wider text-primary hover:bg-surface-soft hover:text-brand-500 transition-colors"
               >
                 {link.name}
               </a>
@@ -138,10 +138,10 @@ export default function Header({ onOpenBooking }) {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full py-3 bg-brand-500 hover:bg-brand-700 text-white font-bold text-sm rounded-btn flex items-center justify-center space-x-2 shadow-premium"
+              className="w-full py-3 bg-brand-500 hover:bg-brand-700 text-white font-extrabold text-sm uppercase tracking-wider rounded-btn flex items-center justify-center space-x-2 shadow-premium"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Book Doorstep Service on WhatsApp</span>
+              <span>BOOK A SERVICE (WHATSAPP)</span>
             </button>
           </div>
         </div>

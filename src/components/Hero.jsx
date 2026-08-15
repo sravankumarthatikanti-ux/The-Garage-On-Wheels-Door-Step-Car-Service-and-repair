@@ -1,32 +1,47 @@
 import React, { useState } from 'react';
 import { 
-  ShieldCheck, Star, ArrowRight, MessageSquare, 
-  Car, Sparkles, CheckCircle2, ChevronRight, Fuel, MapPin, ExternalLink
+  CheckCircle2, ArrowRight, MessageSquare, 
+  Star, ChevronDown, Sparkles, ExternalLink, Wrench, ShieldCheck, Phone
 } from 'lucide-react';
-import { CAR_BRANDS, SERVICE_CATEGORIES, LOCAL_SERVICE_AREAS, FUEL_TYPES, buildWhatsAppUrl } from '../data/carServiceData';
+import { CAR_BRANDS, SERVICE_CATEGORIES, buildWhatsAppUrl, BUSINESS_INFO } from '../data/carServiceData';
 import HeroHeritageBackground from './HeroHeritageBackground';
 
 export default function Hero({ onOpenBooking }) {
-  const [quickBrand, setQuickBrand] = useState('Maruti Suzuki');
-  const [quickModel, setQuickModel] = useState('Swift');
-  const [quickFuel, setQuickFuel] = useState('Petrol');
-  const [quickService, setQuickService] = useState('periodic-service');
-  const [quickArea, setQuickArea] = useState('Tirumalagiri');
+  const [selectedBrand, setSelectedBrand] = useState('Maruti Suzuki');
+  const [selectedModel, setSelectedModel] = useState('Swift');
+  const [selectedService, setSelectedService] = useState('General Service');
+  const [fuelType, setFuelType] = useState('Petrol');
 
-  const currentBrandObj = CAR_BRANDS.find(b => b.name === quickBrand) || CAR_BRANDS[0];
+  const currentBrandObj = CAR_BRANDS.find(b => b.name === selectedBrand) || CAR_BRANDS[0];
+
+  const handleBrandChange = (e) => {
+    const brandName = e.target.value;
+    setSelectedBrand(brandName);
+    const brandObj = CAR_BRANDS.find(b => b.name === brandName);
+    if (brandObj && brandObj.models.length > 0) {
+      setSelectedModel(brandObj.models[0]);
+    }
+  };
 
   const handleQuickWhatsApp = (e) => {
     e.preventDefault();
-    const serviceObj = SERVICE_CATEGORIES.find(s => s.id === quickService);
-    const serviceName = serviceObj ? serviceObj.title : 'General Car Service';
-    const waUrl = buildWhatsAppUrl({
-      brand: quickBrand,
-      model: quickModel,
-      fuelType: quickFuel,
-      serviceName: serviceName,
-      serviceArea: quickArea,
+    const url = buildWhatsAppUrl({
+      carBrand: selectedBrand,
+      carModel: selectedModel,
+      fuelType: fuelType,
+      serviceName: selectedService,
+      locality: "Tirumalagiri / Secunderabad"
     });
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
+    window.open(url, '_blank');
+  };
+
+  const handleDirectWhatsApp = () => {
+    const url = buildWhatsAppUrl({
+      carBrand: selectedBrand,
+      carModel: selectedModel,
+      serviceName: "Doorstep Inspection & Quote"
+    });
+    window.open(url, '_blank');
   };
 
   return (
@@ -45,30 +60,56 @@ export default function Hero({ onOpenBooking }) {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
       </div>
 
-      {/* 2. Global Automotive Heritage & Country of Origin Background Layer */}
+      {/* 2. Global Automotive Heritage Background Layer */}
       <HeroHeritageBackground />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left Column: Headline & Value Proposition */}
-          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
+          {/* Left Column: Official Logo, Brand Hero & Value Proposition */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            {/* Small Elegant Label */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider uppercase text-slate-300 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-brand-400" />
-              <span>PREMIUM AUTOMOTIVE CARE</span>
+            {/* OFFICIAL LOGO & PRIMARY BRAND LOCKUP */}
+            <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-2.5 sm:pr-6 rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-brand-400/40">
+              <div className="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-white p-1.5 shadow-md">
+                <img
+                  src="/images/business_logo.png"
+                  alt="The Garage On Wheels Official Business Logo"
+                  className="w-full h-full object-contain"
+                  loading="eager"
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
+                  <span className="text-xl sm:text-2xl font-black tracking-tight font-sans text-white">
+                    THE GARAGE
+                  </span>
+                  <span className="text-xl sm:text-2xl font-black tracking-wider text-brand-400">
+                    ON WHEELS
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-slate-300 mt-0.5">
+                  DOOR STEP CAR SERVICE &amp; REPAIR
+                </p>
+                <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] text-emerald-400 font-semibold mt-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Certified Mobile Mechanics • Tirumalagiri Hub</span>
+                </div>
+              </div>
             </div>
 
-            {/* Main Luxury Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-white font-sans tracking-tight leading-[1.1]">
-              YOUR CAR. <br />
-              CARED FOR <span className="text-brand-400">BETTER.</span>
+            {/* Core Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-white font-sans tracking-tight leading-[1.1]">
+              Professional Car Care, <br />
+              <span className="text-brand-400">Wherever Your Car Is.</span>
             </h1>
 
-            {/* Short Elegant Description */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              <strong className="text-white font-semibold">The Garage On Wheels</strong> brings certified master technicians, 100% genuine OEM spare parts, and transparent pricing directly to your doorstep in Tirumalagiri, Secunderabad, and Hyderabad.
+            {/* Subhead Quote / Description */}
+            <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              "Expert car service and repair brought directly to your doorstep."
+            </p>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto lg:mx-0">
+              Save time and skip the crowded garage. Our master technicians arrive at your home, office, or apartment parking with certified tools and 100% genuine OEM parts.
             </p>
 
             {/* Feature Chips */}
@@ -87,26 +128,27 @@ export default function Hero({ onOpenBooking }) {
               </div>
             </div>
 
-            {/* CTAs & Social Proof Rating */}
+            {/* Prominent Action Buttons: BOOK A SERVICE & WHATSAPP US */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button
                 onClick={() => onOpenBooking()}
-                className="w-full sm:w-auto px-7 py-3.5 bg-brand-500 hover:bg-brand-700 text-white font-bold text-sm rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
+                className="w-full sm:w-auto px-8 py-4 bg-brand-500 hover:bg-brand-700 text-white font-extrabold text-xs tracking-wider uppercase rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
               >
-                <span>Book a Service</span>
+                <span>BOOK A SERVICE</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <a
-                href="#services"
-                className="w-full sm:w-auto px-6 py-3.5 bg-transparent border border-white/20 hover:border-white text-white font-semibold text-sm rounded-btn transition-colors flex items-center justify-center space-x-2"
+              <button
+                onClick={handleDirectWhatsApp}
+                className="w-full sm:w-auto px-7 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs tracking-wider uppercase rounded-btn transition-colors flex items-center justify-center space-x-2 shadow-sm active:scale-95"
               >
-                <span>Explore Our Services</span>
-              </a>
+                <MessageSquare className="w-4 h-4" />
+                <span>WHATSAPP US</span>
+              </button>
             </div>
 
             {/* Verified Google Reviews Rating */}
-            <div className="flex items-center justify-center lg:justify-start space-x-4 pt-1">
+            <div className="flex items-center justify-center lg:justify-start space-x-4 pt-2">
               <div className="flex -space-x-2 overflow-hidden">
                 <span className="inline-block h-8 w-8 rounded-full ring-2 ring-charcoal-deep bg-slate-700 flex items-center justify-center text-xs font-bold text-white">SK</span>
                 <span className="inline-block h-8 w-8 rounded-full ring-2 ring-charcoal-deep bg-brand-700 flex items-center justify-center text-xs font-bold text-white">RR</span>
@@ -120,7 +162,7 @@ export default function Hero({ onOpenBooking }) {
                   ))}
                   <span className="text-xs font-bold text-white ml-1">4.9 / 5.0</span>
                 </div>
-                <p className="text-[11px] text-slate-400">Over 1,200+ car owners served in Secunderabad</p>
+                <p className="text-[11px] text-slate-400">Over 1,200+ car owners served across Secunderabad &amp; Hyderabad</p>
               </div>
             </div>
 
@@ -149,27 +191,21 @@ export default function Hero({ onOpenBooking }) {
                   </label>
                   <div className="relative">
                     <select
-                      value={quickBrand}
-                      onChange={(e) => {
-                        setQuickBrand(e.target.value);
-                        const bObj = CAR_BRANDS.find(b => b.name === e.target.value);
-                        if (bObj && bObj.models.length > 0) setQuickModel(bObj.models[0]);
-                      }}
-                      className="w-full bg-charcoal-deep border border-white/15 text-white rounded-input px-3.5 py-2.5 text-xs font-medium focus:border-brand-400 focus:outline-none transition-colors appearance-none cursor-pointer"
+                      value={selectedBrand}
+                      onChange={handleBrandChange}
+                      className="w-full bg-surface-soft/10 border border-white/15 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 transition-all font-medium"
                     >
-                      {CAR_BRANDS.map(brand => (
-                        <option key={brand.id} value={brand.name} className="bg-charcoal-deep text-white">
-                          {brand.name} ({brand.originCountry})
+                      {CAR_BRANDS.map((b) => (
+                        <option key={b.id} value={b.name} className="bg-charcoal text-white">
+                          {b.name} ({b.originFlag} {b.originCountry})
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                      <ChevronRight className="w-4 h-4 rotate-90" />
-                    </div>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
-                {/* 2. Car Model & Fuel Type */}
+                {/* 2. Car Model & Fuel */}
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
@@ -177,17 +213,17 @@ export default function Hero({ onOpenBooking }) {
                     </label>
                     <div className="relative">
                       <select
-                        value={quickModel}
-                        onChange={(e) => setQuickModel(e.target.value)}
-                        className="w-full bg-charcoal-deep border border-white/15 text-white rounded-input px-3 py-2.5 text-xs font-medium focus:border-brand-400 focus:outline-none transition-colors appearance-none cursor-pointer"
+                        value={selectedModel}
+                        onChange={(e) => setSelectedModel(e.target.value)}
+                        className="w-full bg-surface-soft/10 border border-white/15 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 transition-all font-medium"
                       >
-                        {currentBrandObj.models.map(model => (
-                          <option key={model} value={model} className="bg-charcoal-deep text-white">{model}</option>
+                        {currentBrandObj.models.map((m) => (
+                          <option key={m} value={m} className="bg-charcoal text-white">
+                            {m}
+                          </option>
                         ))}
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-400">
-                        <ChevronRight className="w-4 h-4 rotate-90" />
-                      </div>
+                      <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
                   </div>
 
@@ -197,78 +233,53 @@ export default function Hero({ onOpenBooking }) {
                     </label>
                     <div className="relative">
                       <select
-                        value={quickFuel}
-                        onChange={(e) => setQuickFuel(e.target.value)}
-                        className="w-full bg-charcoal-deep border border-white/15 text-white rounded-input px-3 py-2.5 text-xs font-medium focus:border-brand-400 focus:outline-none transition-colors appearance-none cursor-pointer"
+                        value={fuelType}
+                        onChange={(e) => setFuelType(e.target.value)}
+                        className="w-full bg-surface-soft/10 border border-white/15 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 transition-all font-medium"
                       >
-                        {FUEL_TYPES.map(fuel => (
-                          <option key={fuel} value={fuel} className="bg-charcoal-deep text-white">{fuel}</option>
-                        ))}
+                        <option value="Petrol" className="bg-charcoal text-white">Petrol</option>
+                        <option value="Diesel" className="bg-charcoal text-white">Diesel</option>
+                        <option value="CNG" className="bg-charcoal text-white">CNG</option>
+                        <option value="Electric (EV)" className="bg-charcoal text-white">Electric (EV)</option>
+                        <option value="Hybrid" className="bg-charcoal text-white">Hybrid</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-400">
-                        <ChevronRight className="w-4 h-4 rotate-90" />
-                      </div>
+                      <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
                   </div>
                 </div>
 
-                {/* 3. Service Needed */}
+                {/* 3. Service Package */}
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    3. Service Category
+                    3. Required Service
                   </label>
                   <div className="relative">
                     <select
-                      value={quickService}
-                      onChange={(e) => setQuickService(e.target.value)}
-                      className="w-full bg-charcoal-deep border border-white/15 text-white rounded-input px-3.5 py-2.5 text-xs font-medium focus:border-brand-400 focus:outline-none transition-colors appearance-none cursor-pointer"
+                      value={selectedService}
+                      onChange={(e) => setSelectedService(e.target.value)}
+                      className="w-full bg-surface-soft/10 border border-white/15 text-white text-xs rounded-btn px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 transition-all font-medium"
                     >
-                      {SERVICE_CATEGORIES.map(service => (
-                        <option key={service.id} value={service.id} className="bg-charcoal-deep text-white">
-                          {service.title}
+                      {SERVICE_CATEGORIES.map((s) => (
+                        <option key={s.id} value={s.title} className="bg-charcoal text-white">
+                          {s.title} ({s.startingPrice})
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                      <ChevronRight className="w-4 h-4 rotate-90" />
-                    </div>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
-                {/* 4. Local Area */}
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    4. Doorstep Location
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={quickArea}
-                      onChange={(e) => setQuickArea(e.target.value)}
-                      className="w-full bg-charcoal-deep border border-white/15 text-white rounded-input px-3.5 py-2.5 text-xs font-medium focus:border-brand-400 focus:outline-none transition-colors appearance-none cursor-pointer"
-                    >
-                      {LOCAL_SERVICE_AREAS.map(area => (
-                        <option key={area.id} value={area.name} className="bg-charcoal-deep text-white">
-                          {area.name} {area.highlight ? '★ (Primary Hub)' : ''}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                      <ChevronRight className="w-4 h-4 rotate-90" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Submit Action */}
+                {/* Submit to WhatsApp */}
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-brand-500 hover:bg-brand-700 text-white font-bold text-xs rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-95"
+                    className="w-full py-3.5 bg-brand-500 hover:bg-brand-700 text-white font-extrabold text-xs tracking-wider uppercase rounded-btn shadow-premium transition-all flex items-center justify-center space-x-2 active:scale-98"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Get Instant WhatsApp Quote</span>
                   </button>
-                  <p className="text-[10px] text-center text-slate-400 mt-2">
-                    🔒 No spam. Instant direct quote from local technician on WhatsApp.
+                  <p className="text-[10px] text-slate-400 text-center mt-2">
+                    ✓ No advance payment required • Free doorstep quote
                   </p>
                 </div>
 

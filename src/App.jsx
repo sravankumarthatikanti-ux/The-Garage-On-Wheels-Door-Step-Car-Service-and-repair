@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MarqueeTicker from './components/MarqueeTicker';
-import BrandGrid from './components/BrandGrid';
+import AboutSection from './components/AboutSection';
 import ServiceGrid from './components/ServiceGrid';
+import BrandGrid from './components/BrandGrid';
 import PartsGrid from './components/PartsGrid';
 import HowItWorks from './components/HowItWorks';
 import WhyChooseUs from './components/WhyChooseUs';
+import CarInsights from './components/CarInsights';
+import GarageGallery from './components/GarageGallery';
 import ServiceArea from './components/ServiceArea';
 import Testimonials from './components/Testimonials';
-import GarageGallery from './components/GarageGallery';
-import CarInsights from './components/CarInsights';
+import BookingCTA from './components/BookingCTA';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import BookingModal from './components/BookingModal';
@@ -18,7 +20,7 @@ import BookingModal from './components/BookingModal';
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [activeBrand, setActiveBrand] = useState('Maruti Suzuki');
-  const [activeService, setActiveService] = useState('Periodic Car Service');
+  const [activeService, setActiveService] = useState('General Service');
 
   const handleOpenBooking = (brand = '', service = '', area = '') => {
     if (brand) setActiveBrand(brand);
@@ -37,38 +39,44 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="flex-grow">
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section with Prominent Official Logo */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* Next-Gen Marquee Ticker */}
+        {/* Brand Marquee Ticker */}
         <MarqueeTicker />
 
-        {/* 2. Car Brands Grid */}
-        <BrandGrid onSelectBrand={(brand) => handleOpenBooking(brand, '')} />
+        {/* 2. About Section: CAR CARE THAT COMES TO YOU */}
+        <AboutSection onOpenBooking={handleOpenBooking} />
 
-        {/* 3. Service Categories Grid */}
+        {/* 3. Service Categories Grid (8 Core Services) */}
         <ServiceGrid onSelectService={(service) => handleOpenBooking('', service)} />
 
-        {/* 4. Spare Parts Catalog */}
+        {/* 4. Car Brands Grid */}
+        <BrandGrid onSelectBrand={(brand) => handleOpenBooking(brand, '')} />
+
+        {/* 5. Spare Parts Catalog */}
         <PartsGrid onSelectPart={(partName) => handleOpenBooking('', `Genuine Part: ${partName}`)} />
 
-        {/* 5. How It Works */}
+        {/* 6. How It Works (4 Steps to Doorstep Care) */}
         <HowItWorks onOpenBooking={handleOpenBooking} />
 
-        {/* 6. Why Choose Us */}
+        {/* 7. Why Choose Us (6 Trust Pillars) */}
         <WhyChooseUs />
 
-        {/* Expert Car Insights & Repair Guide */}
+        {/* 8. Expert Car Insights & Repair Standards */}
         <CarInsights onOpenBooking={handleOpenBooking} />
 
-        {/* 7. Garage & Mechanical Photo Gallery Album */}
+        {/* 9. Garage & Mechanical Photo Gallery Album */}
         <GarageGallery onOpenBooking={handleOpenBooking} />
 
-        {/* 8. Service Coverage Areas */}
+        {/* 10. Service Coverage Areas */}
         <ServiceArea onOpenBooking={handleOpenBooking} />
 
-        {/* 8. Testimonials & Social Proof */}
+        {/* 11. Testimonials & Social Proof */}
         <Testimonials onOpenBooking={handleOpenBooking} />
+
+        {/* 12. High-Impact Booking CTA: NEED CAR SERVICE? WE COME TO YOU */}
+        <BookingCTA onOpenBooking={handleOpenBooking} />
       </main>
 
       {/* Site Footer */}
