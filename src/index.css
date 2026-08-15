@@ -50,76 +50,147 @@
 }
 
 /* ------------------------------------------------------------- */
-/* COLORFUL SPORT PERFORMANCE LUXURY CARD & BUTTON SYSTEM        */
+/* 60 / 30 / 10 SPORTY PREMIUM BUTTON & CARD SYSTEM             */
 /* ------------------------------------------------------------- */
 
-/* Premium Light Card */
+/* 60% Foundation: Premium Light Card */
 .premium-card {
   background: #FFFFFF;
   border: 1px solid #DCE3E8;
   border-radius: 18px;
   box-shadow: 0 4px 20px rgba(17, 21, 26, 0.03);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.35s ease, 
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
 .premium-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 45px -10px rgba(17, 21, 26, 0.1);
+  transform: translateY(-4px);
+  border-color: #C9D1D6;
+  box-shadow: 0 16px 40px -10px rgba(17, 21, 26, 0.08);
 }
 
-/* Dark Premium Charcoal Card */
+/* 30% Contrast: Dark Premium Charcoal Card */
 .dark-card {
   background: #252C34;
   border: 1px solid rgba(201, 209, 214, 0.14);
   border-radius: 18px;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.35s ease, 
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.35s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
 .dark-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 25px 55px -12px rgba(0, 0, 0, 0.7);
 }
 
-/* Sporty Primary Button with Ice Blue -> Cyan border glow */
+/* LEVEL 1: Main Filled CTA Button */
 .btn-sport-primary {
-  background: #11151A;
+  background: #111418;
   color: #FFFFFF;
-  border: 1px solid rgba(143, 216, 255, 0.35);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(143, 216, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(17, 20, 24, 0.25), 0 0 15px rgba(143, 216, 255, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
 .btn-sport-primary:hover {
-  background: #1A2026;
+  background: #1C2126;
   border-color: #8FD8FF;
-  box-shadow: 0 0 25px rgba(143, 216, 255, 0.35), 0 0 10px rgba(157, 231, 229, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(17, 20, 24, 0.35), 0 0 25px rgba(143, 216, 255, 0.45);
 }
 
 .btn-sport-primary:active {
   transform: scale(0.97);
 }
 
-/* Sporty Button Arrow Interaction */
+/* LEVEL 1: Premium Gradient CTA (Ice Blue -> Cyan -> Aqua) */
+.btn-sport-gradient {
+  background: linear-gradient(135deg, #8FD8FF 0%, #9DE7E5 50%, #8EDDD0 100%);
+  color: #111418;
+  border: 1px solid #8FD8FF;
+  box-shadow: 0 4px 16px rgba(143, 216, 255, 0.35), 0 0 20px rgba(157, 231, 229, 0.2);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sport-gradient:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 8px 25px rgba(143, 216, 255, 0.5), 0 0 30px rgba(157, 231, 229, 0.35);
+}
+
+.btn-sport-gradient:active {
+  transform: scale(0.97);
+}
+
+/* LEVEL 2: Secondary Outlined CTA Button (WhatsApp & Neutral) */
+.btn-sport-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  border: 1px solid rgba(201, 209, 214, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sport-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #9DE7E5;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(157, 231, 229, 0.25);
+}
+
+.btn-sport-secondary:active {
+  transform: scale(0.97);
+}
+
+/* LEVEL 2 Light version (for light sections) */
+.btn-sport-secondary-light {
+  background: #FFFFFF;
+  color: #11151A;
+  border: 1px solid #C9D1D6;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-sport-secondary-light:hover {
+  border-color: #8FD8FF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(143, 216, 255, 0.2);
+}
+
+.btn-sport-secondary-light:active {
+  transform: scale(0.97);
+}
+
+/* Arrow Slide Micro-Interaction */
 .btn-sport-primary:hover .btn-arrow,
-.btn-sport-secondary:hover .btn-arrow {
+.btn-sport-gradient:hover .btn-arrow,
+.btn-sport-secondary:hover .btn-arrow,
+.btn-sport-secondary-light:hover .btn-arrow {
   transform: translateX(4px);
 }
 
 .btn-arrow {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Input Focus with Ice Blue / Cyan Gradient Border */
+/* Smart Active Input Focus */
 .input-smart-focus {
   transition: all 0.25s ease;
   border: 1px solid #DCE3E8;
@@ -138,7 +209,7 @@
     opacity: 0;
   }
   15% {
-    opacity: 0.18;
+    opacity: 0.16;
   }
   30% {
     transform: translateX(200%) skewX(-20deg);

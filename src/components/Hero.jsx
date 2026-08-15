@@ -187,18 +187,24 @@ export default function Hero({ onOpenBooking }) {
             </p>
 
             {/* 4. SPORTY PRIMARY & SECONDARY ACTION BUTTONS */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 relative">
+              
+              {/* Soft Atmospheric Glow Behind Primary Button */}
+              <div className="absolute -left-2 top-0 w-48 h-14 bg-ice/20 rounded-full blur-xl pointer-events-none" />
+
+              {/* LEVEL 1: Primary Filled CTA */}
               <button
                 onClick={() => onOpenBooking()}
-                className="w-full sm:w-auto px-8 py-4 btn-sport-primary font-black text-xs tracking-widest uppercase rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95"
+                className="w-full sm:w-auto px-8 py-4 btn-sport-primary font-black text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2.5 z-10"
               >
                 <span>BOOK A SERVICE →</span>
-                <ArrowRight className="w-4 h-4 btn-arrow" />
+                <ArrowRight className="w-4 h-4 btn-arrow text-ice" />
               </button>
 
+              {/* LEVEL 2: Secondary Outlined CTA */}
               <button
                 onClick={handleDirectWhatsApp}
-                className="w-full sm:w-auto px-8 py-4 bg-charcoal hover:bg-charcoal-soft text-white font-bold text-xs tracking-widest uppercase rounded-btn transition-all flex items-center justify-center space-x-2 border border-titanium/25 hover:border-ice active:scale-95 shadow-sm"
+                className="w-full sm:w-auto px-8 py-4 btn-sport-secondary font-bold text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2 z-10"
               >
                 <MessageSquare className="w-4 h-4 text-cyan" />
                 <span>WHATSAPP US</span>

@@ -350,10 +350,10 @@ export default function ProgressiveBooking() {
                   </button>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95"
+                    className="w-full sm:w-auto px-8 py-4 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-lg flex items-center justify-center space-x-2.5 active:scale-95"
                   >
                     <span>BOOK MY SERVICE →</span>
-                    <ArrowRight className="w-4 h-4 btn-arrow" />
+                    <ArrowRight className="w-4 h-4 btn-arrow text-graphite" />
                   </button>
                 </div>
               </div>

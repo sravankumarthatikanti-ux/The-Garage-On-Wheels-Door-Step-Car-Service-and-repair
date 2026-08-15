@@ -166,8 +166,8 @@ export default function PartsFinder({ onOpenBooking }) {
                 type="submit"
                 className="w-full sm:w-auto px-8 py-3.5 btn-sport-primary font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95 shrink-0"
               >
-                <span>FIND PART →</span>
-                <ArrowRight className="w-4 h-4 btn-arrow" />
+                <span>FIND MY PART →</span>
+                <ArrowRight className="w-4 h-4 btn-arrow text-ice" />
               </button>
             </div>
           </form>

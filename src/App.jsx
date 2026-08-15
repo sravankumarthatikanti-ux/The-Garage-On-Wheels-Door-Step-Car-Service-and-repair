@@ -13,6 +13,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
 import SmartAssistant from './components/SmartAssistant';
+import FloatingBookCTA from './components/FloatingBookCTA';
 import BookingModal from './components/BookingModal';
 
 export default function App() {
@@ -77,7 +78,10 @@ export default function App() {
       {/* 13. Mobile Sticky Action Bar: CALL | WHATSAPP | BOOK */}
       <MobileStickyBar onOpenBooking={handleOpenBooking} />
 
-      {/* 14. Smart Service Assistant */}
+      {/* 14. Smart Floating Book CTA (Desktop when scrolled) */}
+      <FloatingBookCTA onOpenBooking={handleOpenBooking} />
+
+      {/* 15. Smart Service Assistant */}
       <SmartAssistant onOpenBooking={handleOpenBooking} />
 
       {/* Contextual Interactive Booking Modal */}
