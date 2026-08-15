@@ -29,50 +29,43 @@ export default function PartsFinder({ onOpenBooking }) {
     window.open(url, '_blank');
   };
 
-  const stepsColorMap = [
-    { step: "01", label: "Brand", color: "text-ice", border: "focus:border-ice" },
-    { step: "02", label: "Model", color: "text-cyan", border: "focus:border-cyan" },
-    { step: "03", label: "Category", color: "text-aqua", border: "focus:border-aqua" },
-    { step: "04", label: "Part", color: "text-lavender", border: "focus:border-lavender" },
-  ];
-
   return (
-    <section id="parts" className="py-16 md:py-24 bg-[#101419] text-white border-t border-[#252C33] relative overflow-hidden">
+    <section id="parts" className="py-16 md:py-24 bg-[#F5F7F8] text-[#080A0D] border-t border-slate-200 relative overflow-hidden">
       
-      {/* Background Studio Lighting */}
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[650px] h-[350px] bg-ice/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Soft Studio Lighting */}
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[650px] h-[350px] bg-ice/15 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-2.5">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#080A0D] text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono shadow-sm">
             <ShieldCheck className="w-3.5 h-3.5 text-cyan" />
             <span>100% GENUINE OEM SPARE PARTS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
             FIND YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-lavender">CAR PART</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
             Sealed barcode warranty, manufacturer-backed components, and certified doorstep installation.
           </p>
         </div>
 
-        {/* 4-Step Interactive Discovery Selector */}
-        <div className="bg-[#181E24] border border-[#252C33] rounded-card-lg p-6 sm:p-9 shadow-premium text-left relative">
+        {/* 4-Step Interactive Discovery Selector (Clean White Card) */}
+        <div className="bg-white border border-slate-200 rounded-card-lg p-6 sm:p-9 shadow-premium text-left relative">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             
             {/* Step 1: Select Brand */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-ice uppercase tracking-wider font-mono flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#101419] border border-ice/40 text-[9px] flex items-center justify-center">1</span>
+              <label className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-[#080A0D] text-ice text-[9px] flex items-center justify-center font-bold">1</span>
                 Brand
               </label>
               <select
                 value={selectedBrand}
                 onChange={handleBrandChange}
-                className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer"
+                className="w-full bg-[#F8FAFC] border border-slate-300 text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer focus:outline-none focus:border-ice focus:ring-2 focus:ring-ice/20"
               >
                 {CAR_BRANDS.map((b) => (
                   <option key={b.id} value={b.name}>{b.name}</option>
@@ -82,14 +75,14 @@ export default function PartsFinder({ onOpenBooking }) {
 
             {/* Step 2: Select Model */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-cyan uppercase tracking-wider font-mono flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#101419] border border-cyan/40 text-[9px] flex items-center justify-center">2</span>
+              <label className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-[#080A0D] text-cyan text-[9px] flex items-center justify-center font-bold">2</span>
                 Model
               </label>
               <select
                 value={selectedModel}
                 onChange={(e) => setSelectedModel(e.target.value)}
-                className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer"
+                className="w-full bg-[#F8FAFC] border border-slate-300 text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer focus:outline-none focus:border-cyan focus:ring-2 focus:ring-cyan/20"
               >
                 {currentBrandObj.models.map((m) => (
                   <option key={m} value={m}>{m}</option>
@@ -99,14 +92,14 @@ export default function PartsFinder({ onOpenBooking }) {
 
             {/* Step 3: Select Category */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-aqua uppercase tracking-wider font-mono flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#101419] border border-aqua/40 text-[9px] flex items-center justify-center">3</span>
+              <label className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-[#080A0D] text-aqua text-[9px] flex items-center justify-center font-bold">3</span>
                 Category
               </label>
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer"
+                className="w-full bg-[#F8FAFC] border border-slate-300 text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20"
               >
                 <option value="Braking & Safety">Braking &amp; Safety</option>
                 <option value="Filters & Lubricants">Filters &amp; Lubricants</option>
@@ -118,14 +111,14 @@ export default function PartsFinder({ onOpenBooking }) {
 
             {/* Step 4: Select Part */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-lavender uppercase tracking-wider font-mono flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#101419] border border-lavender/40 text-[9px] flex items-center justify-center">4</span>
+              <label className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <span className="w-4 h-4 rounded-full bg-[#080A0D] text-lavender text-[9px] flex items-center justify-center font-bold">4</span>
                 Specific Component
               </label>
               <select
                 value={selectedPartName}
                 onChange={(e) => setSelectedPartName(e.target.value)}
-                className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer"
+                className="w-full bg-[#F8FAFC] border border-slate-300 text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer focus:outline-none focus:border-lavender focus:ring-2 focus:ring-lavender/20"
               >
                 {currentCategoryParts.map((p, idx) => (
                   <option key={idx} value={p.name}>{p.name}</option>
@@ -137,12 +130,12 @@ export default function PartsFinder({ onOpenBooking }) {
           </div>
 
           {/* Action Row & Live Summary */}
-          <div className="pt-6 border-t border-[#252C33] flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="pt-6 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-5">
             <div className="space-y-1 text-center md:text-left">
-              <div className="text-xs font-bold text-[#A7ADB4] font-mono">
-                Matching Component For: <strong className="text-white">{selectedBrand} {selectedModel}</strong>
+              <div className="text-xs font-bold text-slate-500 font-mono">
+                Matching Component For: <strong className="text-slate-900">{selectedBrand} {selectedModel}</strong>
               </div>
-              <div className="text-sm font-black text-ice font-heading">
+              <div className="text-sm font-black text-slate-900 font-heading">
                 {selectedPartName}
               </div>
             </div>

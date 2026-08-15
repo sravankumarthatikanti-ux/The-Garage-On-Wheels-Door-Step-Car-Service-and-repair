@@ -9,32 +9,32 @@ export default function AboutSection({ onOpenBooking }) {
   };
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-[#080A0D] text-white border-t border-[#252C33] relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 bg-[#F5F7F8] text-[#080A0D] border-t border-slate-200 relative overflow-hidden">
       
-      {/* Background Soft Studio Ambient Lighting: Ice Blue + Lavender */}
-      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[700px] h-[350px] bg-ice/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[500px] h-[300px] bg-lavender/10 rounded-full blur-[130px] pointer-events-none" />
+      {/* Background Soft Ambient Lighting */}
+      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[700px] h-[350px] bg-ice/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[500px] h-[300px] bg-lavender/15 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Column 1: Verified Workshop Hub Visual Showcase */}
+          {/* Column 1: Verified Workshop Hub Visual Showcase (Dark Luxury Contrast Card) */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-card-lg overflow-hidden border border-[#252C33] shadow-premium bg-[#181E24] p-6 sm:p-8">
+            <div className="relative rounded-card-lg overflow-hidden border border-slate-800 shadow-2xl bg-[#080A0D] p-6 sm:p-8 text-white">
               
               {/* Workshop Ambience Background Overlay */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/gallery/garage_workshop.jpg" 
                   alt="Automotive Service Workshop Precision" 
-                  className="w-full h-full object-cover opacity-20 filter grayscale-[20%]"
+                  className="w-full h-full object-cover opacity-25 filter grayscale-[20%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#080A0D] via-[#101419]/90 to-lavender/10" />
               </div>
 
               <div className="space-y-6 relative z-10 text-left">
                 {/* Clean Standards Indicator */}
-                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#101419] border border-[#252C33] text-ice text-xs font-bold uppercase tracking-widest font-mono">
+                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#101419] border border-[#252C33] text-ice text-xs font-bold uppercase tracking-widest font-mono shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
                   <span>THE GARAGE ON WHEELS STANDARDS</span>
                 </div>
@@ -71,55 +71,55 @@ export default function AboutSection({ onOpenBooking }) {
           <div className="lg:col-span-6 space-y-6 text-left">
             
             <div className="space-y-2.5">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#080A0D] text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-cyan" />
                 <span>ABOUT US</span>
               </div>
               
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight leading-tight">
                 CAR CARE THAT <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-lavender">COMES TO YOU.</span>
               </h2>
               
-              <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed font-sans">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
                 We believe your time is valuable. Our mobile service vans bring precision tools, computerized scanners, and master mechanics right to your doorstep.
               </p>
             </div>
 
-            {/* 3 Core Trust Cards */}
+            {/* 3 Core Trust Cards (Clean White Surface) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
               
-              <div className="p-4 rounded-card bg-[#181E24] border border-[#252C33] space-y-2 hover:border-cyan/40 transition-all">
-                <div className="w-9 h-9 rounded-xl bg-[#101419] text-cyan flex items-center justify-center border border-[#252C33]">
+              <div className="p-4 rounded-card bg-white border border-slate-200 shadow-sm space-y-2 hover:border-cyan hover:shadow-md transition-all">
+                <div className="w-9 h-9 rounded-xl bg-[#080A0D] text-cyan flex items-center justify-center border border-slate-800">
                   <Wrench className="w-4 h-4" />
                 </div>
-                <h4 className="text-xs font-black text-white uppercase tracking-wider font-mono">
+                <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider font-mono">
                   Master Technicians
                 </h4>
-                <p className="text-[11px] text-[#A7ADB4] font-medium leading-relaxed font-sans">
+                <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
                   Certified mechanics trained across Asian &amp; European cars.
                 </p>
               </div>
 
-              <div className="p-4 rounded-card bg-[#181E24] border border-[#252C33] space-y-2 hover:border-lavender/40 transition-all">
-                <div className="w-9 h-9 rounded-xl bg-[#101419] text-lavender flex items-center justify-center border border-[#252C33]">
+              <div className="p-4 rounded-card bg-white border border-slate-200 shadow-sm space-y-2 hover:border-lavender hover:shadow-md transition-all">
+                <div className="w-9 h-9 rounded-xl bg-[#080A0D] text-lavender flex items-center justify-center border border-slate-800">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <h4 className="text-xs font-black text-white uppercase tracking-wider font-mono">
+                <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider font-mono">
                   Sealed Spares
                 </h4>
-                <p className="text-[11px] text-[#A7ADB4] font-medium leading-relaxed font-sans">
+                <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
                   OEM barcode parts unboxed in front of you.
                 </p>
               </div>
 
-              <div className="p-4 rounded-card bg-[#181E24] border border-[#252C33] space-y-2 hover:border-lime/40 transition-all">
-                <div className="w-9 h-9 rounded-xl bg-[#101419] text-lime flex items-center justify-center border border-[#252C33]">
+              <div className="p-4 rounded-card bg-white border border-slate-200 shadow-sm space-y-2 hover:border-lime hover:shadow-md transition-all">
+                <div className="w-9 h-9 rounded-xl bg-[#080A0D] text-lime flex items-center justify-center border border-slate-800">
                   <Clock className="w-4 h-4" />
                 </div>
-                <h4 className="text-xs font-black text-white uppercase tracking-wider font-mono">
+                <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider font-mono">
                   Fast Dispatch
                 </h4>
-                <p className="text-[11px] text-[#A7ADB4] font-medium leading-relaxed font-sans">
+                <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
                   30–60 min ETA across Secunderabad &amp; Hyderabad.
                 </p>
               </div>

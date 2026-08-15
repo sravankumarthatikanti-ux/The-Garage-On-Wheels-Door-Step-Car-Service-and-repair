@@ -53,24 +53,24 @@ export default function HowItWorks({ onOpenBooking }) {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-[#101419] text-white border-t border-[#252C33] relative overflow-hidden">
+    <section id="how-it-works" className="py-16 md:py-24 bg-[#F5F7F8] text-[#080A0D] border-t border-slate-200 relative overflow-hidden">
       
-      {/* Background Color Blooms */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[350px] bg-ice/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[500px] h-[300px] bg-lavender/10 rounded-full blur-[130px] pointer-events-none" />
+      {/* Background Soft Studio Color Blooms */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[350px] bg-ice/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[500px] h-[300px] bg-lavender/15 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-2.5">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#080A0D] text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono shadow-sm">
             <Car className="w-3.5 h-3.5 text-cyan" />
             <span>DOORSTEP PROCESS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
             HOW IT <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-aqua to-lavender">WORKS</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
             Professional car care without visiting a traditional workshop.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function HowItWorks({ onOpenBooking }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative">
           
           {/* Connecting Progress Line for Desktop */}
-          <div className="hidden lg:block absolute top-1/3 left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-ice via-cyan to-lavender opacity-60 pointer-events-none" />
+          <div className="hidden lg:block absolute top-1/3 left-[12%] right-[12%] h-[2.5px] bg-gradient-to-r from-ice via-cyan to-lavender opacity-80 pointer-events-none" />
 
           {steps.map((step, idx) => {
             const Icon = step.icon;
@@ -89,13 +89,13 @@ export default function HowItWorks({ onOpenBooking }) {
               <div
                 key={step.num}
                 onMouseEnter={() => setActiveStep(idx)}
-                className={`bg-[#181E24] border border-[#252C33] rounded-card p-6 relative flex flex-col justify-between z-10 text-left transition-all duration-300 group hover:-translate-y-2 ${
-                  isHovered ? 'shadow-[0_0_30px_rgba(143,216,255,0.2)] border-ice/60' : ''
+                className={`bg-white border border-slate-200 rounded-card p-6 relative flex flex-col justify-between z-10 text-left transition-all duration-300 group hover:-translate-y-2 shadow-sm ${
+                  isHovered ? 'shadow-xl border-ice' : ''
                 }`}
               >
                 {/* Top Accent Line */}
                 <div 
-                  className="absolute top-0 left-0 right-0 h-[3px] rounded-t-card"
+                  className="absolute top-0 left-0 right-0 h-[3.5px] rounded-t-card"
                   style={{ backgroundColor: step.accentColor }}
                 />
 
@@ -109,9 +109,8 @@ export default function HowItWorks({ onOpenBooking }) {
                       {step.num}
                     </span>
                     <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center border border-[#252C33] shadow-sm transition-transform duration-300 group-hover:scale-110"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center border border-slate-800 shadow-sm transition-transform duration-300 group-hover:scale-110 bg-[#080A0D]"
                       style={{
-                        backgroundColor: `${step.accentColor}18`,
                         color: step.accentColor,
                       }}
                     >
@@ -121,11 +120,10 @@ export default function HowItWorks({ onOpenBooking }) {
 
                   {/* Badge */}
                   <span 
-                    className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase font-mono tracking-wider border"
+                    className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase font-mono tracking-wider border bg-[#080A0D]"
                     style={{
-                      backgroundColor: `${step.accentColor}15`,
                       color: step.accentColor,
-                      borderColor: `${step.accentColor}35`,
+                      borderColor: `${step.accentColor}50`,
                     }}
                   >
                     {step.badge}
@@ -133,22 +131,22 @@ export default function HowItWorks({ onOpenBooking }) {
 
                   {/* Title & Subtitle */}
                   <div>
-                    <h3 className="text-base font-black text-white font-heading tracking-tight">
+                    <h3 className="text-base font-black text-slate-900 font-heading tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-xs text-[#A7ADB4] font-medium font-sans mt-0.5">
+                    <p className="text-xs text-slate-500 font-medium font-sans mt-0.5">
                       {step.subtitle}
                     </p>
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs text-[#F1F3F5]/80 leading-relaxed font-sans">
+                  <p className="text-xs text-slate-600 leading-relaxed font-sans">
                     {step.desc}
                   </p>
                 </div>
 
                 {/* Footer Micro Check */}
-                <div className="mt-5 pt-3 border-t border-[#252C33] flex items-center text-[11px] text-[#A7ADB4] font-mono">
+                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center text-[11px] text-slate-500 font-mono">
                   <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-cyan shrink-0" />
                   <span>Guaranteed doorstep execution</span>
                 </div>

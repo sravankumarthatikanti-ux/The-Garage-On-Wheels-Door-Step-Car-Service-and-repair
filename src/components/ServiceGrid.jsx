@@ -3,17 +3,17 @@ import {
   ChevronLeft, 
   ChevronRight, 
   ArrowRight, 
-  Sparkles,
-  Wrench,
-  CheckCircle2,
-  Cog,
-  Disc,
-  BatteryCharging,
-  Wind,
-  Droplets,
-  ShieldCheck,
-  Cpu,
-  Car
+  Sparkles, 
+  Wrench, 
+  CheckCircle2, 
+  Cog, 
+  Disc, 
+  BatteryCharging, 
+  Wind, 
+  Droplets, 
+  ShieldCheck, 
+  Cpu, 
+  Car 
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
 
@@ -34,72 +34,72 @@ const SERVICE_ACCENTS = {
   "Engine Service": {
     accentColor: "#8FD8FF", // Ice Blue
     borderColor: "hover:border-[#8FD8FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(143,216,255,0.25)]",
-    badgeBg: "bg-[#8FD8FF]/15 text-[#8FD8FF] border-[#8FD8FF]/30",
-    iconBg: "bg-[#8FD8FF]/15 text-[#8FD8FF]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(143,216,255,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#8FD8FF] border-[#8FD8FF]/40",
+    iconBg: "bg-[#080A0D] text-[#8FD8FF]",
     dotBg: "bg-[#8FD8FF]",
     barColor: "from-[#8FD8FF] to-transparent",
   },
   "Brake Service": {
     accentColor: "#C7C0E8", // Soft Lavender
     borderColor: "hover:border-[#C7C0E8]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(199,192,232,0.25)]",
-    badgeBg: "bg-[#C7C0E8]/15 text-[#C7C0E8] border-[#C7C0E8]/30",
-    iconBg: "bg-[#C7C0E8]/15 text-[#C7C0E8]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(199,192,232,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#C7C0E8] border-[#C7C0E8]/40",
+    iconBg: "bg-[#080A0D] text-[#C7C0E8]",
     dotBg: "bg-[#C7C0E8]",
     barColor: "from-[#C7C0E8] to-transparent",
   },
   "Battery Service": {
     accentColor: "#9DE7E5", // Cyan Mist
     borderColor: "hover:border-[#9DE7E5]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(157,231,229,0.25)]",
-    badgeBg: "bg-[#9DE7E5]/15 text-[#9DE7E5] border-[#9DE7E5]/30",
-    iconBg: "bg-[#9DE7E5]/15 text-[#9DE7E5]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(157,231,229,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#9DE7E5] border-[#9DE7E5]/40",
+    iconBg: "bg-[#080A0D] text-[#9DE7E5]",
     dotBg: "bg-[#9DE7E5]",
     barColor: "from-[#9DE7E5] to-transparent",
   },
   "AC Service": {
     accentColor: "#8EDDD0", // Aqua
     borderColor: "hover:border-[#8EDDD0]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(142,221,208,0.25)]",
-    badgeBg: "bg-[#8EDDD0]/15 text-[#8EDDD0] border-[#8EDDD0]/30",
-    iconBg: "bg-[#8EDDD0]/15 text-[#8EDDD0]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(142,221,208,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#8EDDD0] border-[#8EDDD0]/40",
+    iconBg: "bg-[#080A0D] text-[#8EDDD0]",
     dotBg: "bg-[#8EDDD0]",
     barColor: "from-[#8EDDD0] to-transparent",
   },
   "Oil Change": {
     accentColor: "#DCC9A6", // Soft Champagne
     borderColor: "hover:border-[#DCC9A6]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(220,201,166,0.25)]",
-    badgeBg: "bg-[#DCC9A6]/15 text-[#DCC9A6] border-[#DCC9A6]/30",
-    iconBg: "bg-[#DCC9A6]/15 text-[#DCC9A6]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(220,201,166,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#DCC9A6] border-[#DCC9A6]/40",
+    iconBg: "bg-[#080A0D] text-[#DCC9A6]",
     dotBg: "bg-[#DCC9A6]",
     barColor: "from-[#DCC9A6] to-transparent",
   },
   "General Service": {
     accentColor: "#C8E6B8", // Soft Lime
     borderColor: "hover:border-[#C8E6B8]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(200,230,184,0.25)]",
-    badgeBg: "bg-[#C8E6B8]/15 text-[#C8E6B8] border-[#C8E6B8]/30",
-    iconBg: "bg-[#C8E6B8]/15 text-[#C8E6B8]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(200,230,184,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#C8E6B8] border-[#C8E6B8]/40",
+    iconBg: "bg-[#080A0D] text-[#C8E6B8]",
     dotBg: "bg-[#C8E6B8]",
     barColor: "from-[#C8E6B8] to-transparent",
   },
   "Car Diagnostics": {
     accentColor: "#8FD8FF", // Ice Blue
     borderColor: "hover:border-[#8FD8FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(143,216,255,0.25)]",
-    badgeBg: "bg-[#8FD8FF]/15 text-[#8FD8FF] border-[#8FD8FF]/30",
-    iconBg: "bg-[#8FD8FF]/15 text-[#8FD8FF]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(143,216,255,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#8FD8FF] border-[#8FD8FF]/40",
+    iconBg: "bg-[#080A0D] text-[#8FD8FF]",
     dotBg: "bg-[#8FD8FF]",
     barColor: "from-[#8FD8FF] to-transparent",
   },
   "Custom Repair": {
     accentColor: "#9DE7E5", // Cyan Mist
     borderColor: "hover:border-[#9DE7E5]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(157,231,229,0.25)]",
-    badgeBg: "bg-[#9DE7E5]/15 text-[#9DE7E5] border-[#9DE7E5]/30",
-    iconBg: "bg-[#9DE7E5]/15 text-[#9DE7E5]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(157,231,229,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#9DE7E5] border-[#9DE7E5]/40",
+    iconBg: "bg-[#080A0D] text-[#9DE7E5]",
     dotBg: "bg-[#9DE7E5]",
     barColor: "from-[#9DE7E5] to-transparent",
   },
@@ -126,25 +126,25 @@ export default function ServiceGrid({ onSelectService }) {
   };
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-[#101419] text-white relative border-t border-[#252C33] overflow-hidden">
+    <section id="services" className="py-16 md:py-24 bg-[#F5F7F8] text-[#080A0D] relative border-t border-slate-200 overflow-hidden">
       
-      {/* Background Color Blooms: Aqua + Ice Blue Subtle Studio Lighting */}
-      <div className="absolute top-1/4 right-1/4 w-[650px] h-[350px] bg-aqua/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-ice/10 rounded-full blur-[130px] pointer-events-none" />
+      {/* Background Subtle Color Blooms */}
+      <div className="absolute top-1/4 right-1/4 w-[650px] h-[350px] bg-ice/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/4 w-[500px] h-[300px] bg-aqua/15 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-5">
           <div className="space-y-2 text-left">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#080A0D] text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono shadow-sm">
               <Wrench className="w-3.5 h-3.5 text-ice" />
               <span>THE GARAGE ON WHEELS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
               PRECISION <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">CAR CARE</span>
             </h2>
-            <p className="text-sm sm:text-base text-[#A7ADB4] max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed font-sans">
               Professional doorstep automotive services engineered for all vehicle makes and models.
             </p>
           </div>
@@ -153,14 +153,14 @@ export default function ServiceGrid({ onSelectService }) {
           <div className="flex items-center space-x-2 self-start md:self-auto">
             <button
               onClick={() => scroll('left')}
-              className="p-2.5 rounded-full bg-[#181E24] border border-[#252C33] hover:border-ice text-[#A7ADB4] hover:text-white transition-all shadow-sm active:scale-95"
+              className="p-2.5 rounded-full bg-white border border-slate-300 hover:border-ice text-slate-700 hover:text-black transition-all shadow-sm active:scale-95"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-2.5 rounded-full bg-[#181E24] border border-[#252C33] hover:border-ice text-[#A7ADB4] hover:text-white transition-all shadow-sm active:scale-95"
+              className="p-2.5 rounded-full bg-white border border-slate-300 hover:border-ice text-slate-700 hover:text-black transition-all shadow-sm active:scale-95"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -183,15 +183,15 @@ export default function ServiceGrid({ onSelectService }) {
               <div
                 key={service.id}
                 onClick={() => onSelectService && onSelectService(service.title)}
-                className={`snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[350px] bg-[#181E24] border border-[#252C33] rounded-card p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ${accent.borderColor} ${accent.glowColor} group relative overflow-hidden text-left hover:-translate-y-2`}
+                className={`snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[350px] bg-white border border-slate-200 rounded-card p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ${accent.borderColor} ${accent.glowColor} group relative overflow-hidden text-left hover:-translate-y-2 shadow-sm hover:shadow-xl`}
               >
                 {/* Thin Accent Bar on top edge */}
-                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${accent.barColor}`} />
+                <div className={`absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r ${accent.barColor}`} />
 
                 <div>
                   {/* Card Header: Icon & Badge */}
                   <div className="flex items-start justify-between mb-5">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border border-[#252C33] shadow-sm transition-transform duration-300 group-hover:scale-110 ${accent.iconBg}`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border border-slate-800 shadow-sm transition-transform duration-300 group-hover:scale-110 ${accent.iconBg}`}>
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border font-mono ${accent.badgeBg}`}>
@@ -201,37 +201,37 @@ export default function ServiceGrid({ onSelectService }) {
 
                   {/* Service Title & Starting Price */}
                   <div className="space-y-1 mb-3">
-                    <h3 className="text-lg font-black text-white font-heading tracking-tight group-hover:text-ice transition-colors">
+                    <h3 className="text-lg font-black text-slate-900 font-heading tracking-tight group-hover:text-slate-800 transition-colors">
                       {service.title}
                     </h3>
-                    <div className="text-xs font-extrabold text-ice font-mono">
+                    <div className="text-xs font-extrabold text-slate-700 font-mono">
                       {service.startingPrice}
                     </div>
                   </div>
 
                   {/* Short Description */}
-                  <p className="text-xs text-[#A7ADB4] leading-relaxed mb-5 line-clamp-2">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-5 line-clamp-2 font-sans">
                     {service.shortDesc}
                   </p>
 
                   {/* Feature Checklist */}
-                  <ul className="space-y-2 mb-6 border-t border-[#252C33] pt-4">
+                  <ul className="space-y-2 mb-6 border-t border-slate-100 pt-4">
                     {service.features.slice(0, 3).map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start space-x-2 text-xs text-[#F1F3F5]">
+                      <li key={fIdx} className="flex items-start space-x-2 text-xs text-slate-700">
                         <CheckCircle2 className="w-3.5 h-3.5 text-cyan shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{feat}</span>
+                        <span className="line-clamp-1 font-medium">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Card Footer CTA Button */}
-                <div className="pt-2 border-t border-[#252C33] flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#F1F3F5] group-hover:text-ice transition-colors font-mono uppercase tracking-wider flex items-center gap-1.5">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-900 group-hover:text-black transition-colors font-mono uppercase tracking-wider flex items-center gap-1.5">
                     <span>BOOK SERVICE</span>
-                    <ArrowRight className="w-3.5 h-3.5 btn-arrow transition-transform duration-200 group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 btn-arrow transition-transform duration-200 group-hover:translate-x-1 text-slate-900" />
                   </span>
-                  <span className="text-[10px] text-[#6F7780] font-mono">Doorstep Ready</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Doorstep Ready</span>
                 </div>
 
               </div>
@@ -239,7 +239,7 @@ export default function ServiceGrid({ onSelectService }) {
           })}
         </div>
 
-        {/* Mobile Swipe Pagination Dots with Multi-Color accents */}
+        {/* Mobile Swipe Pagination Dots */}
         <div className="flex justify-center space-x-1.5 mt-4 sm:hidden">
           {SERVICE_CATEGORIES.map((cat, idx) => {
             const accent = SERVICE_ACCENTS[cat.title] || SERVICE_ACCENTS["General Service"];
@@ -252,7 +252,7 @@ export default function ServiceGrid({ onSelectService }) {
                   }
                 }}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeIndex === idx ? `w-6 ${accent.dotBg}` : 'w-1.5 bg-[#252C33]'
+                  activeIndex === idx ? `w-6 ${accent.dotBg}` : 'w-1.5 bg-slate-300'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
