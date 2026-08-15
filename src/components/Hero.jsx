@@ -128,7 +128,7 @@ export default function Hero({ onOpenBooking }) {
   return (
     <section 
       onMouseMove={handleMouseMove}
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-[#080A0D] text-white select-none"
+      className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden bg-[#080A0D] text-white select-none"
     >
       {/* ------------------------------------------------------------- */}
       {/* MULTI-COLOR AUTOMOTIVE STUDIO LIGHTING SYSTEM                 */}
