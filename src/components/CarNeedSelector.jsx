@@ -24,7 +24,7 @@ const CAR_NEEDS = [
     accentColor: '#C8E6B8', // Soft Lime
     glowColor: 'rgba(200, 230, 184, 0.25)',
     serviceKey: 'General Periodic Service',
-    estimatedStarting: '₹1,499',
+    estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '60–90 Mins',
     recommendation: 'Complete periodic lubrication, synthetic oil change, air/oil filter check, and 40-point safety checkup at your doorstep.',
   },
@@ -37,7 +37,7 @@ const CAR_NEEDS = [
     accentColor: '#8EDDD0', // Aqua
     glowColor: 'rgba(142, 221, 208, 0.25)',
     serviceKey: 'AC Service & Gas Top-up',
-    estimatedStarting: '₹1,299',
+    estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '45–60 Mins',
     recommendation: 'AC pressure diagnostic, refrigerant leak detection, cooling coil cleaning, and cabin pollen filter sanitization.',
   },
@@ -50,7 +50,7 @@ const CAR_NEEDS = [
     accentColor: '#9DE7E5', // Cyan Mist
     glowColor: 'rgba(157, 231, 229, 0.25)',
     serviceKey: 'Battery Replacement & Jumpstart',
-    estimatedStarting: '₹499',
+    estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '30–45 Mins',
     recommendation: 'Immediate doorstep jumpstart and free Amaron / Exide new battery replacement with warranty unboxing at your location.',
   },
@@ -63,7 +63,7 @@ const CAR_NEEDS = [
     accentColor: '#C7C0E8', // Soft Lavender
     glowColor: 'rgba(199, 192, 232, 0.25)',
     serviceKey: 'Brake Service & Pad Replacement',
-    estimatedStarting: '₹1,199',
+    estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '45–60 Mins',
     recommendation: 'Brake caliper inspection, ceramic/metallic brake pad replacement (TVS/Bosch), and DOT-4 fluid bleed in your driveway.',
   },
@@ -76,7 +76,7 @@ const CAR_NEEDS = [
     accentColor: '#8FD8FF', // Ice Blue
     glowColor: 'rgba(143, 216, 255, 0.25)',
     serviceKey: 'OBD-II Computer Diagnostics',
-    estimatedStarting: '₹699',
+    estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '30–45 Mins',
     recommendation: 'Full OBD-II computerized ECU scan, clear error codes, sensor live data reading, and certified mechanical report.',
   },
@@ -89,7 +89,7 @@ const CAR_NEEDS = [
     accentColor: '#DCC9A6', // Soft Champagne
     glowColor: 'rgba(220, 201, 166, 0.25)',
     serviceKey: 'Custom Mechanical Repair',
-    estimatedStarting: 'Inspection Free',
+    estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: 'Flexible',
     recommendation: 'Thorough suspension, steering, clutch, and engine bay diagnostic with transparent itemized estimate before starting.',
   },

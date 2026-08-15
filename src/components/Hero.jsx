@@ -365,7 +365,7 @@ export default function Hero({ onOpenBooking }) {
                       className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-[#252C33] focus:border-[#C7C0E8]"
                     >
                       {SERVICE_CATEGORIES.map((s) => (
-                        <option key={s.id} value={s.title}>{s.title} ({s.startingPrice})</option>
+                        <option key={s.id} value={s.title}>{s.title}</option>
                       ))}
                     </select>
                     <ChevronDown className="w-4 h-4 text-[#A7ADB4] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />

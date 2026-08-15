@@ -165,9 +165,9 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
               className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3 py-2.5 cursor-pointer"
             >
               {SERVICE_CATEGORIES.map((s) => (
-                <option key={s.id} value={s.title}>{s.title} ({s.startingPrice})</option>
+                <option key={s.id} value={s.title}>{s.title}</option>
               ))}
-              <option value="Doorstep Foam Wash & Detailing">Doorstep Foam Wash & Detailing (₹499)</option>
+              <option value="Doorstep Foam Wash & Detailing">Doorstep Foam Wash & Detailing</option>
               <option value="Custom Repair / Inspection">Custom Repair / Inspection</option>
             </select>
           </div>

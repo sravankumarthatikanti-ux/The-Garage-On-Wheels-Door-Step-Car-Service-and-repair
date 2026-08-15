@@ -204,8 +204,9 @@ export default function ServiceGrid({ onSelectService }) {
                     <h3 className="text-lg font-black text-slate-900 font-heading tracking-tight group-hover:text-slate-800 transition-colors">
                       {service.title}
                     </h3>
-                    <div className="text-xs font-extrabold text-slate-700 font-mono">
-                      {service.startingPrice}
+                    <div className="text-xs font-bold text-slate-700 font-mono flex items-center gap-1.5">
+                      <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
+                      <span>Quote on WhatsApp</span>
                     </div>
                   </div>
 

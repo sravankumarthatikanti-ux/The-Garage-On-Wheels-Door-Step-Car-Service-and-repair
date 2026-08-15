@@ -216,7 +216,7 @@ export const SERVICE_CATEGORIES = [
     id: "engine-service",
     title: "Engine Service",
     shortDesc: "Engine health check, spark plugs, timing belt, valve tuning & cylinder decarbonization.",
-    startingPrice: "From ₹1,999",
+    startingPrice: "Quote on WhatsApp",
     badge: "Master Mechanics",
     iconName: "Cog",
     features: [
@@ -232,7 +232,7 @@ export const SERVICE_CATEGORIES = [
     id: "brake-service",
     title: "Brake Service",
     shortDesc: "Ceramic brake pad replacement, disc rotor resurfacing, caliper check & DOT-4 fluid bleed.",
-    startingPrice: "From ₹1,199",
+    startingPrice: "Quote on WhatsApp",
     badge: "Safety First",
     iconName: "Disc",
     features: [
@@ -248,7 +248,7 @@ export const SERVICE_CATEGORIES = [
     id: "battery-service",
     title: "Battery Service",
     shortDesc: "Amaron & Exide battery delivery, jumpstart, voltage testing & free doorstep installation.",
-    startingPrice: "From ₹499",
+    startingPrice: "Quote on WhatsApp",
     badge: "Fast 45-Min Dispatch",
     iconName: "BatteryCharging",
     features: [
@@ -264,7 +264,7 @@ export const SERVICE_CATEGORIES = [
     id: "ac-service",
     title: "AC Service",
     shortDesc: "R134a AC gas recharge, cabin air filter cleaning, cooling coil wash & leak diagnostic.",
-    startingPrice: "From ₹1,299",
+    startingPrice: "Quote on WhatsApp",
     badge: "Cooling Specialist",
     iconName: "Wind",
     features: [
@@ -280,7 +280,7 @@ export const SERVICE_CATEGORIES = [
     id: "oil-change",
     title: "Oil Change",
     shortDesc: "100% genuine synthetic & semi-synthetic engine oil flush with OEM oil filter replacement.",
-    startingPrice: "From ₹1,499",
+    startingPrice: "Quote on WhatsApp",
     badge: "100% Genuine Fluids",
     iconName: "Droplets",
     features: [
@@ -296,7 +296,7 @@ export const SERVICE_CATEGORIES = [
     id: "general-service",
     title: "General Service",
     shortDesc: "Comprehensive periodic car maintenance, 50-point inspection, air filter & doorstep tune-up.",
-    startingPrice: "From ₹2,499",
+    startingPrice: "Quote on WhatsApp",
     badge: "Most Popular",
     iconName: "Wrench",
     features: [
@@ -312,7 +312,7 @@ export const SERVICE_CATEGORIES = [
     id: "car-diagnostics",
     title: "Car Diagnostics",
     shortDesc: "OBD-II computerized ECU scanning, live sensor telemetry, ABS & airbag error clearing.",
-    startingPrice: "From ₹699",
+    startingPrice: "Quote on WhatsApp",
     badge: "Hi-Tech Scanners",
     iconName: "Cpu",
     features: [
@@ -328,7 +328,7 @@ export const SERVICE_CATEGORIES = [
     id: "emergency-repair",
     title: "Emergency Repair",
     shortDesc: "Rapid mobile mechanic dispatch for sudden breakdowns, overheating, starting issues & flat tyres.",
-    startingPrice: "From ₹799",
+    startingPrice: "Quote on WhatsApp",
     badge: "Rapid Response",
     iconName: "AlertTriangle",
     features: [

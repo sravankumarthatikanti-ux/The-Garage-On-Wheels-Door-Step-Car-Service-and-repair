@@ -221,9 +221,9 @@ export default function ProgressiveBooking() {
                     className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer"
                   >
                     {SERVICE_CATEGORIES.map((s) => (
-                      <option key={s.id} value={s.title}>{s.title} ({s.startingPrice})</option>
+                      <option key={s.id} value={s.title}>{s.title}</option>
                     ))}
-                    <option value="Doorstep Foam Wash & Detailing">Doorstep Foam Wash & Detailing (₹499)</option>
+                    <option value="Doorstep Foam Wash & Detailing">Doorstep Foam Wash & Detailing</option>
                     <option value="Custom Mechanical Repair">Custom Mechanical Repair / Diagnostics</option>
                   </select>
                 </div>
