@@ -22,54 +22,64 @@ function CinematicParticles({ density = 28, color = "143, 216, 255", maxSpeed = 
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
+    try {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      let animationFrameId;
 
-    const handleResize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
+      const handleResize = () => {
+        if (!canvas) return;
+        canvas.width = canvas.offsetWidth || window.innerWidth || 300;
+        canvas.height = canvas.offsetHeight || window.innerHeight || 300;
+      };
+      handleResize();
+      window.addEventListener('resize', handleResize);
 
-    const particles = [];
-    for (let i = 0; i < density; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.6 + 0.6,
-        speedX: (Math.random() - 0.5) * maxSpeed,
-        speedY: (Math.random() - 0.5) * maxSpeed - 0.05,
-        alpha: Math.random() * 0.4 + 0.15,
-      });
+      const particles = [];
+      for (let i = 0; i < density; i++) {
+        particles.push({
+          x: Math.random() * (canvas.width || 300),
+          y: Math.random() * (canvas.height || 300),
+          radius: Math.random() * 1.6 + 0.6,
+          speedX: (Math.random() - 0.5) * maxSpeed,
+          speedY: (Math.random() - 0.5) * maxSpeed - 0.05,
+          alpha: Math.random() * 0.4 + 0.15,
+        });
+      }
+
+      const render = () => {
+        try {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach((p) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${color}, ${p.alpha})`;
+            ctx.fill();
+
+            p.x += p.speedX;
+            p.y += p.speedY;
+
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
+          });
+          animationFrameId = requestAnimationFrame(render);
+        } catch (err) {
+          // Ignore render frame errors
+        }
+      };
+      render();
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      };
+    } catch (e) {
+      // Canvas gracefully fallback
     }
-
-    const render = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, ${p.alpha})`;
-        ctx.fill();
-
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-      });
-      animationFrameId = requestAnimationFrame(render);
-    };
-    render();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
   }, [density, color, maxSpeed]);
 
   return (
