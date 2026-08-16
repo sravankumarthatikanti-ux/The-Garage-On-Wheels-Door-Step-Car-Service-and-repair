@@ -136,11 +136,36 @@ export default function CarNeedSelector({ onOpenBooking }) {
   return (
     <section className="py-16 md:py-24 bg-[#080A0D] text-white border-t border-[#252C33] relative overflow-hidden">
       
-      {/* Background Color Blooms based on active selection */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 opacity-20"
-        style={{ backgroundColor: activeNeed.accentColor }}
-      />
+      {/* ------------------------------------------------------------- */}
+      {/* CINEMATIC DARK AUTOMOTIVE WORKSHOP BACKGROUND LAYER           */}
+      {/* ------------------------------------------------------------- */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Modern Dark Car & Workshop Studio Atmosphere */}
+        <img 
+          src="/images/car_need_bg.jpg" 
+          alt="Automotive Workshop Silhouette" 
+          className="w-full h-full object-cover object-center opacity-30 filter contrast-110 saturate-[1.1] transition-opacity duration-700"
+        />
+
+        {/* Subtle Technical Hexagonal Matrix Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(rgba(143, 216, 255, 0.4) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px'
+          }}
+        />
+
+        {/* Top, Bottom & Edge Gradient Vales for Perfect Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080A0D] via-transparent to-[#080A0D] opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080A0D]/90 via-transparent to-[#080A0D]/90" />
+
+        {/* Active Selection Dynamic Ambient Color Bloom */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[400px] rounded-full blur-[150px] pointer-events-none transition-all duration-700 opacity-25"
+          style={{ backgroundColor: activeNeed.accentColor }}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
