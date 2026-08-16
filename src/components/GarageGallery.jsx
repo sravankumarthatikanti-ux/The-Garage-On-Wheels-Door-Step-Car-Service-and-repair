@@ -37,7 +37,7 @@ const GALLERY_ITEMS = [
     category: "doorstep",
     categoryLabel: "DOORSTEP SERVICE",
     categoryColor: "#F59E0B",
-    image: "/images/gallery/mobile_van.jpg",
+    image: "/images/gallery/onsite_inspection.jpg",
     description: "Certified technician visiting your home or office with computerized diagnostics, multi-point inspection tools, and genuine spares.",
     tags: ["On-Site Visit", "Doorstep Care", "Secunderabad"]
   },
@@ -67,7 +67,7 @@ const GALLERY_ITEMS = [
     category: "electrical",
     categoryLabel: "BATTERY & ELECTRICAL",
     categoryColor: "#9DE7E5",
-    image: "/images/gallery/engine_diagnostic.jpg",
+    image: "/images/gallery/battery_electrical.jpg",
     description: "Amaron and Exide computerized load test, terminal de-corrosion, alternator output measurement, and doorstep fitment.",
     tags: ["Battery Health", "Load Test", "Amaron/Exide"]
   },
