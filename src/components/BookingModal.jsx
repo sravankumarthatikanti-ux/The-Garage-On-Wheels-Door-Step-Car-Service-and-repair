@@ -167,7 +167,6 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
               {SERVICE_CATEGORIES.map((s) => (
                 <option key={s.id} value={s.title}>{s.title}</option>
               ))}
-              <option value="Doorstep Foam Wash & Detailing">Doorstep Foam Wash & Detailing</option>
               <option value="Custom Repair / Inspection">Custom Repair / Inspection</option>
             </select>
           </div>

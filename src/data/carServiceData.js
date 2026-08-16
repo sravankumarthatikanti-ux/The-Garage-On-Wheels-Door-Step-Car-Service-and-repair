@@ -263,7 +263,7 @@ export const SERVICE_CATEGORIES = [
   {
     id: "ac-service",
     title: "AC Service",
-    shortDesc: "R134a AC gas recharge, cabin air filter cleaning, cooling coil wash & leak diagnostic.",
+    shortDesc: "R134a AC gas recharge, cabin air filter cleaning, cooling coil deep cleaning & leak diagnostic.",
     startingPrice: "Quote on WhatsApp",
     badge: "Cooling Specialist",
     iconName: "Wind",
@@ -287,7 +287,7 @@ export const SERVICE_CATEGORIES = [
       "Premium Synthetic Engine Oil (Mobil 1 / Shell / Castrol)",
       "OEM Sealed Oil Filter Replacement",
       "Crush Washer & Sump Drain Plug Inspection",
-      "Fluid Top-ups (Coolant, Windshield Wash, Brake Fluid)",
+      "Fluid Top-ups (Coolant, Windshield Wiper Fluid, Brake Fluid)",
       "Zero Oil Spill Clean Driveway Process",
       "Old Oil Eco-Friendly Disposal"
     ]
@@ -305,7 +305,7 @@ export const SERVICE_CATEGORIES = [
       "50-Point Comprehensive Vehicle Safety Audit",
       "Spark Plug Check & Battery Load Test",
       "Brake Pad Cleaning & Underbody Inspection",
-      "Complimentary Exterior Wash & Vacuuming"
+      "Comprehensive Digital Health Check Report"
     ]
   },
   {
@@ -531,7 +531,7 @@ export const TESTIMONIALS = [
     name: "Srinivas Rao",
     location: "Alwal, Secunderabad",
     car: "Tata Nexon Diesel",
-    review: "Great doorstep car wash & interior vacuuming! My Nexon looks brand new. The team is very polite and professional. Highly recommended for doorstep car care in Secunderabad.",
+    review: "Great doorstep car periodic service and brake overhaul! My Nexon drives smooth and responsive like brand new. The team is very polite and professional. Highly recommended for doorstep car care in Secunderabad.",
     rating: 5,
     date: "3 weeks ago"
   }

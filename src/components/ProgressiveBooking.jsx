@@ -223,7 +223,6 @@ export default function ProgressiveBooking() {
                     {SERVICE_CATEGORIES.map((s) => (
                       <option key={s.id} value={s.title}>{s.title}</option>
                     ))}
-                    <option value="Doorstep Foam Wash & Detailing">Doorstep Foam Wash & Detailing</option>
                     <option value="Custom Mechanical Repair">Custom Mechanical Repair / Diagnostics</option>
                   </select>
                 </div>

@@ -17,7 +17,7 @@ const GALLERY_CATEGORIES = [
   { id: 'workshop', label: 'HI-TECH WORKSHOP', color: '#3B82F6' },
   { id: 'mechanical', label: 'MECHANICAL & ENGINE', color: '#8FD8FF' },
   { id: 'doorstep', label: 'DOORSTEP SERVICE', color: '#F59E0B' },
-  { id: 'detailing', label: 'DETAILING & CARE', color: '#8B5CF6' },
+  { id: 'electrical', label: 'BATTERY & ELECTRICAL', color: '#9DE7E5' },
 ];
 
 const GALLERY_ITEMS = [
@@ -63,13 +63,13 @@ const GALLERY_ITEMS = [
   },
   {
     id: 5,
-    title: "Premium Foam Wash & Paint Detailing",
-    category: "detailing",
-    categoryLabel: "DETAILING & CARE",
-    categoryColor: "#8B5CF6",
-    image: "/images/gallery/detailing_wash.jpg",
-    description: "pH-neutral snow foam wash, hydrophobic synthetic sealant, machine buffing, and interior deep vacuum sanitization.",
-    tags: ["Snow Foam", "Hydrophobic Wax", "Interior Vacuum"]
+    title: "Battery & Alternator Electrical Health Check",
+    category: "electrical",
+    categoryLabel: "BATTERY & ELECTRICAL",
+    categoryColor: "#9DE7E5",
+    image: "/images/gallery/engine_diagnostic.jpg",
+    description: "Amaron and Exide computerized load test, terminal de-corrosion, alternator output measurement, and doorstep fitment.",
+    tags: ["Battery Health", "Load Test", "Amaron/Exide"]
   },
   {
     id: 6,
