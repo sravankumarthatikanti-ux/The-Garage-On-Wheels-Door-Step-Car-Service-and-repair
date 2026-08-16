@@ -209,9 +209,21 @@ export default function ServiceGrid({ onSelectService }) {
                 className={`snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[350px] bg-white border border-slate-200 rounded-card p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ${accent.borderColor} ${accent.glowColor} group relative overflow-hidden text-left hover:-translate-y-2 shadow-sm hover:shadow-xl`}
               >
                 {/* Thin Accent Bar on top edge */}
-                <div className={`absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r ${accent.barColor}`} />
+                <div className={`absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r ${accent.barColor} z-20`} />
 
-                <div>
+                {/* Specific Background Image for Engine Service */}
+                {service.id === "engine-service" && (
+                  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-card">
+                    <img 
+                      src="/images/services/engine_service_bg.jpg" 
+                      alt="Engine Service Precision Work" 
+                      className="w-full h-full object-cover object-center opacity-20 filter contrast-125 saturate-110 group-hover:scale-105 group-hover:opacity-30 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/70 group-hover:via-white/75 group-hover:to-white/55 transition-colors" />
+                  </div>
+                )}
+
+                <div className="relative z-10">
                   {/* Card Header: Icon & Badge */}
                   <div className="flex items-start justify-between mb-5">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center border border-slate-800 shadow-sm transition-transform duration-300 group-hover:scale-110 ${accent.iconBg}`}>
