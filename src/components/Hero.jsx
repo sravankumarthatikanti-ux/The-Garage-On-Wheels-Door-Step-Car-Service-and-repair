@@ -400,7 +400,7 @@ export default function Hero({ onOpenBooking }) {
                   <MapPin className="w-3 h-3 text-cyan" /> Doorstep &amp; Workshop Care
                 </span>
                 <span className="flex items-center gap-1 text-slate-700">
-                  <Clock className="w-3 h-3 text-ice" /> 8:00 AM – 8:00 PM
+                  <Clock className="w-3 h-3 text-ice" /> 24/7 Open (24 Hours)
                 </span>
               </div>
 

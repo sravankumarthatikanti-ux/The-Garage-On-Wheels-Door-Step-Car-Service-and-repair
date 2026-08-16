@@ -108,7 +108,7 @@ export default function ContactSection({ onOpenBooking }) {
               </p>
               <div className="text-xs font-bold text-whatsapp font-mono flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-whatsapp animate-pulse" />
-                <span>ONLINE: 8:00 AM – 8:00 PM</span>
+                <span>ONLINE: 24/7 (24 HOURS OPEN)</span>
               </div>
             </div>
 

@@ -297,10 +297,11 @@ export default function ProgressiveBooking() {
                       onChange={(e) => setSelectedTimeSlot(e.target.value)}
                       className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-3 cursor-pointer"
                     >
+                      <option value="Immediate 24/7 Dispatch">Immediate 24/7 Emergency Dispatch (30–45 Mins)</option>
                       <option value="Morning (8 AM - 12 PM)">Morning (8:00 AM – 12:00 PM)</option>
                       <option value="Afternoon (12 PM - 4 PM)">Afternoon (12:00 PM – 4:00 PM)</option>
                       <option value="Evening (4 PM - 8 PM)">Evening (4:00 PM – 8:00 PM)</option>
-                      <option value="Immediate Emergency Dispatch">Immediate / As Soon As Possible</option>
+                      <option value="Night / Late 24hr Slot">Night / Late 24hr Slot (8:00 PM – 8:00 AM)</option>
                     </select>
                   </div>
                 </div>

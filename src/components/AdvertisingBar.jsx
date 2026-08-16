@@ -54,12 +54,12 @@ export default function AdvertisingBar({ onOpenBooking }) {
     },
     {
       id: 4,
-      badge: "HOURS & HUB",
+      badge: "24/7 SERVICE",
       badgeColor: "bg-[#C7C0E8]/20 text-[#C7C0E8] border-[#C7C0E8]/40",
       icon: Clock,
       iconColor: "text-[#C7C0E8]",
-      text: "Operating Daily 8:00 AM – 8:00 PM • Hub: Tirumalagiri, Secunderabad 500015",
-      cta: "Call Now",
+      text: "24 Hours Service & Emergency Support • Hub: Tirumalagiri, Secunderabad 500015",
+      cta: "Call 24/7",
       action: () => {
         window.location.href = `tel:${BUSINESS_INFO?.whatsappNumber || '918121404113'}`;
       }
