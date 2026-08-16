@@ -269,34 +269,34 @@ export default function Hero({ onOpenBooking }) {
 
           </div>
 
-          {/* Right Column: Quick Vehicle Estimation Selector Card with Soft Accent Top Bar */}
+          {/* Right Column: Quick Vehicle Estimation Selector Card in Soft White Styling */}
           <div 
             className="lg:col-span-5 transition-transform duration-700 ease-out"
             style={{
               transform: `translate3d(${mousePos.x * 0.2}px, ${mousePos.y * 0.2}px, 0)`,
             }}
           >
-            <div className="bg-[#181E24] border border-[#252C33] rounded-card-lg p-6 sm:p-7 shadow-premium relative backdrop-blur-xl overflow-hidden group hover:border-[#8FD8FF]/40 transition-all">
+            <div className="bg-white/95 text-slate-900 border border-slate-200/90 rounded-card-lg p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.6)] relative backdrop-blur-xl overflow-hidden group hover:border-[#8FD8FF] transition-all">
               
               {/* Soft Multi-Color Top Edge Bar */}
-              <div className="absolute top-0 left-0 right-0 h-[3.5px] bg-gradient-to-r from-[#8FD8FF] via-[#9DE7E5] to-[#C7C0E8]" />
+              <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#8FD8FF] via-[#9DE7E5] to-[#C7C0E8]" />
 
               {/* Card Header */}
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#252C33]">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200">
                 <div className="flex items-center space-x-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#101419] border border-[#8FD8FF]/30 flex items-center justify-center text-[#8FD8FF] shadow-[0_0_12px_rgba(143,216,255,0.2)]">
-                    <Wrench className="w-4 h-4 text-[#8FD8FF]" />
+                  <div className="w-9 h-9 rounded-xl bg-[#080A0D] border border-slate-800 flex items-center justify-center text-ice shadow-sm">
+                    <Wrench className="w-4 h-4 text-ice" />
                   </div>
                   <div className="text-left">
-                    <h3 className="text-sm font-black text-white uppercase tracking-wider font-heading">
+                    <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider font-heading">
                       QUICK DOORSTEP ESTIMATE
                     </h3>
-                    <p className="text-[10px] text-[#9DE7E5] font-mono">
+                    <p className="text-[10px] text-cyan font-mono font-bold">
                       SECUNDERABAD &amp; HYDERABAD
                     </p>
                   </div>
                 </div>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#8EDDD0] animate-ping" />
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan animate-ping" />
               </div>
 
               {/* Form Controls */}
@@ -304,45 +304,45 @@ export default function Hero({ onOpenBooking }) {
                 
                 {/* 1. Car Brand */}
                 <div>
-                  <label className="block text-[11px] font-bold text-[#8FD8FF] uppercase tracking-wider mb-1 font-mono">
+                  <label className="block text-[11px] font-extrabold text-slate-800 uppercase tracking-wider mb-1 font-mono">
                     1. Select Car Brand
                   </label>
                   <div className="relative">
                     <select
                       value={selectedBrand}
                       onChange={handleBrandChange}
-                      className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-[#252C33] focus:border-[#8FD8FF]"
+                      className="w-full bg-[#F8FAFC] text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-slate-300 focus:outline-none focus:border-ice focus:ring-2 focus:ring-ice/20 shadow-sm"
                     >
                       {CAR_BRANDS.map((b) => (
                         <option key={b.id} value={b.name}>{b.name}</option>
                       ))}
                     </select>
-                    <ChevronDown className="w-4 h-4 text-[#A7ADB4] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
                 {/* 2. Car Model */}
                 <div>
-                  <label className="block text-[11px] font-bold text-[#9DE7E5] uppercase tracking-wider mb-1 font-mono">
+                  <label className="block text-[11px] font-extrabold text-slate-800 uppercase tracking-wider mb-1 font-mono">
                     2. Select Model
                   </label>
                   <div className="relative">
                     <select
                       value={selectedModel}
                       onChange={(e) => setSelectedModel(e.target.value)}
-                      className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-[#252C33] focus:border-[#9DE7E5]"
+                      className="w-full bg-[#F8FAFC] text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-slate-300 focus:outline-none focus:border-cyan focus:ring-2 focus:ring-cyan/20 shadow-sm"
                     >
                       {currentBrandObj.models.map((m) => (
                         <option key={m} value={m}>{m}</option>
                       ))}
                     </select>
-                    <ChevronDown className="w-4 h-4 text-[#A7ADB4] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
                 {/* 3. Fuel Type Chips */}
                 <div>
-                  <label className="block text-[11px] font-bold text-[#8EDDD0] uppercase tracking-wider mb-1 font-mono">
+                  <label className="block text-[11px] font-extrabold text-slate-800 uppercase tracking-wider mb-1 font-mono">
                     3. Fuel Type
                   </label>
                   <div className="grid grid-cols-4 gap-1.5">
@@ -351,10 +351,10 @@ export default function Hero({ onOpenBooking }) {
                         key={fuel}
                         type="button"
                         onClick={() => setFuelType(fuel)}
-                        className={`py-1 text-[11px] font-bold rounded-lg border transition-all ${
+                        className={`py-1.5 text-[11px] font-bold rounded-lg border transition-all ${
                           fuelType === fuel
-                            ? 'bg-[#8FD8FF] text-graphite border-[#8FD8FF] shadow-sm font-black'
-                            : 'bg-[#101419] text-[#A7ADB4] border-[#252C33] hover:border-[#8FD8FF]/40'
+                            ? 'bg-[#080A0D] text-ice border-[#080A0D] shadow-sm font-black'
+                            : 'bg-[#F8FAFC] text-slate-700 border-slate-300 hover:border-slate-400 font-semibold'
                         }`}
                       >
                         {fuel}
@@ -365,20 +365,20 @@ export default function Hero({ onOpenBooking }) {
 
                 {/* 4. Service Category */}
                 <div>
-                  <label className="block text-[11px] font-bold text-[#C7C0E8] uppercase tracking-wider mb-1 font-mono">
+                  <label className="block text-[11px] font-extrabold text-slate-800 uppercase tracking-wider mb-1 font-mono">
                     4. Service Required
                   </label>
                   <div className="relative">
                     <select
                       value={selectedService}
                       onChange={(e) => setSelectedService(e.target.value)}
-                      className="w-full bg-[#101419] input-smart-focus text-white text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-[#252C33] focus:border-[#C7C0E8]"
+                      className="w-full bg-[#F8FAFC] text-slate-900 text-xs font-semibold rounded-btn px-3.5 py-2.5 appearance-none cursor-pointer pr-10 border border-slate-300 focus:outline-none focus:border-lavender focus:ring-2 focus:ring-lavender/20 shadow-sm"
                     >
                       {SERVICE_CATEGORIES.map((s) => (
                         <option key={s.id} value={s.title}>{s.title}</option>
                       ))}
                     </select>
-                    <ChevronDown className="w-4 h-4 text-[#A7ADB4] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
@@ -386,7 +386,7 @@ export default function Hero({ onOpenBooking }) {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95"
+                    className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95 text-graphite"
                   >
                     <span>GET INSTANT WHATSAPP QUOTE →</span>
                   </button>
@@ -395,12 +395,12 @@ export default function Hero({ onOpenBooking }) {
               </form>
 
               {/* Verified Dispatch Footer */}
-              <div className="mt-3.5 pt-3 border-t border-[#252C33] flex items-center justify-between text-[10px] text-[#A7ADB4] font-mono">
-                <span className="flex items-center gap-1 text-[#9DE7E5]">
-                  <MapPin className="w-3 h-3 text-[#9DE7E5]" /> Doorstep Unit Dispatch
+              <div className="mt-3.5 pt-3 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-600 font-mono font-semibold">
+                <span className="flex items-center gap-1 text-slate-700">
+                  <MapPin className="w-3 h-3 text-cyan" /> Doorstep Unit Dispatch
                 </span>
-                <span className="flex items-center gap-1 text-[#8FD8FF]">
-                  <Clock className="w-3 h-3 text-[#8FD8FF]" /> 8:00 AM – 8:00 PM
+                <span className="flex items-center gap-1 text-slate-700">
+                  <Clock className="w-3 h-3 text-ice" /> 8:00 AM – 8:00 PM
                 </span>
               </div>
 
