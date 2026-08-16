@@ -22,7 +22,7 @@ export default function AdvertisingBar({ onOpenBooking }) {
       badgeColor: "bg-[#8FD8FF]/20 text-[#8FD8FF] border-[#8FD8FF]/40",
       icon: Zap,
       iconColor: "text-[#8FD8FF]",
-      text: "Doorstep Mechanics Dispatched in 30–45 Mins Across Secunderabad & Hyderabad",
+      text: "Small & General Services at Your Doorstep • Major Repairs Handled at Our Workshop",
       cta: "Book Now",
       action: () => onOpenBooking && onOpenBooking()
     },
@@ -32,7 +32,7 @@ export default function AdvertisingBar({ onOpenBooking }) {
       badgeColor: "bg-[#9DE7E5]/20 text-[#9DE7E5] border-[#9DE7E5]/40",
       icon: ShieldCheck,
       iconColor: "text-[#9DE7E5]",
-      text: "100% Sealed OEM Spare Parts with Barcode Warranty • Zero Advance Deposit",
+      text: "100% Sealed OEM Spare Parts with Barcode Warranty & Transparent WhatsApp Quotes",
       cta: "Find Parts",
       action: () => {
         const el = document.getElementById('parts');

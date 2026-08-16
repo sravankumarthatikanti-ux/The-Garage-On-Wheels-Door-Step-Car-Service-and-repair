@@ -201,7 +201,7 @@ export default function Hero({ onOpenBooking }) {
             {/* Category Soft Glowing Pill */}
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#181E24]/90 border border-[#8FD8FF]/40 text-[#8FD8FF] text-xs font-bold uppercase tracking-widest font-mono shadow-[0_0_15px_rgba(143,216,255,0.2)]">
               <span className="w-2 h-2 rounded-full bg-[#9DE7E5] animate-pulse" />
-              <span>DOORSTEP CAR SERVICE &amp; REPAIR</span>
+              <span>DOORSTEP SERVICE &amp; WORKSHOP REPAIRS</span>
             </div>
 
             {/* Core Ultra-Bold Headline with Soft Gradient Text */}
@@ -212,9 +212,9 @@ export default function Hero({ onOpenBooking }) {
               </span>
             </h1>
 
-            {/* Short Supporting Text */}
+            {/* Short Supporting Text with Clear Distinction */}
             <p className="text-base sm:text-lg text-[#C9D1D6] max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-sans">
-              Expert car service and repairs brought directly to your home or office. Transparent pricing, certified technicians, and genuine sealed OEM parts.
+              Small &amp; general services at your doorstep. Major repairs handled at our workshop. Transparent pricing, certified technicians, and genuine sealed OEM parts.
             </p>
 
             {/* Primary & Secondary Action Buttons */}
@@ -247,9 +247,9 @@ export default function Hero({ onOpenBooking }) {
             <div className="pt-5 border-t border-[#252C33] grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 text-left">
               <div className="p-2.5 rounded-xl bg-[#101419]/80 border border-[#8FD8FF]/20 space-y-1 hover:border-[#8FD8FF]/40 transition-all">
                 <div className="text-xs sm:text-sm font-black text-[#8FD8FF] font-mono flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5 text-[#8FD8FF]" /> 100%
+                  <Sparkles className="w-3.5 h-3.5 text-[#8FD8FF]" /> On-Site
                 </div>
-                <p className="text-[10px] text-[#A7ADB4] font-medium leading-tight">Doorstep Delivery</p>
+                <p className="text-[10px] text-[#A7ADB4] font-medium leading-tight">Doorstep Inspection</p>
               </div>
 
               <div className="p-2.5 rounded-xl bg-[#101419]/80 border border-[#9DE7E5]/20 space-y-1 hover:border-[#9DE7E5]/40 transition-all">
@@ -397,7 +397,7 @@ export default function Hero({ onOpenBooking }) {
               {/* Verified Dispatch Footer */}
               <div className="mt-3.5 pt-3 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-600 font-mono font-semibold">
                 <span className="flex items-center gap-1 text-slate-700">
-                  <MapPin className="w-3 h-3 text-cyan" /> Doorstep Unit Dispatch
+                  <MapPin className="w-3 h-3 text-cyan" /> Doorstep &amp; Workshop Care
                 </span>
                 <span className="flex items-center gap-1 text-slate-700">
                   <Clock className="w-3 h-3 text-ice" /> 8:00 AM – 8:00 PM

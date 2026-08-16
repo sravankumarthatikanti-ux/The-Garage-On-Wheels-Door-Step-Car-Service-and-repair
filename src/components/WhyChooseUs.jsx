@@ -7,16 +7,17 @@ import {
   Award, 
   CheckCircle2, 
   FileText, 
-  ThumbsUp,
-  CreditCard,
-  DollarSign
+  ThumbsUp, 
+  DollarSign,
+  Building2,
+  HeartHandshake
 } from 'lucide-react';
 
 const WHY_POINTS = [
   {
     icon: MapPin,
-    title: "100% Doorstep Service",
-    desc: "Service, maintenance, and diagnostics performed at your home or office parking space.",
+    title: "Doorstep & Workshop Care",
+    desc: "Small and general services performed at your location; major or complex repairs handled at our specialized workshop.",
     accentColor: "#8EDDD0", // Aqua
     borderColor: "hover:border-[#8EDDD0]",
     glowColor: "hover:shadow-[0_0_25px_rgba(142,221,208,0.25)]",
@@ -24,7 +25,7 @@ const WHY_POINTS = [
   {
     icon: ShieldCheck,
     title: "Genuine OEM Parts Only",
-    desc: "100% sealed original spare parts unboxed directly in front of you with official barcode warranty.",
+    desc: "100% sealed original spare parts with official barcode warranty and verified compatibility.",
     accentColor: "#8FD8FF", // Ice Blue
     borderColor: "hover:border-[#8FD8FF]",
     glowColor: "hover:shadow-[0_0_25px_rgba(143,216,255,0.25)]",
@@ -32,7 +33,7 @@ const WHY_POINTS = [
   {
     icon: DollarSign,
     title: "Upfront Transparent Pricing",
-    desc: "No hidden charges, workshop commissions, or inflated bill estimates. Clear WhatsApp quote before starting.",
+    desc: "No hidden charges or inflated estimates. Receive a clear, customized estimate on WhatsApp before work begins.",
     accentColor: "#9DE7E5", // Cyan Mist
     borderColor: "hover:border-[#9DE7E5]",
     glowColor: "hover:shadow-[0_0_25px_rgba(157,231,229,0.25)]",
@@ -40,7 +41,7 @@ const WHY_POINTS = [
   {
     icon: Award,
     title: "Certified Master Mechanics",
-    desc: "Experienced technicians trained in multi-brand Japanese, Korean, Indian, and German vehicles.",
+    desc: "Experienced technicians trained across Japanese, Korean, Indian, and German car systems.",
     accentColor: "#C7C0E8", // Soft Lavender
     borderColor: "hover:border-[#C7C0E8]",
     glowColor: "hover:shadow-[0_0_25px_rgba(199,192,232,0.25)]",
@@ -48,15 +49,15 @@ const WHY_POINTS = [
   {
     icon: Clock,
     title: "Zero Travel Hassle",
-    desc: "Save 3–5 hours spent traveling to mechanic shops and waiting in traffic.",
+    desc: "Save hours spent traveling to mechanic shops and waiting in traffic while we inspect your car on-site.",
     accentColor: "#C8E6B8", // Soft Lime
     borderColor: "hover:border-[#C8E6B8]",
     glowColor: "hover:shadow-[0_0_25px_rgba(200,230,184,0.25)]",
   },
   {
-    icon: CreditCard,
-    title: "Pay After Full Satisfaction",
-    desc: "Zero advance deposit required. Test drive and inspect your car first, then pay digitally.",
+    icon: HeartHandshake,
+    title: "Complete Follow-Up & Support",
+    desc: "Once service or workshop repair is done, we return your car and follow up to ensure 100% driving satisfaction.",
     accentColor: "#DCC9A6", // Soft Champagne
     borderColor: "hover:border-[#DCC9A6]",
     glowColor: "hover:shadow-[0_0_25px_rgba(220,201,166,0.25)]",
@@ -85,7 +86,7 @@ export default function WhyChooseUs() {
             MORE THAN <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-lavender">A GARAGE.</span>
           </h2>
           <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
-            A smarter, transparent way to take care of your car.
+            Small &amp; general services at your doorstep. Major repairs handled at our workshop.
           </p>
         </div>
 

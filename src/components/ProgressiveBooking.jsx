@@ -268,7 +268,7 @@ export default function ProgressiveBooking() {
                     Step 3: Doorstep Location &amp; Time
                   </h3>
                   <p className="text-xs text-[#A7ADB4] font-sans">
-                    Where and when should our mobile service van arrive?
+                    Where and when should our certified technician visit?
                   </p>
                 </div>
 
@@ -430,7 +430,7 @@ export default function ProgressiveBooking() {
 
                 <div className="pt-2 text-center text-[11px] text-[#A7ADB4] font-mono flex items-center justify-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-cyan" />
-                  <span>100% Genuine Box Opening • Zero Advance Payment • Free Cancellation</span>
+                  <span>100% Genuine OEM Spares • Small Services at Doorstep • Major at Workshop</span>
                 </div>
               </div>
             )}

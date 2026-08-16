@@ -339,6 +339,22 @@ export const SERVICE_CATEGORIES = [
       "Doorstep Tubeless Tyre Puncture Assistance",
       "Tirumalagiri, Secunderabad & Hyderabad Wide Coverage"
     ]
+  },
+  {
+    id: "dpf-service",
+    title: "DPF Service",
+    shortDesc: "Diesel Particulate Filter computerized soot load scanning, forced regeneration & workshop decarbonization.",
+    startingPrice: "Quote on WhatsApp",
+    badge: "Diesel Specialist",
+    iconName: "Flame",
+    features: [
+      "OBD-II DPF Differential Pressure & Soot Level Scan",
+      "Stationary / Dynamic Forced DPF Regeneration",
+      "Exhaust Temperature Sensor Diagnostic",
+      "EGR Valve & Intake Manifold Decarbonization",
+      "Workshop Chemical Filter Flush for Heavy Soot",
+      "Smoke Level Reduction & Mileage Optimization"
+    ]
   }
 ];
 

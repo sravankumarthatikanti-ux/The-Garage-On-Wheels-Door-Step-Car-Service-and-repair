@@ -35,8 +35,8 @@ export default function SmartAssistant({ onOpenBooking }) {
     {
       id: 'quote',
       icon: Wrench,
-      title: 'Get Doorstep Quote',
-      desc: 'Transparent estimate with genuine OEM parts and zero advance payment.',
+      title: 'Get Service Quote',
+      desc: 'Transparent WhatsApp estimate with 100% genuine OEM sealed parts.',
       action: () => {
         setIsOpen(false);
         if (onOpenBooking) onOpenBooking();

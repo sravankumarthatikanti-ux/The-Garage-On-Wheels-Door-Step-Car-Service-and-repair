@@ -5,8 +5,8 @@ export default function TrustStrip() {
   const points = [
     {
       icon: MapPin,
-      title: "DOORSTEP SERVICE",
-      subtitle: "We come to you across Twin Cities.",
+      title: "DOORSTEP & WORKSHOP",
+      subtitle: "Small service on-site. Major repairs at workshop.",
       accentColor: "#9DE7E5", // Cyan Mist
       bgColor: "bg-[#9DE7E5]/15",
       borderColor: "border-[#9DE7E5]/30 hover:border-[#9DE7E5]",

@@ -99,9 +99,9 @@ export default function Footer({ onOpenBooking }) {
             &copy; {currentYear} The Garage On Wheels. All rights reserved.
           </div>
           <div className="flex items-center gap-4 text-[11px]">
-            <span className="text-cyan">100% Genuine Box Unboxing</span>
+            <span className="text-cyan">100% Genuine OEM Spares</span>
             <span>•</span>
-            <span className="text-ice">Zero Advance Deposit</span>
+            <span className="text-ice">Doorstep &amp; Workshop Care</span>
             <span>•</span>
             <span className="text-whatsapp">Official WhatsApp Dispatch</span>
           </div>

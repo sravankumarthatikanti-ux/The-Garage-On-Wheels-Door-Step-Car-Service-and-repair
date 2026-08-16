@@ -1,10 +1,10 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Award, CheckCircle2, ArrowRight, Sparkles, Clock, Users, Wrench } from 'lucide-react';
+import { ShieldCheck, MapPin, Award, CheckCircle2, ArrowRight, Sparkles, Clock, Users, Wrench, Building2, Home } from 'lucide-react';
 import { BUSINESS_INFO, buildWhatsAppUrl } from '../data/carServiceData';
 
 export default function AboutSection({ onOpenBooking }) {
   const handleWhatsAppChat = () => {
-    const url = buildWhatsAppUrl({ serviceName: "Doorstep Consultation" });
+    const url = buildWhatsAppUrl({ serviceName: "Service Consultation" });
     window.open(url, '_blank');
   };
 
@@ -44,22 +44,22 @@ export default function AboutSection({ onOpenBooking }) {
                     OUR CORE PHILOSOPHY
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black font-heading text-white tracking-tight leading-snug">
-                    Redefining doorstep car care in Secunderabad with certified mechanics.
+                    Small &amp; general services at your doorstep. Major repairs handled at our workshop.
                   </h3>
                   <p className="text-xs sm:text-sm text-[#A7ADB4] leading-relaxed font-sans">
-                    Founded in Tirumalagiri, Secunderabad, The Garage On Wheels was built on one clear mission: eliminating the inconvenience, hidden charges, and delays of conventional car workshops.
+                    Founded in Tirumalagiri, Secunderabad, The Garage On Wheels provides doorstep convenience for periodic checks and minor fixes, combined with the power of a fully equipped workshop for complex mechanical repairs.
                   </p>
                 </div>
 
                 {/* Verified Core Standards */}
                 <div className="pt-3 border-t border-[#252C33] grid grid-cols-2 gap-4 text-left">
                   <div>
-                    <div className="text-lg sm:text-xl font-black text-white font-mono">100% Mobile</div>
-                    <div className="text-[11px] text-[#A7ADB4] font-medium font-sans">At your doorstep</div>
+                    <div className="text-lg sm:text-xl font-black text-white font-mono">Doorstep Ready</div>
+                    <div className="text-[11px] text-[#A7ADB4] font-medium font-sans">Small &amp; general service</div>
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl font-black text-ice font-mono">100% Genuine</div>
-                    <div className="text-[11px] text-[#A7ADB4] font-medium font-sans">OEM sealed parts</div>
+                    <div className="text-lg sm:text-xl font-black text-ice font-mono">Full Workshop</div>
+                    <div className="text-[11px] text-[#A7ADB4] font-medium font-sans">Major &amp; complex repairs</div>
                   </div>
                 </div>
 
@@ -77,11 +77,11 @@ export default function AboutSection({ onOpenBooking }) {
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight leading-tight">
-                CAR CARE THAT <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-lavender">COMES TO YOU.</span>
+                TRANSPARENT CAR CARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-lavender">DONE RIGHT.</span>
               </h2>
               
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
-                We believe your time is valuable. Our mobile service vans bring precision tools, computerized scanners, and master mechanics right to your doorstep.
+                Our certified technicians visit your location with precision tools and computerized scanners for small and general services, while major and complex repairs are safely taken to our specialized Tirumalagiri workshop.
               </p>
             </div>
 
@@ -108,7 +108,7 @@ export default function AboutSection({ onOpenBooking }) {
                   Sealed Spares
                 </h4>
                 <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
-                  OEM barcode parts unboxed in front of you.
+                  OEM barcode parts unboxed with official warranty.
                 </p>
               </div>
 
@@ -120,7 +120,7 @@ export default function AboutSection({ onOpenBooking }) {
                   Fast Dispatch
                 </h4>
                 <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
-                  30–60 min ETA across Secunderabad &amp; Hyderabad.
+                  30–60 min technician visit across Twin Cities.
                 </p>
               </div>
 
@@ -132,7 +132,7 @@ export default function AboutSection({ onOpenBooking }) {
                 onClick={() => onOpenBooking && onOpenBooking()}
                 className="px-7 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md inline-flex items-center justify-center space-x-2"
               >
-                <span>BOOK A DOORSTEP SERVICE →</span>
+                <span>BOOK A SERVICE →</span>
               </button>
 
               <button

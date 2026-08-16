@@ -15,7 +15,8 @@ import {
   Cpu, 
   Car,
   MessageSquare,
-  AlertTriangle
+  AlertTriangle,
+  Flame
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../data/carServiceData';
 
@@ -29,7 +30,8 @@ const ICON_MAP = {
   Wrench: Wrench,
   Cpu: Cpu,
   Car: Car,
-  AlertTriangle: AlertTriangle
+  AlertTriangle: AlertTriangle,
+  Flame: Flame
 };
 
 // Strict Master Service Accent Color System
@@ -115,6 +117,15 @@ const SERVICE_ACCENTS = {
     dotBg: "bg-[#8FD8FF]",
     barColor: "from-[#8FD8FF] to-transparent",
   },
+  "DPF Service": {
+    accentColor: "#FFB86C", // Soft Amber
+    borderColor: "hover:border-[#FFB86C]",
+    glowColor: "hover:shadow-[0_12px_35px_rgba(255,184,108,0.25)]",
+    badgeBg: "bg-[#080A0D] text-[#FFB86C] border-[#FFB86C]/40",
+    iconBg: "bg-[#080A0D] text-[#FFB86C]",
+    dotBg: "bg-[#FFB86C]",
+    barColor: "from-[#FFB86C] to-transparent",
+  },
 };
 
 export default function ServiceGrid({ onSelectService }) {
@@ -157,7 +168,7 @@ export default function ServiceGrid({ onSelectService }) {
               PRECISION <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">CAR CARE</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed font-sans">
-              Professional doorstep automotive services engineered for all vehicle makes and models.
+              Small &amp; general services at your doorstep. Major repairs handled at our workshop.
             </p>
           </div>
 
@@ -244,7 +255,7 @@ export default function ServiceGrid({ onSelectService }) {
                     <span>BOOK SERVICE</span>
                     <ArrowRight className="w-3.5 h-3.5 btn-arrow transition-transform duration-200 group-hover:translate-x-1 text-slate-900" />
                   </span>
-                  <span className="text-[10px] text-slate-400 font-mono">Doorstep Ready</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Doorstep / Workshop</span>
                 </div>
 
               </div>

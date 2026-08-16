@@ -6,14 +6,19 @@ import {
   Disc, 
   AlertTriangle, 
   Sparkles, 
-  ArrowRight,
-  CheckCircle2,
-  Phone,
-  MessageSquare
+  ArrowRight, 
+  CheckCircle2, 
+  Phone, 
+  MessageSquare,
+  Flame,
+  Layers,
+  ShieldCheck,
+  Building2,
+  Home
 } from 'lucide-react';
 import { buildWhatsAppUrl } from '../data/carServiceData';
 
-// 6 Interactive Issue Needs with Master Soft Automotive Accents
+// 7 Interactive Issue Needs with Master Soft Automotive Accents & Honest Venue Distinction
 const CAR_NEEDS = [
   {
     id: 'service',
@@ -24,9 +29,10 @@ const CAR_NEEDS = [
     accentColor: '#C8E6B8', // Soft Lime
     glowColor: 'rgba(200, 230, 184, 0.25)',
     serviceKey: 'General Periodic Service',
+    serviceVenue: 'Doorstep Ready',
     estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '60–90 Mins',
-    recommendation: 'Complete periodic lubrication, synthetic oil change, air/oil filter check, and 40-point safety checkup at your doorstep.',
+    recommendation: 'Small and general periodic services are completed right at your doorstep, including synthetic oil change, air/oil filter replacements, and a multi-point safety check.',
   },
   {
     id: 'ac',
@@ -37,9 +43,10 @@ const CAR_NEEDS = [
     accentColor: '#8EDDD0', // Aqua
     glowColor: 'rgba(142, 221, 208, 0.25)',
     serviceKey: 'AC Service & Gas Top-up',
+    serviceVenue: 'Doorstep Check / Workshop for Major',
     estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '45–60 Mins',
-    recommendation: 'AC pressure diagnostic, refrigerant leak detection, cooling coil cleaning, and cabin pollen filter sanitization.',
+    recommendation: 'On-site AC gas pressure check, top-up, and cabin filter cleaning at your doorstep. Major compressor replacements or cooling coil repairs are serviced at our workshop.',
   },
   {
     id: 'battery',
@@ -50,9 +57,24 @@ const CAR_NEEDS = [
     accentColor: '#9DE7E5', // Cyan Mist
     glowColor: 'rgba(157, 231, 229, 0.25)',
     serviceKey: 'Battery Replacement & Jumpstart',
+    serviceVenue: 'Doorstep Ready',
     estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '30–45 Mins',
-    recommendation: 'Immediate doorstep jumpstart and free Amaron / Exide new battery replacement with warranty unboxing at your location.',
+    recommendation: 'Quick doorstep jumpstart and on-site Amaron or Exide battery replacement with official barcode warranty unboxed in front of you.',
+  },
+  {
+    id: 'dpf',
+    title: 'DPF SERVICE & REGENERATION',
+    shortLabel: 'DPF SERVICE',
+    subtitle: 'Soot Scan, Cleaning, Regeneration',
+    icon: Flame,
+    accentColor: '#FFB86C', // Soft Amber
+    glowColor: 'rgba(255, 184, 108, 0.25)',
+    serviceKey: 'DPF Service & Regeneration',
+    serviceVenue: 'On-Site Scan / Workshop Deep Clean',
+    estimatedStarting: 'Quote on WhatsApp',
+    deliveryTime: 'Scan: 30 Mins | Deep Clean: Workshop',
+    recommendation: 'On-site computerized DPF soot-level scan and forced regeneration. Severe filter blockages or chemical decarbonization are handled at our specialized workshop.',
   },
   {
     id: 'brakes',
@@ -63,9 +85,10 @@ const CAR_NEEDS = [
     accentColor: '#C7C0E8', // Soft Lavender
     glowColor: 'rgba(199, 192, 232, 0.25)',
     serviceKey: 'Brake Service & Pad Replacement',
+    serviceVenue: 'Doorstep Pads / Workshop for Rotors',
     estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '45–60 Mins',
-    recommendation: 'Brake caliper inspection, ceramic/metallic brake pad replacement (TVS/Bosch), and DOT-4 fluid bleed in your driveway.',
+    recommendation: 'On-site brake pad inspection and replacement. Disc rotor lathe trueing, caliper rebuilds, or master cylinder overhauls are performed at our workshop.',
   },
   {
     id: 'warning',
@@ -76,22 +99,24 @@ const CAR_NEEDS = [
     accentColor: '#8FD8FF', // Ice Blue
     glowColor: 'rgba(143, 216, 255, 0.25)',
     serviceKey: 'OBD-II Computer Diagnostics',
+    serviceVenue: 'Doorstep Scan',
     estimatedStarting: 'Quote on WhatsApp',
     deliveryTime: '30–45 Mins',
-    recommendation: 'Full OBD-II computerized ECU scan, clear error codes, sensor live data reading, and certified mechanical report.',
+    recommendation: 'Full OBD-II computerized ECU scanning, error code clearing, and sensor live data check at your location. Deep wiring or module repairs are taken to our workshop.',
   },
   {
     id: 'repair',
-    title: 'MECHANICAL REPAIR',
-    shortLabel: 'REPAIR',
-    subtitle: 'Suspension, Clutch, Noise',
+    title: 'MAJOR MECHANICAL REPAIR',
+    shortLabel: 'MAJOR REPAIR',
+    subtitle: 'Suspension, Clutch, Transmission',
     icon: Sparkles,
     accentColor: '#DCC9A6', // Soft Champagne
     glowColor: 'rgba(220, 201, 166, 0.25)',
     serviceKey: 'Custom Mechanical Repair',
+    serviceVenue: 'Workshop Execution',
     estimatedStarting: 'Quote on WhatsApp',
-    deliveryTime: 'Flexible',
-    recommendation: 'Thorough suspension, steering, clutch, and engine bay diagnostic with transparent itemized estimate before starting.',
+    deliveryTime: 'Workshop Booking',
+    recommendation: 'Our technician inspects your vehicle on-site. For heavy suspension, clutch overhauls, gearbox repairs, or engine work, your car is safely brought to our workshop.',
   },
 ];
 
@@ -121,20 +146,20 @@ export default function CarNeedSelector({ onOpenBooking }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-2.5">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#181E24] text-ice text-xs font-bold uppercase tracking-widest border border-[#252C33] font-mono">
             <Sparkles className="w-3.5 h-3.5 text-cyan" />
-            <span>INSTANT DIAGNOSIS SELECTOR</span>
+            <span>DIAGNOSIS &amp; SERVICE FINDER</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
             WHAT DOES <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-aqua">YOUR CAR NEED?</span>
           </h2>
           <p className="text-sm sm:text-base text-[#A7ADB4] leading-relaxed">
-            Tap the issue below for instant doorstep pricing and recommended technician action.
+            Small &amp; general services at your doorstep. Major repairs handled at our workshop.
           </p>
         </div>
 
-        {/* 6 Interactive Needs Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-8">
+        {/* 7 Interactive Needs Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2.5 sm:gap-3.5 mb-8">
           {CAR_NEEDS.map((item) => {
             const Icon = item.icon;
             const isSelected = selectedNeedId === item.id;
@@ -144,7 +169,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 key={item.id}
                 type="button"
                 onClick={() => setSelectedNeedId(item.id)}
-                className={`p-4 rounded-card border text-left transition-all duration-300 relative flex flex-col justify-between h-[130px] sm:h-[145px] group ${
+                className={`p-3.5 rounded-card border text-left transition-all duration-300 relative flex flex-col justify-between h-[135px] sm:h-[148px] group ${
                   isSelected
                     ? 'bg-[#181E24] -translate-y-1.5 shadow-lg'
                     : 'bg-[#101419] border-[#252C33] hover:border-[#A7ADB4]/30 hover:bg-[#181E24]/60'
@@ -163,7 +188,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 )}
 
                 <div 
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
                     isSelected ? 'shadow-sm' : 'bg-[#181E24] text-[#A7ADB4]'
                   }`}
                   style={{
@@ -171,14 +196,14 @@ export default function CarNeedSelector({ onOpenBooking }) {
                     color: isSelected ? item.accentColor : undefined,
                   }}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                 </div>
 
                 <div>
-                  <h4 className="text-xs sm:text-sm font-black text-white font-heading tracking-tight leading-tight">
+                  <h4 className="text-[11px] sm:text-xs font-black text-white font-heading tracking-tight leading-tight">
                     {item.shortLabel}
                   </h4>
-                  <p className="text-[10px] text-[#A7ADB4] font-medium truncate mt-0.5 font-sans">
+                  <p className="text-[9px] sm:text-[10px] text-[#A7ADB4] font-medium truncate mt-0.5 font-sans">
                     {item.subtitle}
                   </p>
                 </div>
@@ -209,11 +234,14 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 >
                   RECOMMENDED ACTION
                 </span>
-                <span className="text-xs font-bold text-[#A7ADB4] font-mono">
-                  ETA: <strong className="text-white">{activeNeed.deliveryTime}</strong>
+                
+                <span className="text-xs font-bold text-ice font-mono flex items-center gap-1 bg-[#101419] px-2.5 py-1 rounded-full border border-[#252C33]">
+                  <span>Venue:</span>
+                  <strong className="text-white">{activeNeed.serviceVenue}</strong>
                 </span>
+
                 <span className="text-xs font-bold text-[#A7ADB4] font-mono">
-                  Starting: <strong style={{ color: activeNeed.accentColor }}>{activeNeed.estimatedStarting}</strong>
+                  Price: <strong style={{ color: activeNeed.accentColor }}>{activeNeed.estimatedStarting}</strong>
                 </span>
               </div>
 
@@ -221,7 +249,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 {activeNeed.title}
               </h3>
 
-              <p className="text-sm text-[#A7ADB4] leading-relaxed max-w-3xl">
+              <p className="text-sm text-[#A7ADB4] leading-relaxed max-w-3xl font-sans">
                 {activeNeed.recommendation}
               </p>
             </div>
@@ -231,7 +259,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 onClick={() => onOpenBooking && onOpenBooking('', activeNeed.serviceKey)}
                 className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2"
               >
-                <span>GET HELP →</span>
+                <span>BOOK SERVICE →</span>
                 <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
               </button>
 
@@ -240,7 +268,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 className="w-full py-3 btn-whatsapp font-bold text-xs uppercase tracking-wider rounded-btn flex items-center justify-center space-x-2"
               >
                 <MessageSquare className="w-4 h-4 text-whatsapp" />
-                <span>CHAT WITH MECHANIC</span>
+                <span>CHAT WITH TECHNICIAN</span>
               </button>
             </div>
 

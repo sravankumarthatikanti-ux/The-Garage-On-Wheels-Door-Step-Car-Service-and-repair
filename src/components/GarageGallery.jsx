@@ -33,13 +33,13 @@ const GALLERY_ITEMS = [
   },
   {
     id: 2,
-    title: "Mobile Service Van On-Site Unit",
+    title: "On-Site Technician Inspection & Diagnostic",
     category: "doorstep",
     categoryLabel: "DOORSTEP SERVICE",
     categoryColor: "#F59E0B",
     image: "/images/gallery/mobile_van.jpg",
-    description: "Fully equipped mobile van carrying pneumatic lifts, computerized scanner, and sealed OEM spares to your driveway.",
-    tags: ["On-Site Unit", "Driveway Care", "Secunderabad"]
+    description: "Certified technician visiting your home or office with computerized diagnostics, multi-point inspection tools, and genuine spares.",
+    tags: ["On-Site Visit", "Doorstep Care", "Secunderabad"]
   },
   {
     id: 3,

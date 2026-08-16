@@ -224,9 +224,9 @@ export default function BookingModal({ isOpen, onClose, initialBrand = '', initi
         {/* Footer Guarantee */}
         <div className="mt-4 pt-3 border-t border-[#252C33] flex items-center justify-between text-[11px] text-[#A7ADB4] font-mono">
           <span className="flex items-center gap-1 text-white">
-            <CheckCircle2 className="w-3.5 h-3.5 text-cyan" /> 100% Genuine Box Unboxing
+            <CheckCircle2 className="w-3.5 h-3.5 text-cyan" /> 100% Genuine OEM Spares
           </span>
-          <span>Zero Advance Payment</span>
+          <span className="text-ice">Doorstep &amp; Workshop Support</span>
         </div>
 
       </div>

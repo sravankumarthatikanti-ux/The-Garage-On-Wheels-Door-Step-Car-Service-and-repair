@@ -23,7 +23,7 @@ export default function EditorialStatement({ onOpenBooking }) {
         </h2>
 
         <p className="text-sm sm:text-base text-[#A7ADB4] max-w-2xl mx-auto font-sans leading-relaxed">
-          Secunderabad &amp; Hyderabad's premier mobile garage service. Certified technicians, transparent live pricing, and 100% genuine OEM components at your doorstep.
+          Small &amp; general services at your doorstep. Major repairs handled at our workshop. Certified technicians, transparent WhatsApp pricing, and 100% genuine OEM components.
         </p>
 
         <div className="pt-2">
@@ -31,7 +31,7 @@ export default function EditorialStatement({ onOpenBooking }) {
             onClick={() => onOpenBooking && onOpenBooking()}
             className="px-8 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md inline-flex items-center space-x-2 active:scale-95"
           >
-            <span>BOOK AT YOUR DOORSTEP →</span>
+            <span>BOOK YOUR SERVICE →</span>
             <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
           </button>
         </div>
