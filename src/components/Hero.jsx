@@ -141,40 +141,36 @@ export default function Hero({ onOpenBooking }) {
       className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden bg-[#080A0D] text-white select-none"
     >
       {/* ------------------------------------------------------------- */}
-      {/* MULTI-COLOR AUTOMOTIVE STUDIO LIGHTING SYSTEM                 */}
+      {/* MULTI-COLOR AUTOMOTIVE WORKSHOP BGI & LIGHTING SYSTEM        */}
       {/* ------------------------------------------------------------- */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Commercial Automotive Studio Photography Base */}
+        {/* High-Clarity Authentic Workshop Hub Background */}
         <img 
-          src="/images/hero_car_studio.jpg" 
-          alt="The Garage On Wheels Cinematic Automotive Care" 
-          className="w-full h-full object-cover object-right md:object-center opacity-45 filter brightness-100 contrast-110"
+          src="/images/hero_workshop_bgi.jpg" 
+          alt="The Garage On Wheels Advanced Automotive Workshop Hub" 
+          className="w-full h-full object-cover object-center opacity-75 filter brightness-100 contrast-[1.08] saturate-[1.05]"
         />
         
-        {/* Left Negative Space Deep Gradient Vales */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080A0D] via-[#080A0D]/92 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D] via-transparent to-[#080A0D]/85" />
+        {/* Balanced Cinematic Overlays for Text Legibility & Image Clarity */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080A0D]/95 via-[#080A0D]/75 md:via-[#080A0D]/50 to-[#080A0D]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D] via-transparent to-[#080A0D]/75" />
 
-        {/* 1. Large Diffused Studio Spotlight behind the Car: Soft Ice Blue */}
+        {/* 1. Large Diffused Studio Spotlight: Soft Ice Blue */}
         <div 
-          className="absolute top-1/2 right-[12%] -translate-y-1/2 w-[750px] h-[550px] rounded-full blur-[140px] opacity-45 bg-[#8FD8FF]/30 animate-spotlight"
+          className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[650px] h-[450px] rounded-full blur-[140px] opacity-25 bg-[#8FD8FF]/30 animate-spotlight"
           style={{
-            transform: `translate(${mousePos.x * 0.4}px, ${mousePos.y * 0.4}px)`,
+            transform: `translate(${mousePos.x * 0.3}px, ${mousePos.y * 0.3}px)`,
           }}
         />
 
         {/* 2. Soft Cyan Mist Atmospheric Rim Light */}
-        <div className="absolute top-1/4 right-[25%] w-[550px] h-[380px] rounded-full blur-[120px] opacity-35 bg-[#9DE7E5]/30" />
+        <div className="absolute top-1/4 right-[25%] w-[500px] h-[320px] rounded-full blur-[120px] opacity-20 bg-[#9DE7E5]/30" />
 
         {/* 3. Soft Luxury Lavender Accent Glow */}
-        <div className="absolute bottom-1/4 right-[5%] w-[500px] h-[320px] rounded-full blur-[110px] opacity-30 bg-[#C7C0E8]/30" />
+        <div className="absolute bottom-1/4 right-[5%] w-[450px] h-[280px] rounded-full blur-[110px] opacity-20 bg-[#C7C0E8]/30" />
 
         {/* 4. Soft Aqua Ambient Ground Light */}
-        <div className="absolute bottom-10 left-1/4 w-[450px] h-[250px] rounded-full blur-[130px] opacity-20 bg-[#8EDDD0]/25" />
-
-        {/* 5. Realistic Grounding Car Floor Shadow & Reflection */}
-        <div className="absolute bottom-6 right-[4%] w-[55%] h-[120px] car-floor-reflection pointer-events-none hidden md:block" />
-        <div className="absolute bottom-4 right-[6%] w-[50%] h-[60px] car-ground-shadow pointer-events-none hidden md:block" />
+        <div className="absolute bottom-10 left-1/4 w-[400px] h-[200px] rounded-full blur-[130px] opacity-15 bg-[#8EDDD0]/25" />
 
         {/* Floating Micro-Particles Simulation */}
         <CinematicParticles density={28} color="143, 216, 255" maxSpeed={0.2} />

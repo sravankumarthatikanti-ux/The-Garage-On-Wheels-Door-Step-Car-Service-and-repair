@@ -26,10 +26,10 @@ export default function AboutSection({ onOpenBooking }) {
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/gallery/garage_workshop.jpg" 
-                  alt="Automotive Service Workshop Precision" 
-                  className="w-full h-full object-cover opacity-25 filter grayscale-[20%]"
+                  alt="The Garage On Wheels Advanced Automotive Workshop Hub" 
+                  className="w-full h-full object-cover opacity-45 filter brightness-100 contrast-[1.08]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#080A0D] via-[#101419]/90 to-lavender/10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#080A0D] via-[#101419]/80 to-lavender/10" />
               </div>
 
               <div className="space-y-6 relative z-10 text-left">
