@@ -65,10 +65,10 @@ export default function ContactSection({ onOpenBooking }) {
               href={BUSINESS_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-xs font-bold text-slate-900 hover:text-black font-mono transition-colors gap-1.5"
+              className="inline-flex items-center text-xs font-bold text-slate-900 hover:text-cyan-700 font-mono transition-all gap-1.5 group/map pt-1"
             >
-              <span>OPEN IN GOOGLE MAPS</span>
-              <span className="text-sm">→</span>
+              <span className="group-hover/map:underline">OPEN IN GOOGLE MAPS</span>
+              <span className="text-sm group-hover/map:translate-x-1 transition-transform">→</span>
             </a>
           </div>
 

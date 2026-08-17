@@ -73,7 +73,14 @@ export default function Footer({ onOpenBooking }) {
             <div className="space-y-2.5 text-xs text-[#A7ADB4] font-sans">
               <div className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-cyan shrink-0 mt-0.5" />
-                <span>{BUSINESS_INFO.address}</span>
+                <a 
+                  href={BUSINESS_INFO.googleMapsUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors"
+                >
+                  {BUSINESS_INFO.address}
+                </a>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-ice shrink-0" />
