@@ -6,8 +6,8 @@ export const BUSINESS_INFO = {
   fullName: "The Garage On Wheels – Doorstep Car Service and Repair",
   address: "Plot No. 1, Sri Venkateshwara Officers Colony, Asha Officers Colony, Tirumalagiri, Hyderabad, Secunderabad, Telangana",
   displayArea: "Tirumalagiri, Secunderabad & Hyderabad",
-  whatsappNumber: "918121404113",
-  formattedPhone: "+91 81214 04113",
+  whatsappNumber: "918519997231",
+  formattedPhone: "+91 85199 97231",
   workingHours: "24/7 Available (24 Hours • All 7 Days)",
   warrantyText: "Up to 1000 KMs / 1 Month Doorstep Warranty on All Services",
 };

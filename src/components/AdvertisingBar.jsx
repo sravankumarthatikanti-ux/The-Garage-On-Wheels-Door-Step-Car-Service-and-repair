@@ -61,7 +61,7 @@ export default function AdvertisingBar({ onOpenBooking }) {
       text: "24 Hours Service & Emergency Support • Hub: Tirumalagiri, Secunderabad 500015",
       cta: "Call 24/7",
       action: () => {
-        window.location.href = `tel:${BUSINESS_INFO?.whatsappNumber || '918121404113'}`;
+        window.location.href = `tel:${BUSINESS_INFO?.whatsappNumber || '918519997231'}`;
       }
     }
   ];
@@ -117,7 +117,7 @@ export default function AdvertisingBar({ onOpenBooking }) {
 
           {/* Quick Direct WhatsApp Button */}
           <a
-            href={`https://wa.me/${BUSINESS_INFO?.whatsappNumber || '918121404113'}?text=${encodeURIComponent("Hello! I need doorstep car service assistance.")}`}
+            href={`https://wa.me/${BUSINESS_INFO?.whatsappNumber || '918519997231'}?text=${encodeURIComponent("Hello! I need doorstep car service assistance.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-1.5 bg-[#181E24] hover:bg-[#252C33] border border-[#25D366]/40 hover:border-[#25D366] text-white px-2.5 py-1 rounded-full text-[10px] font-bold transition-all shadow-sm"
