@@ -267,7 +267,7 @@ export default function Hero({ onOpenBooking }) {
 
               <div className="p-2.5 rounded-xl bg-[#101419]/80 border border-[#9DE7E5]/20 space-y-1 hover:border-[#9DE7E5]/40 transition-all">
                 <div className="text-xs sm:text-sm font-black text-[#9DE7E5] font-mono flex items-center gap-1">
-                  <Star className="w-3.5 h-3.5 text-[#9DE7E5] fill-[#9DE7E5]" /> 4.9 / 5
+                  <Star className="w-3.5 h-3.5 text-[#9DE7E5] fill-[#9DE7E5]" /> 4.8 / 5
                 </div>
                 <p className="text-[10px] text-[#A7ADB4] font-medium leading-tight">Customer Rating</p>
               </div>
