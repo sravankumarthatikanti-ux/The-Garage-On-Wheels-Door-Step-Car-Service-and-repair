@@ -10,7 +10,7 @@ export const BUSINESS_INFO = {
   formattedPhone: "+91 85199 97231",
   workingHours: "24/7 Available (24 Hours • All 7 Days)",
   warrantyText: "Up to 1000 KMs / 1 Month Doorstep Warranty on All Services",
-  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Plot+No.+1,+Sri+Venkateshwara+Officers+Colony,+Asha+Officers+Colony,+Tirumalagiri,+Hyderabad,+Secunderabad,+Telangana",
+  googleMapsUrl: "https://maps.app.goo.gl/FGrsvigWWcGukjTSA",
 };
 
 /**
