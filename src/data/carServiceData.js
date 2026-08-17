@@ -13,31 +13,48 @@ export const BUSINESS_INFO = {
 };
 
 /**
- * Builds formatted WhatsApp URL with pre-filled message
+ * Builds formatted WhatsApp URL with pre-filled customer details, location, and service info
  */
 export const buildWhatsAppUrl = ({
+  customerName = "",
+  phone = "",
   carBrand = "",
   carModel = "",
-  fuelType = "",
+  vehicleNumber = "",
   serviceName = "",
-  locality = "Tirumalagiri / Secunderabad",
+  issueDescription = "",
+  locationUrl = "",
   customNotes = ""
 } = {}) => {
-  const brandModelText = carBrand 
-    ? `${carBrand} ${carModel ? carModel : ''} ${fuelType ? `(${fuelType})` : ''}`.trim()
-    : "Vehicle not specified yet";
-    
-  const serviceText = serviceName || "General Car Service & Repair Checkup";
-  const areaText = locality || "Secunderabad / Hyderabad";
-
-  let message = `Hello The Garage On Wheels! 🚗\n\n`;
-  message += `I would like to request a *Doorstep Car Service*.\n\n`;
-  message += `🚘 *Car Details:* ${brandModelText}\n`;
-  message += `🛠️ *Service Needed:* ${serviceText}\n`;
-  message += `📍 *Service Area:* ${areaText}\n`;
-  if (customNotes) {
-    message += `📝 *Note:* ${customNotes}\n`;
+  const nameText = customerName ? customerName.trim() : "Customer";
+  const phoneText = phone ? phone.trim() : "Provided on WhatsApp";
+  
+  let carText = "";
+  if (carBrand && carModel) {
+    carText = `${carBrand} ${carModel}`.trim();
+  } else if (carBrand) {
+    carText = carBrand.trim();
+  } else {
+    carText = "Car details to be shared";
   }
+
+  const vehicleNoText = vehicleNumber ? vehicleNumber.toUpperCase().trim() : "To be shared";
+  const serviceText = serviceName || "General Service";
+  const issueText = issueDescription || customNotes || "General inspection & service quote request";
+  const locationText = locationUrl ? locationUrl.trim() : "Not shared";
+
+  let message = `Hi Garage on Wheels 👋\n\n`;
+  message += `I would like to enquire/book a car service.\n\n`;
+  message += `👤 Name: ${nameText}\n`;
+  message += `📞 Phone: ${phoneText}\n`;
+  message += `🚗 Car: ${carText}\n`;
+  message += `🔢 Vehicle No: ${vehicleNoText}\n`;
+  message += `🔧 Service: ${serviceText}\n`;
+  message += `📝 Issue: ${issueText}\n\n`;
+  message += `📍 Location:\n${locationText}\n\n`;
+  message += `Please check the availability and let me know the estimated cost.\n\n`;
+  message += `Thank you!`;
+
   return `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`;
 };
 

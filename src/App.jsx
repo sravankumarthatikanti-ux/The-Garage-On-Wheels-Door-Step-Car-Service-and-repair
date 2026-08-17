@@ -22,10 +22,13 @@ export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [activeBrand, setActiveBrand] = useState('Maruti Suzuki');
   const [activeService, setActiveService] = useState('General Service');
+  const [activeIssue, setActiveIssue] = useState('');
 
-  const handleOpenBooking = (brand = '', service = '') => {
+  const handleOpenBooking = (brand = '', service = '', issue = '') => {
     if (brand) setActiveBrand(brand);
     if (service) setActiveService(service);
+    if (issue) setActiveIssue(issue);
+    else setActiveIssue('');
     setIsBookingOpen(true);
   };
 
@@ -98,6 +101,7 @@ export default function App() {
         onClose={handleCloseBooking}
         initialBrand={activeBrand}
         initialService={activeService}
+        initialIssue={activeIssue}
       />
 
     </div>

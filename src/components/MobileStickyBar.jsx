@@ -4,8 +4,12 @@ import { BUSINESS_INFO, buildWhatsAppUrl } from '../data/carServiceData';
 
 export default function MobileStickyBar({ onOpenBooking }) {
   const handleWhatsApp = () => {
-    const url = buildWhatsAppUrl({ serviceName: "Mobile Bottom Action" });
-    window.open(url, '_blank');
+    if (onOpenBooking) {
+      onOpenBooking('', 'General Service', 'Mobile Quick Booking');
+    } else {
+      const url = buildWhatsAppUrl({ serviceName: "Mobile Bottom Action" });
+      window.open(url, '_blank');
+    }
   };
 
   return (

@@ -127,10 +127,15 @@ export default function CarNeedSelector({ onOpenBooking }) {
   const ActiveIcon = activeNeed.icon;
 
   const handleWhatsAppHelp = () => {
-    const url = buildWhatsAppUrl({
-      serviceName: activeNeed.serviceKey
-    });
-    window.open(url, '_blank');
+    if (onOpenBooking) {
+      onOpenBooking('', activeNeed.serviceKey, `${activeNeed.title} - ${activeNeed.subtitle}`);
+    } else {
+      const url = buildWhatsAppUrl({
+        serviceName: activeNeed.serviceKey,
+        issueDescription: `${activeNeed.title} - ${activeNeed.subtitle}`
+      });
+      window.open(url, '_blank');
+    }
   };
 
   return (

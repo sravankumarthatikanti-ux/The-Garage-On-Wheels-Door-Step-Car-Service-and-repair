@@ -118,21 +118,28 @@ export default function Hero({ onOpenBooking }) {
 
   const handleQuickWhatsApp = (e) => {
     e.preventDefault();
-    const url = buildWhatsAppUrl({
-      carBrand: selectedBrand,
-      carModel: selectedModel,
-      fuelType: fuelType,
-      serviceName: selectedService,
-      locality: "Tirumalagiri / Secunderabad"
-    });
-    window.open(url, '_blank');
+    if (onOpenBooking) {
+      onOpenBooking(selectedBrand, selectedService, `Quick Doorstep Estimate for ${selectedBrand} ${selectedModel} (${fuelType})`);
+    } else {
+      const url = buildWhatsAppUrl({
+        carBrand: selectedBrand,
+        carModel: selectedModel,
+        serviceName: selectedService,
+        issueDescription: `Quick Doorstep Estimate for ${selectedBrand} ${selectedModel} (${fuelType})`
+      });
+      window.open(url, '_blank');
+    }
   };
 
   const handleDirectWhatsApp = () => {
-    const url = buildWhatsAppUrl({
-      serviceName: "Doorstep Car Care Enquiry"
-    });
-    window.open(url, '_blank');
+    if (onOpenBooking) {
+      onOpenBooking(selectedBrand, selectedService, "Doorstep Car Care Enquiry");
+    } else {
+      const url = buildWhatsAppUrl({
+        serviceName: "Doorstep Car Care Enquiry"
+      });
+      window.open(url, '_blank');
+    }
   };
 
   return (

@@ -14,8 +14,12 @@ import { BUSINESS_INFO, buildWhatsAppUrl } from '../data/carServiceData';
 
 export default function ContactSection({ onOpenBooking }) {
   const handleWhatsAppClick = () => {
-    const url = buildWhatsAppUrl({ serviceName: "Direct Contact & Dispatch" });
-    window.open(url, '_blank');
+    if (onOpenBooking) {
+      onOpenBooking('', 'General Service', 'Direct Contact & Doorstep Dispatch');
+    } else {
+      const url = buildWhatsAppUrl({ serviceName: "Direct Contact & Dispatch" });
+      window.open(url, '_blank');
+    }
   };
 
   return (
