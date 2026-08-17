@@ -236,7 +236,7 @@ function EngineGearWatermark({ className = "" }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* 7 INTERACTIVE ISSUE NEEDS CONFIGURATION                                    */
+/* 7 INTERACTIVE ISSUE NEEDS CONFIGURATION WITH CUSTOM IMAGES                 */
 /* -------------------------------------------------------------------------- */
 
 const CAR_NEEDS = [
@@ -246,6 +246,8 @@ const CAR_NEEDS = [
     shortLabel: 'SERVICE',
     subtitle: 'Lube, Filters, Multi-Point Check',
     icon: Wrench,
+    image: 'https://www.differencebetween.net/wp-content/uploads/2017/10/Differencebetween-product-and-service-1.jpg',
+    fallbackImage: '/images/gallery/engine_diagnostic.jpg',
     WatermarkComponent: ServiceToolsWatermark,
     accentColor: '#C8E6B8', // Soft Lime
     glowColor: 'rgba(200, 230, 184, 0.25)',
@@ -261,6 +263,8 @@ const CAR_NEEDS = [
     shortLabel: 'AC',
     subtitle: 'Gas Refill, Compressor, Filter',
     icon: Wind,
+    image: 'https://adityacarairconditioners.com/wp-content/uploads/2025/06/repairman-holdingmonitor-tool-check-600nw-2279387293-1-1-1-1.webp',
+    fallbackImage: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80',
     WatermarkComponent: AcCoolingWatermark,
     accentColor: '#8EDDD0', // Aqua
     glowColor: 'rgba(142, 221, 208, 0.25)',
@@ -276,6 +280,8 @@ const CAR_NEEDS = [
     shortLabel: 'BATTERY',
     subtitle: 'Dead Battery, Slow Cranking',
     icon: BatteryCharging,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStUGj52yrcMfP0ClUiH6fB4sM6EXm9RMNtl787DRLV77MSRV2K4i92pg&s=10',
+    fallbackImage: '/images/gallery/battery_electrical.jpg',
     WatermarkComponent: BatteryTerminalsWatermark,
     accentColor: '#9DE7E5', // Cyan Mist
     glowColor: 'rgba(157, 231, 229, 0.25)',
@@ -291,6 +297,8 @@ const CAR_NEEDS = [
     shortLabel: 'DPF SERVICE',
     subtitle: 'Soot Scan, Cleaning, Regeneration',
     icon: Flame,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYgQnlnh0nBfOIcYaj1O5_CM6ZNaXmEB37jmPlDROick2bNCXz2JqVtr18&s=10',
+    fallbackImage: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80',
     WatermarkComponent: DpfExhaustWatermark,
     accentColor: '#FFB86C', // Soft Amber
     glowColor: 'rgba(255, 184, 108, 0.25)',
@@ -306,6 +314,8 @@ const CAR_NEEDS = [
     shortLabel: 'BRAKES',
     subtitle: 'Pads, Rotor, Fluid Bleed',
     icon: Disc,
+    image: 'https://5.imimg.com/data5/SELLER/Default/2022/11/LZ/AI/NN/2437456/car-brakesystem-services.jpg',
+    fallbackImage: '/images/gallery/brake_repair.jpg',
     WatermarkComponent: BrakeRotorWatermark,
     accentColor: '#C7C0E8', // Soft Lavender
     glowColor: 'rgba(199, 192, 232, 0.25)',
@@ -321,6 +331,8 @@ const CAR_NEEDS = [
     shortLabel: 'WARNING LIGHT',
     subtitle: 'Check Engine, ABS, Sensors',
     icon: AlertTriangle,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPeyrfB7phMyj9ZTHQlAxa2HgjveOANtRDtp1hG-hobEf1wDzovMzL3Q7s&s=10',
+    fallbackImage: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80',
     WatermarkComponent: WarningDiagnosticsWatermark,
     accentColor: '#8FD8FF', // Ice Blue
     glowColor: 'rgba(143, 216, 255, 0.25)',
@@ -336,6 +348,8 @@ const CAR_NEEDS = [
     shortLabel: 'MAJOR REPAIR',
     subtitle: 'Suspension, Clutch, Transmission',
     icon: Sparkles,
+    image: 'https://blogs.gomechanic.com/wp-content/uploads/2025/09/Insider-Basic-CarRepairs-Every-Owner-Should-Know.png',
+    fallbackImage: '/images/gallery/gearbox_repair.jpg',
     WatermarkComponent: EngineGearWatermark,
     accentColor: '#DCC9A6', // Soft Champagne
     glowColor: 'rgba(220, 201, 166, 0.25)',
@@ -409,7 +423,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
           </p>
         </div>
 
-        {/* 7 Interactive Needs Grid with Premium Line-Art Logo Watermarks */}
+        {/* 7 Interactive Needs Grid with Custom Uploaded Service Images */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2.5 sm:gap-3.5 mb-8">
           {CAR_NEEDS.map((item) => {
             const Icon = item.icon;
@@ -421,7 +435,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 key={item.id}
                 type="button"
                 onClick={() => setSelectedNeedId(item.id)}
-                className={`p-3.5 rounded-card border text-left transition-all duration-300 relative flex flex-col justify-between h-[135px] sm:h-[148px] overflow-hidden group ${
+                className={`p-3.5 rounded-card border text-left transition-all duration-300 relative flex flex-col justify-between h-[145px] sm:h-[155px] overflow-hidden group ${
                   isSelected
                     ? 'bg-[#181E24] -translate-y-1.5 shadow-lg ring-1'
                     : 'bg-[#101419] border-[#252C33] hover:border-[#A7ADB4]/40 hover:bg-[#181E24]/80'
@@ -432,12 +446,36 @@ export default function CarNeedSelector({ onOpenBooking }) {
                   outlineColor: isSelected ? item.accentColor : undefined,
                 }}
               >
-                {/* 1. Large Thin-Line Automotive Logo Watermark (Right/Bottom-Right Cropped) */}
-                <div 
-                  className={`absolute -right-3.5 -bottom-3.5 sm:-right-4 sm:-bottom-4 w-20 h-20 sm:w-24 sm:h-24 pointer-events-none transition-all duration-500 z-0 ${
+                {/* 1. Background Service Image Layer with Ambient Dark Gradient */}
+                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-card">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    onError={(e) => {
+                      if (item.fallbackImage && e.currentTarget.src !== item.fallbackImage) {
+                        e.currentTarget.src = item.fallbackImage;
+                      }
+                    }}
+                    className={`w-full h-full object-cover object-center transition-all duration-500 ${
+                      isSelected 
+                        ? 'opacity-30 scale-110 filter saturate-125 contrast-110' 
+                        : 'opacity-15 group-hover:opacity-25 group-hover:scale-105 filter grayscale-[30%]'
+                    }`}
+                  />
+                  {/* Subtle Dark Automotive Gradient Overlay */}
+                  <div className={`absolute inset-0 transition-opacity duration-300 ${
                     isSelected 
-                      ? 'opacity-[0.20] scale-105 rotate-3' 
-                      : 'opacity-[0.07] group-hover:opacity-[0.14] group-hover:scale-105 group-hover:rotate-2'
+                      ? 'bg-gradient-to-t from-[#181E24] via-[#181E24]/80 to-[#181E24]/40' 
+                      : 'bg-gradient-to-t from-[#101419] via-[#101419]/85 to-[#101419]/50'
+                  }`} />
+                </div>
+
+                {/* 2. Large Thin-Line Automotive Logo Watermark (Right/Bottom-Right Cropped) */}
+                <div 
+                  className={`absolute -right-3.5 -bottom-3.5 sm:-right-4 sm:-bottom-4 w-20 h-20 sm:w-24 sm:h-24 pointer-events-none transition-all duration-500 z-1 ${
+                    isSelected 
+                      ? 'opacity-[0.22] scale-105 rotate-3' 
+                      : 'opacity-[0.08] group-hover:opacity-[0.16] group-hover:scale-105 group-hover:rotate-2'
                   }`}
                   style={{
                     color: isSelected ? item.accentColor : '#A7ADB4',
@@ -446,31 +484,31 @@ export default function CarNeedSelector({ onOpenBooking }) {
                   <Watermark className="w-full h-full" />
                 </div>
 
-                {/* 2. Active Indicator Top Light Bar */}
+                {/* 3. Active Indicator Top Light Bar */}
                 {isSelected && (
                   <div 
-                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-card z-10"
+                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-card z-20"
                     style={{ backgroundColor: item.accentColor }}
                   />
                 )}
 
-                {/* 3. Existing Small Service Icon */}
+                {/* 4. Service Icon */}
                 <div 
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 relative z-10 ${
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 relative z-10 backdrop-blur-xs ${
                     isSelected ? 'shadow-sm' : 'bg-[#101419]/90 text-[#A7ADB4] border border-[#252C33]'
                   }`}
                   style={{
-                    backgroundColor: isSelected ? `${item.accentColor}25` : undefined,
+                    backgroundColor: isSelected ? `${item.accentColor}30` : undefined,
                     color: isSelected ? item.accentColor : undefined,
-                    borderColor: isSelected ? `${item.accentColor}50` : undefined,
+                    borderColor: isSelected ? `${item.accentColor}60` : undefined,
                   }}
                 >
                   <Icon className="w-4 h-4" />
                 </div>
 
-                {/* 4. Existing Service Typography & Description */}
-                <div className="relative z-10">
-                  <h4 className="text-[11px] sm:text-xs font-black text-white font-heading tracking-tight leading-tight drop-shadow-sm">
+                {/* 5. Service Typography & Description */}
+                <div className="relative z-10 mt-auto pt-2">
+                  <h4 className="text-[11px] sm:text-xs font-black text-white font-heading tracking-tight leading-tight drop-shadow-md">
                     {item.shortLabel}
                   </h4>
                   <p className="text-[9px] sm:text-[10px] text-[#A7ADB4] group-hover:text-white font-medium truncate mt-0.5 font-sans transition-colors drop-shadow-sm">
@@ -482,7 +520,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
           })}
         </div>
 
-        {/* Selected Issue Detailed Action Panel */}
+        {/* Selected Issue Detailed Action Panel with Featured Image Card */}
         <div className="bg-[#181E24] border border-[#252C33] rounded-card-lg p-6 sm:p-8 shadow-premium text-left relative overflow-hidden transition-all duration-500">
           
           <div 
@@ -490,10 +528,49 @@ export default function CarNeedSelector({ onOpenBooking }) {
             style={{ backgroundColor: activeNeed.accentColor }}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex flex-wrap items-center gap-3">
+            {/* Featured Image Thumbnail Column */}
+            <div className="lg:col-span-4 relative rounded-xl overflow-hidden border border-[#252C33] group/img aspect-video sm:aspect-[16/10] lg:aspect-[4/3] bg-[#101419] shadow-md">
+              <img 
+                src={activeNeed.image} 
+                alt={activeNeed.title}
+                onError={(e) => {
+                  if (activeNeed.fallbackImage && e.currentTarget.src !== activeNeed.fallbackImage) {
+                    e.currentTarget.src = activeNeed.fallbackImage;
+                  }
+                }}
+                className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D]/90 via-[#080A0D]/30 to-transparent" />
+              
+              {/* Overlay Venue Badge on Image */}
+              <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#080A0D]/85 backdrop-blur-md border border-[#252C33] text-[11px] font-mono font-bold text-white">
+                <ActiveIcon className="w-3.5 h-3.5" style={{ color: activeNeed.accentColor }} />
+                <span>{activeNeed.serviceVenue}</span>
+              </div>
+
+              {/* Service Tag at Bottom */}
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                <span 
+                  className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider font-mono border"
+                  style={{
+                    backgroundColor: `${activeNeed.accentColor}20`,
+                    color: activeNeed.accentColor,
+                    borderColor: `${activeNeed.accentColor}50`,
+                  }}
+                >
+                  {activeNeed.shortLabel}
+                </span>
+                <span className="text-[11px] text-gray-300 font-mono">
+                  {activeNeed.deliveryTime}
+                </span>
+              </div>
+            </div>
+
+            {/* Diagnostic Information */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="flex flex-wrap items-center gap-2.5">
                 <span 
                   className="px-3 py-1 rounded-full text-xs font-bold uppercase font-mono tracking-wider border"
                   style={{
@@ -519,12 +596,13 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 {activeNeed.title}
               </h3>
 
-              <p className="text-sm text-[#A7ADB4] leading-relaxed max-w-3xl font-sans">
+              <p className="text-sm text-[#A7ADB4] leading-relaxed font-sans">
                 {activeNeed.recommendation}
               </p>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+            {/* CTA Action Buttons */}
+            <div className="lg:col-span-3 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
               <button
                 onClick={() => onOpenBooking && onOpenBooking('', activeNeed.serviceKey)}
                 className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95 transition-all"
