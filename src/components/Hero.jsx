@@ -11,9 +11,10 @@ import {
   Fuel,
   Star,
   ChevronDown,
-  Zap
+  Zap,
+  Phone
 } from 'lucide-react';
-import { CAR_BRANDS, SERVICE_CATEGORIES, buildWhatsAppUrl } from '../data/carServiceData';
+import { CAR_BRANDS, SERVICE_CATEGORIES, buildWhatsAppUrl, BUSINESS_INFO } from '../data/carServiceData';
 
 /**
  * Atmospheric Floating Dust & Light Particle Simulation
@@ -220,8 +221,8 @@ export default function Hero({ onOpenBooking }) {
               Small &amp; general services at your doorstep. Major repairs handled at our workshop. Transparent pricing, certified technicians, and genuine sealed OEM parts.
             </p>
 
-            {/* Primary & Secondary Action Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 relative">
+            {/* Primary, WhatsApp & Instant Call Action Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 relative">
               
               {/* Soft Atmospheric Glow Behind Primary Button */}
               <div className="absolute -left-2 top-0 w-52 h-14 bg-[#8FD8FF]/25 rounded-full blur-xl pointer-events-none" />
@@ -229,7 +230,7 @@ export default function Hero({ onOpenBooking }) {
               {/* LEVEL 1: Primary Filled CTA */}
               <button
                 onClick={() => onOpenBooking(selectedBrand, selectedService)}
-                className="w-full sm:w-auto px-8 py-4 btn-sport-gradient font-black text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2.5 z-10 shadow-lg"
+                className="w-full sm:w-auto px-7 py-3.5 btn-sport-gradient font-black text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2 z-10 shadow-lg active:scale-95"
               >
                 <span>BOOK A SERVICE →</span>
                 <ArrowRight className="w-4 h-4 btn-arrow text-graphite" />
@@ -238,11 +239,20 @@ export default function Hero({ onOpenBooking }) {
               {/* LEVEL 2: WhatsApp CTA with soft green glow */}
               <button
                 onClick={handleDirectWhatsApp}
-                className="w-full sm:w-auto px-7 py-4 btn-whatsapp font-bold text-xs tracking-wider uppercase rounded-btn flex items-center justify-center space-x-2 z-10 shadow-sm"
+                className="w-full sm:w-auto px-6 py-3.5 btn-whatsapp font-bold text-xs tracking-wider uppercase rounded-btn flex items-center justify-center space-x-2 z-10 shadow-sm active:scale-95"
               >
                 <MessageSquare className="w-4 h-4 text-[#25D366]" />
                 <span>WHATSAPP US</span>
               </button>
+
+              {/* LEVEL 3: Direct Instant Call Button */}
+              <a
+                href={`tel:${BUSINESS_INFO.whatsappNumber}`}
+                className="w-full sm:w-auto px-5 py-3.5 bg-[#181E24] hover:bg-[#202730] text-cyan hover:text-white font-mono font-bold text-xs tracking-wider uppercase rounded-btn border border-cyan/40 hover:border-cyan flex items-center justify-center space-x-2 z-10 transition-all shadow-sm active:scale-95"
+              >
+                <Phone className="w-4 h-4 text-cyan animate-pulse" />
+                <span>INSTANT CALL</span>
+              </a>
 
             </div>
 

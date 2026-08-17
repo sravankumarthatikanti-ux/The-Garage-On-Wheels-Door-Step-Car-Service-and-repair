@@ -548,7 +548,7 @@ export default function ProgressiveBooking() {
                   </p>
                 </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
                   <button
                     type="submit"
                     className="w-full sm:flex-1 py-4 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-xl flex items-center justify-center space-x-2"
@@ -556,6 +556,15 @@ export default function ProgressiveBooking() {
                     <span>CONTINUE TO WHATSAPP →</span>
                     <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
                   </button>
+
+                  <a
+                    href={`tel:${BUSINESS_INFO.whatsappNumber}`}
+                    className="w-full sm:w-auto px-5 py-4 bg-[#101419] hover:bg-[#202730] text-cyan hover:text-white font-mono font-bold text-xs uppercase tracking-wider rounded-btn border border-cyan/40 hover:border-cyan flex items-center justify-center space-x-2 transition-all active:scale-95 shadow-sm"
+                    title="Instant Call 24/7"
+                  >
+                    <Phone className="w-4 h-4 text-cyan animate-pulse" />
+                    <span>INSTANT CALL</span>
+                  </a>
 
                   <button
                     type="button"

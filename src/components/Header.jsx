@@ -93,9 +93,10 @@ export default function Header({ onOpenBooking }) {
             <div className="hidden sm:flex items-center space-x-3.5">
               <a
                 href={`tel:${BUSINESS_INFO.whatsappNumber}`}
-                className="hidden xl:flex items-center space-x-2 text-xs font-bold text-[#A7ADB4] hover:text-white px-3.5 py-2 rounded-full transition-all border border-[#252C33] bg-[#101419] hover:border-cyan/40 hover:shadow-[0_0_15px_rgba(157,231,229,0.2)] font-mono"
+                className="hidden md:flex items-center space-x-2 text-xs font-bold text-white hover:text-cyan px-3.5 py-2 rounded-btn transition-all border border-cyan/40 bg-[#101419] hover:border-cyan hover:shadow-[0_0_15px_rgba(157,231,229,0.25)] font-mono"
+                title="Instant Call Hotline"
               >
-                <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+                <Phone className="w-3.5 h-3.5 text-cyan animate-pulse" />
                 <span>{BUSINESS_INFO.formattedPhone}</span>
               </a>
 
