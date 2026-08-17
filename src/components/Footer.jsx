@@ -27,7 +27,7 @@ export default function Footer({ onOpenBooking }) {
             <Logo isDark={true} size="default" />
             
             <p className="text-xs sm:text-sm text-[#A7ADB4] leading-relaxed max-w-sm font-sans pt-1">
-              Secunderabad and Hyderabad's premier mobile doorstep car service and repair solution. Certified mechanics, 100% genuine sealed spares, and transparent upfront pricing.
+              A trusted car service provider in Hyderabad, offering professional repair and maintenance for all major car brands using quality standard parts and transparent pricing.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row gap-3">

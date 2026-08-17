@@ -1,11 +1,15 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Award, CheckCircle2, ArrowRight, Sparkles, Clock, Users, Wrench, Building2, Home } from 'lucide-react';
+import { ShieldCheck, MapPin, Award, CheckCircle2, ArrowRight, Sparkles, Clock, Users, Wrench, Building2, Target, Compass } from 'lucide-react';
 import { BUSINESS_INFO, buildWhatsAppUrl } from '../data/carServiceData';
 
 export default function AboutSection({ onOpenBooking }) {
   const handleWhatsAppChat = () => {
-    const url = buildWhatsAppUrl({ serviceName: "Service Consultation" });
-    window.open(url, '_blank');
+    if (onOpenBooking) {
+      onOpenBooking('', 'General Service', 'Service Consultation');
+    } else {
+      const url = buildWhatsAppUrl({ serviceName: "Service Consultation" });
+      window.open(url, '_blank');
+    }
   };
 
   return (
@@ -29,36 +33,47 @@ export default function AboutSection({ onOpenBooking }) {
                   alt="The Garage On Wheels Advanced Automotive Workshop Hub" 
                   className="w-full h-full object-cover opacity-45 filter brightness-100 contrast-[1.08]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#080A0D] via-[#101419]/80 to-lavender/10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#080A0D] via-[#101419]/85 to-lavender/10" />
               </div>
 
               <div className="space-y-6 relative z-10 text-left">
                 {/* Clean Standards Indicator */}
                 <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#101419] border border-[#252C33] text-ice text-xs font-bold uppercase tracking-widest font-mono shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
-                  <span>THE GARAGE ON WHEELS STANDARDS</span>
+                  <span>THE GARAGE ON WHEELS – HYDERABAD</span>
                 </div>
 
                 <div className="space-y-2.5 pt-1">
                   <span className="text-[11px] font-bold uppercase tracking-widest text-cyan font-mono">
-                    OUR CORE PHILOSOPHY
+                    TRUSTED CAR SERVICE PROVIDER
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black font-heading text-white tracking-tight leading-snug">
-                    Small &amp; general services at your doorstep. Major repairs handled at our workshop.
+                    Professional repair &amp; maintenance for all major car brands in Hyderabad.
                   </h3>
                   <p className="text-xs sm:text-sm text-[#A7ADB4] leading-relaxed font-sans">
-                    Founded in Tirumalagiri, Secunderabad, The Garage On Wheels provides doorstep convenience for periodic checks and minor fixes, combined with the power of a fully equipped workshop for complex mechanical repairs.
+                    The Garage on Wheels is a trusted car service provider in Hyderabad, offering professional repair and maintenance for all major car brands. Our certified and experienced mechanics provide reliable service using quality standard parts.
+                  </p>
+                </div>
+
+                {/* Our Mission Box */}
+                <div className="p-4 rounded-card bg-[#101419]/90 border border-cyan/30 text-white space-y-1.5">
+                  <div className="flex items-center space-x-2 text-xs font-bold text-cyan font-mono uppercase tracking-wider">
+                    <Compass className="w-3.5 h-3.5 text-cyan" />
+                    <span>OUR MISSION</span>
+                  </div>
+                  <p className="text-xs sm:text-sm font-semibold text-white font-sans leading-relaxed">
+                    “To make car care easy, accessible, and trustworthy for every vehicle owner.”
                   </p>
                 </div>
 
                 {/* Verified Core Standards */}
-                <div className="pt-3 border-t border-[#252C33] grid grid-cols-2 gap-4 text-left">
+                <div className="pt-2 border-t border-[#252C33] grid grid-cols-2 gap-4 text-left">
                   <div>
-                    <div className="text-lg sm:text-xl font-black text-white font-mono">Doorstep Ready</div>
+                    <div className="text-lg sm:text-xl font-black text-white font-mono">Doorstep Options</div>
                     <div className="text-[11px] text-[#A7ADB4] font-medium font-sans">Small &amp; general service</div>
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl font-black text-ice font-mono">Full Workshop</div>
+                    <div className="text-lg sm:text-xl font-black text-ice font-mono">Workshop Hub</div>
                     <div className="text-[11px] text-[#A7ADB4] font-medium font-sans">Major &amp; complex repairs</div>
                   </div>
                 </div>
@@ -67,36 +82,54 @@ export default function AboutSection({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* Column 2: Content & 3 Trust Points */}
+          {/* Column 2: Content, Description & 3 Trust Points */}
           <div className="lg:col-span-6 space-y-6 text-left">
             
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#080A0D] text-ice text-xs font-bold uppercase tracking-widest border border-ice/30 font-mono shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-cyan" />
-                <span>ABOUT US</span>
+                <span>ABOUT THE GARAGE ON WHEELS</span>
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight leading-tight">
-                TRANSPARENT CAR CARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice to-lavender">DONE RIGHT.</span>
+                THE GARAGE ON WHEELS <br className="hidden sm:inline" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-ice via-cyan to-lavender">
+                  – HYDERABAD
+                </span>
               </h2>
               
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
-                Our certified technicians visit your location with precision tools and computerized scanners for small and general services, while major and complex repairs are safely taken to our specialized Tirumalagiri workshop.
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-sans font-medium">
+                The Garage on Wheels is a trusted car service provider in Hyderabad, offering professional repair and maintenance for all major car brands. Our certified and experienced mechanics provide reliable service using quality standard parts.
+              </p>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+                We offer transparent pricing and doorstep service options, ensuring your vehicle receives the right care and performs at its best. Small and general services can be handled right at your doorstep, while major repairs are serviced at our specialized workshop.
+              </p>
+            </div>
+
+            {/* Mission Highlight Banner */}
+            <div className="p-4 sm:p-5 rounded-card bg-white border border-slate-200 shadow-sm space-y-1.5 border-l-4 border-l-cyan">
+              <div className="flex items-center space-x-2 text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
+                <Target className="w-4 h-4 text-cyan" />
+                <span>OUR MISSION</span>
+              </div>
+              <p className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+                To make car care easy, accessible, and trustworthy for every vehicle owner.
               </p>
             </div>
 
             {/* 3 Core Trust Cards (Clean White Surface) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
               
               <div className="p-4 rounded-card bg-white border border-slate-200 shadow-sm space-y-2 hover:border-cyan hover:shadow-md transition-all">
                 <div className="w-9 h-9 rounded-xl bg-[#080A0D] text-cyan flex items-center justify-center border border-slate-800">
                   <Wrench className="w-4 h-4" />
                 </div>
                 <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider font-mono">
-                  Master Technicians
+                  Certified Mechanics
                 </h4>
                 <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
-                  Certified mechanics trained across Asian &amp; European cars.
+                  Experienced technicians across all major car brands.
                 </p>
               </div>
 
@@ -105,10 +138,10 @@ export default function AboutSection({ onOpenBooking }) {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider font-mono">
-                  Sealed Spares
+                  Quality Standard Parts
                 </h4>
                 <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
-                  OEM barcode parts unboxed with official warranty.
+                  Reliable service using genuine standard components.
                 </p>
               </div>
 
@@ -117,10 +150,10 @@ export default function AboutSection({ onOpenBooking }) {
                   <Clock className="w-4 h-4" />
                 </div>
                 <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider font-mono">
-                  Fast Dispatch
+                  Transparent Pricing
                 </h4>
                 <p className="text-[11px] text-slate-600 font-medium leading-relaxed font-sans">
-                  30–60 min technician visit across Twin Cities.
+                  Clear WhatsApp estimates with no hidden charges.
                 </p>
               </div>
 
@@ -130,17 +163,16 @@ export default function AboutSection({ onOpenBooking }) {
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => onOpenBooking && onOpenBooking()}
-                className="px-7 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md inline-flex items-center justify-center space-x-2"
+                className="px-7 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md inline-flex items-center justify-center space-x-2 active:scale-95"
               >
                 <span>BOOK A SERVICE →</span>
               </button>
 
               <button
                 onClick={handleWhatsAppChat}
-                className="px-6 py-3.5 btn-whatsapp font-bold text-xs uppercase tracking-wider rounded-btn inline-flex items-center justify-center space-x-2"
+                className="px-6 py-3.5 btn-whatsapp font-bold text-xs uppercase tracking-wider rounded-btn inline-flex items-center justify-center space-x-2 active:scale-95"
               >
-                <ShieldCheck className="w-4 h-4 text-whatsapp" />
-                <span>SPEAK WITH AN EXPERT</span>
+                <span>WHATSAPP CONSULTATION</span>
               </button>
             </div>
 
