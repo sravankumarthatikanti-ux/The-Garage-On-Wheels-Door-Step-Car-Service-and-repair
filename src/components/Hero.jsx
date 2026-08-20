@@ -210,9 +210,9 @@ export default function Hero({ onOpenBooking }) {
 
             {/* Core Ultra-Bold Headline with Soft Gradient Text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white font-heading tracking-tight leading-[1.05]">
-              CAR CARE, <br />
+              EXPERIENCE YOUR CAR CARE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8FD8FF] via-[#9DE7E5] to-[#8EDDD0]">
-                WHEREVER YOU ARE
+                IN HYDERABAD &amp; SECUNDERABAD.
               </span>
             </h1>
 
