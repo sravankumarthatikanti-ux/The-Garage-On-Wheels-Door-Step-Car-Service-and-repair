@@ -205,21 +205,26 @@ export default function Hero({ onOpenBooking }) {
             {/* Category Soft Glowing Pill */}
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#181E24]/90 border border-[#8FD8FF]/40 text-[#8FD8FF] text-xs font-bold uppercase tracking-widest font-mono shadow-[0_0_15px_rgba(143,216,255,0.2)]">
               <span className="w-2 h-2 rounded-full bg-[#9DE7E5] animate-pulse" />
-              <span>DOORSTEP SERVICE &amp; WORKSHOP REPAIRS</span>
+              <span>DOORSTEP CAR SERVICE &amp; REPAIR</span>
             </div>
 
             {/* Core Ultra-Bold Headline with Soft Gradient Text */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-white font-heading tracking-tight leading-[1.05]">
-              CAR CARE. <br />
+              CAR CARE, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8FD8FF] via-[#9DE7E5] to-[#8EDDD0]">
-                WHEREVER YOU ARE.
+                WHEREVER YOU ARE
               </span>
             </h1>
 
-            {/* Short Supporting Text with Clear Distinction */}
-            <p className="text-base sm:text-lg text-[#C9D1D6] max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-sans">
-              Small &amp; general services at your doorstep. Major repairs handled at our workshop. Transparent pricing, certified technicians, and genuine sealed OEM parts.
-            </p>
+            {/* Short Supporting Text: Your car. Cared for better. */}
+            <div className="space-y-1.5 max-w-xl mx-auto lg:mx-0">
+              <p className="text-lg sm:text-xl font-bold text-white font-heading tracking-tight">
+                Your car. Cared for better.
+              </p>
+              <p className="text-sm sm:text-base text-[#C9D1D6] font-normal leading-relaxed font-sans">
+                Book with us and we handle everything — from doorstep pickup and certified repairs with genuine parts to safe, on-time return.
+              </p>
+            </div>
 
             {/* Primary, WhatsApp & Instant Call Action Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 relative">
@@ -232,7 +237,7 @@ export default function Hero({ onOpenBooking }) {
                 onClick={() => onOpenBooking(selectedBrand, selectedService)}
                 className="w-full sm:w-auto px-7 py-3.5 btn-sport-gradient font-black text-xs tracking-widest uppercase rounded-btn flex items-center justify-center space-x-2 z-10 shadow-lg active:scale-95"
               >
-                <span>BOOK A SERVICE →</span>
+                <span>BOOK A SERVICE</span>
                 <ArrowRight className="w-4 h-4 btn-arrow text-graphite" />
               </button>
 
@@ -251,7 +256,7 @@ export default function Hero({ onOpenBooking }) {
                 className="w-full sm:w-auto px-5 py-3.5 bg-[#181E24] hover:bg-[#202730] text-cyan hover:text-white font-mono font-bold text-xs tracking-wider uppercase rounded-btn border border-cyan/40 hover:border-cyan flex items-center justify-center space-x-2 z-10 transition-all shadow-sm active:scale-95"
               >
                 <Phone className="w-4 h-4 text-cyan animate-pulse" />
-                <span>INSTANT CALL</span>
+                <span>CALL NOW</span>
               </a>
 
             </div>

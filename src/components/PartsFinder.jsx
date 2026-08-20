@@ -145,7 +145,7 @@ export default function PartsFinder({ onOpenBooking }) {
                 onClick={handleWhatsAppPartInquiry}
                 className="px-7 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2"
               >
-                <span>FIND MY PART →</span>
+                <span>FIND MY PART</span>
                 <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
               </button>
 

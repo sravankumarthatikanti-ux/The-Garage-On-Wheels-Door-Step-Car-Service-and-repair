@@ -31,7 +31,7 @@ export default function EditorialStatement({ onOpenBooking }) {
             onClick={() => onOpenBooking && onOpenBooking()}
             className="px-8 py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md inline-flex items-center space-x-2 active:scale-95"
           >
-            <span>BOOK YOUR SERVICE →</span>
+            <span>BOOK YOUR SERVICE</span>
             <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
           </button>
         </div>

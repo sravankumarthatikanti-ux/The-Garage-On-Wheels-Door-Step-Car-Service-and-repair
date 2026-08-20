@@ -607,7 +607,7 @@ export default function CarNeedSelector({ onOpenBooking }) {
                 onClick={() => onOpenBooking && onOpenBooking('', activeNeed.serviceKey)}
                 className="w-full py-3.5 btn-sport-gradient font-black text-xs uppercase tracking-widest rounded-btn shadow-md flex items-center justify-center space-x-2 active:scale-95 transition-all"
               >
-                <span>BOOK SERVICE →</span>
+                <span>BOOK SERVICE</span>
                 <ArrowRight className="w-4 h-4 text-graphite btn-arrow" />
               </button>
 
